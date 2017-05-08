@@ -1,0 +1,13 @@
+Multi-package
+
+Require libraries:
+SteamVR - import from Asset Store
+GVR - https://github.com/googlevr/gvr-unity-sdk
+BestHTTP - import from Asset Store
+
+Also used libraries:
+WebVR Polyfill - https://github.com/googlevr/webvr-polyfill
+WebVR Boilerplate - https://github.com/borismus/webvr-boilerplate
+
+Libraries not yet but to be used:
+WebVR UI - https://github.com/googlevr/webvr-ui

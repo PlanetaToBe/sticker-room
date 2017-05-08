@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Multi-Tilt</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>		
+		<div id="render-canvas"></div>
+		<!-- <div id="render-canvas"></div> -->
+
+		<script type="text/javascript" src="js/lib/three.js"></script>
+		<script type="text/javascript" src="js/lib/Detector.js"></script>
+
+		<script type="text/javascript">
+			//device detection
+			//source: http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device-in-jquery
+			var isMobile = false; //initiate as false
+			var whichMobile = "";
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				isMobile = true;
+			}
+			console.log("isMobile: " + isMobile);
+
+			// tell android or iOS
+			if( /Android/i.test(navigator.userAgent) ) {
+				console.log("I'm android!");
+				whichMobile = "android";
+			}
+			if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+				console.log("I'm iOS!");
+				whichMobile = "iOS_mobile";
+			}
+
+			// if it's desktop, create click.gif div for PointerlockAPI
+			if( !isMobile ) {
+				var clickDiv = document.createElement('div');
+				clickDiv.id = "blocker";
+				// clickDiv.style = "display: none;";
+				document.getElementsByTagName("body")[0].appendChild(clickDiv);
+
+				var fingerImg = document.createElement('img');
+				fingerImg.setAttribute("src", "images/click.gif");
+				fingerImg.setAttribute("width", "60");
+				fingerImg.setAttribute("height", "60");
+				var ins = document.createElement('div');
+				ins.id = "instructions";
+				ins.appendChild(fingerImg);
+
+				clickDiv.appendChild(ins);
+			}
+
+			// DETECT
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			//
+			function byId(_id) {
+				return document.getElementById(_id);
+			}
+
+			function byClass(_class) {
+				return document.getElementsByClassName(_class);
+			}
+
+			var renderCanvas = byId("render-canvas");
+			var blockerDiv = byId("blocker");	
+		</script>
+
+		<!-- WebVR Boilerplate -->
+		<script src="js/controls/DeviceControls_clean_noserver.js"></script>
+		<!-- <script src="js/controls/VRControls.js"></script> -->
+		<script src="js/lib/effects/VREffect.js"></script>
+		<script src="js/lib/webvr-polyfill.js"></script>
+		<script src="js/lib/webvr-manager.js"></script>
+
+		<script type="text/javascript" src="js/lib/BufferLoader.js"></script>
+		<script type="text/javascript" src="js/lib/ImprovedNoise.js"></script>
+		<script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
+		<script type="text/javascript" src="js/lib/stats.min.js"></script>
+
+		
+		<script type="text/javascript" src="js/script_functions.js"></script>
+		<script type="text/javascript" src="js/script_setup_clean.js"></script>
+		<script type="text/javascript" src="js/loader_eat.js"></script>
+		<script type="text/javascript" src="js/script_noserver.js"></script>
+
+	</body>
+</html>
