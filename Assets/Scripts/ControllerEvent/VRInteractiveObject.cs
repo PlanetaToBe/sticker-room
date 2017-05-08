@@ -32,8 +32,6 @@ public class VRInteractiveObject : MonoBehaviour {
 	protected bool m_IsGrabbing = false;
 	protected bool m_IsTouching = false;
 
-	public UnityEngine.AI.NavMeshAgent navmeshAgent;
-
 	public bool IsTouching
 	{
 		get { return m_IsTouching; }		// Is the controller currently over this object?
@@ -46,7 +44,6 @@ public class VRInteractiveObject : MonoBehaviour {
 		
 	private void Awake() {
 		rigidbody = GetComponent<Rigidbody> ();
-		navmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 
 		if (usePhysics && rigidbody==null) {
 			// Get the material
@@ -107,10 +104,6 @@ public class VRInteractiveObject : MonoBehaviour {
 		theThingGrabMe = grabbingObj;
 		m_IsGrabbing = true;
 
-		if (navmeshAgent != null) {
-			navmeshAgent.enabled = false;
-		}
-
 		if (OnDown != null)
 			OnDown (grabbingObj);
 	}
@@ -119,10 +112,6 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		theThingGrabMe = null;
 		m_IsGrabbing = false;
-
-		if (navmeshAgent != null) {
-			navmeshAgent.enabled = true;
-		}
 
 		if (OnUp != null)
 			OnUp (grabbingObj);
