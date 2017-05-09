@@ -20,17 +20,22 @@ public class VRInteractiveObject : MonoBehaviour {
 	public event Action<GameObject> OnPadDown;
 
 	public bool usePhysics = false;
-	public GameObject scaleTarget;
+	//public GameObject scaleTarget;
 	[HideInInspector]
 	public GameObject theThingGrabMe = null;
 	[HideInInspector]
 	public Vector3 grabbedPoint;
 
+	private Rigidbody grabber;
 	private Rigidbody rigidbody;
 	private List<GameObject> touchingObjects = new List<GameObject>();
+	private FixedJoint grabJoint;
 
 	protected bool m_IsGrabbing = false;
 	protected bool m_IsTouching = false;
+
+	private bool useRigidbody = false;
+	private bool rigidbodyIsKinematic = false;
 
 	public bool IsTouching
 	{
@@ -41,11 +46,41 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		get { return m_IsGrabbing; }
 	}
-		
+
+	public Vector3 GrabbedPos
+	{
+		get { return grabber.position; }
+	}
+
+	public Rigidbody Grabber
+	{
+		get { return grabber; }
+	}
+
+	public FixedJoint Joint
+	{
+		get { return grabJoint; }
+		set { grabJoint = value; }
+	}
+
+	public bool IsKinematic
+	{
+		get { return rigidbodyIsKinematic; }
+	}
+
+	public bool HasRigidbody
+	{
+		get { return useRigidbody; }
+	}
+
+	///------------------------------------------------------------------
+	/// FUNCTIONSSS
+	///------------------------------------------------------------------
 	private void Awake() {
 		rigidbody = GetComponent<Rigidbody> ();
 
-		if (usePhysics && rigidbody==null) {
+		if (usePhysics && rigidbody==null)
+		{
 			// Get the material
 			PhysicMaterial artPhyMat = GameObject.Instantiate(
 				Resources.Load("Materials/artPhyMat", typeof(PhysicMaterial)) as PhysicMaterial
@@ -56,6 +91,15 @@ public class VRInteractiveObject : MonoBehaviour {
 			rigidbody.angularDrag = 0.05f;
 			GetComponent<Collider> ().material = artPhyMat;
 		}
+
+		if (rigidbody)
+		{
+			useRigidbody = true;
+
+			if (rigidbody.isKinematic)
+				rigidbodyIsKinematic = true;
+		}
+			
 	}
 
 	#region Controller Events
@@ -102,6 +146,7 @@ public class VRInteractiveObject : MonoBehaviour {
 			return;
 
 		theThingGrabMe = grabbingObj;
+		grabber = theThingGrabMe.GetComponent<ViveSimpleController> ().attachPoint;
 		m_IsGrabbing = true;
 
 		if (OnDown != null)
@@ -111,6 +156,7 @@ public class VRInteractiveObject : MonoBehaviour {
 	public void Up(GameObject grabbingObj)
 	{
 		theThingGrabMe = null;
+		grabber = null;
 		m_IsGrabbing = false;
 
 		if (OnUp != null)
@@ -132,6 +178,23 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	public Vector3 CurrentGrabbedPoint()
 	{
-		return theThingGrabMe.GetComponent<ViveController> ().attachPoint.position;
+		return theThingGrabMe.GetComponent<ViveSimpleController> ().attachPoint.position;
+	}
+
+	public void RemoveJoint()
+	{
+		UnityEngine.Object.Destroy (grabJoint);
+		grabJoint = null;
+	}
+
+	public void AddJoint(Rigidbody connectBody)
+	{
+		if (grabJoint != null)
+		{
+			UnityEngine.Object.Destroy (grabJoint);
+		}
+		grabJoint =  gameObject.AddComponent<FixedJoint> ();
+		grabJoint.connectedBody = connectBody;
+			
 	}
 }

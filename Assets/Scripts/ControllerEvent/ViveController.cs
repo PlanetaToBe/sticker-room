@@ -12,6 +12,9 @@ public class ViveController : MonoBehaviour {
 	[Tooltip("The attach point for grabbing.")]
 	public Rigidbody attachPoint;
 
+	public event Action<GameObject> OnHover;
+	public event Action<GameObject> OnHoverLeave;
+
 	public event Action<GameObject> OnTriggerClick;
 	public event Action<GameObject> OnTriggerDown;
 	public event Action<GameObject> OnTriggerUp;
@@ -116,6 +119,9 @@ public class ViveController : MonoBehaviour {
 			{
 				objHasRigidbody = false;
 			}
+
+			if (OnHover != null)
+				OnHover (collider.gameObject);
 		}
 	}
 
@@ -136,13 +142,15 @@ public class ViveController : MonoBehaviour {
 		if (inStretchMode)
 			return;
 
-		if (collider == touchedObj.GetComponent<Collider> ()) {
+		if (collider == touchedObj.GetComponent<Collider> ())
+		{
 			// due to the parenting(aka non-physics) method will trigger this event for some reason :/
 			if (!objHasRigidbody && grabSomething)
 				return;
 
-			//DeviceVibrate();
-
+			if (OnHoverLeave != null)
+				OnHoverLeave (collider.gameObject);
+			
 			// what if it's still grabbing?
 			if (grabSomething)
 				ExitGrabMode (false);
@@ -303,11 +311,7 @@ public class ViveController : MonoBehaviour {
 				var currentDist = (attachPoint.position - currentGrab).sqrMagnitude;
 				var mag = currentDist - initialControllersDistance;
 
-				if (m_CurrentInteractible.scaleTarget != null)
-				{
-					ScaleBasedOnDistance (m_CurrentInteractible.scaleTarget, mag);
-				}
-				else if (stretchObj != null)
+				if (stretchObj != null)
 				{
 					ScaleAroundPoint (stretchObj, currentGrab, mag); // only work on parenting ver. grabbing
 				}
