@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(ViveSimpleController))]
 public class GrabnStretch : MonoBehaviour {
 
+	public Rigidbody wall;
+
 	private ViveSimpleController viveController;
 
 	private VRInteractiveObject m_CurrentInteractible;		// The current interactive object
@@ -13,7 +15,6 @@ public class GrabnStretch : MonoBehaviour {
 	private GameObject grabbedObj; // for grabbed obj (needs rigidBody)
 	private GameObject stretchObj;
 
-	private FixedJoint joint; // for grabbed obj
 	private bool grabSomething = false;
 
 	// === Stretching
@@ -72,8 +73,8 @@ public class GrabnStretch : MonoBehaviour {
 		if (grabSomething)
 			return;
 
-		if (inStretchMode)
-			return;
+		//if (inStretchMode)
+			//return;
 
 		// If we hit an interactive item
 		if (collider.gameObject.GetComponent<VRInteractiveObject> ())
@@ -212,6 +213,20 @@ public class GrabnStretch : MonoBehaviour {
 	{
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.PadDown (_obj);
+
+		// SHOOT_OUT
+		if (grabSomething)
+		{
+			ExitGrabMode (true);
+		}
+
+		if (inStretchMode)
+		{
+			ExitStretchMode ();
+		}
+
+		if(m_CurrentInteractible)
+			m_CurrentInteractible.AddSpringJoint (wall);
 	}
 
 	public void HandlePadUp(GameObject _obj, SteamVR_Controller.Device _device)

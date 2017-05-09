@@ -197,4 +197,16 @@ public class VRInteractiveObject : MonoBehaviour {
 		grabJoint.connectedBody = connectBody;
 			
 	}
+
+	public void AddSpringJoint(Rigidbody connectBody)
+	{
+		var s_joint = gameObject.AddComponent<SpringJoint> ();
+		s_joint.connectedBody = connectBody;
+		s_joint.autoConfigureConnectedAnchor = false;
+		//var anchor = gameObject.transform.position - connectBody.position;
+		s_joint.connectedAnchor = new Vector3();
+		s_joint.spring = 50f;
+		s_joint.damper = 3f;
+		s_joint.enableCollision = true;
+	}
 }
