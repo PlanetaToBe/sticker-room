@@ -132,22 +132,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1516147364198102
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4832389641248464}
-  - component: {fileID: 114542629911622146}
-  m_Layer: 0
-  m_Name: PropManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1866216144221776
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,24 +237,10 @@ Transform:
   m_Children:
   - {fileID: 4383193948263172}
   - {fileID: 4362606878974516}
-  - {fileID: 4832389641248464}
   - {fileID: 224470129884810500}
   - {fileID: 224561794221458364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4832389641248464
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516147364198102}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4645170919989572}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114015229927379992
 MonoBehaviour:
@@ -376,8 +346,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e311bba60ad4e4af290b6cb6be0f00a3, type: 3}
-    m_FontSize: 33
+    m_Font: {fileID: 12800000, guid: 3e96e98c3a6584cc69fa7e44f8a151a0, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -479,19 +449,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Anonymous
---- !u!114 &114542629911622146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516147364198102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b1e0c401d2d3a42b2380e2f49a7f3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPoint: {fileID: 0}
-  erPoint: {fileID: 0}
 --- !u!114 &114616126266158160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -661,11 +618,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e311bba60ad4e4af290b6cb6be0f00a3, type: 3}
-    m_FontSize: 34
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: 3e96e98c3a6584cc69fa7e44f8a151a0, type: 3}
+    m_FontSize: 33
+    m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 44
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -673,7 +630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Who is this lucky Ball?
+  m_Text: Who is this?
 --- !u!114 &114923273564764238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -682,30 +639,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866216144221776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524997b441f234370b672fdf2d8bbd40, type: 3}
+  m_Script: {fileID: 11500000, guid: fc0d5454b27803b4e8dbd036a4892dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkAddress: 3139322e3136382e35302e3936
-  portNumber: 33303030
+  networkAddress: 192.168.50.92
+  portNumber: 3000
   myName: 
   isConnected: 0
   whoIamInLife: 0
   isViveVR: 0
   menuCanvas: {fileID: 1503731737141874}
+  worldCanvas: {fileID: 1431469668614056}
   sendButton: {fileID: 114893192832709012}
   msgInput: {fileID: 114015229927379992}
-  worldCanvas: {fileID: 1431469668614056}
   simplePlayerPrefab: {fileID: 1649729489027436, guid: 6f49a1a73f2234591ba2b78921c4706e,
     type: 2}
   nameTagPrefab: {fileID: 1000011818952324, guid: f3703d196c1db47e5ba4354ced533a8b,
     type: 2}
-  physicPlayerPrefab: {fileID: 1909808324953988, guid: a487031d0865ae3498f91ea7ea1146fb,
+  physicPlayerPrefab: {fileID: 1554254110081154, guid: 895ffd6e4fb788c49888b459e5e7df72,
     type: 2}
   floor: {fileID: 0}
   freeFromFloor: 1
-  bgAudios: {fileID: 0}
-  erAudios: {fileID: 0}
-  firebaseManager: {fileID: 0}
 --- !u!114 &114927156895956942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -796,7 +750,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -888,7 +842,7 @@ RectTransform:
   - {fileID: 224201719918870642}
   - {fileID: 224279328328321748}
   m_Father: {fileID: 4645170919989572}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -943,7 +897,7 @@ RectTransform:
   m_Children:
   - {fileID: 224558746633807550}
   m_Father: {fileID: 4645170919989572}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

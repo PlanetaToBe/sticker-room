@@ -225,7 +225,7 @@ public class GrabnStretch : MonoBehaviour {
 			ExitStretchMode ();
 		}
 
-		if(m_CurrentInteractible)
+		if(m_CurrentInteractible && wall != null)
 			m_CurrentInteractible.AddSpringJoint (wall);
 	}
 

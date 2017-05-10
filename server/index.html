@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>multi-tilt</title>
+		<title>Sticker Room</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -151,7 +151,7 @@
 
 				// Get Index from server
 				whoIamInLife = data.index;
-				AssignIndex();
+				assignIndexToStuff();
 				console.log("Connected to IO server! I'm #" + whoIamInLife + "in life, total num of players: " + data.numPlayers);
 
 				lateInit();
@@ -251,11 +251,11 @@
 
 		<script type="text/javascript" src="js/sample.js"></script>
 		<script type="text/javascript" src="js/wave.js"></script>
-		<script type="text/javascript" src="js/SimplePerson.js"></script>
+		<script type="text/javascript" src="js/StickerPerson.js"></script>
 
-		<script src="js/controls/DeviceControls_tilt.js"></script>
+		<script src="js/controls/DeviceControls_sticker.js"></script>
 		<script src="js/script_functions.js"></script>
 		<script src="js/script_setup_clean.js"></script>
-		<script src="js/script.js"></script>
+		<script src="js/script_sticker.js"></script>
 	</body>
 </html>

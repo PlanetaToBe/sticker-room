@@ -63,16 +63,15 @@ io.on('connection', function(socket){
 		++numPlayers;
 		addedPlayer = true;
 
-		// send back total player count + history players
+		// send back total player count
 		socket.emit('login', {
 			numPlayers: numPlayers,
-			//allPlayers: allPlayers,
 			index: socket.index
 		});
 
 		console.log("emit login, user index: %d", socket.index);
 
-		/* move allPlayers (history stuff) to "add new player"
+		/* move allPlayers (history player) to "add new player"
 		// update allPlayers after sending back history
 		// to avoid adding self
 		var newPlayer = {};
@@ -96,15 +95,8 @@ io.on('connection', function(socket){
 			allPlayers: allPlayers,
 		});
 
-		// update allPlayers after sending back history
-		// to avoid re-creating SELF
-		// var newPlayer = {};
-		// newPlayer.index = socket.index;
-		// newPlayer.username = socket.username;
-		// newPlayer.numPlayers = numPlayers;
-
 		// to pass on the transformation data
-		allPlayers.push(data); // old: allPlayers.push(newPlayer);
+		allPlayers.push(data);
 		// console.log("update history player");
 		// console.log('after update history player, allPlayers length: ' + allPlayers.length);
 
@@ -125,6 +117,10 @@ io.on('connection', function(socket){
 			username: socket.username,
 			message: data
 		});
+	});
+
+	socket.on('send sticker', function(data){
+		socket.broadcast.emit('send sticker', data);
 	});
 
 	socket.on('update position', function(data){

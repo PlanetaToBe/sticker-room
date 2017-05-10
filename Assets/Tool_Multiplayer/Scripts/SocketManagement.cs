@@ -35,7 +35,10 @@ public class SocketManagement : MonoBehaviour {
 	public GameObject floor;
 	public bool freeFromFloor = true;
 
-//	public FirebaseManager firebaseManager;
+	// ---------- ACTION -----------
+	public event Action<int, string> OnSticker;
+
+	//public FirebaseManager firebaseManager;
 
 	private enum ChatStates
 	{
@@ -85,6 +88,8 @@ public class SocketManagement : MonoBehaviour {
 		Manager.Socket.On ("player left", OnPlayerLeft);
 		Manager.Socket.On ("update position", OnUpdatePosition);
 		Manager.Socket.On ("update history", OnUpdateHistory);
+		//
+		Manager.Socket.On ("send sticker", OnSendSticker);
 
 		// On Error
 		Manager.Socket.On (SocketIOEventTypes.Error, (socket, packet, args) 
@@ -258,6 +263,16 @@ public class SocketManagement : MonoBehaviour {
 			updatePreviousPlayer = true;
 		}
 	}
+
+	void OnSendSticker(Socket socket, Packet packet, params object[] args)
+	{
+		Dictionary<string, object> data = args [0] as Dictionary<string, object>;
+		string fromName = data ["username"] as string;
+		int index = GetInt(data ["index"]);
+
+		if (OnSticker != null)
+			OnSticker (index, fromName);
+	}
 	#endregion
 
 	GameObject CreatePlayer(bool isLocal, object _posX, object _posY, object _posZ, int _index, string _name)
@@ -288,7 +303,7 @@ public class SocketManagement : MonoBehaviour {
 		} 
 		else
 		{
-			if(!freeFromFloor)
+			if (!freeFromFloor)
 			{
 				player.transform.parent = floor.transform;
 			}

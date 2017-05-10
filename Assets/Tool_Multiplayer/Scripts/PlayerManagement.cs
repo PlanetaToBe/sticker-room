@@ -34,7 +34,7 @@ public class PlayerManagement : MonoBehaviour {
 	private bool isFalling;
 	//private PropManagement propManagement;
 	private GameObject floor;
-	private ViveControllers viveControllers;
+	//private ViveControllers viveControllers;
 
 	public Rigidbody p_rigidbody;
 	public SphereCollider p_collider;
@@ -122,9 +122,9 @@ public class PlayerManagement : MonoBehaviour {
 		if (socketManagement.isViveVR)
 		{
 			ViveRig.SetActive(true);
-			viveControllers = ViveRig.GetComponent<ViveControllers> ();
-			viveControllers.socketManagement = socketManagement;
-			viveControllers.playerManagement = this;
+			//viveControllers = ViveRig.GetComponent<ViveControllers> ();
+			//viveControllers.socketManagement = socketManagement;
+			//viveControllers.playerManagement = this;
 			vrType = "vive";
 		} 
 		else

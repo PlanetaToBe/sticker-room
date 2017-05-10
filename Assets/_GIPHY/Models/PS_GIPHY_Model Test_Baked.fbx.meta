@@ -1,0 +1,1031 @@
+fileFormatVersion: 2
+guid: e74420e5213b6524d9007a1a83c3cfe1
+timeCreated: 1494447966
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arc
+    100002: Arc_1
+    100004: Arms
+    100006: Body
+    100008: Boole
+    100010: Bulge
+    100012: Camera
+    100014: Cap_1
+    100016: Cap_1_10
+    100018: Cap_1_11
+    100020: Cap_1_12
+    100022: Cap_1_13
+    100024: Cap_1_14
+    100026: Cap_1_15
+    100028: Cap_1_16
+    100030: Cap_1_17
+    100032: Cap_1_18
+    100034: Cap_1_19
+    100036: Cap_1_2
+    100038: Cap_1_20
+    100040: Cap_1_3
+    100042: Cap_1_4
+    100044: Cap_1_5
+    100046: Cap_1_6
+    100048: Cap_1_7
+    100050: Cap_1_8
+    100052: Cap_1_9
+    100054: Cap_2
+    100056: Cap_2_10
+    100058: Cap_2_11
+    100060: Cap_2_12
+    100062: Cap_2_13
+    100064: Cap_2_14
+    100066: Cap_2_15
+    100068: Cap_2_16
+    100070: Cap_2_17
+    100072: Cap_2_18
+    100074: Cap_2_2
+    100076: Cap_2_3
+    100078: Cap_2_4
+    100080: Cap_2_5
+    100082: Cap_2_6
+    100084: Cap_2_7
+    100086: Cap_2_8
+    100088: Cap_2_9
+    100090: Circle
+    100092: Circle_10
+    100094: Circle_11
+    100096: Circle_12
+    100098: Circle_13
+    100100: Circle_14
+    100102: Circle_15
+    100104: Circle_16
+    100106: Circle_17
+    100108: Circle_18
+    100110: Circle_19
+    100112: Circle_2
+    100114: Circle_3
+    100116: Circle_4
+    100118: Circle_5
+    100120: Circle_6
+    100122: Circle_7
+    100124: Circle_8
+    100126: Circle_9
+    100128: Cylinder
+    100130: Cylinder_1
+    100132: Cylinder_1_2
+    100134: Cylinder_1_3
+    100136: Cylinder_2
+    100138: Displacer
+    100140: Displacer_2
+    100142: FIgure
+    100144: Formula
+    100146: Formula_1
+    100148: Formula_2
+    100150: Legs
+    100152: Mug
+    100154: Null
+    100156: Null_1
+    100158: Null_1_2
+    100160: Null_1_3
+    100162: Null_2
+    100164: Null_3
+    100166: Null_4
+    100168: Null_5
+    100170: Null_6
+    100172: Physical_Sky
+    100174: //RootNode
+    100176: Rounding
+    100178: Rounding_1
+    100180: Rounding_10
+    100182: Rounding_11
+    100184: Rounding_12
+    100186: Rounding_1_2
+    100188: Rounding_1_3
+    100190: Rounding_1_4
+    100192: Rounding_1_5
+    100194: Rounding_1_6
+    100196: Rounding_1_7
+    100198: Rounding_2
+    100200: Rounding_2_2
+    100202: Rounding_2_3
+    100204: Rounding_2_4
+    100206: Rounding_2_5
+    100208: Rounding_2_6
+    100210: Rounding_2_7
+    100212: Rounding_2_8
+    100214: Rounding_3
+    100216: Rounding_4
+    100218: Rounding_5
+    100220: Rounding_6
+    100222: Rounding_7
+    100224: Rounding_8
+    100226: Rounding_9
+    100228: Skin
+    100230: Sleeves
+    100232: Sleeves_1
+    100234: Sphere
+    100236: Sphere_1
+    100238: Sphere_1_2
+    100240: Sphere_2
+    100242: Sphere_2_2
+    100244: Spline
+    100246: Spline_1
+    100248: Spline_10
+    100250: Spline_11
+    100252: Spline_12
+    100254: Spline_13
+    100256: Spline_14
+    100258: Spline_15
+    100260: Spline_2
+    100262: Spline_2_2
+    100264: Spline_3
+    100266: Spline_3_2
+    100268: Spline_4
+    100270: Spline_5
+    100272: Spline_5_2
+    100274: Spline_6
+    100276: Spline_7
+    100278: Spline_8
+    100280: Spline_9
+    100282: Sweep
+    100284: Sweep_1
+    100286: Sweep_1_2
+    100288: Sweep_1_3
+    100290: Sweep_1_4
+    100292: Sweep_1_5
+    100294: Sweep_1_6
+    100296: Sweep_1_7
+    100298: Sweep_2
+    100300: Sweep_2_2
+    100302: Sweep_2_3
+    100304: Sweep_2_4
+    100306: Sweep_2_5
+    100308: Sweep_3
+    100310: Sweep_3_2
+    100312: Sweep_3_3
+    100314: Sweep_4
+    100316: Sweep_4_2
+    100318: Sweep_4_3
+    100320: Sweep_5
+    100322: Torus
+    400000: Arc
+    400002: Arc_1
+    400004: Arms
+    400006: Body
+    400008: Boole
+    400010: Bulge
+    400012: Camera
+    400014: Cap_1
+    400016: Cap_1_10
+    400018: Cap_1_11
+    400020: Cap_1_12
+    400022: Cap_1_13
+    400024: Cap_1_14
+    400026: Cap_1_15
+    400028: Cap_1_16
+    400030: Cap_1_17
+    400032: Cap_1_18
+    400034: Cap_1_19
+    400036: Cap_1_2
+    400038: Cap_1_20
+    400040: Cap_1_3
+    400042: Cap_1_4
+    400044: Cap_1_5
+    400046: Cap_1_6
+    400048: Cap_1_7
+    400050: Cap_1_8
+    400052: Cap_1_9
+    400054: Cap_2
+    400056: Cap_2_10
+    400058: Cap_2_11
+    400060: Cap_2_12
+    400062: Cap_2_13
+    400064: Cap_2_14
+    400066: Cap_2_15
+    400068: Cap_2_16
+    400070: Cap_2_17
+    400072: Cap_2_18
+    400074: Cap_2_2
+    400076: Cap_2_3
+    400078: Cap_2_4
+    400080: Cap_2_5
+    400082: Cap_2_6
+    400084: Cap_2_7
+    400086: Cap_2_8
+    400088: Cap_2_9
+    400090: Circle
+    400092: Circle_10
+    400094: Circle_11
+    400096: Circle_12
+    400098: Circle_13
+    400100: Circle_14
+    400102: Circle_15
+    400104: Circle_16
+    400106: Circle_17
+    400108: Circle_18
+    400110: Circle_19
+    400112: Circle_2
+    400114: Circle_3
+    400116: Circle_4
+    400118: Circle_5
+    400120: Circle_6
+    400122: Circle_7
+    400124: Circle_8
+    400126: Circle_9
+    400128: Cylinder
+    400130: Cylinder_1
+    400132: Cylinder_1_2
+    400134: Cylinder_1_3
+    400136: Cylinder_2
+    400138: Displacer
+    400140: Displacer_2
+    400142: FIgure
+    400144: Formula
+    400146: Formula_1
+    400148: Formula_2
+    400150: Legs
+    400152: Mug
+    400154: Null
+    400156: Null_1
+    400158: Null_1_2
+    400160: Null_1_3
+    400162: Null_2
+    400164: Null_3
+    400166: Null_4
+    400168: Null_5
+    400170: Null_6
+    400172: Physical_Sky
+    400174: //RootNode
+    400176: Rounding
+    400178: Rounding_1
+    400180: Rounding_10
+    400182: Rounding_11
+    400184: Rounding_12
+    400186: Rounding_1_2
+    400188: Rounding_1_3
+    400190: Rounding_1_4
+    400192: Rounding_1_5
+    400194: Rounding_1_6
+    400196: Rounding_1_7
+    400198: Rounding_2
+    400200: Rounding_2_2
+    400202: Rounding_2_3
+    400204: Rounding_2_4
+    400206: Rounding_2_5
+    400208: Rounding_2_6
+    400210: Rounding_2_7
+    400212: Rounding_2_8
+    400214: Rounding_3
+    400216: Rounding_4
+    400218: Rounding_5
+    400220: Rounding_6
+    400222: Rounding_7
+    400224: Rounding_8
+    400226: Rounding_9
+    400228: Skin
+    400230: Sleeves
+    400232: Sleeves_1
+    400234: Sphere
+    400236: Sphere_1
+    400238: Sphere_1_2
+    400240: Sphere_2
+    400242: Sphere_2_2
+    400244: Spline
+    400246: Spline_1
+    400248: Spline_10
+    400250: Spline_11
+    400252: Spline_12
+    400254: Spline_13
+    400256: Spline_14
+    400258: Spline_15
+    400260: Spline_2
+    400262: Spline_2_2
+    400264: Spline_3
+    400266: Spline_3_2
+    400268: Spline_4
+    400270: Spline_5
+    400272: Spline_5_2
+    400274: Spline_6
+    400276: Spline_7
+    400278: Spline_8
+    400280: Spline_9
+    400282: Sweep
+    400284: Sweep_1
+    400286: Sweep_1_2
+    400288: Sweep_1_3
+    400290: Sweep_1_4
+    400292: Sweep_1_5
+    400294: Sweep_1_6
+    400296: Sweep_1_7
+    400298: Sweep_2
+    400300: Sweep_2_2
+    400302: Sweep_2_3
+    400304: Sweep_2_4
+    400306: Sweep_2_5
+    400308: Sweep_3
+    400310: Sweep_3_2
+    400312: Sweep_3_3
+    400314: Sweep_4
+    400316: Sweep_4_2
+    400318: Sweep_4_3
+    400320: Sweep_5
+    400322: Torus
+    2300000: Cap_1
+    2300002: Cap_1_10
+    2300004: Cap_1_11
+    2300006: Cap_1_12
+    2300008: Cap_1_13
+    2300010: Cap_1_14
+    2300012: Cap_1_15
+    2300014: Cap_1_16
+    2300016: Cap_1_17
+    2300018: Cap_1_18
+    2300020: Cap_1_19
+    2300022: Cap_1_2
+    2300024: Cap_1_20
+    2300026: Cap_1_3
+    2300028: Cap_1_4
+    2300030: Cap_1_5
+    2300032: Cap_1_6
+    2300034: Cap_1_7
+    2300036: Cap_1_8
+    2300038: Cap_1_9
+    2300040: Cap_2
+    2300042: Cap_2_10
+    2300044: Cap_2_11
+    2300046: Cap_2_12
+    2300048: Cap_2_13
+    2300050: Cap_2_14
+    2300052: Cap_2_15
+    2300054: Cap_2_16
+    2300056: Cap_2_17
+    2300058: Cap_2_18
+    2300060: Cap_2_2
+    2300062: Cap_2_3
+    2300064: Cap_2_4
+    2300066: Cap_2_5
+    2300068: Cap_2_6
+    2300070: Cap_2_7
+    2300072: Cap_2_8
+    2300074: Cap_2_9
+    2300076: Cylinder
+    2300078: Cylinder_1_2
+    2300080: Null_3
+    2300082: Rounding
+    2300084: Rounding_1
+    2300086: Rounding_10
+    2300088: Rounding_11
+    2300090: Rounding_12
+    2300092: Rounding_1_2
+    2300094: Rounding_1_3
+    2300096: Rounding_1_4
+    2300098: Rounding_1_5
+    2300100: Rounding_1_6
+    2300102: Rounding_1_7
+    2300104: Rounding_2
+    2300106: Rounding_2_2
+    2300108: Rounding_2_3
+    2300110: Rounding_2_4
+    2300112: Rounding_2_5
+    2300114: Rounding_2_6
+    2300116: Rounding_2_7
+    2300118: Rounding_2_8
+    2300120: Rounding_3
+    2300122: Rounding_4
+    2300124: Rounding_5
+    2300126: Rounding_6
+    2300128: Rounding_7
+    2300130: Rounding_8
+    2300132: Rounding_9
+    2300134: Sphere
+    2300136: Sphere_1
+    2300138: Sphere_1_2
+    2300140: Sphere_2
+    2300142: Sweep
+    2300144: Sweep_1
+    2300146: Sweep_1_2
+    2300148: Sweep_1_3
+    2300150: Sweep_1_4
+    2300152: Sweep_1_5
+    2300154: Sweep_1_6
+    2300156: Sweep_1_7
+    2300158: Sweep_2
+    2300160: Sweep_2_2
+    2300162: Sweep_2_3
+    2300164: Sweep_2_4
+    2300166: Sweep_2_5
+    2300168: Sweep_3
+    2300170: Sweep_3_2
+    2300172: Sweep_3_3
+    2300174: Sweep_4
+    2300176: Sweep_4_2
+    2300178: Sweep_4_3
+    2300180: Sweep_5
+    2300182: Torus
+    3300000: Cap_1
+    3300002: Cap_1_10
+    3300004: Cap_1_11
+    3300006: Cap_1_12
+    3300008: Cap_1_13
+    3300010: Cap_1_14
+    3300012: Cap_1_15
+    3300014: Cap_1_16
+    3300016: Cap_1_17
+    3300018: Cap_1_18
+    3300020: Cap_1_19
+    3300022: Cap_1_2
+    3300024: Cap_1_20
+    3300026: Cap_1_3
+    3300028: Cap_1_4
+    3300030: Cap_1_5
+    3300032: Cap_1_6
+    3300034: Cap_1_7
+    3300036: Cap_1_8
+    3300038: Cap_1_9
+    3300040: Cap_2
+    3300042: Cap_2_10
+    3300044: Cap_2_11
+    3300046: Cap_2_12
+    3300048: Cap_2_13
+    3300050: Cap_2_14
+    3300052: Cap_2_15
+    3300054: Cap_2_16
+    3300056: Cap_2_17
+    3300058: Cap_2_18
+    3300060: Cap_2_2
+    3300062: Cap_2_3
+    3300064: Cap_2_4
+    3300066: Cap_2_5
+    3300068: Cap_2_6
+    3300070: Cap_2_7
+    3300072: Cap_2_8
+    3300074: Cap_2_9
+    3300076: Cylinder
+    3300078: Cylinder_1_2
+    3300080: Null_3
+    3300082: Rounding
+    3300084: Rounding_1
+    3300086: Rounding_10
+    3300088: Rounding_11
+    3300090: Rounding_12
+    3300092: Rounding_1_2
+    3300094: Rounding_1_3
+    3300096: Rounding_1_4
+    3300098: Rounding_1_5
+    3300100: Rounding_1_6
+    3300102: Rounding_1_7
+    3300104: Rounding_2
+    3300106: Rounding_2_2
+    3300108: Rounding_2_3
+    3300110: Rounding_2_4
+    3300112: Rounding_2_5
+    3300114: Rounding_2_6
+    3300116: Rounding_2_7
+    3300118: Rounding_2_8
+    3300120: Rounding_3
+    3300122: Rounding_4
+    3300124: Rounding_5
+    3300126: Rounding_6
+    3300128: Rounding_7
+    3300130: Rounding_8
+    3300132: Rounding_9
+    3300134: Sphere
+    3300136: Sphere_1
+    3300138: Sphere_1_2
+    3300140: Sphere_2
+    3300142: Sweep
+    3300144: Sweep_1
+    3300146: Sweep_1_2
+    3300148: Sweep_1_3
+    3300150: Sweep_1_4
+    3300152: Sweep_1_5
+    3300154: Sweep_1_6
+    3300156: Sweep_1_7
+    3300158: Sweep_2
+    3300160: Sweep_2_2
+    3300162: Sweep_2_3
+    3300164: Sweep_2_4
+    3300166: Sweep_2_5
+    3300168: Sweep_3
+    3300170: Sweep_3_2
+    3300172: Sweep_3_3
+    3300174: Sweep_4
+    3300176: Sweep_4_2
+    3300178: Sweep_4_3
+    3300180: Sweep_5
+    3300182: Torus
+    4300000: Null_3
+    4300002: Sphere_2
+    4300004: Sphere_1
+    4300006: Sphere
+    4300008: Sweep_1
+    4300010: Rounding_1
+    4300012: Cap_1
+    4300014: Rounding_2
+    4300016: Cap_2
+    4300018: Sweep_2
+    4300020: Rounding_1_2
+    4300022: Cap_1_2
+    4300024: Rounding_2_2
+    4300026: Cap_2_2
+    4300028: Sweep_2_2
+    4300030: Cap_1_3
+    4300032: Rounding
+    4300034: Cap_2_3
+    4300036: Sweep_1_2
+    4300038: Cap_1_4
+    4300040: Rounding_2_3
+    4300042: Cap_2_4
+    4300044: Sweep_1_3
+    4300046: Cap_1_5
+    4300048: Rounding_3
+    4300050: Cap_2_5
+    4300052: Sweep
+    4300054: Rounding_1_3
+    4300056: Cap_1_6
+    4300058: Rounding_2_4
+    4300060: Cap_2_6
+    4300062: Torus
+    4300064: Cylinder
+    4300066: Cylinder_1_2
+    4300068: Sweep_2_3
+    4300070: Cap_1_7
+    4300072: Rounding_4
+    4300074: Cap_2_7
+    4300076: Sweep_1_4
+    4300078: Cap_1_8
+    4300080: Rounding_5
+    4300082: Cap_2_8
+    4300084: Sweep_4
+    4300086: Rounding_1_4
+    4300088: Cap_1_9
+    4300090: Rounding_2_5
+    4300092: Cap_2_9
+    4300094: Sweep_3
+    4300096: Rounding_1_5
+    4300098: Cap_1_10
+    4300100: Rounding_2_6
+    4300102: Cap_2_10
+    4300104: Sweep_4_2
+    4300106: Rounding_6
+    4300108: Cap_1_11
+    4300110: Sweep_3_2
+    4300112: Rounding_7
+    4300114: Cap_1_12
+    4300116: Sweep_2_4
+    4300118: Cap_1_13
+    4300120: Rounding_8
+    4300122: Cap_2_11
+    4300124: Sweep_1_5
+    4300126: Cap_1_14
+    4300128: Rounding_9
+    4300130: Cap_2_12
+    4300132: Sweep_2_5
+    4300134: Rounding_10
+    4300136: Cap_1_15
+    4300138: Cap_2_13
+    4300140: Sweep_1_6
+    4300142: Rounding_11
+    4300144: Cap_1_16
+    4300146: Cap_2_14
+    4300148: Sphere_1_2
+    4300150: Sweep_1_7
+    4300152: Rounding_1_6
+    4300154: Cap_1_17
+    4300156: Rounding_2_7
+    4300158: Cap_2_15
+    4300160: Sweep_5
+    4300162: Cap_1_18
+    4300164: Rounding_12
+    4300166: Cap_2_16
+    4300168: Sweep_3_3
+    4300170: Cap_1_19
+    4300172: Cap_2_17
+    4300174: Sweep_4_3
+    4300176: Rounding_1_7
+    4300178: Cap_1_20
+    4300180: Rounding_2_8
+    4300182: Cap_2_18
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: C4D Animation Take
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/FIgure
+        weight: 1
+      - path: Null/FIgure/Arms
+        weight: 1
+      - path: Null/FIgure/Arms/Skin
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4/Cap_1_8
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4/Circle_8
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4/Rounding_5
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4/Rounding_5/Cap_2_8
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_1_4/Spline_4
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3/Cap_1_7
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3/Circle_7
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3/Rounding_4
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3/Rounding_4/Cap_2_7
+        weight: 1
+      - path: Null/FIgure/Arms/Skin/Sweep_2_3/Spline_3_2
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_3_2
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_3_2/Circle_12
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_3_2/Rounding_7
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_3_2/Rounding_7/Cap_1_12
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_3_2/Spline_8
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_4_2
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_4_2/Circle_11
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_4_2/Rounding_6
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_4_2/Rounding_6/Cap_1_11
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves/Sweep_4_2/Spline_7
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Circle_10
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Rounding_1_5
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Rounding_1_5/Cap_1_10
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Rounding_2_6
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Rounding_2_6/Cap_2_10
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_3/Spline_6
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Circle_9
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Rounding_1_4
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Rounding_1_4/Cap_1_9
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Rounding_2_5
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Rounding_2_5/Cap_2_9
+        weight: 1
+      - path: Null/FIgure/Arms/Sleeves_1/Sweep_4/Spline_5_2
+        weight: 1
+      - path: Null/FIgure/Body
+        weight: 1
+      - path: Null/FIgure/Body/Null_6
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_3_3
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_3_3/Arc
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_3_3/Arc_1
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_3_3/Cap_1_19
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_3_3/Cap_2_17
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Circle_19
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Rounding_1_7
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Rounding_1_7/Cap_1_20
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Rounding_2_8
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Rounding_2_8/Cap_2_18
+        weight: 1
+      - path: Null/FIgure/Body/Null_6/Sweep_4_3/Spline_15
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Circle_17
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Rounding_1_6
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Rounding_1_6/Cap_1_17
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Rounding_2_7
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Rounding_2_7/Cap_2_15
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_1_7/Spline_13
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5/Cap_1_18
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5/Circle_18
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5/Rounding_12
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5/Rounding_12/Cap_2_16
+        weight: 1
+      - path: Null/FIgure/Body/Sweep_5/Spline_14
+        weight: 1
+      - path: Null/FIgure/Legs
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5/Cap_1_14
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5/Circle_14
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5/Rounding_9
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5/Rounding_9/Cap_2_12
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_1_5/Spline_10
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4/Cap_1_13
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4/Circle_13
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4/Rounding_8
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4/Rounding_8/Cap_2_11
+        weight: 1
+      - path: Null/FIgure/Legs/Null_1_3/Sweep_2_4/Spline_9
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6/Cap_2_14
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6/Circle_16
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6/Rounding_11
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6/Rounding_11/Cap_1_16
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_1_6/Spline_12
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5/Cap_2_13
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5/Circle_15
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5/Rounding_10
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5/Rounding_10/Cap_1_15
+        weight: 1
+      - path: Null/FIgure/Legs/Null_5/Sweep_2_5/Spline_11
+        weight: 1
+      - path: Null/FIgure/Sphere_1_2
+        weight: 1
+      - path: Null/FIgure/Sphere_2_2
+        weight: 1
+      - path: Null/Mug
+        weight: 1
+      - path: Null/Mug/Boole
+        weight: 1
+      - path: Null/Mug/Boole/Cylinder
+        weight: 1
+      - path: Null/Mug/Boole/Cylinder_1_2
+        weight: 1
+      - path: Null/Mug/Boole/Cylinder_1_3
+        weight: 1
+      - path: Null/Mug/Boole/Cylinder_2
+        weight: 1
+      - path: Null/Mug/Cylinder_1
+        weight: 1
+      - path: Null/Mug/Cylinder_1/Displacer_2
+        weight: 1
+      - path: Null/Mug/Torus
+        weight: 1
+      - path: Null/Null_1
+        weight: 1
+      - path: Null/Null_1/Null_2
+        weight: 1
+      - path: Null/Null_1/Null_2/Bulge
+        weight: 1
+      - path: Null/Null_1/Null_2/Displacer
+        weight: 1
+      - path: Null/Null_1/Null_2/Formula
+        weight: 1
+      - path: Null/Null_1/Null_2/Formula_1
+        weight: 1
+      - path: Null/Null_1/Null_2/Formula_2
+        weight: 1
+      - path: Null/Null_1/Null_2/Null_3
+        weight: 1
+      - path: Null/Null_1/Null_4
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Circle_6
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Rounding_1_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Rounding_1_3/Cap_1_6
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Rounding_2_4
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Rounding_2_4/Cap_2_6
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep/Spline_2_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2/Cap_1_4
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2/Circle_4
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2/Rounding_2_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2/Rounding_2_3/Cap_2_4
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_2/Spline_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3/Cap_1_5
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3/Circle_5
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3/Rounding_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3/Rounding_3/Cap_2_5
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_1_3/Spline
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2/Cap_1_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2/Circle_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2/Rounding
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2/Rounding/Cap_2_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Null_1_2/Sweep_2_2/Spline_1
+        weight: 1
+      - path: Null/Null_1/Null_4/Sphere
+        weight: 1
+      - path: Null/Null_1/Null_4/Sphere_1
+        weight: 1
+      - path: Null/Null_1/Null_4/Sphere_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Circle
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Rounding_1
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Rounding_1/Cap_1
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Rounding_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Rounding_2/Cap_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_1/Spline_3
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Circle_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Rounding_1_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Rounding_1_2/Cap_1_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Rounding_2_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Rounding_2_2/Cap_2_2
+        weight: 1
+      - path: Null/Null_1/Null_4/Sweep_2/Spline_5
+        weight: 1
+      - path: Physical_Sky
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
