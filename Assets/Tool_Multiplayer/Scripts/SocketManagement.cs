@@ -35,10 +35,11 @@ public class SocketManagement : MonoBehaviour {
 	public GameObject floor;
 	public bool freeFromFloor = true;
 
+	// ---------- FIREBASE -----------
+	public FirebaseManager firebaseManager;
+
 	// ---------- ACTION -----------
 	public event Action<int, string> OnSticker;
-
-	//public FirebaseManager firebaseManager;
 
 	private enum ChatStates
 	{
