@@ -1,24 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StickerGenerator : MonoBehaviour {
 
+	// from Server
 	public SocketManagement socketManagement;
 	public GameObject stickerPrefab;
 
 	void OnEnable()
 	{
-		socketManagement.OnSticker += CreateSticker;
+		if(socketManagement != null)
+			socketManagement.OnSticker += CreateSticker;
+
 	}
 
 	void OnDisable()
 	{
-		socketManagement.OnSticker -= CreateSticker;
+		if(socketManagement != null)
+			socketManagement.OnSticker -= CreateSticker;
 	}
 
 	void CreateSticker(int _index, string _name)
 	{
 		Instantiate (stickerPrefab, transform.position, Quaternion.identity, transform);
 	}
+
 }

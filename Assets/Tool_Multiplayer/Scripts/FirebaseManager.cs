@@ -104,8 +104,8 @@ public class FirebaseManager : MonoBehaviour {
 					DataSnapshot snapshot = task.Result;
 					dataToGUI = snapshot.Value as Dictionary<string,object>;
 
-					//string dataInJson = snapshot.GetRawJsonValue();
-					//Debug.Log(dataInJson);
+					string dataInJson = snapshot.GetRawJsonValue();
+					Debug.Log(dataInJson);
 
 					// incert "Items": [ into 2nd location, and ] into last to 2nd location
 					/*

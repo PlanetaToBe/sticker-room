@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StickerBrush : MonoBehaviour {
 
     private bool isPainting = false;
 
     void Start() {
-        SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController>();
+		SteamVR_TrackedController controller = GetComponent<SteamVR_TrackedController>();
         controller.TriggerClicked += StartPainting;
         controller.TriggerUnclicked += StopPainting;
     }

@@ -8,6 +8,7 @@ public class GrabnStretch : MonoBehaviour {
 	public Rigidbody wall;
 
 	private ViveSimpleController viveController;
+	private SteamVR_TrackedController controller;
 
 	private VRInteractiveObject m_CurrentInteractible;		// The current interactive object
 	private SteamVR_TrackedObject trackedObj;
@@ -32,6 +33,11 @@ public class GrabnStretch : MonoBehaviour {
 		if (viveController == null)
 		{
 			viveController = GetComponent<ViveSimpleController> ();
+		}
+
+		if(controller==null)
+		{
+			controller = GetComponent<SteamVR_TrackedController>();
 		}
 
 		viveController.OnHover += HandleOver;

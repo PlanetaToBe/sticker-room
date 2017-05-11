@@ -1862,7 +1862,7 @@ Prefab:
     - target: {fileID: 114923273564764238, guid: c14fc0172d3684822b3e5643b1313770,
         type: 2}
       propertyPath: networkAddress
-      value: localhost
+      value: 10.0.1.9
       objectReference: {fileID: 0}
     - target: {fileID: 114479217196990538, guid: c14fc0172d3684822b3e5643b1313770,
         type: 2}

@@ -73,10 +73,16 @@ public class VRInteractiveObject : MonoBehaviour {
 		get { return useRigidbody; }
 	}
 
+	public Rigidbody Rigidbody
+	{
+		get { return rigidbody; }
+	}
+
 	///------------------------------------------------------------------
 	/// FUNCTIONSSS
 	///------------------------------------------------------------------
-	private void Awake() {
+	// void Awake???
+	void Start() {
 		rigidbody = GetComponent<Rigidbody> ();
 
 		if (usePhysics && rigidbody==null)
@@ -89,7 +95,15 @@ public class VRInteractiveObject : MonoBehaviour {
 			rigidbody.mass = 2f;
 			rigidbody.drag = 0.01f;
 			rigidbody.angularDrag = 0.05f;
-			GetComponent<Collider> ().material = artPhyMat;
+			if(GetComponent<Collider> ())
+			{
+				GetComponent<Collider> ().material = artPhyMat;
+			}
+			else
+			{
+				GetComponentInChildren<Collider> ().material = artPhyMat;
+			}
+
 		}
 
 		if (rigidbody)
@@ -205,6 +219,17 @@ public class VRInteractiveObject : MonoBehaviour {
 		s_joint.autoConfigureConnectedAnchor = false;
 		//var anchor = gameObject.transform.position - connectBody.position;
 		s_joint.connectedAnchor = new Vector3();
+		s_joint.spring = 50f;
+		s_joint.damper = 3f;
+		s_joint.enableCollision = true;
+	}
+
+	public void AddSpringJoint(Rigidbody connectBody, Vector3 anchor)
+	{
+		var s_joint = gameObject.AddComponent<SpringJoint> ();
+		s_joint.connectedBody = connectBody;
+		s_joint.autoConfigureConnectedAnchor = false;
+		s_joint.connectedAnchor = anchor;
 		s_joint.spring = 50f;
 		s_joint.damper = 3f;
 		s_joint.enableCollision = true;
