@@ -4,34 +4,45 @@ using UnityEngine;
 
 public class DrawManager : MonoBehaviour {
 
-	public ViveSimpleController viveController;
+	//public ViveSimpleController viveController;
+	private SteamVR_TrackedController controller;
+
 	public Material material;
 	public GameObject drawPoint;
 	public float lineSize = 0.005f;
 
+	[Header("Behaviors")]
+	public bool snapToThing = false;
+	private int wallLayer;
+
 	private MeshLineRenderer currLine;
 	private int numClicks = 0;
 
+	void Start()
+	{
+		wallLayer = 1 << 8;
+	}
+
 	void OnEnable()
 	{
-		if (viveController == null)
+		if (controller == null)
 		{
-			viveController = GetComponent<ViveSimpleController> ();
+			controller = GetComponent<SteamVR_TrackedController> ();
 		}
 
-		viveController.OnTriggerDown += OnTriggerDown;
-		viveController.OnTriggerTouch += OnTriggerTouch;
-		viveController.OnTriggerUp += OnTriggerUp;
+		controller.TriggerClicked += OnTriggerDown;
+		controller.TriggerDowning += OnTriggerTouch;
+		controller.TriggerUnclicked += OnTriggerUp;
 	}
 
 	void OnDisable()
 	{
-		viveController.OnTriggerDown -= OnTriggerDown;
-		viveController.OnTriggerTouch -= OnTriggerTouch;
-		viveController.OnTriggerUp -= OnTriggerUp;
+		controller.TriggerClicked -= OnTriggerDown;
+		controller.TriggerDowning -= OnTriggerTouch;
+		controller.TriggerUnclicked -= OnTriggerUp;
 	}
 
-	private void OnTriggerDown(GameObject _object)
+	private void OnTriggerDown(object sender, ClickedEventArgs e)
 	{
 		GameObject go = new GameObject ();
 		go.AddComponent<MeshFilter> ();
@@ -44,16 +55,28 @@ public class DrawManager : MonoBehaviour {
 		currLine.drawPoint = drawPoint;
 	}
 
-	private void OnTriggerTouch(GameObject _object)
+	private void OnTriggerTouch(object sender, ClickedEventArgs e)
 	{
 		if (currLine == null)
 			return;
-		
-		currLine.AddPoint (drawPoint.transform.position);
+
+		if(snapToThing)
+		{
+			RaycastHit hit;
+			if(Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
+			{
+				currLine.AddPoint (hit.point);
+			}
+		}
+		else
+		{
+			currLine.AddPoint (drawPoint.transform.position);
+		}
+
 		numClicks++;
 	}
 
-	private void OnTriggerUp(GameObject _object)
+	private void OnTriggerUp(object sender, ClickedEventArgs e)
 	{
 		numClicks = 0;
 		currLine = null;

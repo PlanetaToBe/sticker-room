@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
@@ -8,7 +9,10 @@ using Firebase.Unity.Editor;
 public class FirebaseManager : MonoBehaviour {
 
 	public string databaseURL;
-	public GameObject testObject;
+	public GameObject allThingsParent;
+	public List<Thing> allThings;
+
+	private List<Transform> allThingObjects;
 
 	public class User
 	{
@@ -31,13 +35,23 @@ public class FirebaseManager : MonoBehaviour {
 		}
 	}
 	//public ScoreManager scoreManager;
+
 	[System.Serializable]
 	public class Thing
 	{
 		public string thingName;
+		public List<TransformHistory> transformHistory = new List<TransformHistory>();
+
 		public Vector3 position;
 		public Quaternion rotation;
 		public Vector3 scale;
+
+		private bool m_ghostMode = true;
+		public bool GhostMode
+		{
+			get { return m_ghostMode; }
+			set { m_ghostMode = value; }
+		}
 
 		public Thing()
 		{
@@ -45,6 +59,9 @@ public class FirebaseManager : MonoBehaviour {
 			this.position = Vector3.zero;
 			this.rotation = Quaternion.identity;
 			this.scale = Vector3.one;
+
+			TransformHistory t_history = new TransformHistory(1, Vector3.zero, Quaternion.identity, Vector3.one);
+			transformHistory.Add(t_history);
 		}
 
 		public Thing(string name, Vector3 position, Quaternion rotation, Vector3 scale)
@@ -53,13 +70,27 @@ public class FirebaseManager : MonoBehaviour {
 			this.position = position;
 			this.rotation = rotation;
 			this.scale = scale;
+
+			TransformHistory t_history = new TransformHistory(1, Vector3.zero, Quaternion.identity, Vector3.one);
+			transformHistory.Add(t_history);
 		}
 	}
 
 	[System.Serializable]
-	public class ResultContainer
+	public class TransformHistory
 	{
-		public List <Thing> items;
+		public int minOfDay;
+		public Vector3 position;
+		public Quaternion rotation;
+		public Vector3 scale;
+
+		public TransformHistory (int minOfDay, Vector3 position, Quaternion rotation, Vector3 scale)
+		{
+			this.minOfDay = minOfDay;
+			this.position = position;
+			this.rotation = rotation;
+			this.scale = scale;
+		}
 	}
 
 	private DatabaseReference mDatabaseRef;
@@ -76,8 +107,64 @@ public class FirebaseManager : MonoBehaviour {
 		//SaveNewUser ("test", 12, 5);
 		//GetUserData();
 
-		SaveNewThing (testObject);
+		allThings = new List<Thing> ();
+		allThingObjects = new List<Transform> ();
+
+		for(int i=0; i<allThingsParent.transform.childCount; i++)
+		{
+			allThingObjects.Add (allThingsParent.transform.GetChild(i));
+		}
+
+		//SaveAllThings();
 		GetThingData();
+	}
+
+	void Update()
+	{
+		if(Input.GetKey("escape"))
+		{
+			UpdateAllThings ();
+			Application.Quit ();
+		}
+
+		if(Input.GetKey("s"))
+		{
+			UpdateAllThings ();
+		}
+
+		if(Input.GetKey("r"))
+		{
+			UpdateAllThings ();
+			SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().buildIndex);
+		}
+	}
+
+	public void UpdateAllThings()
+	{
+		for(int i=0; i<allThings.Count; i++)
+		{
+			allThings [i].position = allThingObjects [i].position;
+			allThings [i].rotation = allThingObjects [i].rotation;
+			allThings [i].scale = allThingObjects [i].localScale;
+
+			string json = JsonUtility.ToJson (allThings[i]);
+			mDatabaseRef.Child ("things").Child(allThings[i].thingName).SetRawJsonValueAsync (json);
+		}
+	}
+
+	public void SaveAllThings()
+	{
+		for(int i=0; i<allThingObjects.Count; i++)
+		{
+			Thing thing = new Thing (
+				allThingObjects[i].name, 
+				allThingObjects[i].position, 
+				allThingObjects[i].rotation, 
+				allThingObjects[i].localScale
+			);
+			string json = JsonUtility.ToJson (thing);
+			mDatabaseRef.Child ("things").Child(thing.thingName).SetRawJsonValueAsync (json);
+		}
 	}
 
 	public void SaveNewThing(GameObject _thing)
@@ -102,39 +189,25 @@ public class FirebaseManager : MonoBehaviour {
 				else if(task.IsCompleted)
 				{
 					DataSnapshot snapshot = task.Result;
-					dataToGUI = snapshot.Value as Dictionary<string,object>;
+//					string dataInJson = snapshot.GetRawJsonValue();
 
-					string dataInJson = snapshot.GetRawJsonValue();
-					Debug.Log(dataInJson);
-
-					// incert "Items": [ into 2nd location, and ] into last to 2nd location
-					/*
-					string newData = dataInJson.Insert(1, "\"Items\":[");
-					int incert_pos = newData.Length-1;
-					string newData2 = newData.Insert(incert_pos, "]");
-					Debug.Log(newData2);
-
-					Thing[] thingss = JsonHelper.FromJsonArray<Thing>(newData2);
-					foreach( Thing t in thingss )
+					// if there's no data
+					if(!snapshot.Exists)
+						return;
+					
+					foreach (DataSnapshot child in snapshot.Children)
 					{
-						Debug.Log(t);
+						string dataInJson = child.GetRawJsonValue();
+						Thing tmpT = JsonUtility.FromJson<Thing>(dataInJson);
+						allThings.Add(tmpT);
 					}
-					*/
 
-					foreach( KeyValuePair<string, object> entry in dataToGUI )
+					// update objects transform
+					for(int i=0; i<allThingObjects.Count; i++)
 					{
-						//Debug.Log("key: " + entry.Key + ", Value: " + entry.Value);
-						Debug.Log(entry.Value.ToString());
-						//Debug.Log( JsonHelper.FromJson<Thing>(entry.Value.ToString()) );
-
-
-//						string name = entry.Key;
-//						Dictionary<string, object> n_data = entry.Value as Dictionary<string, object>;
-//
-//						foreach( KeyValuePair<string, object> n_entry in n_data )
-//						{
-//							Debug.Log("___" + n_entry.Key + ": " + n_entry.Value);
-//						}
+						allThingObjects [i].position = allThings [i].position;
+						allThingObjects [i].rotation = allThings [i].rotation;
+						allThingObjects [i].localScale = allThings [i].scale;
 					}
 				}
 			});

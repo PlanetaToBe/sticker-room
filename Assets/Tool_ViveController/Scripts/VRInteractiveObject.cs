@@ -33,6 +33,7 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	protected bool m_IsGrabbing = false;
 	protected bool m_IsTouching = false;
+	private bool m_IsShooting = false;
 
 	private bool useRigidbody = false;
 	private bool rigidbodyIsKinematic = false;
@@ -45,6 +46,12 @@ public class VRInteractiveObject : MonoBehaviour {
 	public bool IsGrabbing
 	{
 		get { return m_IsGrabbing; }
+	}
+
+	public bool IsShooting
+	{
+		get { return m_IsShooting; }
+		set { m_IsShooting = value; }
 	}
 
 	public Vector3 GrabbedPos
@@ -114,6 +121,15 @@ public class VRInteractiveObject : MonoBehaviour {
 				rigidbodyIsKinematic = true;
 		}
 			
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if( m_IsShooting && collision.collider.CompareTag("Wall") )
+		{
+			AddSpring (collision.rigidbody);
+			m_IsShooting = false;
+		}
 	}
 
 	#region Controller Events
@@ -210,6 +226,15 @@ public class VRInteractiveObject : MonoBehaviour {
 		grabJoint =  gameObject.AddComponent<FixedJoint> ();
 		grabJoint.connectedBody = connectBody;
 			
+	}
+
+	public void AddSpring(Rigidbody connectBody)
+	{
+		var s_joint = gameObject.AddComponent<SpringJoint> ();
+		s_joint.connectedBody = connectBody;
+		s_joint.spring = 50f;
+		s_joint.damper = 3f;
+		s_joint.enableCollision = true;
 	}
 
 	public void AddSpringJoint(Rigidbody connectBody)

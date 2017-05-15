@@ -42,10 +42,9 @@ public class Physicfy : MonoBehaviour {
 		tmp_interactiveObject.usePhysics = true;
 		tmp_c_index = (int)c_index;
 
-		//StartCoroutine (ApplyForce (_inter, c_index));
-
+		// TODO: should it move to VRInteractiveObject??
+		// add collider to sticker
 		StartCoroutine(AdjustPhysics(b_c));
-		//ApplySpring (_inter, c_index);
 
 		ApplyFixedJoint ();
 	}
@@ -58,32 +57,35 @@ public class Physicfy : MonoBehaviour {
 	void RemoveFixedJoint()
 	{
 		tmp_interactiveObject.RemoveJoint ();
-		ApplySpring ();
 
-		//AddForwardForce ();
-	}
-
-	void AddForwardForce()
-	{
-		
-	}
-
-	void ApplySpring()
-	{
-		var device = GetDevice (tmp_c_index);
 		RaycastHit hit;
-		if(Physics.Raycast(transform.position, transform.forward, out hit, 20f, wallLayer))
+		if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
 		{
-			var tmpAnchor = hit.point - hit.rigidbody.position;
-			var anchor = new Vector3 (tmpAnchor.y / hit.transform.localScale.x, 0f, tmpAnchor.z / hit.transform.localScale.z);
-			//Debug.Log (hit.point);
-			//Debug.Log (hit.rigidbody.position);
-			//Debug.Log (anchor);
-			tmp_interactiveObject.AddSpringJoint (hit.rigidbody, anchor);
+			// v.1
+			//ApplySpring (hit);
+
+			// v.2
+			AddForwardForce (hit);
 		}
 
 		tmp_interactiveObject = null;
 		tmp_c_index = -1;
+	}
+
+	void AddForwardForce(RaycastHit hit)
+	{
+		tmp_interactiveObject.Rigidbody.velocity = transform.forward*10f;
+		tmp_interactiveObject.IsShooting = true;
+	}
+
+	void ApplySpring(RaycastHit hit)
+	{		
+		var tmpAnchor = hit.point - hit.rigidbody.position;
+		var anchor = new Vector3 (tmpAnchor.y / hit.transform.localScale.x, 0f, tmpAnchor.z / hit.transform.localScale.z);
+		//Debug.Log (hit.point);
+		//Debug.Log (hit.rigidbody.position);
+		//Debug.Log (anchor);
+		tmp_interactiveObject.AddSpringJoint (hit.rigidbody, anchor);
 	}
 
 	IEnumerator AdjustPhysics(BoxCollider b_collider)

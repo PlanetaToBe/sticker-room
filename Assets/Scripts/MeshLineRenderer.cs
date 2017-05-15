@@ -51,7 +51,7 @@ public class MeshLineRenderer : MonoBehaviour {
 	{
 		int vl = _mesh.vertices.Length;
 		Vector3[] vs = _mesh.vertices;
-		vs = ResizeVertices (vs, 2*quad.Length);
+		vs = ResizeVertices (vs, 2*quad.Length); // expand vertices count
 
 		for(int i=0; i<2*quad.Length; i+=2)
 		{
@@ -60,7 +60,7 @@ public class MeshLineRenderer : MonoBehaviour {
 		}
 
 		Vector2[] uvs = _mesh.uv;
-		uvs = ResizeUVs (uvs, 2*quad.Length);
+		uvs = ResizeUVs (uvs, 2*quad.Length); // expand UVs count
 
 		if(quad.Length == 4) {
 			uvs[vl] = Vector2.zero;
@@ -121,7 +121,7 @@ public class MeshLineRenderer : MonoBehaviour {
 		_mesh.RecalculateNormals ();
 	}
 
-	// start, end, line width, firstQuad?
+	// start, end, line width, is_it_firstQuad?
 	public Vector3[] MakeQuad(Vector3 s, Vector3 e, float w, bool firstQuad)
 	{
 		w /= 2;
@@ -158,7 +158,7 @@ public class MeshLineRenderer : MonoBehaviour {
 			q [0] = transform.InverseTransformPoint (s + l*w); //from world space to local space
 			q [1] = transform.InverseTransformPoint (s + l*-w);
 			q [2] = transform.InverseTransformPoint (e + l*w);
-			q [2] = transform.InverseTransformPoint (e + l*-w);
+			q [3] = transform.InverseTransformPoint (e + l*-w);
 		}
 		else
 		{

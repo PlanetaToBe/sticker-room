@@ -26,6 +26,7 @@ public class SteamVR_TrackedController : MonoBehaviour
     public event ClickedEventHandler MenuButtonUnclicked;
     public event ClickedEventHandler TriggerClicked;
     public event ClickedEventHandler TriggerUnclicked;
+	public event ClickedEventHandler TriggerDowning;
     public event ClickedEventHandler SteamClicked;
     public event ClickedEventHandler PadClicked;
     public event ClickedEventHandler PadUnclicked;
@@ -72,6 +73,12 @@ public class SteamVR_TrackedController : MonoBehaviour
         if (TriggerUnclicked != null)
             TriggerUnclicked(this, e);
     }
+
+	public virtual void OnTriggerDowning(ClickedEventArgs e)
+	{
+		if (TriggerDowning != null)
+			TriggerDowning(this, e);
+	}
 
     public virtual void OnMenuClicked(ClickedEventArgs e)
     {
@@ -145,6 +152,15 @@ public class SteamVR_TrackedController : MonoBehaviour
                 OnTriggerClicked(e);
 
             }
+			if (trigger > 0L && triggerPressed)
+			{
+				ClickedEventArgs e;
+				e.controllerIndex = controllerIndex;
+				e.flags = (uint)controllerState.ulButtonPressed;
+				e.padX = controllerState.rAxis0.x;
+				e.padY = controllerState.rAxis0.y;
+				OnTriggerDowning(e);
+			}
             else if (trigger == 0L && triggerPressed)
             {
                 triggerPressed = false;
