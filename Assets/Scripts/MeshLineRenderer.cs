@@ -22,6 +22,20 @@ public class MeshLineRenderer : MonoBehaviour {
 	private Vector3 lastGoodOrientation;
 	private Quaternion parentsQ;
 
+	private bool m_drawOnThing = false;
+	public bool DrawOnThing
+	{
+		get { return m_drawOnThing; }
+		set { m_drawOnThing = value; }
+	}
+
+	private Vector3 m_surfaceNormal;
+	public Vector3 SurfaceNormal
+	{
+		get { return m_surfaceNormal; }
+		set { m_surfaceNormal = value; }
+	}
+
 	[HideInInspector]
 	public GameObject drawPoint;
 
@@ -29,6 +43,7 @@ public class MeshLineRenderer : MonoBehaviour {
 	{
 		m_mesh = GetComponent<MeshFilter> ().mesh;
 		GetComponent<MeshRenderer> ().material = material;
+		parentsQ = Quaternion.identity;
 	}
 
 	public void SetWidth(float width)
@@ -43,7 +58,6 @@ public class MeshLineRenderer : MonoBehaviour {
 			AddLine (m_mesh, MakeQuad(startVec, point, lineSize, firstQuad));
 			firstQuad = false;
 		}
-
 		startVec = point;
 	}
 
@@ -62,56 +76,70 @@ public class MeshLineRenderer : MonoBehaviour {
 		Vector2[] uvs = _mesh.uv;
 		uvs = ResizeUVs (uvs, 2*quad.Length); // expand UVs count
 
-		if(quad.Length == 4) {
-			uvs[vl] = Vector2.zero;
-			uvs[vl + 1] = Vector2.zero;
-			uvs[vl + 2] = Vector2.right;
-			uvs[vl + 3] = Vector2.right;
-			uvs[vl + 4] = Vector2.up;
-			uvs[vl + 5] = Vector2.up;
-			uvs[vl + 6] = Vector2.one;
-			uvs[vl + 7] = Vector2.one;
-		} else {
-			if(vl % 8 == 0) {
-				uvs[vl] = Vector2.zero;
-				uvs[vl + 1] = Vector2.zero;
-				uvs[vl + 2] = Vector2.right;
-				uvs[vl + 3] = Vector2.right;
+//		if(quad.Length == 4) {
+//			uvs[vl + 0] = Vector2.zero;
+//			uvs[vl + 1] = Vector2.zero;
+//			uvs[vl + 2] = Vector2.right;
+//			uvs[vl + 3] = Vector2.right;
+//			uvs[vl + 4] = Vector2.up;
+//			uvs[vl + 5] = Vector2.up;
+//			uvs[vl + 6] = Vector2.one;
+//			uvs[vl + 7] = Vector2.one;
+//		} else {
+//			if(vl % 8 == 0) {
+//				uvs[vl + 0] = Vector2.zero;
+//				uvs[vl + 1] = Vector2.zero;
+//				uvs[vl + 2] = Vector2.right;
+//				uvs[vl + 3] = Vector2.right;
+//			} else {
+//				uvs[vl + 0] = Vector2.up;
+//				uvs[vl + 1] = Vector2.up;
+//				uvs[vl + 2] = Vector2.one;
+//				uvs[vl + 3] = Vector2.one;
+//			}
+//		}
 
-			} else {
-				uvs[vl] = Vector2.up;
-				uvs[vl + 1] = Vector2.up;
-				uvs[vl + 2] = Vector2.one;
-				uvs[vl + 3] = Vector2.one;
-			}
-		}
+		uvs[vl + 0] = Vector2.up;
+		uvs[vl + 1] = Vector2.up;
+		uvs[vl + 2] = Vector2.one;
+		uvs[vl + 3] = Vector2.one;
+		uvs[vl + 4] = Vector2.zero;
+		uvs[vl + 5] = Vector2.zero;
+		uvs[vl + 6] = Vector2.right;
+		uvs[vl + 7] = Vector2.right;
 
 		int tl = _mesh.triangles.Length;
 
 		int[] ts = _mesh.triangles;
 		ts = ResizeTriangles(ts, 12);
 
-		if(quad.Length == 2) {
-			vl -= 4;
-		}
-
+//		if(quad.Length == 2) {
+//			vl -= 4;
+//		}
+			
 		// front-facing quad
-		ts[tl] = vl;
-		ts[tl + 1] = vl + 2;
-		ts[tl + 2] = vl + 4;
+		ts [tl] = vl;
+		ts [tl + 1] = vl + 2;
+		ts [tl + 2] = vl + 4;
 
-		ts[tl + 3] = vl + 2;
-		ts[tl + 4] = vl + 6;
-		ts[tl + 5] = vl + 4;
+//		ts [tl + 3] = vl + 2;
+//		ts [tl + 4] = vl + 6;
+//		ts [tl + 5] = vl + 4;
+		ts [tl + 3] = vl + 4;
+		ts [tl + 4] = vl + 2;
+		ts [tl + 5] = vl + 6;
 
 		// back-facing quad
-		ts[tl + 6] = vl + 5;
-		ts[tl + 7] = vl + 3;
-		ts[tl + 8] = vl + 1;
+//		ts [tl + 6] = vl + 5;
+//		ts [tl + 7] = vl + 3;
+//		ts [tl + 8] = vl + 1;
+		ts [tl + 6] = vl + 3;
+		ts [tl + 7] = vl + 1;
+		ts [tl + 8] = vl + 5;
 
-		ts[tl + 9] = vl + 5;
-		ts[tl + 10] = vl + 7;
-		ts[tl + 11] = vl + 3;
+		ts [tl + 9] = vl + 5;
+		ts [tl + 10] = vl + 7;
+		ts [tl + 11] = vl + 3;
 
 		//
 		_mesh.vertices = vs;
@@ -127,17 +155,29 @@ public class MeshLineRenderer : MonoBehaviour {
 		w /= 2;
 
 		Vector3[] q;
-		if (firstQuad)
+//		if (firstQuad)
 			q = new Vector3[4];
-		else
-			q = new Vector3[2];
+//		else
+//			q = new Vector3[2];
 
-		Vector3 n = Vector3.Cross (s, e); //normal
+		//Vector3 n = Vector3.Cross (s, e);
+		Vector3 n;
+		if(m_drawOnThing)
+		{
+			s = s + m_surfaceNormal.normalized*0.01f;
+			e = e + m_surfaceNormal.normalized*0.01f;
+			n = m_surfaceNormal;
+		}
+		else
+		{
+			n = Vector3.Cross (s, e);
+		}
 
 		// be affected by parent rotation
 		if (firstQuad)
 		{
-			parentsQ = drawPoint.transform.rotation;
+			if(!m_drawOnThing)
+				parentsQ = drawPoint.transform.rotation;
 		}
 		n = parentsQ * n;
 
@@ -153,18 +193,18 @@ public class MeshLineRenderer : MonoBehaviour {
 		}
 		l.Normalize ();
 
-		if(firstQuad)
-		{
+//		if(firstQuad)
+//		{
 			q [0] = transform.InverseTransformPoint (s + l*w); //from world space to local space
 			q [1] = transform.InverseTransformPoint (s + l*-w);
 			q [2] = transform.InverseTransformPoint (e + l*w);
 			q [3] = transform.InverseTransformPoint (e + l*-w);
-		}
-		else
-		{
-			q [0] = transform.InverseTransformPoint (s + l*w);
-			q [1] = transform.InverseTransformPoint (s + l*-w);
-		}
+//		}
+//		else
+//		{
+//			q [0] = transform.InverseTransformPoint (s + l*w);
+//			q [1] = transform.InverseTransformPoint (s + l*-w);
+//		}
 		return q;
 	}
 

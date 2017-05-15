@@ -11,16 +11,27 @@ public class DrawManager : MonoBehaviour {
 	public GameObject drawPoint;
 	public float lineSize = 0.005f;
 
+
+	public enum DrawType
+	{
+		InAir,
+		OnThing
+	}
 	[Header("Behaviors")]
-	public bool snapToThing = false;
+	public DrawType drawType = DrawType.OnThing;
 	private int wallLayer;
+	private int thingLayer;
+	private int finalMask;
 
 	private MeshLineRenderer currLine;
 	private int numClicks = 0;
 
+
 	void Start()
 	{
 		wallLayer = 1 << 8;
+		thingLayer = 1 << 9;
+		finalMask = wallLayer | thingLayer;
 	}
 
 	void OnEnable()
@@ -30,16 +41,16 @@ public class DrawManager : MonoBehaviour {
 			controller = GetComponent<SteamVR_TrackedController> ();
 		}
 
-		controller.TriggerClicked += OnTriggerDown;
-		controller.TriggerDowning += OnTriggerTouch;
-		controller.TriggerUnclicked += OnTriggerUp;
+		controller.PadClicked += OnTriggerDown;
+		controller.PadTouching += OnTriggerTouch;
+		controller.PadUnclicked += OnTriggerUp;
 	}
 
 	void OnDisable()
 	{
-		controller.TriggerClicked -= OnTriggerDown;
-		controller.TriggerDowning -= OnTriggerTouch;
-		controller.TriggerUnclicked -= OnTriggerUp;
+		controller.PadClicked -= OnTriggerDown;
+		controller.PadTouching -= OnTriggerTouch;
+		controller.PadUnclicked -= OnTriggerUp;
 	}
 
 	private void OnTriggerDown(object sender, ClickedEventArgs e)
@@ -53,6 +64,17 @@ public class DrawManager : MonoBehaviour {
 		currLine.material = material;
 		currLine.SetWidth (lineSize);
 		currLine.drawPoint = drawPoint;
+
+		switch(drawType)
+		{
+		case DrawType.OnThing:
+			currLine.DrawOnThing = true;
+			break;
+
+		case DrawType.InAir:
+			currLine.DrawOnThing = false;
+			break;
+		}
 	}
 
 	private void OnTriggerTouch(object sender, ClickedEventArgs e)
@@ -60,17 +82,22 @@ public class DrawManager : MonoBehaviour {
 		if (currLine == null)
 			return;
 
-		if(snapToThing)
+		switch(drawType)
 		{
+		case DrawType.OnThing:
 			RaycastHit hit;
-			if(Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
-			{
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f, finalMask)) {
+				currLine.SurfaceNormal = hit.normal;
 				currLine.AddPoint (hit.point);
+			} else {
+				numClicks = 0;
+				currLine = null;
 			}
-		}
-		else
-		{
+			break;
+
+		case DrawType.InAir:
 			currLine.AddPoint (drawPoint.transform.position);
+			break;
 		}
 
 		numClicks++;

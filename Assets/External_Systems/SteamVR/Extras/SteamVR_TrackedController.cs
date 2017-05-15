@@ -32,6 +32,7 @@ public class SteamVR_TrackedController : MonoBehaviour
     public event ClickedEventHandler PadUnclicked;
     public event ClickedEventHandler PadTouched;
     public event ClickedEventHandler PadUntouched;
+	public event ClickedEventHandler PadTouching;
     public event ClickedEventHandler Gripped;
     public event ClickedEventHandler Ungripped;
 
@@ -121,6 +122,12 @@ public class SteamVR_TrackedController : MonoBehaviour
         if (PadUntouched != null)
             PadUntouched(this, e);
     }
+
+	public virtual void OnPadTouching(ClickedEventArgs e)
+	{
+		if (PadTouching != null)
+			PadTouching(this, e);
+	}
 
     public virtual void OnGripped(ClickedEventArgs e)
     {
@@ -251,6 +258,15 @@ public class SteamVR_TrackedController : MonoBehaviour
                 OnPadTouched(e);
 
             }
+			if (pad > 0L && padTouched)
+			{
+				ClickedEventArgs e;
+				e.controllerIndex = controllerIndex;
+				e.flags = (uint)controllerState.ulButtonPressed;
+				e.padX = controllerState.rAxis0.x;
+				e.padY = controllerState.rAxis0.y;
+				OnPadTouching(e);
+			}
             else if (pad == 0L && padTouched)
             {
                 padTouched = false;

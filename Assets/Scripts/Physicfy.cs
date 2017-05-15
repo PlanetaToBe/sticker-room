@@ -12,6 +12,14 @@ public class Physicfy : MonoBehaviour {
 	private VRInteractiveObject tmp_interactiveObject;
 	private int tmp_c_index;
 
+	public enum ShootType
+	{
+		SpringRightAway,
+		SpringAfterHit
+	}
+	public ShootType shootType = ShootType.SpringAfterHit;
+	public float shootForce = 15f;
+
 	void OnEnable()
 	{
 		if (stickerGenerator == null)
@@ -61,11 +69,16 @@ public class Physicfy : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
 		{
-			// v.1
-			//ApplySpring (hit);
+			switch(shootType)
+			{
+			case ShootType.SpringRightAway:
+				ApplySpring (hit);
+				break;
 
-			// v.2
-			AddForwardForce (hit);
+			case ShootType.SpringAfterHit:
+				AddForwardForce (hit);
+				break;
+			}
 		}
 
 		tmp_interactiveObject = null;
@@ -74,7 +87,7 @@ public class Physicfy : MonoBehaviour {
 
 	void AddForwardForce(RaycastHit hit)
 	{
-		tmp_interactiveObject.Rigidbody.velocity = transform.forward*10f;
+		tmp_interactiveObject.Rigidbody.velocity = transform.forward*shootForce;
 		tmp_interactiveObject.IsShooting = true;
 	}
 
