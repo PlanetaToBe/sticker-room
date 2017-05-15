@@ -14,4 +14,6 @@ npm run production
 ````
 
 ## Unity
-1. Download / Add big assets: gif sprite sheet
+Download the mov and put them in Assets/StreamingAssets/StickerData folder
+- [sheet-1.mov](https://drive.google.com/open?id=0B3yQI4JEzfxSMmVod1JvVWhrcEE)
+- [sheet-0.mov](https://drive.google.com/open?id=0B3yQI4JEzfxSRl9KM29Ud0ZKSEE)
