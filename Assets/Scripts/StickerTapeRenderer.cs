@@ -10,39 +10,58 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshFilter))]
-public class MeshLineRenderer : MonoBehaviour {
+public class StickerTapeRenderer : MonoBehaviour {
 
 	public Material material;
 
-	private Mesh m_mesh;
-	private Vector3 startVec;
-	private float lineSize = .1f;
-	private bool firstQuad = true;
-
-	private Vector3 lastGoodOrientation;
-	private Quaternion parentsQ;
-
-	private bool m_drawOnThing = false;
 	public bool DrawOnThing
 	{
 		get { return m_drawOnThing; }
 		set { m_drawOnThing = value; }
 	}
 
-	private Vector3 m_surfaceNormal;
 	public Vector3 SurfaceNormal
 	{
 		get { return m_surfaceNormal; }
 		set { m_surfaceNormal = value; }
 	}
 
-	public int SubMeshCount
+	public int TextureVerticalCount
 	{
-		get { return m_mesh.subMeshCount; }
+		set { m_texture_vertical_count = value; }
 	}
+
+	public int TextureHorizontalCount
+	{
+		set { m_texture_horizontal_count = value; }
+	}
+		
+	private Mesh m_mesh;
+	private Vector3 startVec;
+	private float lineSize = .1f;
+	private bool firstQuad = true;
+	private int quadCount = 0;
+	private Vector3 lastGoodOrientation;
+	private Quaternion parentsQ;
+
+	private bool m_drawOnThing = false;
+	private Vector3 m_surfaceNormal;
 
 	[HideInInspector]
 	public GameObject drawPoint;
+	[HideInInspector]
+	public GameObject selfObject;
+
+	private int m_texture_vertical_count = 1;
+	private int m_texture_horizontal_count = 1;
+	private float vertical_increment
+	{
+		get { return 1f / m_texture_vertical_count; }
+	}
+	private float horizontal_increment
+	{
+		get { return 1f / m_texture_horizontal_count; }
+	}
 
 	void Start()
 	{
@@ -104,14 +123,22 @@ public class MeshLineRenderer : MonoBehaviour {
 //			}
 //		}
 
-		uvs[vl + 0] = Vector2.up;
-		uvs[vl + 1] = Vector2.up;
-		uvs[vl + 2] = Vector2.one;
-		uvs[vl + 3] = Vector2.one;
-		uvs[vl + 4] = Vector2.zero;
-		uvs[vl + 5] = Vector2.zero;
-		uvs[vl + 6] = Vector2.right;
-		uvs[vl + 7] = Vector2.right;
+//		uvs[vl + 0] = Vector2.up;
+//		uvs[vl + 1] = Vector2.up;
+//		uvs[vl + 2] = Vector2.one;
+//		uvs[vl + 3] = Vector2.one;
+//		uvs[vl + 4] = Vector2.zero;
+//		uvs[vl + 5] = Vector2.zero;
+//		uvs[vl + 6] = Vector2.right;
+//		uvs[vl + 7] = Vector2.right;
+
+		int uv_vertical_index = quadCount / m_texture_horizontal_count;
+		int uv_horizonal_index = quadCount - (uv_vertical_index*m_texture_horizontal_count);
+
+		uvs[vl + 0] = uvs[vl + 1] = new Vector2 (uv_horizonal_index*horizontal_increment, vertical_increment*(uv_vertical_index+1));		//up   (0,1)
+		uvs[vl + 2] = uvs[vl + 3] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), vertical_increment*(uv_vertical_index+1));		//one  (1,1)
+		uvs[vl + 4] = uvs[vl + 5] = new Vector2(uv_horizonal_index*horizontal_increment, uv_vertical_index*vertical_increment);			//zero (0,0)
+		uvs[vl + 6] = uvs[vl + 7] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), uv_vertical_index*vertical_increment);		//right(1,0)
 
 		int tl = _mesh.triangles.Length;
 
@@ -127,17 +154,11 @@ public class MeshLineRenderer : MonoBehaviour {
 		ts [tl + 1] = vl + 2;
 		ts [tl + 2] = vl + 4;
 
-//		ts [tl + 3] = vl + 2;
-//		ts [tl + 4] = vl + 6;
-//		ts [tl + 5] = vl + 4;
 		ts [tl + 3] = vl + 4;
 		ts [tl + 4] = vl + 2;
 		ts [tl + 5] = vl + 6;
 
 		// back-facing quad
-//		ts [tl + 6] = vl + 5;
-//		ts [tl + 7] = vl + 3;
-//		ts [tl + 8] = vl + 1;
 		ts [tl + 6] = vl + 3;
 		ts [tl + 7] = vl + 1;
 		ts [tl + 8] = vl + 5;
@@ -152,6 +173,10 @@ public class MeshLineRenderer : MonoBehaviour {
 		_mesh.triangles = ts;
 		_mesh.RecalculateBounds ();
 		_mesh.RecalculateNormals ();
+
+//		_mesh.subMeshCount = quadCount;
+//		subMaterials.Add (material);
+//		selfObject.GetComponent<Renderer>().materials = subMaterials.ToArray();
 	}
 
 	// start, end, line width, is_it_firstQuad?
@@ -210,6 +235,9 @@ public class MeshLineRenderer : MonoBehaviour {
 //			q [0] = transform.InverseTransformPoint (s + l*w);
 //			q [1] = transform.InverseTransformPoint (s + l*-w);
 //		}
+
+		quadCount++;
+
 		return q;
 	}
 

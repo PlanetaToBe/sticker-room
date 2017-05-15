@@ -10,7 +10,9 @@ public class DrawManager : MonoBehaviour {
 	public Material material;
 	public GameObject drawPoint;
 	public float lineSize = 0.005f;
-
+	public float minDrawDistance = 0.07f;
+	public int textureHorizontalCount = 1;
+	public int textureVerticalCount = 1;
 
 	public enum DrawType
 	{
@@ -22,10 +24,11 @@ public class DrawManager : MonoBehaviour {
 	private int wallLayer;
 	private int thingLayer;
 	private int finalMask;
-
-	private MeshLineRenderer currLine;
+	//private MeshLineRenderer currLine;
+	private StickerTapeRenderer currLine;
 	private int numClicks = 0;
 
+	private Vector3 past_DrawPosition;
 
 	void Start()
 	{
@@ -60,10 +63,16 @@ public class DrawManager : MonoBehaviour {
 		go.AddComponent<MeshRenderer> ();
 		go.transform.position = drawPoint.transform.position;
 
-		currLine = go.AddComponent<MeshLineRenderer> ();
+		currLine = go.AddComponent<StickerTapeRenderer> ();
+		//currLine = go.AddComponent<MeshLineRenderer> ();
 		currLine.material = material;
 		currLine.SetWidth (lineSize);
 		currLine.drawPoint = drawPoint;
+		currLine.selfObject = go;
+		currLine.TextureHorizontalCount = textureHorizontalCount;
+		currLine.TextureVerticalCount = textureVerticalCount;
+
+		past_DrawPosition = drawPoint.transform.position;
 
 		switch(drawType)
 		{
@@ -90,22 +99,36 @@ public class DrawManager : MonoBehaviour {
 				currLine.SurfaceNormal = hit.normal;
 				currLine.AddPoint (hit.point);
 			} else {
+				// if hit nothing, end and break the tape
 				numClicks = 0;
 				currLine = null;
 			}
 			break;
 
 		case DrawType.InAir:
+			// if the controller is not moving, velocity near zero => return
+			Vector3 offset = drawPoint.transform.position - past_DrawPosition;
+			float sqrLen = offset.sqrMagnitude;
+			//Debug.Log (sqrLen);
+			if (sqrLen < minDrawDistance*minDrawDistance)
+				return;
+			
 			currLine.AddPoint (drawPoint.transform.position);
 			break;
 		}
 
 		numClicks++;
+		past_DrawPosition = drawPoint.transform.position;
 	}
 
 	private void OnTriggerUp(object sender, ClickedEventArgs e)
 	{
 		numClicks = 0;
 		currLine = null;
+	}
+
+	SteamVR_Controller.Device GetDevice(int _index)
+	{
+		return SteamVR_Controller.Input (_index);
 	}
 }
