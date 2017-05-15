@@ -2358,11 +2358,6 @@ Prefab:
       propertyPath: floor
       value: 
       objectReference: {fileID: 734773117}
-    - target: {fileID: 114893192832709012, guid: c14fc0172d3684822b3e5643b1313770,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c14fc0172d3684822b3e5643b1313770, type: 2}
   m_IsPrefabParent: 0
