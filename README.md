@@ -1,4 +1,5 @@
 # sticker-room
+space with stickers for GIPHY Arts Show in June
 
 ## Server
 The server side scripts are in the **server** folder
