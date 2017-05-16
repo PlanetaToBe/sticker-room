@@ -146,6 +146,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 
 		int[] ts = _mesh.triangles;
 		ts = ResizeTriangles(ts, 12);
+//		ts = ResizeTriangles(ts, 36);
 
 //		if(quad.Length == 2) {
 //			vl -= 4;
@@ -169,6 +170,56 @@ public class StickerTapeRenderer : MonoBehaviour {
 		ts [tl + 10] = vl + 7;
 		ts [tl + 11] = vl + 3;
 
+		// side quad
+//		int count_tris = tl + 12;
+//		for(int i=0; i<quad.Length; i++)
+//		{
+//			// triangles around the object
+//			int n = (i+1)%quad.Length;
+//
+//			ts[count_tris] = i;
+//			ts[count_tris+1] = n;
+//			ts[count_tris+2] = i+quad.Length;
+//
+//			ts[count_tris+3] = n;
+//			ts[count_tris+4] = n+quad.Length;
+//			ts[count_tris+5] = i+quad.Length;
+//
+//			count_tris += 6;
+//		}
+
+		//
+//		ts [tl + 12] = vl + 0;
+//		ts [tl + 13] = vl + 1;
+//		ts [tl + 14] = vl + 2;
+//
+//		ts [tl + 15] = vl + 2;
+//		ts [tl + 16] = vl + 1;
+//		ts [tl + 17] = vl + 3;
+//		//
+//		ts [tl + 18] = vl + 2;
+//		ts [tl + 19] = vl + 3;
+//		ts [tl + 20] = vl + 6;
+//
+//		ts [tl + 21] = vl + 6;
+//		ts [tl + 22] = vl + 3;
+//		ts [tl + 23] = vl + 7;
+//		//
+//		ts [tl + 24] = vl + 4;
+//		ts [tl + 25] = vl + 5;
+//		ts [tl + 26] = vl + 0;
+//
+//		ts [tl + 27] = vl + 0;
+//		ts [tl + 28] = vl + 5;
+//		ts [tl + 29] = vl + 1;
+//		//
+//		ts [tl + 30] = vl + 6;
+//		ts [tl + 31] = vl + 7;
+//		ts [tl + 32] = vl + 4;
+//
+//		ts [tl + 33] = vl + 4;
+//		ts [tl + 34] = vl + 7;
+//		ts [tl + 35] = vl + 5;
 		//
 		_mesh.vertices = vs;
 		_mesh.uv = uvs;
