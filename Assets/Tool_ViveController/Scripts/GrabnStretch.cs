@@ -6,19 +6,18 @@ using UnityEngine;
 public class GrabnStretch : MonoBehaviour {
 
 	public Rigidbody wall;
+	public Rigidbody attachPoint;
 
-	private ViveSimpleController viveController;
+	//private ViveSimpleController viveController;
 	private SteamVR_TrackedController controller;
 
 	private VRInteractiveObject m_CurrentInteractible;		// The current interactive object
-	private SteamVR_TrackedObject trackedObj;
+	//private SteamVR_TrackedObject trackedObj;
 	private GameObject touchedObj;
 	private GameObject grabbedObj; // for grabbed obj (needs rigidBody)
 	private GameObject stretchObj;
 
 	private bool grabSomething = false;
-
-	// === Stretching
 	private bool inStretchMode = false;
 	private float initialControllersDistance;
 	private Vector3 originalScale;
@@ -28,45 +27,61 @@ public class GrabnStretch : MonoBehaviour {
 	private Vector3 m_TriggerUpPosition;
 	private float m_LastUpTime;
 
+	// SCALE_CameraRig_Parent => Player
+	private bool m_inSelfScalingMode = false;
+	public bool InSelfScalingMode
+	{
+		get { return m_inSelfScalingMode; }
+	}
+
+	public SteamVR_Controller.Device Device
+	{
+		get { return SteamVR_Controller.Input ((int)controller.controllerIndex); }
+	}
+
 	void OnEnable()
 	{
-		if (viveController == null)
-		{
-			viveController = GetComponent<ViveSimpleController> ();
-		}
+//		if (viveController == null)
+//		{
+//			viveController = GetComponent<ViveSimpleController> ();
+//		}
 
 		if(controller==null)
 		{
 			controller = GetComponent<SteamVR_TrackedController>();
 		}
+			
+		controller.TriggerClicked += HandleTriggerDown;
+		controller.TriggerUnclicked += HandleTriggerUp;
+		controller.TriggerDowning += HandleTriggerTouch;
 
-		viveController.OnHover += HandleOver;
-		viveController.OnHoverLeave += HandleOut;
-
-		viveController.OnTriggerDown += HandleTriggerDown;
-		viveController.OnTriggerUp += HandleTriggerUp;
-		viveController.OnTriggerTouch += HandleTriggerTouch;
-
-		viveController.OnTouchpadDown += HandlePadDown;
-		viveController.OnTouchpadUp += HandlePadUp;
+		controller.PadClicked += HandlePadDown;
+		controller.PadUnclicked += HandlePadUp;
 	}
 
 	void OnDisable()
 	{
-		viveController.OnHover -= HandleOver;
-		viveController.OnHoverLeave -= HandleOut;
+		controller.TriggerClicked -= HandleTriggerDown;
+		controller.TriggerUnclicked -= HandleTriggerUp;
+		controller.TriggerDowning -= HandleTriggerTouch;
 
-		viveController.OnTriggerDown -= HandleTriggerDown;
-		viveController.OnTriggerUp -= HandleTriggerUp;
-		viveController.OnTriggerTouch -= HandleTriggerTouch;
-
-		viveController.OnTouchpadDown -= HandlePadDown;
-		viveController.OnTouchpadUp -= HandlePadUp;
+		controller.PadClicked -= HandlePadDown;
+		controller.PadUnclicked -= HandlePadUp;
 	}
 	
 	void Start ()
 	{
-		trackedObj = viveController.TrackedObj;
+		//trackedObj = viveController.TrackedObj;
+	}
+
+	private void OnTriggerEnter(Collider collider)
+	{
+		HandleOver (collider);
+	}
+
+	private void OnTriggerExit(Collider collider)
+	{
+		HandleOut (collider);
 	}
 
 	public void HandleOver(Collider collider)
@@ -85,7 +100,7 @@ public class GrabnStretch : MonoBehaviour {
 		// If we hit an interactive item
 		if (collider.gameObject.GetComponent<VRInteractiveObject> ())
 		{
-			viveController.DeviceVibrate();
+			DeviceVibrate();
 
 			touchedObj = collider.gameObject;
 			m_CurrentInteractible = touchedObj.GetComponent<VRInteractiveObject> ();
@@ -107,7 +122,7 @@ public class GrabnStretch : MonoBehaviour {
 
 		if (collider == touchedObj.GetComponent<Collider> ())
 		{
-			// due to the parenting(aka non-physics) method will trigger this event for some reason :/
+			// checking cuz the parenting(aka non-physics) method will trigger this event for some reason :/
 			if (!m_CurrentInteractible.HasRigidbody && grabSomething)
 				return;
 
@@ -122,7 +137,7 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandleTriggerDown(GameObject _obj)
+	public void HandleTriggerDown(object sender, ClickedEventArgs e)
 	{
 		if (touchedObj == null)
 		{
@@ -140,9 +155,9 @@ public class GrabnStretch : MonoBehaviour {
 				stretchObj = touchedObj;
 				originalScale = stretchObj.transform.localScale;
 
-				initialControllersDistance = (viveController.attachPoint.position - m_CurrentInteractible.GrabbedPos).sqrMagnitude;
-				Debug.Log (gameObject.name + "starts stretching!");
-				viveController.DeviceVibrate ();
+				initialControllersDistance = (attachPoint.position - m_CurrentInteractible.GrabbedPos).sqrMagnitude;
+				//Debug.Log (gameObject.name + "starts stretching!");
+				DeviceVibrate ();
 
 				// remote the joint attached to other controller
 				if(m_CurrentInteractible.Joint)
@@ -156,7 +171,7 @@ public class GrabnStretch : MonoBehaviour {
 			{
 				// be grabbed!
 				m_CurrentInteractible.Down(gameObject);
-				m_CurrentInteractible.grabbedPoint = viveController.attachPoint.position;
+				m_CurrentInteractible.grabbedPoint = attachPoint.position;
 
 				// Grab in PHYSICS way if has rigidbody
 				if (m_CurrentInteractible.HasRigidbody)
@@ -167,7 +182,7 @@ public class GrabnStretch : MonoBehaviour {
 						touchedObj.GetComponent<Rigidbody> ().isKinematic = false;
 					}
 					// add fixed joint
-					m_CurrentInteractible.AddJoint(viveController.attachPoint);
+					m_CurrentInteractible.AddJoint(attachPoint);
 				}
 				else // or NON-PHYSICS(hierarchy way)
 				{
@@ -175,13 +190,13 @@ public class GrabnStretch : MonoBehaviour {
 				}
 
 				grabSomething = true;
-				Debug.Log (gameObject.name + " grabs!");
-				viveController.DeviceVibrate();
+				//Debug.Log (gameObject.name + " grabs!");
+				DeviceVibrate();
 			}
 		}
 	}
 
-	public void HandleTriggerUp(GameObject _obj)
+	public void HandleTriggerUp(object sender, ClickedEventArgs e)
 	{
 		if (grabSomething)
 		{
@@ -194,7 +209,7 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandleTriggerTouch(GameObject _obj)
+	public void HandleTriggerTouch(object sender, ClickedEventArgs e)
 	{
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.Touch(gameObject);
@@ -215,10 +230,10 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandlePadDown(GameObject _obj)
+	public void HandlePadDown(object sender, ClickedEventArgs e)
 	{
 		if(m_CurrentInteractible)
-			m_CurrentInteractible.PadDown (_obj);
+			m_CurrentInteractible.PadDown (gameObject);
 
 		// SHOOT_OUT
 		if (grabSomething)
@@ -235,7 +250,7 @@ public class GrabnStretch : MonoBehaviour {
 			m_CurrentInteractible.AddSpringJoint (wall);
 	}
 
-	public void HandlePadUp(GameObject _obj, SteamVR_Controller.Device _device)
+	public void HandlePadUp(object sender, ClickedEventArgs e)
 	{
 
 	}
@@ -244,9 +259,7 @@ public class GrabnStretch : MonoBehaviour {
 	{
 		// compare current distance of two controllers, with the start distance, to stretch the object
 		var pivot = m_CurrentInteractible.GrabbedPos;
-		var mag = (viveController.attachPoint.position - pivot).sqrMagnitude - initialControllersDistance;
-			
-		//var endScale = originalScale * (1f + mag);
+		var mag = (attachPoint.position - pivot).sqrMagnitude - initialControllersDistance;			
 		var endScale = target.transform.localScale * (1f + mag*0.1f);
 
 		// diff from obj pivot to desired pivot
@@ -277,13 +290,13 @@ public class GrabnStretch : MonoBehaviour {
 						
 		inStretchMode = false;
 		stretchObj = null;
-		viveController.DeviceVibrate();
-		Debug.Log ("m_CurrentInteractible.IsGrabbing: " + m_CurrentInteractible.IsGrabbing + ", " + gameObject.name + " exit Stretch Mode");
+		DeviceVibrate();
+		//Debug.Log ("m_CurrentInteractible.IsGrabbing: " + m_CurrentInteractible.IsGrabbing + ", " + gameObject.name + " exit Stretch Mode");
 	}
 
 	private void ExitGrabMode(bool destroyImmediate)
 	{
-		Debug.Log (gameObject.name + " exits grab!");
+		//Debug.Log (gameObject.name + " exits grab!");
 
 		m_CurrentInteractible.Up (gameObject);
 
@@ -292,25 +305,25 @@ public class GrabnStretch : MonoBehaviour {
 			// remote joint!
 			if(m_CurrentInteractible.Joint!=null)
 			{
-				var device = viveController.Device;
+				var device = Device;
 				var rigidbody = m_CurrentInteractible.Joint.GetComponent<Rigidbody> ();
 
 				// destroy the fixed joint
 				m_CurrentInteractible.RemoveJoint ();
 
 				// Apply force
-				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-				if (origin != null)
-				{
-					// of grabbed obj
-					rigidbody.velocity = origin.TransformVector (device.velocity); //transform vector from local to world space
-					rigidbody.angularVelocity = origin.TransformVector (device.angularVelocity);
-				}
-				else
-				{
+//				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
+//				if (origin != null)
+//				{
+//					// of grabbed obj
+//					rigidbody.velocity = origin.TransformVector (device.velocity); //transform vector from local to world space
+//					rigidbody.angularVelocity = origin.TransformVector (device.angularVelocity);
+//				}
+//				else
+//				{
 					rigidbody.velocity = device.velocity;
 					rigidbody.angularVelocity = device.angularVelocity;
-				}
+//				}
 				rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
 			}
 				
@@ -326,6 +339,11 @@ public class GrabnStretch : MonoBehaviour {
 
 		//m_CurrentInteractible.Up (gameObject);
 		grabSomething = false;
-		viveController.DeviceVibrate();
+		DeviceVibrate();
+	}
+
+	public void DeviceVibrate()
+	{
+		Device.TriggerHapticPulse (1000);
 	}
 }
