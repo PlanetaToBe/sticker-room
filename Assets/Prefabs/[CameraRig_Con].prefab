@@ -382,7 +382,6 @@ GameObject:
   - component: {fileID: 114535178127235500}
   - component: {fileID: 54214460784129444}
   - component: {fileID: 65402581728179846}
-  - component: {fileID: 114619822328848292}
   - component: {fileID: 114267454738646934}
   - component: {fileID: 114960998173452900}
   - component: {fileID: 114745371182106754}
@@ -942,7 +941,6 @@ GameObject:
   - component: {fileID: 114722024019513954}
   - component: {fileID: 54923991931424924}
   - component: {fileID: 65917985133599770}
-  - component: {fileID: 114598598476282740}
   - component: {fileID: 114609842400285424}
   - component: {fileID: 114562355966363860}
   - component: {fileID: 114324023586787540}
@@ -2571,18 +2569,6 @@ MonoBehaviour:
   textureHorizontalCount: 7
   textureVerticalCount: 7
   drawType: 1
---- !u!114 &114598598476282740
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1896060791818688}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b7dddfaae523d40bb2ea13b7a4d4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachPoint: {fileID: 54324061742989354}
 --- !u!114 &114609842400285424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2601,18 +2587,6 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
---- !u!114 &114619822328848292
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1355576821251942}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b7dddfaae523d40bb2ea13b7a4d4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachPoint: {fileID: 54885961721955220}
 --- !u!114 &114634975742069778
 MonoBehaviour:
   m_ObjectHideFlags: 1

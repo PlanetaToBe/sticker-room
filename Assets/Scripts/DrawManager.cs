@@ -6,13 +6,19 @@ public class DrawManager : MonoBehaviour {
 
 	//public ViveSimpleController viveController;
 	private SteamVR_TrackedController controller;
+	private GrabnStretch grabnstretch;
 
 	public Material material;
 	public GameObject drawPoint;
-	public float lineSize = 0.005f;
+	public float lineSize = 0.07f;
 	public float minDrawDistance = 0.07f;
 	public int textureHorizontalCount = 1;
 	public int textureVerticalCount = 1;
+
+	public float DrawDistance
+	{
+		get { return minDrawDistance * grabnstretch.PlayerScale;}
+	}
 
 	public enum DrawType
 	{
@@ -30,11 +36,13 @@ public class DrawManager : MonoBehaviour {
 
 	private Vector3 past_DrawPosition;
 
+
 	void Start()
 	{
 		wallLayer = 1 << 8;
 		thingLayer = 1 << 9;
 		finalMask = wallLayer | thingLayer;
+		grabnstretch = GetComponent<GrabnStretch> ();
 	}
 
 	void OnEnable()
@@ -66,7 +74,7 @@ public class DrawManager : MonoBehaviour {
 		currLine = go.AddComponent<StickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();
 		currLine.material = material;
-		currLine.SetWidth (lineSize);
+		currLine.SetWidth (DrawDistance);
 		currLine.drawPoint = drawPoint;
 		currLine.selfObject = go;
 		currLine.TextureHorizontalCount = textureHorizontalCount;
@@ -110,7 +118,7 @@ public class DrawManager : MonoBehaviour {
 			Vector3 offset = drawPoint.transform.position - past_DrawPosition;
 			float sqrLen = offset.sqrMagnitude;
 			//Debug.Log (sqrLen);
-			if (sqrLen < minDrawDistance*minDrawDistance)
+			if (sqrLen < DrawDistance*DrawDistance)
 				return;
 			
 			currLine.AddPoint (drawPoint.transform.position);

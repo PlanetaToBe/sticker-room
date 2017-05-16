@@ -176,7 +176,7 @@ public class VRInteractiveObject : MonoBehaviour {
 			return;
 
 		theThingGrabMe = grabbingObj;
-		grabber = theThingGrabMe.GetComponent<ViveSimpleController> ().attachPoint;
+		grabber = theThingGrabMe.GetComponent<GrabnStretch> ().attachPoint;
 		m_IsGrabbing = true;
 
 		if (OnDown != null)

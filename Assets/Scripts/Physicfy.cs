@@ -59,7 +59,7 @@ public class Physicfy : MonoBehaviour {
 
 	void ApplyFixedJoint()
 	{
-		tmp_interactiveObject.AddJoint (GetComponent<ViveSimpleController>().attachPoint);
+		tmp_interactiveObject.AddJoint (GetComponent<GrabnStretch>().attachPoint);
 	}
 
 	void RemoveFixedJoint()

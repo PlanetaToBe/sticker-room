@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ViveSimpleController))]
+[RequireComponent(typeof(SteamVR_TrackedController))]
 public class GrabnStretch : MonoBehaviour {
 
 	public Rigidbody wall;
 	public Rigidbody attachPoint;
+	public Transform cameraEye;
 
-	//private ViveSimpleController viveController;
 	private SteamVR_TrackedController controller;
 
+	//--- Grab n Stretch ---
+	//----------------------
 	private VRInteractiveObject m_CurrentInteractible;		// The current interactive object
-	//private SteamVR_TrackedObject trackedObj;
 	private GameObject touchedObj;
 	private GameObject grabbedObj; // for grabbed obj (needs rigidBody)
 	private GameObject stretchObj;
@@ -21,18 +22,39 @@ public class GrabnStretch : MonoBehaviour {
 	private bool inStretchMode = false;
 	private float initialControllersDistance;
 	private Vector3 originalScale;
+	//----------------------
 
 	private Vector3 m_TriggerClickPosition;
 	private Vector3 m_TriggerDownPosition;
 	private Vector3 m_TriggerUpPosition;
 	private float m_LastUpTime;
 
+	//--- Scale Self ---
+	//----------------------
 	// SCALE_CameraRig_Parent => Player
+	[Header("Self Scaling")]
+	public float minSelfScale = 0.05f;
+	public float maxSelfScale = 20f;
 	private bool m_inSelfScalingMode = false;
+	private bool m_inSelfScalingSupportMode = false;
+	private GrabnStretch otherController;
+	private Transform player;
+
+	public float PlayerScale
+	{
+		get { return player.localScale.x; }
+	}
+
+	public bool InSelfScalingSupportMode
+	{
+		get { return m_inSelfScalingSupportMode; }
+	}
+
 	public bool InSelfScalingMode
 	{
 		get { return m_inSelfScalingMode; }
 	}
+	//----------------------
 
 	public SteamVR_Controller.Device Device
 	{
@@ -41,11 +63,6 @@ public class GrabnStretch : MonoBehaviour {
 
 	void OnEnable()
 	{
-//		if (viveController == null)
-//		{
-//			viveController = GetComponent<ViveSimpleController> ();
-//		}
-
 		if(controller==null)
 		{
 			controller = GetComponent<SteamVR_TrackedController>();
@@ -71,23 +88,44 @@ public class GrabnStretch : MonoBehaviour {
 	
 	void Start ()
 	{
-		//trackedObj = viveController.TrackedObj;
+		player = transform.parent.parent;
 	}
 
-	private void OnTriggerEnter(Collider collider)
+	private void OnTriggerEnter(Collider _collider)
 	{
-		HandleOver (collider);
+		HandleOver (_collider);
 	}
 
-	private void OnTriggerExit(Collider collider)
+	private void OnTriggerExit(Collider _collider)
 	{
-		HandleOut (collider);
+		HandleOut (_collider);
 	}
 
-	public void HandleOver(Collider collider)
+	private void OnTriggerStay(Collider _collider)
+	{
+		HandleStay (_collider);
+	}
+
+	public void HandleOver(Collider _collider)
 	{
 		// ignore if it's another controller
-		if (collider.gameObject.tag == "GameController")
+		if (_collider.gameObject.tag == "GameController")
+		{
+			otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
+			if(otherController.InSelfScalingMode)
+			{
+				m_inSelfScalingSupportMode = true;
+			}
+			else
+			{
+				m_inSelfScalingMode = true;
+			}
+			DeviceVibrate ();
+			return;
+		}
+
+		// ignore if in self-stretching mode
+		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
 			return;
 
 		// ignore if already grabbing something
@@ -98,20 +136,20 @@ public class GrabnStretch : MonoBehaviour {
 			//return;
 
 		// If we hit an interactive item
-		if (collider.gameObject.GetComponent<VRInteractiveObject> ())
+		if (_collider.gameObject.GetComponent<VRInteractiveObject> ())
 		{
 			DeviceVibrate();
 
-			touchedObj = collider.gameObject;
+			touchedObj = _collider.gameObject;
 			m_CurrentInteractible = touchedObj.GetComponent<VRInteractiveObject> ();
 			m_CurrentInteractible.StartTouching (gameObject);
 		}
 	}
 
-	public void HandleOut(Collider collider)
+	public void HandleOut(Collider _collider)
 	{
 		// ignore if it's another controller
-		if (collider.gameObject.tag == "GameController")
+		if (_collider.gameObject.tag == "GameController")
 			return;
 
 		if (touchedObj == null)
@@ -120,7 +158,7 @@ public class GrabnStretch : MonoBehaviour {
 		if (inStretchMode)
 			return;
 
-		if (collider == touchedObj.GetComponent<Collider> ())
+		if (_collider == touchedObj.GetComponent<Collider> ())
 		{
 			// checking cuz the parenting(aka non-physics) method will trigger this event for some reason :/
 			if (!m_CurrentInteractible.HasRigidbody && grabSomething)
@@ -137,8 +175,36 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
+	public void HandleStay(Collider _collider)
+	{
+		if (_collider.gameObject.tag == "GameController")
+		{
+			if (!m_inSelfScalingMode && !m_inSelfScalingSupportMode)
+			{
+				otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
+				if(otherController.InSelfScalingMode)
+				{
+					m_inSelfScalingSupportMode = true;
+				}
+				else
+				{
+					m_inSelfScalingMode = true;
+				}
+				DeviceVibrate ();
+				return;
+			}
+		}
+	}
+
 	public void HandleTriggerDown(object sender, ClickedEventArgs e)
 	{
+		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+		{
+			originalScale = player.localScale;
+			initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
+			return;
+		}
+
 		if (touchedObj == null)
 		{
 			return;			// not possible but just double check
@@ -165,7 +231,6 @@ public class GrabnStretch : MonoBehaviour {
 					stretchObj.GetComponent<Rigidbody> ().isKinematic = true;
 					m_CurrentInteractible.RemoveJoint ();
 				}
-
 			}
 			else
 			{
@@ -198,6 +263,13 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleTriggerUp(object sender, ClickedEventArgs e)
 	{
+		if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
+		{
+			m_inSelfScalingMode = false;
+			m_inSelfScalingSupportMode = false;
+			otherController = null;
+		}
+
 		if (grabSomething)
 		{
 			ExitGrabMode (true);	
@@ -211,6 +283,11 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleTriggerTouch(object sender, ClickedEventArgs e)
 	{
+		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+		{
+			ScaleSelf (player);
+		}
+
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.Touch(gameObject);
 
@@ -225,7 +302,7 @@ public class GrabnStretch : MonoBehaviour {
 			else
 			{
 				if (stretchObj != null)
-					ScaleAroundPoint (stretchObj); // only work on parenting ver. grabbing?
+					ScaleAroundPoint (stretchObj);
 			}
 		}
 	}
@@ -253,6 +330,53 @@ public class GrabnStretch : MonoBehaviour {
 	public void HandlePadUp(object sender, ClickedEventArgs e)
 	{
 
+	}
+
+	private void ScaleSelf(Transform target)
+	{
+		// v.1
+		/*
+		// compare current distance of two controllers, with the start distance, to stretch the object
+		var pivot = cameraEye.transform.position;
+		pivot.y = target.transform.position.y; // set pivot to be on the floor
+		var mag = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude - initialControllersDistance;			
+		var endScale = target.transform.localScale * (1f + mag*0.01f);
+
+		// diff from obj pivot to desired pivot
+		var diffP = target.transform.position - pivot;
+		var finalPos = (diffP * (1f + mag*0.01f)) + pivot;
+
+		target.transform.localScale = endScale;
+		target.transform.position = finalPos;
+		*/
+
+		float scaleFactor;
+		if(transform.position.y > cameraEye.position.y)
+		{
+			// scale up
+			scaleFactor = 1f + 0.01f;
+		}
+		else {
+			// scale down
+			scaleFactor = 1f - 0.01f;
+		}
+		var endScale = target.transform.localScale * scaleFactor;
+		var idealScaleValue = Mathf.Clamp (endScale.x, minSelfScale, maxSelfScale);
+		endScale.Set (idealScaleValue, idealScaleValue, idealScaleValue);
+
+		if (Mathf.Approximately (target.transform.localScale.x, endScale.x))
+			return;
+
+		var pivot = cameraEye.transform.position;
+		pivot.y = target.transform.position.y; // set pivot to be on the floor
+
+		var diffP = target.transform.position - pivot;
+		var finalPos = (diffP * scaleFactor) + pivot;
+
+		target.transform.localScale = endScale;
+		target.transform.position = finalPos;
+
+		DeviceVibrate ();
 	}
 
 	private void ScaleAroundPoint(GameObject target)

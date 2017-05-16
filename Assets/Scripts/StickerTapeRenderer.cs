@@ -46,6 +46,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 
 	private bool m_drawOnThing = false;
 	private Vector3 m_surfaceNormal;
+	private Vector3 tapeNormal;
 
 	[HideInInspector]
 	public GameObject drawPoint;
@@ -94,7 +95,8 @@ public class StickerTapeRenderer : MonoBehaviour {
 		for(int i=0; i<2*quad.Length; i+=2)
 		{
 			vs [vl + i] = quad [i / 2];
-			vs [vl + i + 1] = quad [i / 2];
+			var thickerQuad = quad [i / 2] + tapeNormal.normalized * 0.01f;
+			vs [vl + i + 1] = thickerQuad;
 		}
 
 		Vector2[] uvs = _mesh.uv;
@@ -137,7 +139,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 
 		uvs[vl + 0] = uvs[vl + 1] = new Vector2 (uv_horizonal_index*horizontal_increment, vertical_increment*(uv_vertical_index+1));		//up   (0,1)
 		uvs[vl + 2] = uvs[vl + 3] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), vertical_increment*(uv_vertical_index+1));		//one  (1,1)
-		uvs[vl + 4] = uvs[vl + 5] = new Vector2(uv_horizonal_index*horizontal_increment, uv_vertical_index*vertical_increment);			//zero (0,0)
+		uvs[vl + 4] = uvs[vl + 5] = new Vector2 (uv_horizonal_index*horizontal_increment, uv_vertical_index*vertical_increment);			//zero (0,0)
 		uvs[vl + 6] = uvs[vl + 7] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), uv_vertical_index*vertical_increment);		//right(1,0)
 
 		int tl = _mesh.triangles.Length;
@@ -210,6 +212,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 				parentsQ = drawPoint.transform.rotation;
 		}
 		n = parentsQ * n;
+		tapeNormal = n;
 
 		Vector3 l = Vector3.Cross (n, e-s);
 
