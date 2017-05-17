@@ -9,8 +9,8 @@ public class DrawManager : MonoBehaviour {
 	private GrabnStretch grabnstretch;
 
 	public Material material;
+
 	public GameObject drawPoint;
-	public float lineSize = 0.07f;
 	public float minDrawDistance = 0.07f;
 	public int textureHorizontalCount = 1;
 	public int textureVerticalCount = 1;
@@ -52,19 +52,19 @@ public class DrawManager : MonoBehaviour {
 			controller = GetComponent<SteamVR_TrackedController> ();
 		}
 
-		controller.PadClicked += OnTriggerDown;
-		controller.PadTouching += OnTriggerTouch;
-		controller.PadUnclicked += OnTriggerUp;
+		controller.PadClicked += OnDown;
+		controller.PadTouching += OnTouch;
+		controller.PadUnclicked += OnUp;
 	}
 
 	void OnDisable()
 	{
-		controller.PadClicked -= OnTriggerDown;
-		controller.PadTouching -= OnTriggerTouch;
-		controller.PadUnclicked -= OnTriggerUp;
+		controller.PadClicked -= OnDown;
+		controller.PadTouching -= OnTouch;
+		controller.PadUnclicked -= OnUp;
 	}
 
-	private void OnTriggerDown(object sender, ClickedEventArgs e)
+	private void OnDown(object sender, ClickedEventArgs e)
 	{
 		GameObject go = new GameObject ();
 		go.AddComponent<MeshFilter> ();
@@ -94,7 +94,7 @@ public class DrawManager : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerTouch(object sender, ClickedEventArgs e)
+	private void OnTouch(object sender, ClickedEventArgs e)
 	{
 		if (currLine == null)
 			return;
@@ -105,7 +105,7 @@ public class DrawManager : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f, finalMask)) {
 				currLine.SurfaceNormal = hit.normal;
-				currLine.AddPoint (hit.point);
+				currLine.AddPoint (hit.point, false);
 			} else {
 				// if hit nothing, end and break the tape
 				numClicks = 0;
@@ -118,10 +118,10 @@ public class DrawManager : MonoBehaviour {
 			Vector3 offset = drawPoint.transform.position - past_DrawPosition;
 			float sqrLen = offset.sqrMagnitude;
 			//Debug.Log (sqrLen);
-			if (sqrLen < DrawDistance*DrawDistance)
+			if (sqrLen < DrawDistance * DrawDistance)
 				return;
 			
-			currLine.AddPoint (drawPoint.transform.position);
+			currLine.AddPoint (drawPoint.transform.position, false);
 			break;
 		}
 
@@ -129,7 +129,7 @@ public class DrawManager : MonoBehaviour {
 		past_DrawPosition = drawPoint.transform.position;
 	}
 
-	private void OnTriggerUp(object sender, ClickedEventArgs e)
+	private void OnUp(object sender, ClickedEventArgs e)
 	{
 		numClicks = 0;
 		currLine = null;

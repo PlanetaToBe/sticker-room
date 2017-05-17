@@ -76,7 +76,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 		lineSize = width;
 	}
 
-	public void AddPoint(Vector3 point)
+	public void AddPoint(Vector3 point, bool isDummy)
 	{
 		if(startVec != Vector3.zero)
 		{
@@ -95,7 +95,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 		for(int i=0; i<2*quad.Length; i+=2)
 		{
 			vs [vl + i] = quad [i / 2];
-			var thickerQuad = quad [i / 2] + tapeNormal.normalized * 0.01f;
+			var thickerQuad = quad [i / 2] - tapeNormal.normalized * (lineSize/7f);
 			vs [vl + i + 1] = thickerQuad;
 		}
 
@@ -135,18 +135,17 @@ public class StickerTapeRenderer : MonoBehaviour {
 //		uvs[vl + 7] = Vector2.right;
 
 		int uv_vertical_index = quadCount / m_texture_horizontal_count;
-		int uv_horizonal_index = quadCount - (uv_vertical_index*m_texture_horizontal_count);
+		int uv_horizonal_index = quadCount - (uv_vertical_index * m_texture_horizontal_count);
 
-		uvs[vl + 0] = uvs[vl + 1] = new Vector2 (uv_horizonal_index*horizontal_increment, vertical_increment*(uv_vertical_index+1));		//up   (0,1)
-		uvs[vl + 2] = uvs[vl + 3] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), vertical_increment*(uv_vertical_index+1));		//one  (1,1)
-		uvs[vl + 4] = uvs[vl + 5] = new Vector2 (uv_horizonal_index*horizontal_increment, uv_vertical_index*vertical_increment);			//zero (0,0)
-		uvs[vl + 6] = uvs[vl + 7] = new Vector2 (horizontal_increment*(uv_horizonal_index+1), uv_vertical_index*vertical_increment);		//right(1,0)
+		uvs [vl + 0] = uvs [vl + 1] = new Vector2 (uv_horizonal_index * horizontal_increment, vertical_increment * (uv_vertical_index + 1));		//up   (0,1)
+		uvs [vl + 2] = uvs [vl + 3] = new Vector2 (horizontal_increment * (uv_horizonal_index + 1), vertical_increment * (uv_vertical_index + 1));		//one  (1,1)
+		uvs [vl + 4] = uvs [vl + 5] = new Vector2 (uv_horizonal_index * horizontal_increment, uv_vertical_index * vertical_increment);			//zero (0,0)
+		uvs [vl + 6] = uvs [vl + 7] = new Vector2 (horizontal_increment * (uv_horizonal_index + 1), uv_vertical_index * vertical_increment);		//right(1,0)
 
 		int tl = _mesh.triangles.Length;
-
 		int[] ts = _mesh.triangles;
-		ts = ResizeTriangles(ts, 12);
-//		ts = ResizeTriangles(ts, 36);
+//		ts = ResizeTriangles(ts, 12);
+		ts = ResizeTriangles(ts, 36);
 
 //		if(quad.Length == 2) {
 //			vl -= 4;
@@ -188,38 +187,38 @@ public class StickerTapeRenderer : MonoBehaviour {
 //			count_tris += 6;
 //		}
 
+		ts [tl + 12] = vl + 0;
+		ts [tl + 13] = vl + 1;
+		ts [tl + 14] = vl + 2;
+
+		ts [tl + 15] = vl + 2;
+		ts [tl + 16] = vl + 1;
+		ts [tl + 17] = vl + 3;
 		//
-//		ts [tl + 12] = vl + 0;
-//		ts [tl + 13] = vl + 1;
-//		ts [tl + 14] = vl + 2;
-//
-//		ts [tl + 15] = vl + 2;
-//		ts [tl + 16] = vl + 1;
-//		ts [tl + 17] = vl + 3;
-//		//
-//		ts [tl + 18] = vl + 2;
-//		ts [tl + 19] = vl + 3;
-//		ts [tl + 20] = vl + 6;
-//
-//		ts [tl + 21] = vl + 6;
-//		ts [tl + 22] = vl + 3;
-//		ts [tl + 23] = vl + 7;
-//		//
-//		ts [tl + 24] = vl + 4;
-//		ts [tl + 25] = vl + 5;
-//		ts [tl + 26] = vl + 0;
-//
-//		ts [tl + 27] = vl + 0;
-//		ts [tl + 28] = vl + 5;
-//		ts [tl + 29] = vl + 1;
-//		//
-//		ts [tl + 30] = vl + 6;
-//		ts [tl + 31] = vl + 7;
-//		ts [tl + 32] = vl + 4;
-//
-//		ts [tl + 33] = vl + 4;
-//		ts [tl + 34] = vl + 7;
-//		ts [tl + 35] = vl + 5;
+		ts [tl + 18] = vl + 2;
+		ts [tl + 19] = vl + 3;
+		ts [tl + 20] = vl + 6;
+
+		ts [tl + 21] = vl + 6;
+		ts [tl + 22] = vl + 3;
+		ts [tl + 23] = vl + 7;
+		//
+		ts [tl + 24] = vl + 4;
+		ts [tl + 25] = vl + 5;
+		ts [tl + 26] = vl + 0;
+
+		ts [tl + 27] = vl + 0;
+		ts [tl + 28] = vl + 5;
+		ts [tl + 29] = vl + 1;
+		//
+		ts [tl + 30] = vl + 6;
+		ts [tl + 31] = vl + 7;
+		ts [tl + 32] = vl + 4;
+
+		ts [tl + 33] = vl + 4;
+		ts [tl + 34] = vl + 7;
+		ts [tl + 35] = vl + 5;
+
 		//
 		_mesh.vertices = vs;
 		_mesh.uv = uvs;
@@ -247,8 +246,8 @@ public class StickerTapeRenderer : MonoBehaviour {
 		Vector3 n;
 		if(m_drawOnThing)
 		{
-			s = s + m_surfaceNormal.normalized*0.01f;
-			e = e + m_surfaceNormal.normalized*0.01f;
+			s = s + m_surfaceNormal.normalized*(lineSize/7f); //0.01f
+			e = e + m_surfaceNormal.normalized*(lineSize/7f); //0.01f
 			n = m_surfaceNormal;
 		}
 		else
