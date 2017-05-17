@@ -39,6 +39,8 @@ public class GrabnStretch : MonoBehaviour {
 	private bool m_inSelfScalingSupportMode = false;
 	private GrabnStretch otherController;
 	private Transform player;
+	private float scaleWaitTime = 1f;
+	private float firstTouchTime;
 
 	public float PlayerScale
 	{
@@ -115,16 +117,19 @@ public class GrabnStretch : MonoBehaviour {
 			if(otherController.InSelfScalingMode)
 			{
 				m_inSelfScalingSupportMode = true;
+				m_inSelfScalingMode = false;
 			}
 			else
 			{
+				m_inSelfScalingSupportMode = false;
 				m_inSelfScalingMode = true;
 			}
-
-			if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+				
+			if(m_inSelfScalingMode)
 			{
 				originalScale = player.localScale;
 				initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
+				firstTouchTime = Time.time;
 			}
 
 			DeviceVibrate ();
@@ -163,6 +168,7 @@ public class GrabnStretch : MonoBehaviour {
 				m_inSelfScalingMode = false;
 				m_inSelfScalingSupportMode = false;
 				otherController = null;
+				firstTouchTime = 0f;
 			}
 			return;
 		}
@@ -206,10 +212,12 @@ public class GrabnStretch : MonoBehaviour {
 				else
 				{
 					m_inSelfScalingMode = true;
+					firstTouchTime = Time.time;
 				}
 			}
 
-			if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+			float threshold = firstTouchTime + scaleWaitTime;
+			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode && (Time.time > threshold) )
 			{
 				ScaleSelf (player);
 			}

@@ -19,6 +19,11 @@ public class Physicfy : MonoBehaviour {
 	}
 	public ShootType shootType = ShootType.SpringAfterHit;
 	public float shootForce = 15f;
+	private GrabnStretch grabnstretch;
+	public float RealShootForce
+	{
+		get { return shootForce * grabnstretch.PlayerScale;}
+	}
 
 	void OnEnable()
 	{
@@ -38,6 +43,7 @@ public class Physicfy : MonoBehaviour {
 	void Start()
 	{
 		wallLayer = 1 << 8;
+		grabnstretch = GetComponent<GrabnStretch> ();
 	}
 
 	private void ApplyPhysics(GameObject sticker, uint c_index)
@@ -48,6 +54,7 @@ public class Physicfy : MonoBehaviour {
 
 		tmp_interactiveObject = s_c.AddComponent<VRInteractiveObject> ();
 		tmp_interactiveObject.usePhysics = true;
+		tmp_interactiveObject.Mass = 2f * grabnstretch.PlayerScale;
 		tmp_c_index = (int)c_index;
 
 		// TODO: should it move to VRInteractiveObject??
@@ -87,7 +94,7 @@ public class Physicfy : MonoBehaviour {
 
 	void AddForwardForce(RaycastHit hit)
 	{
-		tmp_interactiveObject.Rigidbody.velocity = transform.forward*shootForce;
+		tmp_interactiveObject.Rigidbody.velocity = transform.forward*RealShootForce;
 		tmp_interactiveObject.IsShooting = true;
 	}
 

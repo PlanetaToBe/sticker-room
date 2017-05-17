@@ -84,6 +84,13 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		get { return rigidbody; }
 	}
+	private float _mass = 2f;
+
+	public float Mass
+	{
+		get { return _mass; }
+		set { _mass = value; }
+	}
 
 	///------------------------------------------------------------------
 	/// FUNCTIONSSS
@@ -99,7 +106,7 @@ public class VRInteractiveObject : MonoBehaviour {
 				Resources.Load("Materials/artPhyMat", typeof(PhysicMaterial)) as PhysicMaterial
 			) as PhysicMaterial;
 			rigidbody = gameObject.AddComponent<Rigidbody> ();
-			rigidbody.mass = 2f;
+			rigidbody.mass = Mass;
 			rigidbody.drag = 0.01f;
 			rigidbody.angularDrag = 0.05f;
 			if(GetComponent<Collider> ())
