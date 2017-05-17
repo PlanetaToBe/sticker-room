@@ -11,6 +11,12 @@ public class StickerControllerGenerator : MonoBehaviour {
 
 	private SteamVR_TrackedController controller;
 	private bool isPainting = false;
+	private GrabnStretch grabnStretch;
+
+	void Start()
+	{
+		grabnStretch = GetComponent<GrabnStretch> ();
+	}
 
 	void OnEnable()
 	{
@@ -29,6 +35,9 @@ public class StickerControllerGenerator : MonoBehaviour {
 		
 	void CreateSticker(object sender, ClickedEventArgs e)
 	{
+		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
+			return;
+		
 		GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
 
 		if (OnCreateSticker != null)
@@ -37,7 +46,10 @@ public class StickerControllerGenerator : MonoBehaviour {
 
 	void ReleaseTrigger(object sender, ClickedEventArgs e)
 	{
-		if (OnCreateSticker != null)
+		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
+			return;
+		
+		if (OnReleaseTrigger != null)
 			OnReleaseTrigger ();
 	}
 }

@@ -120,6 +120,13 @@ public class GrabnStretch : MonoBehaviour {
 			{
 				m_inSelfScalingMode = true;
 			}
+
+			if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+			{
+				originalScale = player.localScale;
+				initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
+			}
+
 			DeviceVibrate ();
 			return;
 		}
@@ -150,7 +157,16 @@ public class GrabnStretch : MonoBehaviour {
 	{
 		// ignore if it's another controller
 		if (_collider.gameObject.tag == "GameController")
+		{
+			if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
+			{
+				m_inSelfScalingMode = false;
+				m_inSelfScalingSupportMode = false;
+				otherController = null;
+			}
 			return;
+		}
+			
 
 		if (touchedObj == null)
 			return;
@@ -179,6 +195,7 @@ public class GrabnStretch : MonoBehaviour {
 	{
 		if (_collider.gameObject.tag == "GameController")
 		{
+			// just in case
 			if (!m_inSelfScalingMode && !m_inSelfScalingSupportMode)
 			{
 				otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
@@ -190,20 +207,23 @@ public class GrabnStretch : MonoBehaviour {
 				{
 					m_inSelfScalingMode = true;
 				}
-				DeviceVibrate ();
-				return;
+			}
+
+			if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+			{
+				ScaleSelf (player);
 			}
 		}
 	}
 
 	public void HandleTriggerDown(object sender, ClickedEventArgs e)
 	{
-		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
-		{
-			originalScale = player.localScale;
-			initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
-			return;
-		}
+//		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+//		{
+//			originalScale = player.localScale;
+//			initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
+//			return;
+//		}
 
 		if (touchedObj == null)
 		{
@@ -263,12 +283,12 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleTriggerUp(object sender, ClickedEventArgs e)
 	{
-		if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
-		{
-			m_inSelfScalingMode = false;
-			m_inSelfScalingSupportMode = false;
-			otherController = null;
-		}
+//		if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
+//		{
+//			m_inSelfScalingMode = false;
+//			m_inSelfScalingSupportMode = false;
+//			otherController = null;
+//		}
 
 		if (grabSomething)
 		{
@@ -283,10 +303,10 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleTriggerTouch(object sender, ClickedEventArgs e)
 	{
-		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
-		{
-			ScaleSelf (player);
-		}
+//		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
+//		{
+//			ScaleSelf (player);
+//		}
 
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.Touch(gameObject);

@@ -35,7 +35,7 @@ public class DrawManager : MonoBehaviour {
 	private int numClicks = 0;
 
 	private Vector3 past_DrawPosition;
-
+	private Vector3 past_HitPosition;
 
 	void Start()
 	{
@@ -70,6 +70,7 @@ public class DrawManager : MonoBehaviour {
 		go.AddComponent<MeshFilter> ();
 		go.AddComponent<MeshRenderer> ();
 		go.transform.position = drawPoint.transform.position;
+		go.layer = 9;
 
 		currLine = go.AddComponent<StickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();
@@ -99,14 +100,23 @@ public class DrawManager : MonoBehaviour {
 		if (currLine == null)
 			return;
 
+		Vector3 offset;
+
 		switch(drawType)
 		{
 		case DrawType.OnThing:
 			RaycastHit hit;
-			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f, finalMask)) {
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f, finalMask))
+			{
+				offset = hit.point - past_HitPosition;
+				if (offset.sqrMagnitude < DrawDistance * DrawDistance)
+					return;
+
 				currLine.SurfaceNormal = hit.normal;
 				currLine.AddPoint (hit.point, false);
-			} else {
+				past_HitPosition = hit.point;
+			}
+			else {
 				// if hit nothing, end and break the tape
 				numClicks = 0;
 				currLine = null;
@@ -115,7 +125,7 @@ public class DrawManager : MonoBehaviour {
 
 		case DrawType.InAir:
 			// if the controller is not moving, velocity near zero => return
-			Vector3 offset = drawPoint.transform.position - past_DrawPosition;
+			offset = drawPoint.transform.position - past_DrawPosition;
 			float sqrLen = offset.sqrMagnitude;
 			//Debug.Log (sqrLen);
 			if (sqrLen < DrawDistance * DrawDistance)
