@@ -7,6 +7,9 @@ public class Glove : MonoBehaviour {
 
 	public event Action<Collision> OnCollide;
 
-	//void OnCollisionEnter
-
+	void OnCollisionEnter(Collision _collision)
+	{
+		if (OnCollide != null)
+			OnCollide (_collision);
+	}
 }
