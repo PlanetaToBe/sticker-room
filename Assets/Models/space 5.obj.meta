@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 970e4d43f95573842a2e2d5f6ae68971
+timeCreated: 1495135507
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: big_floor
+    100002: ceiling
+    100004: dome
+    100006: door_frame
+    100008: east_wall
+    100010: floor_new
+    100012: north_wall
+    100014: other_wall
+    100016: oval_in_floor
+    100018: restofspace
+    100020: south_wall
+    100022: //RootNode
+    100024: walls
+    100026: west_wall
+    400000: big_floor
+    400002: ceiling
+    400004: dome
+    400006: door_frame
+    400008: east_wall
+    400010: floor_new
+    400012: north_wall
+    400014: other_wall
+    400016: oval_in_floor
+    400018: restofspace
+    400020: south_wall
+    400022: //RootNode
+    400024: walls
+    400026: west_wall
+    2300000: big_floor
+    2300002: ceiling
+    2300004: dome
+    2300006: door_frame
+    2300008: east_wall
+    2300010: floor_new
+    2300012: north_wall
+    2300014: other_wall
+    2300016: oval_in_floor
+    2300018: restofspace
+    2300020: south_wall
+    2300022: walls
+    2300024: west_wall
+    3300000: big_floor
+    3300002: ceiling
+    3300004: dome
+    3300006: door_frame
+    3300008: east_wall
+    3300010: floor_new
+    3300012: north_wall
+    3300014: other_wall
+    3300016: oval_in_floor
+    3300018: restofspace
+    3300020: south_wall
+    3300022: walls
+    3300024: west_wall
+    4300000: big_floor
+    4300002: ceiling
+    4300004: dome
+    4300006: door_frame
+    4300008: east_wall
+    4300010: floor_new
+    4300012: north_wall
+    4300014: other_wall
+    4300016: oval_in_floor
+    4300018: restofspace
+    4300020: south_wall
+    4300022: walls
+    4300024: west_wall
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
