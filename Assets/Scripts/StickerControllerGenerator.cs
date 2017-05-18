@@ -18,7 +18,7 @@ public class StickerControllerGenerator : MonoBehaviour {
 
 	public Vector3 StickerSize
 	{
-		get { return stickerSize * grabnStretch.PlayerScale;}
+		get { return stickerSize * grabnStretch.PlayerScale; }
 	}
 
 	void Start()
@@ -79,6 +79,10 @@ public class StickerControllerGenerator : MonoBehaviour {
 				OnCreateSticker (sticker, controller.controllerIndex);
 			
 			yield return new WaitForSeconds(createStickerInterval);
+
+			// cuz hosing => auto removedJoint
+			if (OnReleaseTrigger != null)
+				OnReleaseTrigger ();
 		}
 	}
 }

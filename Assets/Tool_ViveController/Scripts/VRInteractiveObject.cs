@@ -38,6 +38,8 @@ public class VRInteractiveObject : MonoBehaviour {
 	private bool useRigidbody = false;
 	private bool rigidbodyIsKinematic = false;
 
+	private PhysicMaterial artPhyMat;
+
 	public bool IsTouching
 	{
 		get { return m_IsTouching; }		// Is the controller currently over this object?
@@ -102,7 +104,7 @@ public class VRInteractiveObject : MonoBehaviour {
 		if (usePhysics && rigidbody==null)
 		{
 			// Get the material
-			PhysicMaterial artPhyMat = GameObject.Instantiate(
+			artPhyMat = GameObject.Instantiate(
 				Resources.Load("Materials/artPhyMat", typeof(PhysicMaterial)) as PhysicMaterial
 			) as PhysicMaterial;
 			rigidbody = gameObject.AddComponent<Rigidbody> ();
@@ -256,14 +258,14 @@ public class VRInteractiveObject : MonoBehaviour {
 		s_joint.enableCollision = true;
 	}
 
-	public void AddSpringJoint(Rigidbody connectBody, Vector3 anchor)
+	public void AddSpringJoint(Rigidbody connectBody, Vector3 anchor, float force)
 	{
 		var s_joint = gameObject.AddComponent<SpringJoint> ();
 		s_joint.connectedBody = connectBody;
 		s_joint.autoConfigureConnectedAnchor = false;
 		s_joint.connectedAnchor = anchor;
-		s_joint.spring = 50f;
-		s_joint.damper = 3f;
+		s_joint.spring = force;
+		s_joint.damper = force/15f;
 		s_joint.enableCollision = true;
 	}
 }

@@ -18,6 +18,7 @@ public class Sticker : MonoBehaviour {
         Vector2[] newUvs = new Vector2[startUvs.Length];
 
         float aspect = data.width / data.height;
+		aspect *= transform.localScale.y;
         transform.localScale = new Vector3(aspect, transform.localScale.y, transform.localScale.z);
 
         float size = 2048;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Physicfy : MonoBehaviour {
 
 	public GameObject stickersParent;
+	public PhysicMaterial artPhyMat;
 
 	private StickerControllerGenerator stickerGenerator;
 	private int wallLayer;
@@ -24,6 +25,8 @@ public class Physicfy : MonoBehaviour {
 	{
 		get { return shootForce * grabnstretch.PlayerScale;}
 	}
+
+	private RaycastHit springHit;
 
 	void OnEnable()
 	{
@@ -49,7 +52,13 @@ public class Physicfy : MonoBehaviour {
 	private void ApplyPhysics(GameObject sticker, uint c_index)
 	{
 		sticker.transform.SetParent (stickersParent.transform);
-		var s_c = sticker.transform.GetChild (0).gameObject;
+		//var s_c = sticker.transform.GetChild (0).gameObject;
+		GameObject s_c;
+		if (sticker.transform.childCount > 0)
+			s_c = sticker.transform.GetChild (0).gameObject;
+		else
+			s_c = sticker;
+			
 		BoxCollider b_c = s_c.AddComponent<BoxCollider> ();
 
 		tmp_interactiveObject = s_c.AddComponent<VRInteractiveObject> ();
@@ -62,6 +71,19 @@ public class Physicfy : MonoBehaviour {
 		StartCoroutine(AdjustPhysics(b_c));
 
 		ApplyFixedJoint ();
+
+		// Find the connect anchor for SPRING_RIGHT_AWAY shooting
+		switch(shootType)
+		{
+		case ShootType.SpringRightAway:
+			b_c.material = artPhyMat;
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
+			{
+				ApplySpring (hit);
+			}
+			break;
+		}
 	}
 
 	void ApplyFixedJoint()
@@ -71,21 +93,20 @@ public class Physicfy : MonoBehaviour {
 
 	void RemoveFixedJoint()
 	{
-		tmp_interactiveObject.RemoveJoint ();
+		if (tmp_interactiveObject != null)
+			tmp_interactiveObject.RemoveJoint ();
+		else
+			return;
 
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
+		switch(shootType)
 		{
-			switch(shootType)
+		case ShootType.SpringAfterHit:
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
 			{
-			case ShootType.SpringRightAway:
-				ApplySpring (hit);
-				break;
-
-			case ShootType.SpringAfterHit:
 				AddForwardForce (hit);
-				break;
 			}
+			break;
 		}
 
 		tmp_interactiveObject = null;
@@ -100,12 +121,8 @@ public class Physicfy : MonoBehaviour {
 
 	void ApplySpring(RaycastHit hit)
 	{		
-		var tmpAnchor = hit.point - hit.rigidbody.position;
-		var anchor = new Vector3 (tmpAnchor.y / hit.transform.localScale.x, 0f, tmpAnchor.z / hit.transform.localScale.z);
-		//Debug.Log (hit.point);
-		//Debug.Log (hit.rigidbody.position);
-		//Debug.Log (anchor);
-		tmp_interactiveObject.AddSpringJoint (hit.rigidbody, anchor);
+		var anchor = hit.point;
+		tmp_interactiveObject.AddSpringJoint (hit.rigidbody, anchor, 150f);
 	}
 
 	IEnumerator AdjustPhysics(BoxCollider b_collider)

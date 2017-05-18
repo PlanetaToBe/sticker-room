@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(SteamVR_TrackedController))]
 public class GrabnStretch : MonoBehaviour {
 
-	public Rigidbody wall;
 	public Rigidbody attachPoint;
 	public Transform cameraEye;
 
@@ -350,9 +349,6 @@ public class GrabnStretch : MonoBehaviour {
 		{
 			ExitStretchMode ();
 		}
-
-		if(m_CurrentInteractible && wall != null)
-			m_CurrentInteractible.AddSpringJoint (wall);
 	}
 
 	public void HandlePadUp(object sender, ClickedEventArgs e)

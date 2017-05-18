@@ -14,6 +14,7 @@ public class DrawManager : MonoBehaviour {
 	public float minDrawDistance = 0.07f;
 	public int textureHorizontalCount = 1;
 	public int textureVerticalCount = 1;
+	public Transform allStickerTapesParent;
 
 	public float DrawDistance
 	{
@@ -70,7 +71,8 @@ public class DrawManager : MonoBehaviour {
 		go.AddComponent<MeshFilter> ();
 		go.AddComponent<MeshRenderer> ();
 		go.transform.position = drawPoint.transform.position;
-		go.layer = 9;
+		go.transform.parent = allStickerTapesParent;
+		go.tag = "Sticker";
 
 		currLine = go.AddComponent<StickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();

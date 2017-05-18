@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4584344204157598}
   - component: {fileID: 33263711654022172}
   - component: {fileID: 23451194577702094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: north_wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 23195902749569394}
   - component: {fileID: 64086140897106596}
   - component: {fileID: 54050298524238038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: south_wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 23047419216578274}
   - component: {fileID: 65117204914860216}
   - component: {fileID: 54855347818331744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,9 +128,9 @@ GameObject:
   - component: {fileID: 23246421446962740}
   - component: {fileID: 64840972337125072}
   - component: {fileID: 54330202701111930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: west_wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,9 +179,9 @@ GameObject:
   - component: {fileID: 23916667202163712}
   - component: {fileID: 65487426505801974}
   - component: {fileID: 54659000710087254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: east_wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
