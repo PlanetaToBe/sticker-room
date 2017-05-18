@@ -41,12 +41,12 @@ public class Eraser : MonoBehaviour {
 		gloveScript.gameObject.SetActive (false);
 	}
 
-	public void OnGloveCollide(Collision _collision)
+	public void OnGloveCollide(Collider _col)
 	{
-		if(_collision.gameObject.tag == "Sticker")
+		if(_col.gameObject.tag == "Sticker")
 		{
 			if(showGlove)
-				Destroy (_collision.gameObject);
+				Destroy (_col.gameObject);
 		}
 	}
 }

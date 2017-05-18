@@ -5,11 +5,11 @@ using System;
 
 public class Glove : MonoBehaviour {
 
-	public event Action<Collision> OnCollide;
+	public event Action<Collider> OnCollide;
 
-	void OnCollisionEnter(Collision _collision)
+	void OnTriggerEnter(Collider _col)
 	{
 		if (OnCollide != null)
-			OnCollide (_collision);
+			OnCollide (_col);
 	}
 }
