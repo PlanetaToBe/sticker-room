@@ -4,38 +4,45 @@ using UnityEngine;
 
 public class CreatureMovment : MonoBehaviour {
 
+	[Header("Vive Reference")]
 	public Transform CameraEye;
 	public Transform CameraRig;
 	public Transform Controller_R;
-	public Transform Controller_R1;
-	public Transform Controller_R2;
 	public Transform Controller_L;
 
+	[Header("Creature Reference")]
 	public Transform pivot;
 	public Transform spine;
 	public Transform arm_R;
 	public Transform arm_L;
+	public float RotationSpeed=1f;
 
 	void Update()
 	{
 		if(CameraEye.gameObject.activeSelf)
 		{
+			Vector3 pivotPos = CameraEye.localPosition;
+			pivotPos.y = 0f;
+			pivot.localPosition = pivotPos;
+
+			Vector3 spinePos = CameraEye.localPosition;
+			spinePos.x = spinePos.z = 0f;
+			spine.localPosition = spinePos;
+
 			pivot.localEulerAngles = new Vector3 (0f, CameraEye.eulerAngles.y, 0f);
 
 			if(Controller_R.gameObject.activeSelf)
 			{
-				Vector3 relativePos = Controller_R.localPosition + Controller_R1.position - CameraEye.localPosition;
-				Vector3 relativePos2 = Controller_R.localPosition + Controller_R2.position - CameraEye.localPosition;
-				Vector3 normal = Vector3.Cross (relativePos, relativePos2);
-				Quaternion rotation = Quaternion.LookRotation(relativePos, normal);
-				arm_R.localRotation = rotation;
+				Vector3 relativePos = (Controller_R.localPosition - CameraEye.localPosition).normalized;
+				Quaternion lookRotation = Quaternion.LookRotation(relativePos);
+				arm_R.rotation = Quaternion.Slerp(arm_R.rotation, lookRotation, Time.deltaTime * RotationSpeed);
 			}
 
 			if(Controller_L.gameObject.activeSelf)
 			{
-				Vector3 relativePos = Controller_L.position - CameraEye.position;
-				Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-				arm_L.rotation = rotation;
+				Vector3 relativePos = (Controller_L.localPosition - CameraEye.localPosition).normalized;
+				Quaternion lookRotation = Quaternion.LookRotation(relativePos); //, Vector3.up
+				arm_L.rotation = Quaternion.Slerp(arm_L.rotation, lookRotation, Time.deltaTime * RotationSpeed);
 			}
 		}
 	}
