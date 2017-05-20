@@ -38,6 +38,9 @@ public class DrawManager : MonoBehaviour {
 	private Vector3 past_DrawPosition;
 	private Vector3 past_HitPosition;
 
+	public StickerTool myTool;
+	private bool inUse;
+
 	void Start()
 	{
 		wallLayer = 1 << 8;
@@ -56,6 +59,9 @@ public class DrawManager : MonoBehaviour {
 		controller.PadClicked += OnDown;
 		controller.PadTouching += OnTouch;
 		controller.PadUnclicked += OnUp;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
 
 	void OnDisable()
@@ -63,10 +69,29 @@ public class DrawManager : MonoBehaviour {
 		controller.PadClicked -= OnDown;
 		controller.PadTouching -= OnTouch;
 		controller.PadUnclicked -= OnUp;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus -= OnToolStatusChange;
+	}
+
+	private void OnToolStatusChange(bool _inUse, int toolIndex)
+	{
+		inUse = _inUse;
+
+		if(inUse)
+		{
+			if(toolIndex==1)
+				drawType = DrawType.OnThing;
+			else
+				drawType = DrawType.InAir;
+		}
 	}
 
 	private void OnDown(object sender, ClickedEventArgs e)
 	{
+		if (!inUse)
+			return;
+		
 		GameObject go = new GameObject ();
 		go.AddComponent<MeshFilter> ();
 		go.AddComponent<MeshRenderer> ();
@@ -99,7 +124,7 @@ public class DrawManager : MonoBehaviour {
 
 	private void OnTouch(object sender, ClickedEventArgs e)
 	{
-		if (currLine == null)
+		if (!inUse || currLine == null)
 			return;
 
 		Vector3 offset;
@@ -143,7 +168,7 @@ public class DrawManager : MonoBehaviour {
 
 	private void OnUp(object sender, ClickedEventArgs e)
 	{
-		if(currLine!=null)
+		if(inUse && currLine!=null)
 			currLine.gameObject.AddComponent<MeshCollider> ();
 
 		numClicks = 0;

@@ -12,10 +12,15 @@ public class ToolHub : MonoBehaviour {
 	public float rotDegreePerStep = 5f;
 
 	private bool isTouching = false;
-	private List<GameObject> tools = new List<GameObject> ();
+	private List<GameObject> toolObjects = new List<GameObject> ();
 	private Vector2 pastTouchpadAxis;
+	private float pastTouchValue;
 	private List<float> toolRotateZones = new List<float> ();
 	private int toolLayer;
+	public int currToolInUse;
+	private List<StickerTool> stickerTools = new List<StickerTool> ();
+	private bool touchStop = true;
+	private StickerTool currStickerTool;
 
 	//============================================================
 	//============================================================
@@ -25,8 +30,13 @@ public class ToolHub : MonoBehaviour {
 		for(int i=0; i<transform.childCount; i++)
 		{
 			var _t = transform.GetChild (i).gameObject;
-			tools.Add (_t);
+			toolObjects.Add (_t);
 			toolRotateZones.Add (eachR*i);
+
+			var s_t = _t.GetComponent<StickerTool> ();
+			s_t.ToolIndex = i;
+			s_t.IdealAngle = eachR * i;
+			stickerTools.Add (s_t);
 		}
 
 		toolLayer = 1 << 10;
@@ -34,16 +44,38 @@ public class ToolHub : MonoBehaviour {
 
 	void OnEnable()
 	{
-		controller.PadTouched += OnTouch;
-		controller.PadUntouched += OnTouch;
-		controller.PadTouching += OnTouching;
+		if (controller != null)
+		{
+			controller.PadTouched += OnTouch;
+			controller.PadUntouched += OnTouchOut;
+			controller.PadTouching += OnTouching;
+		}
 	}
 
 	void OnDisalbe()
 	{
-		controller.PadTouched -= OnTouch;
-		controller.PadUntouched -= OnTouch;
-		controller.PadTouching -= OnTouching;
+		if (controller != null)
+		{
+			controller.PadTouched -= OnTouch;
+			controller.PadUntouched -= OnTouchOut;
+			controller.PadTouching -= OnTouching;
+		}
+	}
+
+	void Update()
+	{
+		if(controller==null)
+		{
+			float moveHorizontal = Input.GetAxis ("Mouse X");
+			ToolSwiping (moveHorizontal);
+
+			if (moveHorizontal == 0 && !touchStop) {
+				touchStop = true;
+				OnTouchStop ();
+			} else if (moveHorizontal != 0 && touchStop) {
+				touchStop = false;
+			}
+		}
 	}
 
 	//============================================================
@@ -53,6 +85,17 @@ public class ToolHub : MonoBehaviour {
 		isTouching = true;
 		pastTouchpadAxis = GetTouchpadAxis ();
 		DeviceVibrate ();
+	}
+
+	public void OnTouchStop ()
+	{
+		// snap to the closest tool
+		if (currStickerTool != null)
+		{
+			currStickerTool.TurnToIdealAngle(transform.localEulerAngles.z);
+		}
+			
+		// enable the function
 	}
 
 	public void OnTouchOut (object sender, ClickedEventArgs e)
@@ -75,12 +118,12 @@ public class ToolHub : MonoBehaviour {
 			if(dist>0)
 			{
 				// swipe right
-				transform.Rotate(Vector3.forward * rotDegreePerStep);
+				transform.Rotate(transform.forward * rotDegreePerStep);
 			}
 			else
 			{
 				// swipe left
-				transform.Rotate(-Vector3.forward * rotDegreePerStep);
+				transform.Rotate(-transform.forward * rotDegreePerStep);
 			}
 			pastTouchpadAxis = currTouchpadAxis;
 			DeviceVibrate ();
@@ -89,22 +132,67 @@ public class ToolHub : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, transform.up, out hit, 5f, toolLayer))
 			{
-				if(hit.transform.localScale.x < 0.12f)
+				var s_t = hit.transform.gameObject.GetComponent<StickerTool> ();
+				if(!s_t.inUse)
 				{
-					int hitIndex;
-					int.TryParse(hit.transform.gameObject.name, out hitIndex);
-					hit.transform.localScale *= 2;
+					s_t.EnableTool ();
 
-					for(int i=0; i<tools.Count; i++)
+					for(int i=0; i<stickerTools.Count; i++)
 					{
-						if (i != hitIndex) {
-							tools [i].transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+						if (i != s_t.ToolIndex && stickerTools[i].inUse)
+						{
+							stickerTools [i].DisableTool ();
 						}
 					}
 				}
 			}
 		}
 		// if not, then wait until it's accumulated to 0.2f
+	}
+
+	void ToolSwiping(float currTouchValue)
+	{
+//		float dist = currTouchValue - pastTouchValue;
+		if( Mathf.Abs(currTouchValue) > 0.15f )
+		{
+			if(currTouchValue>0)
+			{
+				// swipe right
+				transform.Rotate(transform.forward * rotDegreePerStep);
+			}
+			else
+			{
+				// swipe left
+				transform.Rotate(-transform.forward * rotDegreePerStep);
+			}
+			pastTouchValue = currTouchValue;
+//			DeviceVibrate ();
+
+//			float fullRotation = (transform.localEulerAngles.z + 360f) % 360f;
+
+			// Raycasting to detect which tool to show up
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.parent.up, out hit, 5f, toolLayer))
+			{
+				var s_t = hit.transform.gameObject.GetComponent<StickerTool> ();
+				if(!s_t.inUse)
+				{					
+					// disable
+					for(int i=0; i<stickerTools.Count; i++)
+					{
+						if (i != s_t.ToolIndex && stickerTools[i].inUse)
+						{
+							stickerTools [i].DisableTool ();
+						}
+					}
+
+					// enable
+					s_t.EnableTool ();
+					currStickerTool = s_t;
+					currToolInUse = s_t.ToolIndex;
+				}
+			}
+		}
 	}
 
 	//===========================================================================

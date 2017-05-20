@@ -1,0 +1,58 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class StickerTool : MonoBehaviour {
+
+	private int _toolIndex;
+	public int ToolIndex
+	{
+		get { return _toolIndex; }
+		set { _toolIndex = value; }
+	}
+	public bool inUse = false;
+	public float sizeChangeSpeed = 0.1f;
+	public event Action<bool, int> OnChangeToolStatus;
+
+	public float _angle;
+	public float IdealAngle
+	{
+		get { return _angle; }
+		set { _angle = value; }
+	}
+
+	private Vector3 oriSize = new Vector3(0.12f,0.12f,0.12f);
+	private Vector3 smallSize = new Vector3(0.02f,0.02f,0.02f);
+
+	public void EnableTool()
+	{
+		LeanTween.scale(transform.gameObject, oriSize, sizeChangeSpeed);
+		inUse = true;
+
+		if (OnChangeToolStatus != null)
+			OnChangeToolStatus (inUse, ToolIndex);
+	}
+
+	public void DisableTool()
+	{
+		LeanTween.scale(gameObject, smallSize, sizeChangeSpeed);
+		inUse = false;
+
+		if (OnChangeToolStatus != null)
+			OnChangeToolStatus (inUse, ToolIndex);
+	}
+
+	public void TurnToIdealAngle(float currAngle)
+	{
+		if (!inUse)
+			return;
+		
+		float angleToTurn = IdealAngle - currAngle;
+		if(angleToTurn>200f || angleToTurn<-200f)
+			angleToTurn = 360f - currAngle;
+		Debug.Log ("currAngle: " + currAngle + ", IdealAngle: " + IdealAngle + ", angleToTurn: " + angleToTurn);
+
+		LeanTween.rotateAround ( transform.parent.gameObject, transform.parent.forward, angleToTurn, sizeChangeSpeed*2 );
+	}
+}
