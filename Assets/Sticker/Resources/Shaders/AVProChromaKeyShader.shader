@@ -81,11 +81,11 @@ Shader "Video/AVProChromaKeyShader"
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv.xy = TRANSFORM_TEX(v.uv, _MainTex);
 
-#if STEREO_TOP_BOTTOM | STEREO_LEFT_RIGHT
-				float4 scaleOffset = GetStereoScaleOffset(IsStereoEyeLeft(_cameraPosition, UNITY_MATRIX_V[0].xyz));
-				o.uv.xy *= scaleOffset.xy;
-				o.uv.xy += scaleOffset.zw;
-#endif
+//#if STEREO_TOP_BOTTOM | STEREO_LEFT_RIGHT
+//				float4 scaleOffset = GetStereoScaleOffset(IsStereoEyeLeft(_cameraPosition, UNITY_MATRIX_V[0].xyz));
+//				o.uv.xy *= scaleOffset.xy;
+//				o.uv.xy += scaleOffset.zw;
+//#endif
 
 #if UNITY_VERSION >= 500
 				UNITY_TRANSFER_FOG(o, o.vertex);
