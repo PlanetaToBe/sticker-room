@@ -28,6 +28,9 @@ public class GrabnStretch : MonoBehaviour {
 	private Vector3 m_TriggerUpPosition;
 	private float m_LastUpTime;
 
+	public StickerTool myTool;
+	private bool inUse;
+
 	//--- Scale Self ---
 	//----------------------
 	// SCALE_CameraRig_Parent => Player
@@ -75,6 +78,9 @@ public class GrabnStretch : MonoBehaviour {
 
 		controller.PadClicked += HandlePadDown;
 		controller.PadUnclicked += HandlePadUp;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
 
 	void OnDisable()
@@ -85,6 +91,9 @@ public class GrabnStretch : MonoBehaviour {
 
 		controller.PadClicked -= HandlePadDown;
 		controller.PadUnclicked -= HandlePadUp;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus -= OnToolStatusChange;
 	}
 	
 	void Start ()
@@ -107,9 +116,16 @@ public class GrabnStretch : MonoBehaviour {
 		HandleStay (_collider);
 	}
 
+	private void OnToolStatusChange(bool _inUse, int toolIndex)
+	{
+		inUse = _inUse;
+
+		if (!inUse)
+			Reset ();
+	}
+
 	public void HandleOver(Collider _collider)
 	{
-		// ignore if it's another controller
 		if (_collider.gameObject.tag == "GameController")
 		{
 			otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
@@ -135,6 +151,9 @@ public class GrabnStretch : MonoBehaviour {
 			return;
 		}
 
+		if (!inUse)
+			return;
+		
 		// ignore if in self-stretching mode
 		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
 			return;
@@ -159,7 +178,6 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleOut(Collider _collider)
 	{
-		// ignore if it's another controller
 		if (_collider.gameObject.tag == "GameController")
 		{
 			if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
@@ -172,7 +190,9 @@ public class GrabnStretch : MonoBehaviour {
 			return;
 		}
 			
-
+		if (!inUse)
+			return;
+		
 		if (touchedObj == null)
 			return;
 
@@ -232,7 +252,7 @@ public class GrabnStretch : MonoBehaviour {
 //			return;
 //		}
 
-		if (touchedObj == null)
+		if (touchedObj == null || !inUse)
 		{
 			return;			// not possible but just double check
 		}
@@ -297,6 +317,9 @@ public class GrabnStretch : MonoBehaviour {
 //			otherController = null;
 //		}
 
+		if (!inUse)
+			return;
+
 		if (grabSomething)
 		{
 			ExitGrabMode (true);	
@@ -314,6 +337,9 @@ public class GrabnStretch : MonoBehaviour {
 //		{
 //			ScaleSelf (player);
 //		}
+
+		if (!inUse)
+			return;
 
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.Touch(gameObject);
@@ -336,6 +362,9 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandlePadDown(object sender, ClickedEventArgs e)
 	{
+		if (!inUse)
+			return;
+		
 		if(m_CurrentInteractible)
 			m_CurrentInteractible.PadDown (gameObject);
 
@@ -438,7 +467,7 @@ public class GrabnStretch : MonoBehaviour {
 						
 		inStretchMode = false;
 		stretchObj = null;
-		DeviceVibrate();
+		//DeviceVibrate();
 		//Debug.Log ("m_CurrentInteractible.IsGrabbing: " + m_CurrentInteractible.IsGrabbing + ", " + gameObject.name + " exit Stretch Mode");
 	}
 
@@ -487,7 +516,20 @@ public class GrabnStretch : MonoBehaviour {
 
 		//m_CurrentInteractible.Up (gameObject);
 		grabSomething = false;
-		DeviceVibrate();
+		//DeviceVibrate();
+	}
+
+	private void Reset()
+	{
+		if (grabSomething)
+			ExitGrabMode (false);
+
+		if (inStretchMode)
+			ExitStretchMode ();
+
+		m_CurrentInteractible.StopTouching (gameObject);
+		m_CurrentInteractible = null;
+		touchedObj = null;
 	}
 
 	public void DeviceVibrate()

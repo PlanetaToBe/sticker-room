@@ -34,6 +34,7 @@ public class VRInteractiveObject : MonoBehaviour {
 	protected bool m_IsGrabbing = false;
 	protected bool m_IsTouching = false;
 	private bool m_IsShooting = false;
+	private bool m_IsSpringing = false;
 
 	private bool useRigidbody = false;
 	private bool rigidbodyIsKinematic = false;
@@ -54,6 +55,12 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		get { return m_IsShooting; }
 		set { m_IsShooting = value; }
+	}
+
+	public bool IsSpringing
+	{
+		get { return m_IsSpringing; }
+		set { m_IsSpringing = value; }
 	}
 
 	public Vector3 GrabbedPos
@@ -119,7 +126,6 @@ public class VRInteractiveObject : MonoBehaviour {
 			{
 				GetComponentInChildren<Collider> ().material = artPhyMat;
 			}
-
 		}
 
 		if (rigidbody)
@@ -129,16 +135,42 @@ public class VRInteractiveObject : MonoBehaviour {
 			if (rigidbody.isKinematic)
 				rigidbodyIsKinematic = true;
 		}
-			
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if( m_IsShooting && collision.collider.CompareTag("Wall") )
+		if (collision.collider.CompareTag("Wall"))
 		{
-			AddSpring (collision.rigidbody);
-			m_IsShooting = false;
+			if (m_IsShooting)
+			{
+				//v.1
+				// AddSpring (collision.rigidbody);
+
+				//v.2
+				RemoveRigidbody();
+				usePhysics = false;
+				m_IsShooting = false;
+				// Invoke ("RemoveRigidbody", 3f);
+			}
+			else if (m_IsSpringing)
+			{
+				Invoke ("RemoveSpring", 3f);
+			}
 		}
+	}
+
+	void RemoveSpring()
+	{
+		var s_joint = GetComponent<SpringJoint> ();
+		Destroy (s_joint);
+		Destroy (Rigidbody);
+	}
+
+	void RemoveRigidbody()
+	{
+		Destroy (Rigidbody);
+		var b_c = GetComponent<BoxCollider> ();
+		b_c.material = null;
 	}
 
 	#region Controller Events
@@ -234,7 +266,6 @@ public class VRInteractiveObject : MonoBehaviour {
 		}
 		grabJoint =  gameObject.AddComponent<FixedJoint> ();
 		grabJoint.connectedBody = connectBody;
-			
 	}
 
 	public void AddSpring(Rigidbody connectBody)

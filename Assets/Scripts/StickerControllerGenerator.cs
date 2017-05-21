@@ -16,6 +16,9 @@ public class StickerControllerGenerator : MonoBehaviour {
 	private Vector3 stickerSize;
 	private bool doHosing = false;
 
+	public StickerTool myTool;
+	private bool inUse;
+
 	public Vector3 StickerSize
 	{
 		get { return stickerSize * grabnStretch.PlayerScale; }
@@ -34,16 +37,30 @@ public class StickerControllerGenerator : MonoBehaviour {
 		
 		controller.TriggerClicked += CreateSticker;
 		controller.TriggerUnclicked += ReleaseTrigger;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
 
 	void OnDisable()
 	{
 		controller.TriggerClicked -= CreateSticker;
 		controller.TriggerUnclicked -= ReleaseTrigger;
+
+		if(myTool!=null)
+			myTool.OnChangeToolStatus -= OnToolStatusChange;
 	}
-		
+
+	private void OnToolStatusChange(bool _inUse, int toolIndex)
+	{
+		inUse = _inUse;
+	}
+
 	void CreateSticker(object sender, ClickedEventArgs e)
 	{
+		if(!inUse)
+			return;
+		
 		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
 			return;
 
@@ -59,6 +76,9 @@ public class StickerControllerGenerator : MonoBehaviour {
 
 	void ReleaseTrigger(object sender, ClickedEventArgs e)
 	{
+		if(!inUse)
+			return;
+		
 		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
 			return;
 
@@ -72,6 +92,7 @@ public class StickerControllerGenerator : MonoBehaviour {
 	{
 		while (doHosing)
 		{
+			// TODO: rotate with controller's transform.forward
 			GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
 			sticker.transform.localScale = StickerSize;
 			sticker.tag = "Sticker";

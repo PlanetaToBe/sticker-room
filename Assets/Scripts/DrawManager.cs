@@ -168,8 +168,12 @@ public class DrawManager : MonoBehaviour {
 
 	private void OnUp(object sender, ClickedEventArgs e)
 	{
-		if(inUse && currLine!=null)
+		if (inUse && currLine != null)
+		{
 			currLine.gameObject.AddComponent<MeshCollider> ();
+			currLine.gameObject.AddComponent<VRInteractiveObject> ();
+		}
+			
 
 		numClicks = 0;
 		currLine = null;

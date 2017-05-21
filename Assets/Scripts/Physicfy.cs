@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Physicfy.
+/// 1. Spring Right Away
+/// 	=> Trigger down to generate => Add fixed joint + spring joint => Trigger up to remove fixed joint
+/// 	=> After 3 sec of hitting wall, remove Rigidbody and spring joint
+/// 2. Spring After Hit (Hosing)
+/// 	=> Trigger to generate => Out with forward force => Hit wall or floor
+/// </summary>
 public class Physicfy : MonoBehaviour {
 
 	public GameObject stickersParent;
@@ -18,7 +26,8 @@ public class Physicfy : MonoBehaviour {
 		SpringRightAway,
 		SpringAfterHit
 	}
-	public ShootType shootType = ShootType.SpringAfterHit;
+	public ShootType shootType = ShootType.SpringAfterHit;	// as hosing, snap if hit the wall, stack up if hit the floor
+
 	public float shootForce = 15f;
 	private GrabnStretch grabnstretch;
 	public float RealShootForce
@@ -49,10 +58,11 @@ public class Physicfy : MonoBehaviour {
 		grabnstretch = GetComponent<GrabnStretch> ();
 	}
 
-	private void ApplyPhysics(GameObject sticker, uint c_index)
+	private void ApplyPhysics (GameObject sticker, uint c_index)
 	{
+		// Replacing stickers
 		sticker.transform.SetParent (stickersParent.transform);
-		//var s_c = sticker.transform.GetChild (0).gameObject;
+
 		GameObject s_c;
 		if (sticker.transform.childCount > 0)
 			s_c = sticker.transform.GetChild (0).gameObject;
@@ -64,24 +74,31 @@ public class Physicfy : MonoBehaviour {
 		tmp_interactiveObject = s_c.AddComponent<VRInteractiveObject> ();
 		tmp_interactiveObject.usePhysics = true;
 		tmp_interactiveObject.Mass = 2f * grabnstretch.PlayerScale;
-		tmp_c_index = (int)c_index;
+		tmp_c_index = (int) c_index;
 
-		// TODO: should it move to VRInteractiveObject??
-		// add collider to sticker
-		StartCoroutine(AdjustPhysics(b_c));
-
-		ApplyFixedJoint ();
+		// adjust collider thickness
+		StartCoroutine (AdjustPhysics(b_c));
 
 		// Find the connect anchor for SPRING_RIGHT_AWAY shooting
+		RaycastHit hit;
+		b_c.material = artPhyMat;
+
 		switch(shootType)
 		{
 		case ShootType.SpringRightAway:
-			b_c.material = artPhyMat;
-			RaycastHit hit;
+
+			ApplyFixedJoint ();
+
 			if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
 			{
-				ApplySpring (hit);
+				tmp_interactiveObject.AddSpringJoint (hit.rigidbody, hit.point, 150f);
 			}
+			break;
+		
+		case ShootType.SpringAfterHit:
+			//Add Forward Force
+			tmp_interactiveObject.Rigidbody.velocity = transform.forward * RealShootForce;
+			tmp_interactiveObject.IsShooting = true;
 			break;
 		}
 	}
@@ -93,53 +110,26 @@ public class Physicfy : MonoBehaviour {
 
 	void RemoveFixedJoint()
 	{
-		if (tmp_interactiveObject != null)
-			tmp_interactiveObject.RemoveJoint ();
-		else
+		if (tmp_interactiveObject == null)
 			return;
 
 		switch(shootType)
 		{
-		case ShootType.SpringAfterHit:
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, wallLayer))
-			{
-				AddForwardForce (hit);
-			}
+		case ShootType.SpringRightAway:
+			tmp_interactiveObject.RemoveJoint ();
 			break;
 		}
-
 		tmp_interactiveObject = null;
 		tmp_c_index = -1;
 	}
 
-	void AddForwardForce(RaycastHit hit)
-	{
-		tmp_interactiveObject.Rigidbody.velocity = transform.forward*RealShootForce;
-		tmp_interactiveObject.IsShooting = true;
-	}
-
-	void ApplySpring(RaycastHit hit)
-	{		
-		var anchor = hit.point;
-		tmp_interactiveObject.AddSpringJoint (hit.rigidbody, anchor, 150f);
-	}
-
 	IEnumerator AdjustPhysics(BoxCollider b_collider)
 	{
-		yield return 0;
-		b_collider.size = new Vector3 (b_collider.size.x, b_collider.size.y+0.0005f, b_collider.size.z);
-	}
-
-	IEnumerator ApplyForce(VRInteractiveObject _inter, uint c_index)
-	{
+		// wait for one frame to get updated collider
 		yield return 0;
 
-		var device = GetDevice ((int)c_index);
-		Debug.Log (device.velocity);
-		_inter.Rigidbody.velocity = device.velocity;
-		_inter.Rigidbody.angularVelocity = device.angularVelocity;
-		_inter.Rigidbody.maxAngularVelocity = _inter.Rigidbody.angularVelocity.magnitude;
+		// TODO: y*1.01f
+		b_collider.size = new Vector3 (b_collider.size.x, b_collider.size.y + 0.0005f, b_collider.size.z);
 	}
 
 	SteamVR_Controller.Device GetDevice(int _index)
