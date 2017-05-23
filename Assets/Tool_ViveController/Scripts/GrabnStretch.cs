@@ -527,7 +527,8 @@ public class GrabnStretch : MonoBehaviour {
 		if (inStretchMode)
 			ExitStretchMode ();
 
-		m_CurrentInteractible.StopTouching (gameObject);
+		if(m_CurrentInteractible)
+			m_CurrentInteractible.StopTouching (gameObject);
 		m_CurrentInteractible = null;
 		touchedObj = null;
 	}

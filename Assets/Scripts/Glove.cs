@@ -1,15 +1,24 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Glove : MonoBehaviour {
+public class Glove : Tool {
 
-	public event Action<Collider> OnCollide;
+	private Animator animator;
 
-	void OnTriggerEnter(Collider _col)
+	void Start()
 	{
-		if (OnCollide != null)
-			OnCollide (_col);
+		animator = GetComponent<Animator> ();
+	}
+
+	public void OnDown()
+	{
+		animator.SetTrigger ("Down");
+	}
+
+	public void OnUp()
+	{
+		animator.SetTrigger ("Up");
 	}
 }

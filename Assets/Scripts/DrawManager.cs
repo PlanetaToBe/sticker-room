@@ -38,7 +38,7 @@ public class DrawManager : MonoBehaviour {
 	private Vector3 past_DrawPosition;
 	private Vector3 past_HitPosition;
 
-	public StickerTool myTool;
+	public StickerTool[] myTools;
 	private bool inUse;
 
 	void Start()
@@ -56,22 +56,30 @@ public class DrawManager : MonoBehaviour {
 			controller = GetComponent<SteamVR_TrackedController> ();
 		}
 
-		controller.PadClicked += OnDown;
-		controller.PadTouching += OnTouch;
-		controller.PadUnclicked += OnUp;
+		controller.TriggerClicked += OnDown;
+		controller.TriggerDowning += OnTouch;
+		controller.TriggerUnclicked += OnUp;
 
-		if(myTool!=null)
-			myTool.OnChangeToolStatus += OnToolStatusChange;
+		if (myTools.Length != 0) {
+			for(int i=0; i<myTools.Length; i++)
+			{
+				myTools[i].OnChangeToolStatus += OnToolStatusChange;
+			}
+		}			
 	}
 
 	void OnDisable()
 	{
-		controller.PadClicked -= OnDown;
-		controller.PadTouching -= OnTouch;
-		controller.PadUnclicked -= OnUp;
+		controller.TriggerClicked -= OnDown;
+		controller.TriggerDowning -= OnTouch;
+		controller.TriggerUnclicked -= OnUp;
 
-		if(myTool!=null)
-			myTool.OnChangeToolStatus -= OnToolStatusChange;
+		if (myTools.Length != 0) {
+			for(int i=0; i<myTools.Length; i++)
+			{
+				myTools[i].OnChangeToolStatus -= OnToolStatusChange;
+			}
+		}	
 	}
 
 	private void OnToolStatusChange(bool _inUse, int toolIndex)

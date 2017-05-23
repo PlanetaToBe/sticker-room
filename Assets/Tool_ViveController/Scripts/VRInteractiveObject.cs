@@ -27,7 +27,7 @@ public class VRInteractiveObject : MonoBehaviour {
 	public Vector3 grabbedPoint;
 
 	private Rigidbody grabber;
-	private Rigidbody rigidbody;
+	private Rigidbody m_rigidbody;
 	private List<GameObject> touchingObjects = new List<GameObject>();
 	private FixedJoint grabJoint;
 
@@ -89,9 +89,14 @@ public class VRInteractiveObject : MonoBehaviour {
 		get { return useRigidbody; }
 	}
 
-	public Rigidbody Rigidbody
+	public Rigidbody TheRigidbody
 	{
-		get { return rigidbody; }
+		get { 
+			if (m_rigidbody == null) {
+				m_rigidbody = GetComponent<Rigidbody> ();
+			}
+			return m_rigidbody;
+		}
 	}
 	private float _mass = 2f;
 
@@ -106,18 +111,18 @@ public class VRInteractiveObject : MonoBehaviour {
 	///------------------------------------------------------------------
 	// void Awake???
 	void Start() {
-		rigidbody = GetComponent<Rigidbody> ();
+		m_rigidbody = GetComponent<Rigidbody> ();
 
-		if (usePhysics && rigidbody==null)
+		if (usePhysics && m_rigidbody==null)
 		{
 			// Get the material
 			artPhyMat = GameObject.Instantiate(
 				Resources.Load("Materials/artPhyMat", typeof(PhysicMaterial)) as PhysicMaterial
 			) as PhysicMaterial;
-			rigidbody = gameObject.AddComponent<Rigidbody> ();
-			rigidbody.mass = Mass;
-			rigidbody.drag = 0.01f;
-			rigidbody.angularDrag = 0.05f;
+			m_rigidbody = gameObject.AddComponent<Rigidbody> ();
+			m_rigidbody.mass = Mass;
+			m_rigidbody.drag = 0.01f;
+			m_rigidbody.angularDrag = 0.05f;
 			if(GetComponent<Collider> ())
 			{
 				GetComponent<Collider> ().material = artPhyMat;
@@ -128,11 +133,11 @@ public class VRInteractiveObject : MonoBehaviour {
 			}
 		}
 
-		if (rigidbody)
+		if (m_rigidbody)
 		{
 			useRigidbody = true;
 
-			if (rigidbody.isKinematic)
+			if (m_rigidbody.isKinematic)
 				rigidbodyIsKinematic = true;
 		}
 	}
@@ -149,6 +154,7 @@ public class VRInteractiveObject : MonoBehaviour {
 				//v.2
 				RemoveRigidbody();
 				usePhysics = false;
+				useRigidbody = false;
 				m_IsShooting = false;
 				// Invoke ("RemoveRigidbody", 3f);
 			}
@@ -163,12 +169,12 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		var s_joint = GetComponent<SpringJoint> ();
 		Destroy (s_joint);
-		Destroy (Rigidbody);
+		Destroy (TheRigidbody);
 	}
 
 	void RemoveRigidbody()
 	{
-		Destroy (Rigidbody);
+		Destroy (TheRigidbody);
 		var b_c = GetComponent<BoxCollider> ();
 		b_c.material = null;
 	}

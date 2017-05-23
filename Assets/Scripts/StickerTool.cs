@@ -21,9 +21,14 @@ public class StickerTool : MonoBehaviour {
 		get { return _angle; }
 		set { _angle = value; }
 	}
-
+	private ToolHub toolHub;
 	private Vector3 oriSize = new Vector3(0.12f,0.12f,0.12f);
 	private Vector3 smallSize = new Vector3(0.02f,0.02f,0.02f);
+
+	void Start()
+	{
+		toolHub = GetComponentInParent<ToolHub> ();
+	}
 
 	public void EnableTool()
 	{
@@ -51,8 +56,9 @@ public class StickerTool : MonoBehaviour {
 		float angleToTurn = IdealAngle - currAngle;
 		if(angleToTurn>200f || angleToTurn<-200f)
 			angleToTurn = 360f - currAngle;
-		Debug.Log ("currAngle: " + currAngle + ", IdealAngle: " + IdealAngle + ", angleToTurn: " + angleToTurn);
+		//Debug.Log ("currAngle: " + currAngle + ", IdealAngle: " + IdealAngle + ", angleToTurn: " + angleToTurn);
 
-		LeanTween.rotateAround ( transform.parent.gameObject, transform.parent.forward, angleToTurn, sizeChangeSpeed*2 );
+		//LeanTween.rotateAround ( transform.parent.gameObject, transform.parent.forward, angleToTurn, sizeChangeSpeed*2 );
+		toolHub.SnapToAngle(angleToTurn, sizeChangeSpeed*2);
 	}
 }

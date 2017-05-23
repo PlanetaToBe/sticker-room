@@ -5,12 +5,13 @@ using UnityEngine;
 public class Eraser : MonoBehaviour {
 
 	//public GameObject glove;
-	public Glove gloveScript;
+	public Remover removerScript;
 	private SteamVR_TrackedController controller;
 	private bool showGlove = false;
 
 	public StickerTool myTool;
 	private bool inUse;
+	private GameObject objectToRemove;
 
 	void OnEnable()
 	{
@@ -18,10 +19,10 @@ public class Eraser : MonoBehaviour {
 		{
 			controller = GetComponent<SteamVR_TrackedController>();
 		}
-		controller.Gripped += HandleDown;
-		controller.Ungripped += HandleUp;
+		controller.TriggerClicked += HandleDown;
+		controller.TriggerUnclicked += HandleUp;
 
-		gloveScript.OnCollide += OnGloveCollide;
+		removerScript.OnCollide += OnRemoverCollide;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
@@ -29,10 +30,10 @@ public class Eraser : MonoBehaviour {
 
 	void OnDisable()
 	{
-		controller.Gripped -= HandleDown;
-		controller.Ungripped -= HandleUp;
+		controller.TriggerClicked -= HandleDown;
+		controller.TriggerUnclicked -= HandleUp;
 
-		gloveScript.OnCollide -= OnGloveCollide;
+		removerScript.OnCollide -= OnRemoverCollide;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
@@ -48,8 +49,11 @@ public class Eraser : MonoBehaviour {
 		if (!inUse)
 			return;
 		
-		showGlove = true;
-		gloveScript.gameObject.SetActive (true);
+//		showGlove = true;
+//		removerScript.gameObject.SetActive (true);
+
+		if (objectToRemove)
+			Destroy (objectToRemove);
 	}
 
 	public void HandleUp(object sender, ClickedEventArgs e)
@@ -57,19 +61,20 @@ public class Eraser : MonoBehaviour {
 		if (!inUse)
 			return;
 		
-		showGlove = false;
-		gloveScript.gameObject.SetActive (false);
+//		showGlove = false;
+//		removerScript.gameObject.SetActive (false);
+		objectToRemove = null;
 	}
 
-	public void OnGloveCollide(Collider _col)
+	public void OnRemoverCollide(Collider _col)
 	{
 		if (!inUse)
 			return;
-		
+
 		if(_col.gameObject.tag == "Sticker")
 		{
-			if(showGlove)
-				Destroy (_col.gameObject);
+			//Destroy (_col.gameObject);
+			objectToRemove = _col.gameObject;
 		}
 	}
 }

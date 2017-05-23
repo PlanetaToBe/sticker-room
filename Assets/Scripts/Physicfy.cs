@@ -71,9 +71,11 @@ public class Physicfy : MonoBehaviour {
 			
 		BoxCollider b_c = s_c.AddComponent<BoxCollider> ();
 
+		Rigidbody r_b = s_c.AddComponent<Rigidbody> ();
+		r_b.mass = 2f * grabnstretch.PlayerScale;
+
 		tmp_interactiveObject = s_c.AddComponent<VRInteractiveObject> ();
 		tmp_interactiveObject.usePhysics = true;
-		tmp_interactiveObject.Mass = 2f * grabnstretch.PlayerScale;
 		tmp_c_index = (int) c_index;
 
 		// adjust collider thickness
@@ -97,7 +99,7 @@ public class Physicfy : MonoBehaviour {
 		
 		case ShootType.SpringAfterHit:
 			//Add Forward Force
-			tmp_interactiveObject.Rigidbody.velocity = transform.forward * RealShootForce;
+			tmp_interactiveObject.TheRigidbody.velocity = transform.forward * RealShootForce;
 			tmp_interactiveObject.IsShooting = true;
 			break;
 		}

@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e5f6317fd633a469118990a7fac958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickerPrefab: {fileID: 1728558925074910, guid: 7d1f00622bb63624da16bee669f67dd9,
+  stickerPrefab: {fileID: 1494720135655868, guid: d30da0afaa7870b42883600822f4f335,
     type: 2}
   paintSpeed: 10
   data: []
