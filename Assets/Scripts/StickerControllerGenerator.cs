@@ -93,7 +93,8 @@ public class StickerControllerGenerator : MonoBehaviour {
 		while (doHosing)
 		{
 			// TODO: rotate with controller's transform.forward
-			GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
+			//GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
+			GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, transform.rotation) as GameObject;
 			sticker.transform.localScale = StickerSize;
 			sticker.tag = "Sticker";
 

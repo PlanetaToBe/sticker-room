@@ -29,6 +29,7 @@ public class GrabnStretch : MonoBehaviour {
 	private float m_LastUpTime;
 
 	public StickerTool myTool;
+	public Glove glove;
 	private bool inUse;
 
 	//--- Scale Self ---
@@ -76,8 +77,8 @@ public class GrabnStretch : MonoBehaviour {
 		controller.TriggerUnclicked += HandleTriggerUp;
 		controller.TriggerDowning += HandleTriggerTouch;
 
-		controller.PadClicked += HandlePadDown;
-		controller.PadUnclicked += HandlePadUp;
+//		controller.PadClicked += HandlePadDown;
+//		controller.PadUnclicked += HandlePadUp;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
@@ -89,8 +90,8 @@ public class GrabnStretch : MonoBehaviour {
 		controller.TriggerUnclicked -= HandleTriggerUp;
 		controller.TriggerDowning -= HandleTriggerTouch;
 
-		controller.PadClicked -= HandlePadDown;
-		controller.PadUnclicked -= HandlePadUp;
+//		controller.PadClicked -= HandlePadDown;
+//		controller.PadUnclicked -= HandlePadUp;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
@@ -241,6 +242,28 @@ public class GrabnStretch : MonoBehaviour {
 				ScaleSelf (player);
 			}
 		}
+
+		// double check if after triggerExit, but still try to grab but not being able to do triggerEnter
+		if (!inUse)
+			return;
+
+		// ignore if in self-stretching mode
+		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
+			return;
+
+		// ignore if already grabbing something
+		if (grabSomething || touchedObj)
+			return;
+
+		// If we hit an interactive item
+		if (_collider.gameObject.GetComponent<VRInteractiveObject> ())
+		{
+			DeviceVibrate();
+
+			touchedObj = _collider.gameObject;
+			m_CurrentInteractible = touchedObj.GetComponent<VRInteractiveObject> ();
+			m_CurrentInteractible.StartTouching (gameObject);
+		}
 	}
 
 	public void HandleTriggerDown(object sender, ClickedEventArgs e)
@@ -252,10 +275,13 @@ public class GrabnStretch : MonoBehaviour {
 //			return;
 //		}
 
-		if (touchedObj == null || !inUse)
-		{
+		if (!inUse)
+			return;
+		else
+			glove.OnDown ();
+
+		if (touchedObj == null)
 			return;			// not possible but just double check
-		}
 
 		// if haven't grab anything && not in stretch mode
 		if(!grabSomething && !inStretchMode)
@@ -319,6 +345,8 @@ public class GrabnStretch : MonoBehaviour {
 
 		if (!inUse)
 			return;
+
+		glove.OnUp ();
 
 		if (grabSomething)
 		{
@@ -531,6 +559,7 @@ public class GrabnStretch : MonoBehaviour {
 			m_CurrentInteractible.StopTouching (gameObject);
 		m_CurrentInteractible = null;
 		touchedObj = null;
+		//glove.OnUp ();
 	}
 
 	public void DeviceVibrate()

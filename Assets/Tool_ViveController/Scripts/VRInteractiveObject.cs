@@ -35,6 +35,7 @@ public class VRInteractiveObject : MonoBehaviour {
 	protected bool m_IsTouching = false;
 	private bool m_IsShooting = false;
 	private bool m_IsSpringing = false;
+	private bool m_IsHammered = false;
 
 	private bool useRigidbody = false;
 	private bool rigidbodyIsKinematic = false;
@@ -61,6 +62,12 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		get { return m_IsSpringing; }
 		set { m_IsSpringing = value; }
+	}
+
+	public bool IsHammered
+	{
+		get { return m_IsHammered; }
+		set { m_IsHammered = value; }
 	}
 
 	public Vector3 GrabbedPos
@@ -162,7 +169,21 @@ public class VRInteractiveObject : MonoBehaviour {
 			{
 				Invoke ("RemoveSpring", 3f);
 			}
+//			else if (IsHammered)
+//			{
+//				Invoke ("DoDestroy", 1f);
+//			}
 		}
+
+		if (IsHammered)
+		{
+			Invoke ("DoDestroy", 1f);
+		}
+	}
+
+	void DoDestroy()
+	{
+		Destroy (gameObject);
 	}
 
 	void RemoveSpring()
@@ -304,5 +325,15 @@ public class VRInteractiveObject : MonoBehaviour {
 		s_joint.spring = force;
 		s_joint.damper = force/15f;
 		s_joint.enableCollision = true;
+	}
+
+	public void PrepColliderForHammer()
+	{
+		MeshCollider m_c;
+		if(m_c = GetComponent<MeshCollider>())
+		{
+			m_c.convex = true;
+			//m_c.material = artPhyMat;
+		}
 	}
 }

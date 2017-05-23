@@ -178,7 +178,8 @@ public class DrawManager : MonoBehaviour {
 	{
 		if (inUse && currLine != null)
 		{
-			currLine.gameObject.AddComponent<MeshCollider> ();
+			var m_c = currLine.gameObject.AddComponent<MeshCollider> ();
+			m_c.convex = true;
 			currLine.gameObject.AddComponent<VRInteractiveObject> ();
 		}
 			
