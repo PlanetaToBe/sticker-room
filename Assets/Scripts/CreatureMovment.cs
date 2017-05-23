@@ -16,8 +16,11 @@ public class CreatureMovment : MonoBehaviour {
 	public Transform arm_R;
 	public Transform arm_L;
 	public float RotationSpeed=1f;
-
 	public float neckOffset = 0.1f;
+
+	[Header("Toolbelt Reference")]
+	public Transform toolBelt;
+
 	public Vector3 HeadPos
 	{
 		get {
@@ -50,9 +53,9 @@ public class CreatureMovment : MonoBehaviour {
 			tmpSpinePos.x = tmpSpinePos.z = 0f;
 			spine.localPosition = tmpSpinePos;
 
-//			tmpRot = CameraEye.rotation;
-//			tmpRot.y = 0f;
-//			spine.localRotation = tmpRot;
+			tmpSpinePos = spine.position;
+			tmpSpinePos.y -= 0.5f;
+			toolBelt.position = tmpSpinePos;
 
 			tmpRot = CameraEye.rotation;
 			tmpRot.x = tmpRot.z = 0f;

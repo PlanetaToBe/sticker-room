@@ -1,33 +1,49 @@
 fileFormatVersion: 2
-guid: 72ab1930578db4f54b308265252c91b8
-timeCreated: 1495076419
+guid: 7b8c6543292b3a4458a640dd5f2f1b53
+timeCreated: 1495578381
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Hand_Left
-    100004: Hand_Right
-    100006: head
-    100008: pCube2
-    100010: Pivot
-    100012: Shoulder_Left
-    100014: Shoulder_Right
-    100016: Spine
-    400000: //RootNode
-    400002: Hand_Left
-    400004: Hand_Right
-    400006: head
-    400008: pCube2
-    400010: Pivot
-    400012: Shoulder_Left
-    400014: Shoulder_Right
-    400016: Spine
-    4300000: pCube2
-    9500000: //RootNode
-    13700000: pCube2
+    100000: Belt
+    100002: Cup0
+    100004: Cup1
+    100006: Cup2
+    100008: Cup3
+    100010: Cup4
+    100012: Cup5
+    100014: //RootNode
+    400000: Belt
+    400002: Cup0
+    400004: Cup1
+    400006: Cup2
+    400008: Cup3
+    400010: Cup4
+    400012: Cup5
+    400014: //RootNode
+    2300000: Belt
+    2300002: Cup0
+    2300004: Cup1
+    2300006: Cup2
+    2300008: Cup3
+    2300010: Cup4
+    2300012: Cup5
+    3300000: Belt
+    3300002: Cup0
+    3300004: Cup1
+    3300006: Cup2
+    3300008: Cup3
+    3300010: Cup4
+    3300012: Cup5
+    4300000: Cup5
+    4300002: Cup4
+    4300004: Cup3
+    4300006: Cup2
+    4300008: Cup1
+    4300010: Cup0
+    4300012: Belt
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -68,9 +84,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 113
+    normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
@@ -90,7 +106,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
