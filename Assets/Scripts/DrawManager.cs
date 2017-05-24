@@ -116,8 +116,6 @@ public class DrawManager : MonoBehaviour {
 		currLine.TextureHorizontalCount = textureHorizontalCount;
 		currLine.TextureVerticalCount = textureVerticalCount;
 
-		past_DrawPosition = drawPoint.transform.position;
-
 		switch(drawType)
 		{
 		case DrawType.OnThing:
@@ -126,8 +124,12 @@ public class DrawManager : MonoBehaviour {
 
 		case DrawType.InAir:
 			currLine.DrawOnThing = false;
+			currLine.AddPoint (drawPoint.transform.position, false);
+			numClicks++;
 			break;
 		}
+
+		past_DrawPosition = drawPoint.transform.position;
 	}
 
 	private void OnTouch(object sender, ClickedEventArgs e)
@@ -178,11 +180,14 @@ public class DrawManager : MonoBehaviour {
 	{
 		if (inUse && currLine != null)
 		{
-			var m_c = currLine.gameObject.AddComponent<MeshCollider> ();
-			m_c.convex = true;
+			if (numClicks > 3) {
+				var m_c = currLine.gameObject.AddComponent<MeshCollider> ();
+				m_c.convex = true;
+			} else {
+				currLine.gameObject.AddComponent<BoxCollider> ();
+			}
 			currLine.gameObject.AddComponent<VRInteractiveObject> ();
 		}
-			
 
 		numClicks = 0;
 		currLine = null;

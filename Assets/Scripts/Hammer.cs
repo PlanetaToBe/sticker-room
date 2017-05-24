@@ -7,6 +7,8 @@ public class Hammer : MonoBehaviour {
 	//public GameObject glove;
 	public Tool remover;
 	public StickerTool myTool;
+	public ParticleSystem magic;
+	public ParticleSystem explosionPrefab;
 
 	private SteamVR_TrackedController controller;
 	private bool showGlove = false;
@@ -14,10 +16,16 @@ public class Hammer : MonoBehaviour {
 	private GameObject objectToRemove;
 	private bool triggerIsDown = false;
 	private VRInteractiveObject m_CurrentInteractible;
+	private GrabnStretch grabnstretch;
 
 	public SteamVR_Controller.Device Device
 	{
 		get { return SteamVR_Controller.Input ((int)controller.controllerIndex); }
+	}
+
+	void Start()
+	{
+		grabnstretch = GetComponent<GrabnStretch> ();
 	}
 
 	void OnEnable()
@@ -97,6 +105,7 @@ public class Hammer : MonoBehaviour {
 		if (_col.gameObject == objectToRemove)
 		{
 			objectToRemove = null;
+			//magic.Stop ();
 		}
 	}
 
@@ -120,12 +129,15 @@ public class Hammer : MonoBehaviour {
 				//m_CurrentInteractible.PrepColliderForHammer ();
 
 				// add forward force
-				m_CurrentInteractible.TheRigidbody.velocity = Device.velocity * 2;
-				m_CurrentInteractible.TheRigidbody.angularVelocity = Device.angularVelocity * 2;
+				m_CurrentInteractible.TheRigidbody.velocity = Device.velocity * 2.5f;
+				m_CurrentInteractible.TheRigidbody.angularVelocity = Device.angularVelocity;
 
 				// the object should self-destroy once hit something else
 				m_CurrentInteractible.IsHammered = true;
+				m_CurrentInteractible.Particles = explosionPrefab;
+				m_CurrentInteractible.TapeWidth = grabnstretch.PlayerScale;
 
+				magic.Play ();
 				DeviceVibrate ();
 			}				
 		}

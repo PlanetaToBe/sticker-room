@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: StickerSheet1Material
-  m_Shader: {fileID: 4800000, guid: 6183c7bca340feb4bb61b6f1b8d35b37, type: 3}
-  m_ShaderKeywords: STEREO_NONE
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: STEREO_NONE _ALPHATEST_ON _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
@@ -66,19 +66,19 @@ Material:
     - Stereo: 0
     - _ApplyGamma: 0
     - _BumpScale: 1
-    - _Cutoff: 0.389
+    - _Cutoff: 0.129
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Smoothing: 1
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _ThresholdSensitivity: 1
     - _UVSec: 0

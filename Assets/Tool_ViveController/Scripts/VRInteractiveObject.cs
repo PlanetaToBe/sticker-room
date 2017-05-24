@@ -37,10 +37,14 @@ public class VRInteractiveObject : MonoBehaviour {
 	private bool m_IsSpringing = false;
 	private bool m_IsHammered = false;
 
+	private bool readyToDie = false;
+	private float m_tapeWidth = 0f;
+
 	private bool useRigidbody = false;
 	private bool rigidbodyIsKinematic = false;
 
 	private PhysicMaterial artPhyMat;
+	private ParticleSystem particleEffect;
 
 	public bool IsTouching
 	{
@@ -114,6 +118,18 @@ public class VRInteractiveObject : MonoBehaviour {
 		set { _mass = value; }
 	}
 
+	public ParticleSystem Particles
+	{
+		get { return particleEffect; }
+		set { particleEffect = value; }
+	}
+
+	public float TapeWidth
+	{
+		get { return m_tapeWidth; }
+		set { m_tapeWidth = value; }
+	}
+
 	///------------------------------------------------------------------
 	/// FUNCTIONSSS
 	///------------------------------------------------------------------
@@ -178,7 +194,23 @@ public class VRInteractiveObject : MonoBehaviour {
 
 		if (IsHammered)
 		{
-			Invoke ("DoDestroy", 1f);
+			// Particle effect start
+			var i_particle = Instantiate(Particles, collision.contacts[0].point, Quaternion.identity, transform);
+
+			if (TapeWidth != 0)
+			{
+				//Mapping(float x, float in_min, float in_max, float out_min, float out_max)
+				float newSize = Mapping(TapeWidth, 0.05f, 4f, 0.2f, 4f);
+				i_particle.transform.localScale *= newSize;
+			}
+
+			i_particle.Play ();
+
+			if (!readyToDie)
+			{
+				Invoke ("DoDestroy", 1f);
+				readyToDie = true;
+			}
 		}
 	}
 
@@ -339,5 +371,10 @@ public class VRInteractiveObject : MonoBehaviour {
 			m_c.convex = true;
 			//m_c.material = artPhyMat;
 		}
+	}
+
+	public float Mapping(float x, float in_min, float in_max, float out_min, float out_max)
+	{
+		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	}
 }
