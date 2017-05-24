@@ -7,6 +7,7 @@ public class Pump : MonoBehaviour {
 
 	public Transform pointyPoint;
 	private SteamVR_TrackedController controller;
+	private Tool pumpTip;
 
 	//--- Grab n Stretch ---
 	//----------------------
@@ -53,6 +54,13 @@ public class Pump : MonoBehaviour {
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
+
+		if(pumpTip==null)
+			pumpTip = pointyPoint.GetComponent<Tool> ();
+
+		pumpTip.OnCollideEnter += HandleOver;
+		pumpTip.OnCollideStay += HandleStay;
+		pumpTip.OnCollideExit += HandleOut;
 	}
 
 	void OnDisable()
@@ -63,27 +71,32 @@ public class Pump : MonoBehaviour {
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
+
+		pumpTip.OnCollideEnter -= HandleOver;
+		pumpTip.OnCollideStay -= HandleStay;
+		pumpTip.OnCollideExit -= HandleOut;
 	}
 	
 	void Start ()
 	{
 		player = transform.parent.parent;
+
 	}
 
-	private void OnTriggerEnter(Collider _collider)
-	{
-		HandleOver (_collider);
-	}
-
-	private void OnTriggerExit(Collider _collider)
-	{
-		HandleOut (_collider);
-	}
-
-	private void OnTriggerStay(Collider _collider)
-	{
-		HandleStay (_collider);
-	}
+//	private void OnTriggerEnter(Collider _collider)
+//	{
+//		HandleOver (_collider);
+//	}
+//
+//	private void OnTriggerExit(Collider _collider)
+//	{
+//		HandleOut (_collider);
+//	}
+//
+//	private void OnTriggerStay(Collider _collider)
+//	{
+//		HandleStay (_collider);
+//	}
 
 	private void OnToolStatusChange(bool _inUse, int toolIndex)
 	{

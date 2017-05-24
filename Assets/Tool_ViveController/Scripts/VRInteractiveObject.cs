@@ -88,7 +88,8 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	public bool IsKinematic
 	{
-		get { return rigidbodyIsKinematic; }
+		get { return TheRigidbody.isKinematic; }
+		set { TheRigidbody.isKinematic = value; }
 	}
 
 	public bool HasRigidbody
@@ -195,6 +196,9 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	void RemoveRigidbody()
 	{
+		if (grabJoint)
+			RemoveJoint ();
+		
 		Destroy (TheRigidbody);
 		var b_c = GetComponent<BoxCollider> ();
 		b_c.material = null;

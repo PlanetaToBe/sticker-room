@@ -22,7 +22,7 @@ public class Eraser : MonoBehaviour {
 		controller.TriggerClicked += HandleDown;
 		controller.TriggerUnclicked += HandleUp;
 
-		removerScript.OnCollide += OnRemoverCollide;
+		removerScript.OnCollideEnter += OnRemoverCollide;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
@@ -33,7 +33,7 @@ public class Eraser : MonoBehaviour {
 		controller.TriggerClicked -= HandleDown;
 		controller.TriggerUnclicked -= HandleUp;
 
-		removerScript.OnCollide -= OnRemoverCollide;
+		removerScript.OnCollideEnter -= OnRemoverCollide;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;

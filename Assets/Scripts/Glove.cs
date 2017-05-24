@@ -5,20 +5,38 @@ using System;
 
 public class Glove : Tool {
 
-	private Animator animator;
+//	private Animator animator;
+//	public event Action<Collider> OnCollideEnter;
+//	public event Action<Collider> OnCollideExit;
+//	public event Action<Collider> OnCollideStay;
 
 	void Start()
 	{
-		animator = GetComponent<Animator> ();
+//		animator = GetComponent<Animator> ();
 	}
 
-	public void OnDown()
-	{
-		animator.SetTrigger ("Down");
-	}
+//	private void OnTriggerEnter(Collider _collider)
+//	{
+//		OnCollideEnter (_collider);
+//	}
+//
+//	private void OnTriggerExit(Collider _collider)
+//	{
+//		OnCollideExit (_collider);
+//	}
+//
+//	private void OnTriggerStay(Collider _collider)
+//	{
+//		OnCollideStay (_collider);
+//	}
 
-	public void OnUp()
-	{
-		animator.SetTrigger ("Up");
-	}
+//	public void OnDown()
+//	{
+//		animator.SetTrigger ("Down");
+//	}
+//
+//	public void OnUp()
+//	{
+//		animator.SetTrigger ("Up");
+//	}
 }

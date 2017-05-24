@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hammer : MonoBehaviour {
 
 	//public GameObject glove;
-	public Remover removerScript;
+	public Tool remover;
 	public StickerTool myTool;
 
 	private SteamVR_TrackedController controller;
@@ -28,10 +28,10 @@ public class Hammer : MonoBehaviour {
 		}
 		controller.TriggerClicked += HandleDown;
 		controller.TriggerUnclicked += HandleUp;
-		//removerScript.OnCollide += OnRemoverCollide;
 
-		removerScript.OnCollide += OnRemoverTouch;
-		removerScript.OnCollideExit += OnRemoverTouchExit;
+		remover.OnCollideEnter += OnRemoverTouch;
+		remover.OnCollideStay += OnRemoverTouch;
+		remover.OnCollideExit += OnRemoverTouchExit;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
@@ -41,10 +41,10 @@ public class Hammer : MonoBehaviour {
 	{
 		controller.TriggerClicked -= HandleDown;
 		controller.TriggerUnclicked -= HandleUp;
-		//removerScript.OnCollide -= OnRemoverCollide;
 
-		removerScript.OnCollide -= OnRemoverTouch;
-		removerScript.OnCollideExit -= OnRemoverTouchExit;
+		remover.OnCollideEnter -= OnRemoverTouch;
+		remover.OnCollideStay -= OnRemoverTouch;
+		remover.OnCollideExit -= OnRemoverTouchExit;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;

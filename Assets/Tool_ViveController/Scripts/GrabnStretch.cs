@@ -6,7 +6,6 @@ using UnityEngine;
 public class GrabnStretch : MonoBehaviour {
 
 	public Rigidbody attachPoint;
-	public Transform cameraEye;
 
 	private SteamVR_TrackedController controller;
 
@@ -29,13 +28,14 @@ public class GrabnStretch : MonoBehaviour {
 	private float m_LastUpTime;
 
 	public StickerTool myTool;
-	public Glove glove;
+	public Tool glove;
 	private bool inUse;
 
 	//--- Scale Self ---
 	//----------------------
 	// SCALE_CameraRig_Parent => Player
 	[Header("Self Scaling")]
+	public Transform cameraEye;
 	public float minSelfScale = 0.05f;
 	public float maxSelfScale = 20f;
 	private bool m_inSelfScalingMode = false;
@@ -80,6 +80,10 @@ public class GrabnStretch : MonoBehaviour {
 //		controller.PadClicked += HandlePadDown;
 //		controller.PadUnclicked += HandlePadUp;
 
+		glove.OnCollideEnter += HandleOver;
+		glove.OnCollideStay += HandleStay;
+		glove.OnCollideExit += HandleOut;
+
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
@@ -93,6 +97,10 @@ public class GrabnStretch : MonoBehaviour {
 //		controller.PadClicked -= HandlePadDown;
 //		controller.PadUnclicked -= HandlePadUp;
 
+		glove.OnCollideEnter -= HandleOver;
+		glove.OnCollideStay -= HandleStay;
+		glove.OnCollideExit -= HandleOut;
+
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
 	}
@@ -104,17 +112,17 @@ public class GrabnStretch : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider _collider)
 	{
-		HandleOver (_collider);
+		HandleSelfOver (_collider);
 	}
 
 	private void OnTriggerExit(Collider _collider)
 	{
-		HandleOut (_collider);
+		HandleSelfExit (_collider);
 	}
 
 	private void OnTriggerStay(Collider _collider)
 	{
-		HandleStay (_collider);
+		HandleSelfStay (_collider);
 	}
 
 	private void OnToolStatusChange(bool _inUse, int toolIndex)
@@ -125,7 +133,7 @@ public class GrabnStretch : MonoBehaviour {
 			Reset ();
 	}
 
-	public void HandleOver(Collider _collider)
+	public void HandleSelfOver(Collider _collider)
 	{
 		if (_collider.gameObject.tag == "GameController")
 		{
@@ -140,18 +148,63 @@ public class GrabnStretch : MonoBehaviour {
 				m_inSelfScalingSupportMode = false;
 				m_inSelfScalingMode = true;
 			}
-				
+
 			if(m_inSelfScalingMode)
 			{
 				originalScale = player.localScale;
 				initialControllersDistance = (attachPoint.position - otherController.attachPoint.position).sqrMagnitude;
 				firstTouchTime = Time.time;
 			}
-
 			DeviceVibrate ();
-			return;
 		}
+	}
 
+	public void HandleSelfStay(Collider _collider)
+	{
+		if (_collider.gameObject.tag == "GameController")
+		{
+			// just in case
+			if (!m_inSelfScalingMode && !m_inSelfScalingSupportMode)
+			{
+				otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
+				if(otherController.InSelfScalingMode)
+				{
+					m_inSelfScalingSupportMode = true;
+				}
+				else
+				{
+					m_inSelfScalingMode = true;
+					firstTouchTime = Time.time;
+				}
+			}
+
+			float threshold = firstTouchTime + scaleWaitTime;
+			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode && (Time.time > threshold) )
+			{
+				ScaleSelf (player);
+			}
+		}
+	}
+
+	public void HandleSelfExit(Collider _collider)
+	{
+		if (_collider.gameObject.tag == "GameController")
+		{
+			if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
+			{
+				m_inSelfScalingMode = false;
+				m_inSelfScalingSupportMode = false;
+				otherController = null;
+				firstTouchTime = 0f;
+			}
+		}
+	}
+
+	public void HandleOver(Collider _collider)
+	{
+		if (_collider.gameObject.tag == "GameController")
+			return;
+		
 		if (!inUse)
 			return;
 		
@@ -180,17 +233,8 @@ public class GrabnStretch : MonoBehaviour {
 	public void HandleOut(Collider _collider)
 	{
 		if (_collider.gameObject.tag == "GameController")
-		{
-			if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
-			{
-				m_inSelfScalingMode = false;
-				m_inSelfScalingSupportMode = false;
-				otherController = null;
-				firstTouchTime = 0f;
-			}
 			return;
-		}
-			
+
 		if (!inUse)
 			return;
 		
@@ -220,28 +264,7 @@ public class GrabnStretch : MonoBehaviour {
 	public void HandleStay(Collider _collider)
 	{
 		if (_collider.gameObject.tag == "GameController")
-		{
-			// just in case
-			if (!m_inSelfScalingMode && !m_inSelfScalingSupportMode)
-			{
-				otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
-				if(otherController.InSelfScalingMode)
-				{
-					m_inSelfScalingSupportMode = true;
-				}
-				else
-				{
-					m_inSelfScalingMode = true;
-					firstTouchTime = Time.time;
-				}
-			}
-
-			float threshold = firstTouchTime + scaleWaitTime;
-			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode && (Time.time > threshold) )
-			{
-				ScaleSelf (player);
-			}
-		}
+			return;
 
 		// double check if after triggerExit, but still try to grab but not being able to do triggerEnter
 		if (!inUse)
@@ -312,13 +335,16 @@ public class GrabnStretch : MonoBehaviour {
 				m_CurrentInteractible.grabbedPoint = attachPoint.position;
 
 				// Grab in PHYSICS way if has rigidbody
-				if (m_CurrentInteractible.HasRigidbody)
+				if (m_CurrentInteractible.TheRigidbody)  //if (m_CurrentInteractible.HasRigidbody)
 				{
+					Debug.Log ("to grab r_body");
 					// set the kinematic false (if it is) so can be controlled by joint
 					if (m_CurrentInteractible.IsKinematic)
 					{
-						touchedObj.GetComponent<Rigidbody> ().isKinematic = false;
+						Debug.Log ("to grab IsKinematic");
+						m_CurrentInteractible.IsKinematic = false;
 					}
+					Debug.Log ("add joint");
 					// add fixed joint
 					m_CurrentInteractible.AddJoint(attachPoint);
 				}
@@ -328,7 +354,6 @@ public class GrabnStretch : MonoBehaviour {
 				}
 
 				grabSomething = true;
-				//Debug.Log (gameObject.name + " grabs!");
 				DeviceVibrate();
 			}
 		}
