@@ -64,6 +64,9 @@ public class StickerTapeRenderer : MonoBehaviour {
 		get { return 1f / m_texture_horizontal_count; }
 	}
 
+	private StickerData s_data;
+	private float s_size = 2048;
+
 	void Start()
 	{
 		m_mesh = GetComponent<MeshFilter> ().mesh;
@@ -80,7 +83,8 @@ public class StickerTapeRenderer : MonoBehaviour {
 	{
 		if(startVec != Vector3.zero)
 		{
-			AddLine (m_mesh, MakeQuad(startVec, point, lineSize, firstQuad));
+			s_data = StickerSceneManager.instance.GetRandomSticker();
+			AddLineV2 (m_mesh, MakeQuadV2(startVec, point, lineSize, firstQuad));
 			firstQuad = false;
 		}
 		startVec = point;
@@ -216,6 +220,79 @@ public class StickerTapeRenderer : MonoBehaviour {
 //		selfObject.GetComponent<Renderer>().materials = subMaterials.ToArray();
 	}
 
+	public void AddLineV2(Mesh _mesh, Vector3[] quad)
+	{
+		//----- Verticese --------
+		//------------------------
+		int vl = _mesh.vertices.Length;
+		Vector3[] vs = _mesh.vertices;
+		vs = ResizeVertices (vs, 2*quad.Length); // expand vertices count
+
+		for(int i=0; i<2*quad.Length; i+=2)
+		{
+			vs [vl + i] = quad [i / 2];
+			var thickerQuad = quad [i / 2] - tapeNormal.normalized * (lineSize/7f);
+			vs [vl + i + 1] = quad [i / 2];//thickerQuad;
+		}
+
+		//-------- UV ------------
+		//------------------------
+		Vector2[] uvs = _mesh.uv;
+		uvs = ResizeUVs (uvs, 2*quad.Length); // expand UVs count
+
+//		int uv_vertical_index = quadCount / m_texture_horizontal_count;
+//		int uv_horizonal_index = quadCount - (uv_vertical_index * m_texture_horizontal_count);
+
+		float xMin = s_data.x / s_size;
+		float xMax = (s_data.x + s_data.width) / s_size;
+		float yMin = 1 - (s_data.y / s_size);
+		float yMax = 1 - (s_data.y + s_data.height) / s_size;
+
+//		newUvs[i] = new Vector2(
+//			xMin + startUvs[i].x * (xMax - xMin),
+//			yMin + startUvs[i].y * (yMax - yMin)
+//		);
+		uvs [vl + 0] = uvs [vl + 1] = new Vector2 (xMin, yMax);		//up   (0,1)
+		uvs [vl + 2] = uvs [vl + 3] = new Vector2 (xMax, yMax);		//one  (1,1)
+		uvs [vl + 4] = uvs [vl + 5] = new Vector2 (xMin, yMin);		//zero (0,0)
+		uvs [vl + 6] = uvs [vl + 7] = new Vector2 (xMax, yMin);		//right(1,0)
+
+		//------ Triangle --------
+		//------------------------
+		int tl = _mesh.triangles.Length;
+		int[] ts = _mesh.triangles;
+		ts = ResizeTriangles(ts, 12);
+
+		//		if(quad.Length == 2) {
+		//			vl -= 4;
+		//		}
+
+		// front-facing quad
+		ts [tl] = vl;
+		ts [tl + 1] = vl + 2;
+		ts [tl + 2] = vl + 4;
+
+		ts [tl + 3] = vl + 4;
+		ts [tl + 4] = vl + 2;
+		ts [tl + 5] = vl + 6;
+
+		// back-facing quad
+		ts [tl + 6] = vl + 3;
+		ts [tl + 7] = vl + 1;
+		ts [tl + 8] = vl + 5;
+
+		ts [tl + 9] = vl + 5;
+		ts [tl + 10] = vl + 7;
+		ts [tl + 11] = vl + 3;
+
+		//
+		_mesh.vertices = vs;
+		_mesh.uv = uvs;
+		_mesh.triangles = ts;
+		_mesh.RecalculateBounds ();
+		_mesh.RecalculateNormals ();
+	}
+
 	// start, end, line width, is_it_firstQuad?
 	public Vector3[] MakeQuad(Vector3 s, Vector3 e, float w, bool firstQuad)
 	{
@@ -278,7 +355,58 @@ public class StickerTapeRenderer : MonoBehaviour {
 
 		return q;
 	}
+		
+	public Vector3[] MakeQuadV2 (Vector3 s, Vector3 e, float w, bool firstQuad)
+	{
+		w /= 2;
 
+		Vector3[] q;
+		q = new Vector3[4];
+
+		//Vector3 n = Vector3.Cross (s, e);
+		Vector3 n;
+		if(m_drawOnThing)
+		{
+			s = s + m_surfaceNormal.normalized*(lineSize/7f); //0.01f
+			e = e + m_surfaceNormal.normalized*(lineSize/7f); //0.01f
+			n = m_surfaceNormal;
+		}
+		else
+		{
+			n = Vector3.Cross (s, e);
+		}
+
+		// be affected by parent rotation
+		if (firstQuad)
+		{
+			if(!m_drawOnThing)
+				parentsQ = drawPoint.transform.rotation;
+		}
+		n = parentsQ * n;
+		tapeNormal = n;
+
+		Vector3 l = Vector3.Cross (n, e-s);
+
+		if (l != Vector3.zero)	// prevent adding to zero when drawing stright line
+		{
+			lastGoodOrientation = l;
+		}
+		else
+		{
+			l = lastGoodOrientation;
+		}
+		l.Normalize ();
+
+		q [0] = transform.InverseTransformPoint (s + l*w); //from world space to local space
+		q [1] = transform.InverseTransformPoint (s + l*-w);
+		q [2] = transform.InverseTransformPoint (e + l*w);
+		q [3] = transform.InverseTransformPoint (e + l*-w);
+
+		quadCount++;
+
+		return q;
+	}
+		
 	private Vector3[] ResizeVertices(Vector3[] ovs, int ns)
 	{
 		Vector3[] nvs = new Vector3[ovs.Length + ns];
