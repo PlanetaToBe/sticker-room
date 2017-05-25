@@ -26,6 +26,13 @@ public class ToolHub : MonoBehaviour {
 	private float eachR;
 	private bool inRotating = false;
 
+	private bool m_enable = true;
+	public bool ToolsetEnable
+	{
+		get { return m_enable; }
+		set { m_enable = value; }
+	}
+
 	//============================================================
 	void Start()
 	{
@@ -93,6 +100,9 @@ public class ToolHub : MonoBehaviour {
 		DeviceVibrate ();
 	}
 
+	/// <summary>
+	/// Touch Stop event of Touchpad on Macbook. For testing only.
+	/// </summary>
 	public void OnTouchStop ()
 	{
 		// snap to the closest tool
@@ -106,6 +116,9 @@ public class ToolHub : MonoBehaviour {
 
 	public void OnTouchOut (object sender, ClickedEventArgs e)
 	{
+		if (!ToolsetEnable)
+			return;
+		
 		isTouching = false;
 
 		// snap to the closest tool
@@ -118,6 +131,9 @@ public class ToolHub : MonoBehaviour {
 
 	public void OnTouching (object sender, ClickedEventArgs e)
 	{
+		if (!ToolsetEnable)
+			return;
+		
 		Vector2 currTouchpadAxis = GetTouchpadAxis ();
 		//Debug.Log (currTouchpadAxis.x);
 
@@ -174,6 +190,9 @@ public class ToolHub : MonoBehaviour {
 	{
 		if (inRotating)
 			return;
+
+		if (!ToolsetEnable)
+			return;
 		
 		Vector2 currTouchpadAxis = GetTouchpadAxis ();
 		if(currTouchpadAxis.x > 0)
@@ -216,6 +235,10 @@ public class ToolHub : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Tool Swiping of Touchpad on Macbook. For testing only.
+	/// </summary>
+	/// <param name="currTouchValue">Curr touch value.</param>
 	void ToolSwiping(float currTouchValue)
 	{
 //		float dist = currTouchValue - pastTouchValue;
