@@ -17,7 +17,8 @@ public class CreatureMovment : MonoBehaviour {
 	public Transform arm_L;
 	public float RotationSpeed=10f;
 	public float neckOffset = 0.25f;
-	public float shoulderOffset = 0.156f;
+	public float shoulderOffset = 0.1f;
+	public float neckLength = 0.1f;
 
 	public Vector3 HeadPos
 	{
@@ -31,7 +32,8 @@ public class CreatureMovment : MonoBehaviour {
 	{
 		get {
 			var _pos = HeadPos;
-			_pos.x += shoulderOffset;// * PlayerSize;
+//			_pos.y -= neckLength;
+			_pos.x -= shoulderOffset;// * PlayerSize;
 			return _pos;
 		}
 	}
@@ -39,7 +41,8 @@ public class CreatureMovment : MonoBehaviour {
 	{
 		get {
 			var _pos = HeadPos;
-			_pos.x -= shoulderOffset;// * PlayerSize;
+//			_pos.y -= neckLength;
+			_pos.x += shoulderOffset;// * PlayerSize;
 			return _pos;
 		}
 	}
@@ -71,9 +74,6 @@ public class CreatureMovment : MonoBehaviour {
 			tmpSpinePos.x = tmpSpinePos.z = 0f;
 			spine.localPosition = tmpSpinePos;
 
-//			tmpSpinePos = spine.position;
-//			tmpSpinePos.y -= 0.5f;
-
 			// === Rotation ===
 			// bone
 			tmpRot = CameraEye.rotation;
@@ -84,6 +84,7 @@ public class CreatureMovment : MonoBehaviour {
 			if(Controller_R.gameObject.activeSelf)
 			{
 				Vector3 relativePos = (Controller_R.localPosition - ShoulderRightPos).normalized;
+				//Vector3 relativePos = (Controller_R.position - arm_R.position).normalized; //=>match perfectly but cover controller
 				Quaternion lookRotation = Quaternion.LookRotation(relativePos);
 				arm_R.rotation = Quaternion.Slerp(arm_R.rotation, lookRotation, Time.deltaTime * RotationSpeed);
 			}
@@ -92,6 +93,7 @@ public class CreatureMovment : MonoBehaviour {
 			if(Controller_L.gameObject.activeSelf)
 			{
 				Vector3 relativePos = (Controller_L.localPosition - ShoulderLeftPos).normalized;
+				//Vector3 relativePos = (Controller_L.position - arm_L.position).normalized; //=>match perfectly but cover controller
 				Quaternion lookRotation = Quaternion.LookRotation(relativePos); //, Vector3.up
 				arm_L.rotation = Quaternion.Slerp(arm_L.rotation, lookRotation, Time.deltaTime * RotationSpeed);
 			}

@@ -95,6 +95,9 @@ public class ToolHub : MonoBehaviour {
 	//============================================================
 	public void OnTouch (object sender, ClickedEventArgs e)
 	{
+		if (!ToolsetEnable)
+			return;
+		
 		isTouching = true;
 		pastTouchpadAxis = GetTouchpadAxis ();
 		DeviceVibrate ();
@@ -332,5 +335,21 @@ public class ToolHub : MonoBehaviour {
 		}
 
 		inRotating = false;
+	}
+
+	public void DisableAllTools()
+	{
+		for(int i=0; i<stickerTools.Count; i++)
+		{
+			stickerTools [i].DisableTool ();
+		}
+		ToolsetEnable = false;
+		currStickerTool = null;
+		currToolInUse = 0;
+	}
+
+	public void EnableAllTools()
+	{
+		ToolsetEnable = true;
 	}
 }
