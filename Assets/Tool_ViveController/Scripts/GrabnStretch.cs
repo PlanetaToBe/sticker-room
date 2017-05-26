@@ -465,11 +465,11 @@ public class GrabnStretch : MonoBehaviour {
 		if(transform.position.y > cameraEye.position.y)
 		{
 			// scale up
-			scaleFactor = 1f + 0.01f;
+			scaleFactor = 1f + 0.01f * PlayerScale;
 		}
 		else {
 			// scale down
-			scaleFactor = 1f - 0.01f;
+			scaleFactor = 1f - 0.01f * PlayerScale;
 		}
 		var endScale = target.transform.localScale * scaleFactor;
 		var idealScaleValue = Mathf.Clamp (endScale.x, minSelfScale, maxSelfScale);

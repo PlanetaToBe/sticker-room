@@ -67,19 +67,6 @@ public class Fly : MonoBehaviour {
 	{
 		if (justFinishFlying)
 		{
-			// during fall, check if new ground height change
-			RaycastHit hit;
-			if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
-			{
-				if(newGroundCollider != hit.collider)
-					newGroundCollider = hit.collider;
-				
-				newGroundHeight = hit.point.y;
-//				sphere.transform.position = hit.point;
-
-				Debug.DrawLine(player.position, hit.point);
-			}
-
 			if (player.position.y < newGroundHeight)
 			{
 				Debug.Log ("land on floor!");
@@ -92,6 +79,16 @@ public class Fly : MonoBehaviour {
 			}
 			else
 			{
+				// when falling, check if new ground height change
+				RaycastHit hit;
+				if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
+				{
+					if(newGroundCollider != hit.collider)
+						newGroundCollider = hit.collider;
+
+					newGroundHeight = hit.point.y;
+					Debug.DrawLine(player.position, hit.point);
+				}
 				player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
 			}
 		}
