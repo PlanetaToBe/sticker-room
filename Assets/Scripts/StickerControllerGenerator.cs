@@ -104,7 +104,7 @@ public class StickerControllerGenerator : MonoBehaviour {
 			//GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
 			GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, transform.rotation) as GameObject;
 			sticker.transform.localScale = StickerSize;
-			sticker.tag = "Sticker";
+			//sticker.tag = "Sticker";
 
 			if (OnCreateSticker != null)
 				OnCreateSticker (sticker, controller.controllerIndex);

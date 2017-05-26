@@ -106,6 +106,7 @@ public class DrawManager : MonoBehaviour {
 		go.transform.position = drawPoint.transform.position;
 		go.transform.parent = allStickerTapesParent;
 		go.tag = "Sticker";
+		go.layer = 11;
 
 		currLine = go.AddComponent<StickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();

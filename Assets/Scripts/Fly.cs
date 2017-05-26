@@ -16,6 +16,14 @@ public class Fly : MonoBehaviour {
 	private Transform player;
 	private Vector3 roomCenter = new Vector3 (0, 1.7f, 0);
 
+	private float newGroundHeight = 0f;
+	private Collider newGroundCollider;
+	private int wallLayer;
+	private int stickerLayer;
+	private int finalLandingMask;
+
+	public Transform pivot;
+
 	public float PlayerSize
 	{
 		get { return player.localScale.x; }
@@ -49,25 +57,60 @@ public class Fly : MonoBehaviour {
 		}
 
 		player = transform.parent;
+
+		wallLayer = 1 << 8;
+		stickerLayer = 1 << 11;
+		finalLandingMask = wallLayer | stickerLayer;
 	}
 
 	void Update()
 	{
 		if (justFinishFlying)
 		{
-			if (player.position.y<=0f)
+			// during fall, check if new ground height change
+			RaycastHit hit;
+			if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
 			{
-				//Debug.Log ("land on floor!");
-				player.position = new Vector3 (player.position.x, 0f, player.position.z);
+				if(newGroundCollider != hit.collider)
+					newGroundCollider = hit.collider;
+				
+				newGroundHeight = hit.point.y;
+//				sphere.transform.position = hit.point;
+
+				Debug.DrawLine(player.position, hit.point);
+			}
+
+			if (player.position.y < newGroundHeight)
+			{
+				Debug.Log ("land on floor!");
+				player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
 				justFinishFlying = false;
 				for(int i=0; i<toolHubs.Length; i++)
 				{
 					toolHubs [i].EnableAllTools ();
 				}
-			} else {
+			}
+			else
+			{
 				player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
 			}
 		}
+		/*
+		else if(!isFlying)
+		{
+			// during walking, check if new ground change
+			RaycastHit hit;
+			if (Physics.Raycast(player.position, Vector3.down, out hit, 50f, finalLandingMask))
+			{
+				if(newGroundCollider != hit.collider)
+				{
+					newGroundCollider = hit.collider;
+					newGroundHeight = hit.point.y;
+					justFinishFlying = true;
+				}
+			}
+		}
+		*/
 	}
 
 	private void HandlePadDown(object sender, ClickedEventArgs e)
@@ -92,6 +135,18 @@ public class Fly : MonoBehaviour {
 		if(isFlying)
 		{
 			justFinishFlying = true;
+
+			// Raycast down to see if will landing on stickers
+			RaycastHit hit;
+			if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
+			{
+				newGroundCollider = hit.collider;
+				newGroundHeight = hit.point.y;
+//				sphere.transform.position = hit.point;
+				Debug.Log ("hit something first time: " + hit.collider.name);
+
+				Debug.DrawLine(player.position, hit.point);
+			}
 		}
 		isFlying = false;
 	}
@@ -111,8 +166,8 @@ public class Fly : MonoBehaviour {
 
 	public bool IsInBounds(Vector3 pos, Vector3 center)
 	{
-		//float distToCenter = (pos - center).sqrMagnitude;
-		//Debug.Log (distToCenter);
-		return (pos-center).sqrMagnitude < (flyDistance * flyDistance);
+//		bool inRadius = (pos - center).sqrMagnitude < (flyDistance * flyDistance);
+//		bool aboveGround = pos.y >= 0;
+		return (pos - center).sqrMagnitude < (flyDistance * flyDistance) ||  pos.y >= 0;
 	}
 }
