@@ -54,6 +54,14 @@ public class StickerControllerGenerator : MonoBehaviour {
 	private void OnToolStatusChange(bool _inUse, int toolIndex)
 	{
 		inUse = _inUse;
+		// reset if not in use
+		if(!inUse)
+		{
+			doHosing = false;
+
+			if (OnReleaseTrigger != null)
+				OnReleaseTrigger ();
+		}
 	}
 
 	void CreateSticker(object sender, ClickedEventArgs e)
@@ -79,8 +87,8 @@ public class StickerControllerGenerator : MonoBehaviour {
 		if(!inUse)
 			return;
 		
-		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
-			return;
+//		if(grabnStretch.InSelfScalingMode || grabnStretch.InSelfScalingSupportMode)
+//			return;
 
 		doHosing = false;
 		

@@ -44,6 +44,7 @@ public class GrabnStretch : MonoBehaviour {
 	private Transform player;
 	private float scaleWaitTime = 1f;
 	private float firstTouchTime;
+	private bool isBusySelfScaling = false;
 
 	public float PlayerScale
 	{
@@ -181,6 +182,7 @@ public class GrabnStretch : MonoBehaviour {
 			float threshold = firstTouchTime + scaleWaitTime;
 			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode && (Time.time > threshold) )
 			{
+				isBusySelfScaling = true;
 				ScaleSelf (player);
 			}
 		}
@@ -196,6 +198,7 @@ public class GrabnStretch : MonoBehaviour {
 				m_inSelfScalingSupportMode = false;
 				otherController = null;
 				firstTouchTime = 0f;
+				isBusySelfScaling = false;
 			}
 		}
 	}
@@ -209,7 +212,8 @@ public class GrabnStretch : MonoBehaviour {
 			return;
 		
 		// ignore if in self-stretching mode
-		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
+//		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
+		if (isBusySelfScaling)
 			return;
 
 		// ignore if already grabbing something
@@ -271,7 +275,8 @@ public class GrabnStretch : MonoBehaviour {
 			return;
 
 		// ignore if in self-stretching mode
-		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
+//		if (m_inSelfScalingMode || m_inSelfScalingSupportMode)
+		if (isBusySelfScaling)
 			return;
 
 		// ignore if already grabbing something
