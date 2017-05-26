@@ -152,6 +152,7 @@ public class DrawManager : MonoBehaviour {
 				currLine.SurfaceNormal = hit.normal;
 				currLine.AddPoint (hit.point, false);
 				past_HitPosition = hit.point;
+				numClicks++;
 			}
 			else {
 				// if hit nothing, end and break the tape
@@ -169,10 +170,10 @@ public class DrawManager : MonoBehaviour {
 				return;
 			
 			currLine.AddPoint (drawPoint.transform.position, false);
+			numClicks++;
 			break;
 		}
 
-		numClicks++;
 		past_DrawPosition = drawPoint.transform.position;
 	}
 
@@ -180,7 +181,7 @@ public class DrawManager : MonoBehaviour {
 	{
 		if (inUse && currLine != null)
 		{
-			if (numClicks > 3) {
+			if (numClicks > 4) {
 				var m_c = currLine.gameObject.AddComponent<MeshCollider> ();
 				m_c.convex = true;
 			} else {
