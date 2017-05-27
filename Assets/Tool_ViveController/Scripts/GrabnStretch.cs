@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(SteamVR_TrackedController))]
 public class GrabnStretch : MonoBehaviour {
 
+	public event Action<float> OnScalingSelf;
 	public Rigidbody attachPoint;
 
 	private SteamVR_TrackedController controller;
@@ -488,6 +490,9 @@ public class GrabnStretch : MonoBehaviour {
 		target.transform.position = finalPos;
 
 		DeviceVibrate ();
+
+		if (OnScalingSelf != null)
+			OnScalingSelf (PlayerScale);
 	}
 
 	private void ScaleAroundPoint(GameObject target)

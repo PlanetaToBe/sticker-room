@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Fly : MonoBehaviour {
 
+	public enum FlyType
+	{
+		NonPhysics,
+		Physics
+	}
+	public FlyType flyType = FlyType.NonPhysics;
+
 	public float flySpeed = 0.2f;
 	public float flyDistance = 2f;
 	public ToolHub[] toolHubs;
@@ -21,6 +28,11 @@ public class Fly : MonoBehaviour {
 	private int wallLayer;
 	private int stickerLayer;
 	private int finalLandingMask;
+	public int FlyMask
+	{
+		get { return finalLandingMask; }
+	}
+	private PlayerMovement playerMovement;
 
 	public Transform pivot;
 	public Transform spine;
@@ -35,6 +47,13 @@ public class Fly : MonoBehaviour {
 	public float PlayerSize
 	{
 		get { return player.localScale.x; }
+	}
+
+	private Vector3 m_flyVector;
+	public Vector3 FlyVector
+	{
+		get { return m_flyVector; }
+		set { m_flyVector = value; }
 	}
 
 	void OnEnable()
@@ -69,61 +88,67 @@ public class Fly : MonoBehaviour {
 		wallLayer = 1 << 8;
 		stickerLayer = 1 << 11;
 		finalLandingMask = wallLayer | stickerLayer;
+
+		playerMovement = GetComponentInParent<PlayerMovement> ();
 	}
 
 	void Update()
 	{
-		if (justFinishFlying)
+		switch(flyType)
 		{
-			if (player.position.y < newGroundHeight)
+		case FlyType.NonPhysics:
+			if (justFinishFlying)
 			{
-				Debug.Log ("land on floor!");
-				player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
-				justFinishFlying = false;
-				for(int i=0; i<toolHubs.Length; i++)
+				if (player.position.y < newGroundHeight)
 				{
-					toolHubs [i].EnableAllTools ();
-				}
-			}
-			else
-			{
-				// when falling, check if new ground height change
-				RaycastHit hit;
-				if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
-				{
-					if (newGroundCollider != hit.collider)
+					Debug.Log ("land on floor!");
+					player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
+					justFinishFlying = false;
+					for(int i=0; i<toolHubs.Length; i++)
 					{
-						newGroundCollider = hit.collider;
-						Debug.Log ("hit something diff when falling: " + hit.collider.name);
-					}						
-
-					newGroundHeight = hit.point.y;
-					Debug.DrawLine(pivot.position, hit.point);
+						toolHubs [i].EnableAllTools ();
+					}
 				}
-				player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
-			}
-		}
-//		else if(!isFlying)
-//		{
-//			// during walking, check if new ground change
-//			RaycastHit hit;
-//			if (Physics.Raycast(RaycastSpot, Vector3.down, out hit, 50f, finalLandingMask))
-//			{
-//				if (newGroundCollider != hit.collider)
-//				{
-//					newGroundCollider = hit.collider;
-//					Debug.Log ("hit something diff when walking: " + hit.collider.name);
-//				}
-//				newGroundHeight = hit.point.y;
-//				Debug.DrawLine(pivot.position, hit.point);
-//			}
-//
-////			float steps = Time.deltaTime * flySpeed * 2f * PlayerSize;
-////			if (player.position.y > newGroundHeight + steps) {
-////				player.Translate (Vector3.down * steps);
-////			}
-//		}
+				else
+				{
+					// when falling, check if new ground height change
+					RaycastHit hit;
+					if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
+					{
+						if (newGroundCollider != hit.collider)
+						{
+							newGroundCollider = hit.collider;
+							Debug.Log ("hit something diff when falling: " + hit.collider.name);
+						}						
 
+						newGroundHeight = hit.point.y;
+						Debug.DrawLine(pivot.position, hit.point);
+					}
+					player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
+				}
+			}
+	//		else if(!isFlying)
+	//		{
+	//			// during walking, check if new ground change
+	//			RaycastHit hit;
+	//			if (Physics.Raycast(RaycastSpot, Vector3.down, out hit, 50f, finalLandingMask))
+	//			{
+	//				if (newGroundCollider != hit.collider)
+	//				{
+	//					newGroundCollider = hit.collider;
+	//					Debug.Log ("hit something diff when walking: " + hit.collider.name);
+	//				}
+	//				newGroundHeight = hit.point.y;
+	//				Debug.DrawLine(pivot.position, hit.point);
+	//			}
+	//
+	////			float steps = Time.deltaTime * flySpeed * 2f * PlayerSize;
+	////			if (player.position.y > newGroundHeight + steps) {
+	////				player.Translate (Vector3.down * steps);
+	////			}
+	//		}
+			break;
+		}
 	}
 
 	private void HandlePadDown(object sender, ClickedEventArgs e)
@@ -138,6 +163,16 @@ public class Fly : MonoBehaviour {
 				toolHubs [i].DisableAllTools ();
 			}
 			isFlying = true;
+
+			switch (flyType)
+			{
+			case FlyType.Physics:
+				Vector3 aveVec = (controllerTrans [0].forward + controllerTrans [1].forward) / 2f;
+				FlyVector = aveVec * Time.deltaTime * flySpeed * PlayerSize;
+				playerMovement.FlyVector = FlyVector;
+				playerMovement.IsFlying = true;
+				break;
+			}
 		}
 	}
 
@@ -147,18 +182,31 @@ public class Fly : MonoBehaviour {
 		//Debug.Log ("padDownCount: " + padDownCount);
 		if(isFlying)
 		{
-			justFinishFlying = true;
-
-			// Raycast down to see if will landing on stickers
-			RaycastHit hit;
-			if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
+			switch(flyType)
 			{
-				newGroundCollider = hit.collider;
-				newGroundHeight = hit.point.y;
-//				sphere.transform.position = hit.point;
-				Debug.Log ("hit something first time: " + hit.collider.name);
+			case FlyType.NonPhysics:
+				justFinishFlying = true;
 
-				Debug.DrawLine(pivot.position, hit.point);
+				// Raycast down to see if will landing on stickers
+				RaycastHit hit;
+				if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
+				{
+					newGroundCollider = hit.collider;
+					newGroundHeight = hit.point.y;
+					//				sphere.transform.position = hit.point;
+					Debug.Log ("hit something first time: " + hit.collider.name);
+
+					Debug.DrawLine(pivot.position, hit.point);
+				}
+				break;
+
+			case FlyType.Physics:
+				playerMovement.IsFlying = false;
+				for(int i=0; i<toolHubs.Length; i++)
+				{
+					toolHubs [i].EnableAllTools ();
+				}
+				break;
 			}
 		}
 		isFlying = false;
@@ -168,12 +216,24 @@ public class Fly : MonoBehaviour {
 	{
 		if(isFlying)
 		{
+			
 			if (IsInBounds (player.position, roomCenter))
 			{
 				Vector3 aveVec = (controllerTrans[0].forward + controllerTrans[1].forward) / 2f;
-				player.Translate (aveVec * Time.deltaTime * flySpeed * PlayerSize);
+				FlyVector = aveVec * Time.deltaTime * flySpeed * PlayerSize;
+
+				switch (flyType)
+				{
+				case FlyType.NonPhysics:
+					player.Translate (FlyVector);
+					break;
+
+				case FlyType.Physics:
+					playerMovement.FlyVector = FlyVector;
+					break;
+				}
+				//Debug.Log ("flying!");
 			}
-			//Debug.Log ("flying!");
 		}
 	}
 
