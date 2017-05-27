@@ -121,12 +121,14 @@ public class Hammer : MonoBehaviour {
 
 			if(!m_CurrentInteractible.IsHammered)
 			{
+				// if meshCollider, change to convex
+				m_CurrentInteractible.PrepColliderForHammer ();
+
 				// if no rigidbody, add one
 				if (m_CurrentInteractible.TheRigidbody==null)
 				{
 					objectToRemove.AddComponent<Rigidbody> ();
 				}
-				//m_CurrentInteractible.PrepColliderForHammer ();
 
 				// add forward force
 				m_CurrentInteractible.TheRigidbody.velocity = Device.velocity * 2.5f;

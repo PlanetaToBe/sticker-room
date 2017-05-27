@@ -23,6 +23,14 @@ public class Fly : MonoBehaviour {
 	private int finalLandingMask;
 
 	public Transform pivot;
+	public Transform spine;
+
+	public Vector3 RaycastSpot
+	{
+		get { 
+			return (spine.position - pivot.position) / 4f;
+		}
+	}
 
 	public float PlayerSize
 	{
@@ -83,31 +91,39 @@ public class Fly : MonoBehaviour {
 				RaycastHit hit;
 				if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
 				{
-					if(newGroundCollider != hit.collider)
+					if (newGroundCollider != hit.collider)
+					{
 						newGroundCollider = hit.collider;
+						Debug.Log ("hit something diff when falling: " + hit.collider.name);
+					}						
 
 					newGroundHeight = hit.point.y;
-					Debug.DrawLine(player.position, hit.point);
+					Debug.DrawLine(pivot.position, hit.point);
 				}
 				player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
 			}
 		}
-		/*
-		else if(!isFlying)
-		{
-			// during walking, check if new ground change
-			RaycastHit hit;
-			if (Physics.Raycast(player.position, Vector3.down, out hit, 50f, finalLandingMask))
-			{
-				if(newGroundCollider != hit.collider)
-				{
-					newGroundCollider = hit.collider;
-					newGroundHeight = hit.point.y;
-					justFinishFlying = true;
-				}
-			}
-		}
-		*/
+//		else if(!isFlying)
+//		{
+//			// during walking, check if new ground change
+//			RaycastHit hit;
+//			if (Physics.Raycast(RaycastSpot, Vector3.down, out hit, 50f, finalLandingMask))
+//			{
+//				if (newGroundCollider != hit.collider)
+//				{
+//					newGroundCollider = hit.collider;
+//					Debug.Log ("hit something diff when walking: " + hit.collider.name);
+//				}
+//				newGroundHeight = hit.point.y;
+//				Debug.DrawLine(pivot.position, hit.point);
+//			}
+//
+////			float steps = Time.deltaTime * flySpeed * 2f * PlayerSize;
+////			if (player.position.y > newGroundHeight + steps) {
+////				player.Translate (Vector3.down * steps);
+////			}
+//		}
+
 	}
 
 	private void HandlePadDown(object sender, ClickedEventArgs e)
@@ -142,7 +158,7 @@ public class Fly : MonoBehaviour {
 //				sphere.transform.position = hit.point;
 				Debug.Log ("hit something first time: " + hit.collider.name);
 
-				Debug.DrawLine(player.position, hit.point);
+				Debug.DrawLine(pivot.position, hit.point);
 			}
 		}
 		isFlying = false;

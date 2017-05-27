@@ -182,9 +182,9 @@ public class DrawManager : MonoBehaviour {
 	{
 		if (inUse && currLine != null)
 		{
-			if (numClicks > 4) {
+			if (numClicks > 3) {
 				var m_c = currLine.gameObject.AddComponent<MeshCollider> ();
-				m_c.convex = true;
+				//m_c.convex = true;
 			} else {
 				currLine.gameObject.AddComponent<BoxCollider> ();
 			}
