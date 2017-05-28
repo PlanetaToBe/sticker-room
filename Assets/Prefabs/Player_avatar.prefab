@@ -8838,8 +8838,8 @@ MonoBehaviour:
   controllers:
   - {fileID: 114012945405053664}
   - {fileID: 114648995958713122}
-  pivot: {fileID: 4054677066133390}
-  spine: {fileID: 4573447370284752}
+  cameraRig: {fileID: 4420311300792892}
+  cameraEye: {fileID: 4926089483843602}
 --- !u!114 &114995561408415680
 MonoBehaviour:
   m_ObjectHideFlags: 1

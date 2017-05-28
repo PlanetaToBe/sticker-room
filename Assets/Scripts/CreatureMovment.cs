@@ -87,7 +87,7 @@ public class CreatureMovment : MonoBehaviour {
 			// right arm
 			if(Controller_R.gameObject.activeSelf)
 			{
-				Vector3 relativePos = (Controller_R.localPosition - ShoulderRightPos).normalized;
+				Vector3 relativePos = (Controller_R.position - ShoulderRightPos).normalized;
 				//Vector3 relativePos = (Controller_R.position - arm_R.position).normalized; //=>match perfectly but cover controller
 				Quaternion lookRotation = Quaternion.LookRotation(relativePos);
 				arm_R.rotation = Quaternion.Slerp(arm_R.rotation, lookRotation, Time.deltaTime * RotationSpeed);
@@ -96,7 +96,7 @@ public class CreatureMovment : MonoBehaviour {
 			// left arm
 			if(Controller_L.gameObject.activeSelf)
 			{
-				Vector3 relativePos = (Controller_L.localPosition - ShoulderLeftPos).normalized;
+				Vector3 relativePos = (Controller_L.position - ShoulderLeftPos).normalized;
 				//Vector3 relativePos = (Controller_L.position - arm_L.position).normalized; //=>match perfectly but cover controller
 				Quaternion lookRotation = Quaternion.LookRotation(relativePos); //, Vector3.up
 				arm_L.rotation = Quaternion.Slerp(arm_L.rotation, lookRotation, Time.deltaTime * RotationSpeed);

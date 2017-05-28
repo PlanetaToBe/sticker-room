@@ -47,6 +47,14 @@ public class PlayerMovement : MonoBehaviour {
 		get { return m_flyVector; }
 		set { m_flyVector = value; }
 	}
+	public Vector3 RaycastPoint
+	{
+		get {
+			var r_p = cameraEye.position;
+			r_p.y = cameraRig.position.y;
+			return r_p;
+		}
+	}
 
 	private Collider landingTargetCollider;
 
@@ -65,16 +73,27 @@ public class PlayerMovement : MonoBehaviour {
 //	{
 ////		Debug.Log ("OnCollisionsStay");
 //	}
-//	void OnCollisionExit(Collision _col)
-//	{
-////		Debug.Log ("OnCollisionsExit");
-//	}
+
+	void OnCollisionExit(Collision _col)
+	{		
+		if(_col.gameObject.CompareTag("StickerFloor"))
+		{
+			_col.gameObject.tag = "Sticker";
+			_col.gameObject.layer = 11; // Sticker
+			Debug.Log ("On Collision Exit Sticker");
+
+			// check for next collider
+			CheckForLandingCollider();
+			isFalling = true;
+		}
+	}
 
 	void OnTriggerEnter(Collider _col)
 	{
 		if(isFalling && _col==landingTargetCollider)
 		{
 			p_collider.isTrigger = false;
+			isFalling = false;
 			Debug.Log ("landing!!");
 		}
 	}
@@ -112,7 +131,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	// source: https://forum.unity3d.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
-	//var result = SuperLerp (10, 100, 1, 5, 3);
 	public float SuperLerp (float x, float in_min, float in_max, float out_min, float out_max) {
 		if (x <= in_min)
 			return out_min;
@@ -124,10 +142,15 @@ public class PlayerMovement : MonoBehaviour {
 	void CheckForLandingCollider()
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(cameraEye.position, Vector3.down, out hit, 50f, flyScript.FlyMask))
+		if (Physics.Raycast(RaycastPoint, Vector3.down, out hit, 50f, flyScript.FlyMask))
 		{
 			landingTargetCollider = hit.collider;
 			Debug.Log ("will land on : " + landingTargetCollider.name);
+			if(hit.collider.gameObject.CompareTag("Sticker"))
+			{
+				hit.collider.gameObject.tag = "StickerFloor";
+				hit.collider.gameObject.layer = 9; // Thing
+			}
 		}
 	}
 }

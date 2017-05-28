@@ -163,6 +163,7 @@ public class Fly : MonoBehaviour {
 				}
 				*/
 			}
+			/*
 			else if(!isFlying)
 			{
 				// during walking, check if ground height change
@@ -182,12 +183,7 @@ public class Fly : MonoBehaviour {
 
 					player.position.Set (player.position.x, newGroundHeight, player.position.z);
 				}
-	
-	//			float steps = Time.deltaTime * flySpeed * 2f * PlayerSize;
-	//			if (player.position.y > newGroundHeight + steps) {
-	//				player.Translate (Vector3.down * steps);
-	//			}
-			}
+			}*/
 			break;
 		}
 	}
@@ -209,7 +205,7 @@ public class Fly : MonoBehaviour {
 			{
 			case FlyType.Physics:
 				Vector3 aveVec = (controllerTrans [0].forward + controllerTrans [1].forward) / 2f;
-				FlyVector = aveVec * Time.deltaTime * flySpeed * PlayerSize;
+				FlyVector = aveVec * FlyStep;
 				playerMovement.FlyVector = FlyVector;
 				playerMovement.IsFlying = true;
 				break;
