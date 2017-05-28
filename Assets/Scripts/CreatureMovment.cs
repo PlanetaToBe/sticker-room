@@ -31,18 +31,22 @@ public class CreatureMovment : MonoBehaviour {
 	public Vector3 ShoulderRightPos
 	{
 		get {
-			var _pos = HeadPos;
-//			_pos.y -= neckLength;
-			_pos.x -= shoulderOffset;// * PlayerSize;
+//			var _pos = HeadPos;
+////			_pos.y -= neckLength;
+//			_pos.x -= shoulderOffset;// * PlayerSize;
+			var _pos = arm_R.position;
+			_pos.y += shoulderOffset;
 			return _pos;
 		}
 	}
 	public Vector3 ShoulderLeftPos
 	{
 		get {
-			var _pos = HeadPos;
-//			_pos.y -= neckLength;
-			_pos.x += shoulderOffset;// * PlayerSize;
+//			var _pos = HeadPos;
+////			_pos.y -= neckLength;
+//			_pos.x += shoulderOffset;// * PlayerSize;
+			var _pos = arm_L.position;
+			_pos.y += shoulderOffset;
 			return _pos;
 		}
 	}

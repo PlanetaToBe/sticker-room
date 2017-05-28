@@ -195,6 +195,8 @@ public class VRInteractiveObject : MonoBehaviour {
 		if (IsHammered)
 		{
 			// Particle effect start
+			//v.1
+			/*
 			var i_particle = Instantiate(Particles, collision.contacts[0].point, Quaternion.identity, transform);
 
 			if (TapeWidth != 0)
@@ -205,6 +207,16 @@ public class VRInteractiveObject : MonoBehaviour {
 			}
 
 			i_particle.Play ();
+			*/
+			var emitParams = new ParticleSystem.EmitParams();
+			if (TapeWidth != 0)
+			{
+				//Mapping(float x, float in_min, float in_max, float out_min, float out_max)
+				float newSize = Mapping(TapeWidth, 0.05f, 4f, 0.01f, 0.35f);
+				emitParams.startSize = newSize;
+			}
+			emitParams.position = collision.contacts [0].point;
+			Particles.Emit(emitParams, 1);
 
 			if (!readyToDie)
 			{
