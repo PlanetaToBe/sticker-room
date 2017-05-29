@@ -574,7 +574,8 @@ public class GrabnStretch : MonoBehaviour {
 		}
 		else
 		{
-			touchedObj.transform.parent = null;
+			if (touchedObj)
+				touchedObj.transform.parent = null;
 		}
 
 		//m_CurrentInteractible.Up (gameObject);

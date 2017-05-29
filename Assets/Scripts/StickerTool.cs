@@ -58,7 +58,6 @@ public class StickerTool : MonoBehaviour {
 			angleToTurn = 360f - currAngle;
 		//Debug.Log ("currAngle: " + currAngle + ", IdealAngle: " + IdealAngle + ", angleToTurn: " + angleToTurn);
 
-		//LeanTween.rotateAround ( transform.parent.gameObject, transform.parent.forward, angleToTurn, sizeChangeSpeed*2 );
 		toolHub.SnapToAngle(angleToTurn, sizeChangeSpeed*2);
 	}
 }

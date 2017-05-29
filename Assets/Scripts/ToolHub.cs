@@ -13,11 +13,14 @@ public class ToolHub : MonoBehaviour {
 
 	private bool isTouching = false;
 	private List<GameObject> toolObjects = new List<GameObject> ();
+	private Vector2 currTouchpadAxis;
 	private Vector2 pastTouchpadAxis;
 	private float pastTouchValue;
+
 	private List<float> toolRotateZones = new List<float> ();
 	private int toolLayer;
-	public int currToolInUse;
+	public int currToolIndex = -1;
+	private int toolIndexCount = -1;
 	private List<StickerTool> stickerTools = new List<StickerTool> ();
 	private StickerTool currStickerTool;
 
@@ -50,6 +53,8 @@ public class ToolHub : MonoBehaviour {
 		}
 
 		toolLayer = 1 << 10;
+
+		CheckRaycast();
 	}
 
 	void OnEnable()
@@ -99,22 +104,8 @@ public class ToolHub : MonoBehaviour {
 			return;
 		
 		isTouching = true;
-		pastTouchpadAxis = GetTouchpadAxis ();
+		currTouchpadAxis = pastTouchpadAxis = GetTouchpadAxis ();
 		DeviceVibrate ();
-	}
-
-	/// <summary>
-	/// Touch Stop event of Touchpad on Macbook. For testing only.
-	/// </summary>
-	public void OnTouchStop ()
-	{
-		// snap to the closest tool
-		if (currStickerTool != null)
-		{
-			currStickerTool.TurnToIdealAngle(transform.localEulerAngles.z);
-		}
-			
-		// enable the function
 	}
 
 	public void OnTouchOut (object sender, ClickedEventArgs e)
@@ -136,57 +127,55 @@ public class ToolHub : MonoBehaviour {
 	{
 		if (!ToolsetEnable)
 			return;
-		
-		Vector2 currTouchpadAxis = GetTouchpadAxis ();
-		//Debug.Log (currTouchpadAxis.x);
 
+		if (inRotating)
+			return;
+		
 		//steps on X-Axis: -1~1 break down into 10 steps, each step: 0.2f
 		float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
+		float absDist = Mathf.Abs (dist);
 
-		// Wait until dist is accumulated to 0.2f
-		if( Mathf.Abs(dist) > 0.1f )
+		// Swiping
+		if (absDist > 0.4f)
 		{
-			if(dist>0)
-			{
-				// swipe right
-				//transform.Rotate(transform.forward * rotDegreePerStep);
-				transform.Rotate(-Vector3.forward * rotDegreePerStep);
+			if(dist > 0) {
+				toolIndexCount--;
+			} else {
+				toolIndexCount++;
 			}
-			else
-			{
-				// swipe left
-				//transform.Rotate(-transform.forward * rotDegreePerStep);
-				transform.Rotate(Vector3.forward * rotDegreePerStep);
-			}
-			pastTouchpadAxis = currTouchpadAxis;
+
+			if (toolIndexCount < 0)
+				toolIndexCount = stickerTools.Count - 1;
+			else if (toolIndexCount >= stickerTools.Count)
+				toolIndexCount = 0;
+			
+			SnapToTargetAngleAction(toolIndexCount, 0.3f);
+			inRotating = true;
+
+			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
 			DeviceVibrate ();
+//			Debug.Log ("swipe! : " + absDist);
+		}
+		// Wait until dist is accumulated to 0.1f
+		else if (absDist > 0.1f && absDist < 0.2f) {
+			if (dist > 0) {
+				// swipe right
+				transform.Rotate (-Vector3.forward * rotDegreePerStep);
+			} else {
+				// swipe left
+				transform.Rotate (Vector3.forward * rotDegreePerStep);
+			}
+			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
+			DeviceVibrate ();
+//			Debug.Log ("rotate! : " + absDist);
 
 			// Raycasting to detect which tool is showing up
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.parent.up, out hit, 10f, toolLayer))
-			{
-				//Debug.Log (hit.collider.name);
-
-				StickerTool s_t = hit.collider.gameObject.GetComponent<StickerTool> ();
-				if(!s_t.inUse)
-				{
-					// disable
-					for(int i=0; i<stickerTools.Count; i++)
-					{
-						if (i != s_t.ToolIndex && stickerTools[i].inUse)
-						{
-							stickerTools [i].DisableTool ();
-						}
-					}
-
-					// enable
-					s_t.EnableTool ();
-					currStickerTool = s_t;
-					currToolInUse = s_t.ToolIndex;
-				}
-			}
+			CheckRaycast();
 		}
 		// if not, then wait until it's accumulated to 0.2f
+		else {
+			currTouchpadAxis = GetTouchpadAxis ();
+		}
 	}
 
 	public void OnClick (object sender, ClickedEventArgs e)
@@ -201,41 +190,30 @@ public class ToolHub : MonoBehaviour {
 		if(currTouchpadAxis.x > 0)
 		{
 			// rotate to left
-//			transform.Rotate(Vector3.forward * eachR);
 			SnapToAngleAction(eachR, 0.3f);
 		}
 		else
 		{
 			// rotate to right
-//			transform.Rotate(-Vector3.forward * eachR);
 			SnapToAngleAction(-eachR, 0.3f);
 		}
 		inRotating = true;
 		DeviceVibrate ();
+	}
 
-		// Raycasting to detect which tool is showing up
-//		RaycastHit hit;
-//		if (Physics.Raycast(transform.position, transform.parent.up, out hit, 10f, toolLayer))
-//		{
-//			StickerTool s_t = hit.collider.gameObject.GetComponent<StickerTool> ();
-//			if(!s_t.inUse)
-//			{
-//				// disable
-//				for(int i=0; i<stickerTools.Count; i++)
-//				{
-//					if (i != s_t.ToolIndex && stickerTools[i].inUse)
-//					{
-//						stickerTools [i].DisableTool ();
-//					}
-//				}
-//
-//				// enable
-//				s_t.EnableTool ();
-//				currStickerTool = s_t;
-//				currToolInUse = s_t.ToolIndex;
-//			}
-//		}
+	//===========================================================================
+	/// <summary>
+	/// Touch Stop event of Touchpad on Macbook. For testing only.
+	/// </summary>
+	public void OnTouchStop ()
+	{
+		// snap to the closest tool
+		if (currStickerTool != null)
+		{
+			currStickerTool.TurnToIdealAngle(transform.localEulerAngles.z);
+		}
 
+		// enable the function
 	}
 
 	/// <summary>
@@ -259,7 +237,6 @@ public class ToolHub : MonoBehaviour {
 			}
 			pastTouchValue = currTouchValue;
 //			DeviceVibrate ();
-
 //			float fullRotation = (transform.localEulerAngles.z + 360f) % 360f;
 
 			// Raycasting to detect which tool to show up
@@ -277,11 +254,10 @@ public class ToolHub : MonoBehaviour {
 							stickerTools [i].DisableTool ();
 						}
 					}
-
 					// enable
 					s_t.EnableTool ();
 					currStickerTool = s_t;
-					currToolInUse = s_t.ToolIndex;
+					currToolIndex = toolIndexCount = s_t.ToolIndex;
 				}
 			}
 		}
@@ -309,6 +285,14 @@ public class ToolHub : MonoBehaviour {
 		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
 	}
 
+	public void SnapToTargetAngleAction(int targetToolIndex, float time)
+	{
+		float c_angle = (360f + transform.localEulerAngles.z) % 360f;
+		float t_angle = stickerTools [targetToolIndex].IdealAngle - c_angle;
+//		Debug.Log("c_angle: " + c_angle + ", t_angle: " + t_angle);
+		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, t_angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
+	}
+
 	void CheckRaycast()
 	{
 		// Raycasting to detect which tool is showing up
@@ -330,10 +314,9 @@ public class ToolHub : MonoBehaviour {
 				// enable
 				s_t.EnableTool ();
 				currStickerTool = s_t;
-				currToolInUse = s_t.ToolIndex;
+				currToolIndex = toolIndexCount = s_t.ToolIndex;
 			}
 		}
-
 		inRotating = false;
 	}
 
@@ -345,7 +328,7 @@ public class ToolHub : MonoBehaviour {
 		}
 		ToolsetEnable = false;
 		currStickerTool = null;
-		currToolInUse = 0;
+		currToolIndex = toolIndexCount = -1;
 	}
 
 	public void EnableAllTools()

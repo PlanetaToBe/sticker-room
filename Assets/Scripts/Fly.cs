@@ -62,7 +62,7 @@ public class Fly : MonoBehaviour {
 	}
 
 	public ParticleSystem[] particles;
-	public Vector3[] particleOriPositions;
+	private Vector3[] particleOriPositions;
 
 	void OnEnable()
 	{
