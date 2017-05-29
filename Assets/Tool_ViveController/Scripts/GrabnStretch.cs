@@ -537,6 +537,7 @@ public class GrabnStretch : MonoBehaviour {
 	private void ExitGrabMode(bool destroyImmediate)
 	{
 		//Debug.Log (gameObject.name + " exits grab!");
+		//Debug.Log ("exits grab, device velocity: " + Device.velocity.sqrMagnitude);
 
 		m_CurrentInteractible.Up (gameObject);
 
@@ -552,18 +553,8 @@ public class GrabnStretch : MonoBehaviour {
 				m_CurrentInteractible.RemoveJoint ();
 
 				// Apply force
-//				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-//				if (origin != null)
-//				{
-//					// of grabbed obj
-//					rigidbody.velocity = origin.TransformVector (device.velocity); //transform vector from local to world space
-//					rigidbody.angularVelocity = origin.TransformVector (device.angularVelocity);
-//				}
-//				else
-//				{
-					rigidbody.velocity = device.velocity;
-					rigidbody.angularVelocity = device.angularVelocity;
-//				}
+				rigidbody.velocity = device.velocity;
+				rigidbody.angularVelocity = device.angularVelocity;
 				rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
 			}
 				
@@ -575,10 +566,18 @@ public class GrabnStretch : MonoBehaviour {
 		else
 		{
 			if (touchedObj)
+			{
 				touchedObj.transform.parent = null;
+
+				if(Device.velocity.sqrMagnitude > 0.2f)
+				{
+					Rigidbody r_b = m_CurrentInteractible.AddRigidbody ();
+					r_b.velocity = Device.velocity;
+					r_b.angularVelocity = Device.angularVelocity;
+				}
+			}
 		}
 
-		//m_CurrentInteractible.Up (gameObject);
 		grabSomething = false;
 		//DeviceVibrate();
 	}

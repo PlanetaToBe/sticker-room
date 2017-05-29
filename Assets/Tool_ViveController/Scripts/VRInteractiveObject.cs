@@ -36,6 +36,7 @@ public class VRInteractiveObject : MonoBehaviour {
 	private bool m_IsShooting = false;
 	private bool m_IsSpringing = false;
 	private bool m_IsHammered = false;
+	private bool m_IsDropping = false;
 
 	private bool readyToDie = false;
 	private float m_tapeWidth = 0f;
@@ -186,10 +187,13 @@ public class VRInteractiveObject : MonoBehaviour {
 			{
 				Invoke ("RemoveSpring", 3f);
 			}
-//			else if (IsHammered)
-//			{
-//				Invoke ("DoDestroy", 1f);
-//			}
+			else if (m_IsDropping)
+			{
+				Invoke ("RemoveRigidbody", 2f);
+				usePhysics = false;
+				useRigidbody = false;
+				m_IsDropping = false;
+			}
 		}
 
 		if (IsHammered)
@@ -235,17 +239,55 @@ public class VRInteractiveObject : MonoBehaviour {
 	{
 		var s_joint = GetComponent<SpringJoint> ();
 		Destroy (s_joint);
-		Destroy (TheRigidbody);
+		Destroy (m_rigidbody);
 	}
 
 	void RemoveRigidbody()
 	{
 		if (grabJoint)
 			RemoveJoint ();
-		
-		Destroy (TheRigidbody);
+
+		m_rigidbody.isKinematic = true;
+		Destroy (m_rigidbody);
+		RemovePhyMat ();
+	}
+
+	public Rigidbody AddRigidbody()
+	{
+		AssignPhyMat ();
+
+		usePhysics = true;
+		useRigidbody = true;
+		m_IsDropping = true;
+
+		if (!m_rigidbody)
+			m_rigidbody = gameObject.AddComponent<Rigidbody> ();
+
+		return m_rigidbody;
+	}
+
+	void AssignPhyMat()
+	{
 		var b_c = GetComponent<BoxCollider> ();
-		b_c.material = null;
+		var m_c = GetComponent<MeshCollider> ();
+		if (b_c) {
+			b_c.material = artPhyMat;
+		} else {
+			m_c.convex = true;
+			m_c.material = artPhyMat;
+		}
+	}
+
+	void RemovePhyMat()
+	{
+		var b_c = GetComponent<BoxCollider> ();
+		var m_c = GetComponent<MeshCollider> ();
+		if (b_c) {
+			b_c.material = null;
+		} else {
+			m_c.material = null;
+			m_c.convex = false;
+		}
 	}
 
 	#region Controller Events
