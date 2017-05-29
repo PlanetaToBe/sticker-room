@@ -222,7 +222,12 @@ public class Fly : MonoBehaviour {
 			switch (flyType)
 			{
 			case FlyType.Physics:
-				Vector3 aveVec = (controllerTrans [0].forward + controllerTrans [1].forward) / 2f;
+				// v.1 controllers decide direction
+				//Vector3 aveVec = (controllerTrans [0].forward + controllerTrans [1].forward) / 2f;
+
+				// v.2 face decide direction
+				Vector3 aveVec = cameraEye.forward;
+
 				FlyVector = aveVec * FlyStep;
 				playerMovement.FlyVector = FlyVector;
 				playerMovement.IsFlying = true;
@@ -281,7 +286,9 @@ public class Fly : MonoBehaviour {
 		{			
 			if (IsInBounds (player.position, roomCenter))
 			{
-				Vector3 aveVec = (controllerTrans[0].forward + controllerTrans[1].forward) / 2f;
+				//Vector3 aveVec = (controllerTrans[0].forward + controllerTrans[1].forward) / 2f;
+				Vector3 aveVec = cameraEye.forward;
+
 				FlyVector = aveVec * FlyStep;
 
 				switch (flyType)
