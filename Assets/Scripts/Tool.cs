@@ -10,10 +10,12 @@ public class Tool : MonoBehaviour {
 	public event Action<Collider> OnCollideStay;
 
 	private Animator animator;
+	private ParticleSystem particle;
 
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
+		particle = GetComponent<ParticleSystem> ();
 		OnStart ();
 	}
 
@@ -42,11 +44,19 @@ public class Tool : MonoBehaviour {
 
 	public void OnDown()
 	{
-		animator.SetTrigger ("Down");
+		if(animator)
+			animator.SetTrigger ("Down");
+
+		if(particle)
+			particle.Play();
 	}
 
 	public void OnUp()
 	{
-		animator.SetTrigger ("Up");
+		if(animator)
+			animator.SetTrigger ("Up");
+
+		if(particle)
+			particle.Stop();
 	}
 }

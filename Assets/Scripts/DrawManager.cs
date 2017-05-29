@@ -39,6 +39,7 @@ public class DrawManager : MonoBehaviour {
 	private Vector3 past_HitPosition;
 
 	public StickerTool[] myTools;
+	public Tool ketchup;
 	private bool inUse;
 
 	void Start()
@@ -121,6 +122,7 @@ public class DrawManager : MonoBehaviour {
 		{
 		case DrawType.OnThing:
 			currLine.DrawOnThing = true;
+			ketchup.OnDown ();
 			break;
 
 		case DrawType.InAir:
@@ -193,6 +195,13 @@ public class DrawManager : MonoBehaviour {
 
 		numClicks = 0;
 		currLine = null;
+
+		switch (drawType)
+		{
+		case DrawType.OnThing:
+			ketchup.OnUp ();
+			break;
+		}
 	}
 
 	SteamVR_Controller.Device GetDevice(int _index)
