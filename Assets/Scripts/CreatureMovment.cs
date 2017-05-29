@@ -17,7 +17,7 @@ public class CreatureMovment : MonoBehaviour {
 	public Transform arm_L;
 	public float RotationSpeed=10f;
 	public float neckOffset = 0.25f;
-	public float shoulderOffset = 0.1f;
+	public float shoulderOffset = 0.156f;
 	public float neckLength = 0.1f;
 
 	public Vector3 HeadPos
@@ -35,7 +35,7 @@ public class CreatureMovment : MonoBehaviour {
 ////			_pos.y -= neckLength;
 //			_pos.x -= shoulderOffset;// * PlayerSize;
 			var _pos = arm_R.position;
-			_pos.y += shoulderOffset;
+			_pos.y += shoulderOffset * PlayerSize;
 			return _pos;
 		}
 	}
@@ -46,7 +46,7 @@ public class CreatureMovment : MonoBehaviour {
 ////			_pos.y -= neckLength;
 //			_pos.x += shoulderOffset;// * PlayerSize;
 			var _pos = arm_L.position;
-			_pos.y += shoulderOffset;
+			_pos.y += shoulderOffset * PlayerSize;
 			return _pos;
 		}
 	}

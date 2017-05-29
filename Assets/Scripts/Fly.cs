@@ -61,6 +61,9 @@ public class Fly : MonoBehaviour {
 		get { return Time.deltaTime * flySpeed * PlayerSize; }
 	}
 
+	public ParticleSystem[] particles;
+	public Vector3[] particleOriPositions;
+
 	void OnEnable()
 	{
 		for(int i=0; i<controllers.Length; i++)
@@ -96,6 +99,10 @@ public class Fly : MonoBehaviour {
 		finalLandingMask = wallLayer | stickerLayer | thingLayer;
 
 		playerMovement = GetComponentInParent<PlayerMovement> ();
+
+		particleOriPositions = new Vector3[particles.Length];
+		particleOriPositions [0] = particles [0].transform.localPosition;
+		particleOriPositions [1] = particles [1].transform.localPosition;
 	}
 
 	void Update()
@@ -201,6 +208,17 @@ public class Fly : MonoBehaviour {
 			}
 			isFlying = true;
 
+			for(int i=0; i<particles.Length; i++)
+			{
+				var pos = controllers [i].transform.position;
+				pos.y -= 0.156f * PlayerSize;
+				particles [i].transform.position = pos;
+				particles [i].transform.localScale *= 5f;
+				var main = particles [i].main;
+				main.loop = true;
+				particles [i].Play ();
+			}
+
 			switch (flyType)
 			{
 			case FlyType.Physics:
@@ -243,6 +261,15 @@ public class Fly : MonoBehaviour {
 					toolHubs [i].EnableAllTools ();
 				}
 				break;
+			}
+
+			for(int i=0; i<particles.Length; i++)
+			{
+				particles [i].transform.localPosition = particleOriPositions[i];
+				particles [i].transform.localScale = Vector3.one;
+				var main = particles [i].main;
+				main.loop = false;
+				particles [i].Stop ();
 			}
 		}
 		isFlying = false;
