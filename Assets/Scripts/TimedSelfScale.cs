@@ -43,8 +43,17 @@ public class TimedSelfScale : MonoBehaviour {
 
 	public void SetTargetScale(int level)
 	{
-		curr_targetScale = targetScales[level];
-		shouldBeScaling = true;
+		if(level==1)
+		{
+			// do autoscale in order to match center
+			LeanTween.scale( player.gameObject, Vector3.one, 3f );
+			LeanTween.move( player.gameObject, Vector3.zero, 3f );
+		}
+		else
+		{
+			curr_targetScale = targetScales[level];
+			shouldBeScaling = true;
+		}
 	}
 
 	public void ScaleSelfTo(Transform target, float scaleSize)
@@ -53,8 +62,8 @@ public class TimedSelfScale : MonoBehaviour {
 		float scaleFactor = 1f + 0.01f;// * PlayerScale;
 		var endScale = target.transform.localScale * scaleFactor;
 
-		if (Mathf.Approximately (target.transform.localScale.x, endScale.x))
-			return;
+//		if (Mathf.Approximately (target.transform.localScale.x, endScale.x))
+//			return;
 
 		var pivot = cameraEye.transform.position;
 		pivot.y = target.transform.position.y; // set pivot to be on the floor

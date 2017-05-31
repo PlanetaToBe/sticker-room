@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
 	public GameObject[] levels;
 	public int[] times = new int[] {0, 60, 150, 210};
 	public CanvasGroup startInto;
+	public Color startColor;
 	public SteamVR_TrackedController[] controllers;
 
 	private Dictionary<int, GameObject> levelsDict;
@@ -45,7 +46,8 @@ public class LevelManager : MonoBehaviour {
 
 	void Awake()
 	{
-		SteamVR_Fade.Start(Color.grey, 0f);
+		SteamVR_Fade.Start(Color.black, 0f);
+		SteamVR_Fade.Start(Color.clear, 3f);
 
 		levelsDict = new Dictionary<int, GameObject> ();
 		levelScriptDict = new Dictionary<int, Level> ();
@@ -87,9 +89,8 @@ public class LevelManager : MonoBehaviour {
 	{
 		for(int i=0; i<controllers.Length; i++)
 		{
-			controllers[i].PadClicked += HandlePadDown;
-			controllers[i].PadUnclicked += HandlePadUp;
-//			controllers[i].PadTouching += HandlePadTouching;
+			controllers[i].TriggerClicked += HandlePadDown;
+			controllers[i].TriggerUnclicked += HandlePadUp;
 		}
 	}
 
@@ -97,9 +98,8 @@ public class LevelManager : MonoBehaviour {
 	{
 		for(int i=0; i<controllers.Length; i++)
 		{
-			controllers[i].PadClicked -= HandlePadDown;
-			controllers[i].PadUnclicked -= HandlePadUp;
-//			controllers[i].PadTouching -= HandlePadTouching;
+			controllers[i].TriggerClicked -= HandlePadDown;
+			controllers[i].TriggerUnclicked -= HandlePadUp;
 		}
 	}
 
@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour {
 		{
 			if (currentState < times.Length-1)
 			{
-				//VisitorEnterIndex (currentState);
+				VisitorEnterIndex (currentState);
 				Debug.Log ("OnLevelStart: " + currentState);
 
 				// TODO: pause all tools
@@ -211,7 +211,7 @@ public class LevelManager : MonoBehaviour {
 			if(!levelScriptDict [loseOnIndex].onMode)
 			{
 				levelScriptDict [loseOnIndex].Activate ();
-				Debug.Log ("swap photoset level: " + loseOnIndex);
+				Debug.Log ("swap level: " + loseOnIndex);
 			}
 		}
 

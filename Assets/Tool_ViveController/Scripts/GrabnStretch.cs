@@ -224,9 +224,14 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleOver(Collider _collider)
 	{
-		if (_collider.gameObject.tag == "GameController")
+		if (_collider.CompareTag("GameController"))
 			return;
-		
+
+		if (_collider.CompareTag ("Button")) {
+			DeviceVibrate ();
+			return;
+		}
+			
 		if (!inUse)
 			return;
 		

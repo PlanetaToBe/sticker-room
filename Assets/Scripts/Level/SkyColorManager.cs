@@ -34,9 +34,9 @@ public class SkyColorManager : MonoBehaviour {
     public void SetFloor(int floorIndex)
     {
         ClearRunningTweens();
-        UpdateSkyboxColor(floorIndex);
-        //UpdateAmbientColor(floorIndex);
-
+        //UpdateSkyboxColor(floorIndex);
+        
+		UpdateAmbientColor(floorIndex);
 		UpdateDirectionLight (floorIndex);
     }
 

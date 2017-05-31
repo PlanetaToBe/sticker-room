@@ -128,8 +128,8 @@ public class ToolHub : MonoBehaviour {
 		if (!ToolsetEnable)
 			return;
 
-		if (inRotating)
-			return;
+//		if (inRotating)
+//			return;
 		
 		//steps on X-Axis: -1~1 break down into 10 steps, each step: 0.2f
 		float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
@@ -154,7 +154,7 @@ public class ToolHub : MonoBehaviour {
 
 			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
 			DeviceVibrate ();
-			Debug.Log ("swipe! : " + absDist);
+//			Debug.Log ("swipe! : " + absDist);
 		}
 		// Wait until dist is accumulated to 0.1f
 		else if (absDist > 0.1f && absDist < 0.2f) {
@@ -174,6 +174,7 @@ public class ToolHub : MonoBehaviour {
 		}
 		// if not, then wait until it's accumulated to 0.2f
 		else {
+//			Debug.Log ("else dist : " + absDist);
 			currTouchpadAxis = GetTouchpadAxis ();
 		}
 	}

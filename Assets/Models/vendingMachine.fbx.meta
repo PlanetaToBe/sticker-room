@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 2fc56611643430c4b9806de7e702c374
+timeCreated: 1496243448
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: pCube1
+    100002: pCube10
+    100004: pCube2
+    100006: pCube3
+    100008: pCube4
+    100010: pCube5
+    100012: pCube6
+    100014: pCube7
+    100016: pCube8
+    100018: pCube9
+    100020: //RootNode
+    100022: body
+    100024: box
+    100026: button_0
+    100028: button_1
+    100030: button_2
+    100032: button_3
+    100034: button_4
+    100036: button_5
+    100038: button_6
+    100040: dispenser
+    400000: pCube1
+    400002: pCube10
+    400004: pCube2
+    400006: pCube3
+    400008: pCube4
+    400010: pCube5
+    400012: pCube6
+    400014: pCube7
+    400016: pCube8
+    400018: pCube9
+    400020: //RootNode
+    400022: body
+    400024: box
+    400026: button_0
+    400028: button_1
+    400030: button_2
+    400032: button_3
+    400034: button_4
+    400036: button_5
+    400038: button_6
+    400040: dispenser
+    2300000: pCube1
+    2300002: pCube10
+    2300004: pCube2
+    2300006: pCube3
+    2300008: pCube4
+    2300010: pCube5
+    2300012: pCube6
+    2300014: pCube7
+    2300016: pCube8
+    2300018: pCube9
+    2300020: body
+    2300022: box
+    2300024: button_0
+    2300026: button_1
+    2300028: button_2
+    2300030: button_3
+    2300032: button_4
+    2300034: button_5
+    2300036: button_6
+    2300038: dispenser
+    3300000: pCube1
+    3300002: pCube10
+    3300004: pCube2
+    3300006: pCube3
+    3300008: pCube4
+    3300010: pCube5
+    3300012: pCube6
+    3300014: pCube7
+    3300016: pCube8
+    3300018: pCube9
+    3300020: body
+    3300022: box
+    3300024: button_0
+    3300026: button_1
+    3300028: button_2
+    3300030: button_3
+    3300032: button_4
+    3300034: button_5
+    3300036: button_6
+    3300038: dispenser
+    4300000: pCube10
+    4300002: pCube9
+    4300004: pCube8
+    4300006: pCube6
+    4300008: pCube5
+    4300010: pCube7
+    4300012: pCube2
+    4300014: pCube3
+    4300016: pCube1
+    4300018: pCube4
+    4300020: button_6
+    4300022: button_5
+    4300024: button_4
+    4300026: button_2
+    4300028: button_1
+    4300030: button_3
+    4300032: box
+    4300034: dispenser
+    4300036: body
+    4300038: button_0
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

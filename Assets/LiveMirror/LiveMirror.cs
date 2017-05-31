@@ -4,6 +4,8 @@ using System.Collections.Generic;
 [ExecuteInEditMode] // Make mirror live-update even when not in play mode
 public class LiveMirror : MonoBehaviour
 {
+	public Camera projectorCam;
+
     [SerializeField]
     private bool disablePixelLights = true;
     [SerializeField]
@@ -100,6 +102,9 @@ public class LiveMirror : MonoBehaviour
             RenderMirror(reflectionData.texture, cam.transform.position, cam.transform.rotation, cam.projectionMatrix, DefaultRect);
         }
 
+		if(projectorCam)
+			RenderProjector (cam.transform.position, cam.transform.rotation, cam.projectionMatrix, DefaultRect);
+
         // Apply the property block containing the appropriate reflection texture reference to this mirror's renderer
         rend.SetPropertyBlock(reflectionData.propertyBlock);
 
@@ -144,6 +149,40 @@ public class LiveMirror : MonoBehaviour
         mirrorCamera.Render();
         GL.invertCulling = oldInvertCulling;
     }
+
+	void RenderProjector(Vector3 camPosition, Quaternion camRotation, Matrix4x4 camProjectionMatrix, Rect camViewport)
+	{
+		// Copy camera position/rotation/projection data into the reflectionCamera
+		projectorCam.ResetWorldToCameraMatrix();
+		projectorCam.transform.position = camPosition;
+		projectorCam.transform.rotation = camRotation;
+		projectorCam.projectionMatrix = camProjectionMatrix;
+		projectorCam.rect = camViewport;
+
+		// find out the reflection plane: position and normal in world space
+		Vector3 pos = transform.position;
+		Vector3 normal = transform.up;
+
+		// Reflect camera around reflection plane
+		Vector4 worldSpaceClipPlane = Plane(pos, normal);
+		projectorCam.worldToCameraMatrix *= CalculateReflectionMatrix(worldSpaceClipPlane);
+
+		// Setup oblique projection matrix so that near plane is our reflection
+		// plane. This way we clip everything behind it for free.
+		Vector4 cameraSpaceClipPlane = CameraSpacePlane(projectorCam, pos, normal);
+		projectorCam.projectionMatrix = projectorCam.CalculateObliqueMatrix(cameraSpaceClipPlane);
+
+		// Set camera position and rotation (even though it will be ignored by the render pass because we
+		// have explicitly set the worldToCameraMatrix). We do this because some render effects may rely 
+		// on the position/rotation of the camera.
+		projectorCam.transform.position = projectorCam.cameraToWorldMatrix.GetPosition();
+		projectorCam.transform.rotation = projectorCam.cameraToWorldMatrix.GetRotation();
+
+		bool oldInvertCulling = GL.invertCulling;
+		GL.invertCulling = !oldInvertCulling;
+		projectorCam.Render();
+		GL.invertCulling = oldInvertCulling;
+	}
 
     // Cleanup all the objects we possibly have created
     void OnDisable()
@@ -201,6 +240,16 @@ public class LiveMirror : MonoBehaviour
         mirrorCamera.fieldOfView = src.fieldOfView;
         mirrorCamera.aspect = src.aspect;
         mirrorCamera.orthographicSize = src.orthographicSize;
+
+		if(projectorCam)
+		{
+			projectorCam.farClipPlane = src.farClipPlane;
+			projectorCam.nearClipPlane = src.nearClipPlane;
+			projectorCam.orthographic = src.orthographic;
+			projectorCam.fieldOfView = src.fieldOfView;
+			projectorCam.aspect = src.aspect;
+			projectorCam.orthographicSize = src.orthographicSize;
+		}
     }
 
     // On-demand create any objects we need
