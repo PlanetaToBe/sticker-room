@@ -24,10 +24,6 @@ public class Level : MonoBehaviour {
 	public Light[] lights;
 	private float[] light_ori_inensity;
 
-	[Header("Magic settings")]
-	public GameObject[] magicItems;
-	private int magicItemIndex;
-
 	void Awake()
 	{
 		// ===AUDIO===

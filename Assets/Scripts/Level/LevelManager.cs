@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
+	public event Action<int> OnLevelStart;
+	public event Action OnEndStart;
+
 	public int currentLevel = -1;
 	public int oldLevel = -1;
 	public GameObject[] levels;
@@ -42,6 +45,8 @@ public class LevelManager : MonoBehaviour {
 
 	void Awake()
 	{
+		SteamVR_Fade.Start(Color.grey, 0f);
+
 		levelsDict = new Dictionary<int, GameObject> ();
 		levelScriptDict = new Dictionary<int, Level> ();
 		levelScripts = new List<Level> ();
@@ -116,13 +121,23 @@ public class LevelManager : MonoBehaviour {
 			{
 				//VisitorEnterIndex (currentState);
 				Debug.Log ("OnLevelStart: " + currentState);
+
+				// TODO: pause all tools
+
+				if (OnLevelStart != null)
+					OnLevelStart (currentState);
 			}
 			else
 			{
 				Debug.Log ("end!");
+				if (OnEndStart != null)
+					OnEndStart ();
+
+				// TODO: pause all tools
+
 				// fade out => reload
-				SteamVR_Fade.Start(Color.black, 2f);
-				Invoke ("Reload", 2f);
+				SteamVR_Fade.Start(Color.black, 3f);
+				Invoke ("Reload", 3f);
 				m_start = false;
 			}
 		}

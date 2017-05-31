@@ -1,0 +1,68 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TimedSelfScale : MonoBehaviour {
+
+	public Transform cameraEye;
+	public Transform player;
+
+	public float[] targetScales = new float[] {0.05f, 1f, 4f};
+	private float curr_targetScale;
+	private bool shouldBeScaling = false;
+
+	private LevelManager levelManager;
+
+	void OnEnable()
+	{
+		if (levelManager == null)
+			levelManager = GetComponent<LevelManager> ();
+
+		levelManager.OnLevelStart += SetTargetScale;
+	}
+
+	void OnDisable()
+	{
+		levelManager.OnLevelStart -= SetTargetScale;
+	}
+
+	void Update()
+	{
+		if (!shouldBeScaling)
+			return;
+		
+		if (player.transform.localScale.x < curr_targetScale)
+		{
+			ScaleSelfTo (player, curr_targetScale);
+		}
+		else
+		{
+			shouldBeScaling = false;
+		}
+	}
+
+	public void SetTargetScale(int level)
+	{
+		curr_targetScale = targetScales[level];
+		shouldBeScaling = true;
+	}
+
+	public void ScaleSelfTo(Transform target, float scaleSize)
+	{
+		// scale up
+		float scaleFactor = 1f + 0.01f;// * PlayerScale;
+		var endScale = target.transform.localScale * scaleFactor;
+
+		if (Mathf.Approximately (target.transform.localScale.x, endScale.x))
+			return;
+
+		var pivot = cameraEye.transform.position;
+		pivot.y = target.transform.position.y; // set pivot to be on the floor
+
+		var diffP = target.transform.position - pivot;
+		var finalPos = (diffP * scaleFactor) + pivot;
+
+		target.transform.localScale = endScale;
+		target.transform.position = finalPos;
+	}
+}
