@@ -154,7 +154,7 @@ public class ToolHub : MonoBehaviour {
 
 			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
 			DeviceVibrate ();
-//			Debug.Log ("swipe! : " + absDist);
+			Debug.Log ("swipe! : " + absDist);
 		}
 		// Wait until dist is accumulated to 0.1f
 		else if (absDist > 0.1f && absDist < 0.2f) {

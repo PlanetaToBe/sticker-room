@@ -40,6 +40,8 @@ public class GrabnStretch : MonoBehaviour {
 	public Transform cameraEye;
 	public float minSelfScale = 0.05f;
 	public float maxSelfScale = 20f;
+	public Tool scaleHand;
+
 	private bool m_inSelfScalingMode = false;
 	private bool m_inSelfScalingSupportMode = false;
 	private GrabnStretch otherController;
@@ -87,6 +89,10 @@ public class GrabnStretch : MonoBehaviour {
 		glove.OnCollideStay += HandleStay;
 		glove.OnCollideExit += HandleOut;
 
+		scaleHand.OnCollideEnter += HandleSelfOver;
+		scaleHand.OnCollideStay += HandleSelfStay;
+		scaleHand.OnCollideExit += HandleSelfExit;
+
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
@@ -104,6 +110,10 @@ public class GrabnStretch : MonoBehaviour {
 		glove.OnCollideStay -= HandleStay;
 		glove.OnCollideExit -= HandleOut;
 
+		scaleHand.OnCollideEnter -= HandleSelfOver;
+		scaleHand.OnCollideStay -= HandleSelfStay;
+		scaleHand.OnCollideExit -= HandleSelfExit;
+
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
 	}
@@ -113,20 +123,20 @@ public class GrabnStretch : MonoBehaviour {
 		player = transform.parent.parent;
 	}
 
-	private void OnTriggerEnter(Collider _collider)
-	{
-		HandleSelfOver (_collider);
-	}
-
-	private void OnTriggerExit(Collider _collider)
-	{
-		HandleSelfExit (_collider);
-	}
-
-	private void OnTriggerStay(Collider _collider)
-	{
-		HandleSelfStay (_collider);
-	}
+//	private void OnTriggerEnter(Collider _collider)
+//	{
+//		HandleSelfOver (_collider);
+//	}
+//
+//	private void OnTriggerExit(Collider _collider)
+//	{
+//		HandleSelfExit (_collider);
+//	}
+//
+//	private void OnTriggerStay(Collider _collider)
+//	{
+//		HandleSelfStay (_collider);
+//	}
 
 	private void OnToolStatusChange(bool _inUse, int toolIndex)
 	{
@@ -140,16 +150,18 @@ public class GrabnStretch : MonoBehaviour {
 	{
 		if (_collider.gameObject.tag == "GameController")
 		{
-			otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
+			otherController = _collider.gameObject.GetComponentInParent<GrabnStretch> ();
 			if(otherController.InSelfScalingMode)
 			{
 				m_inSelfScalingSupportMode = true;
 				m_inSelfScalingMode = false;
+//				Debug.Log (_collider.name + ": S_Scaling Support");
 			}
 			else
 			{
 				m_inSelfScalingSupportMode = false;
 				m_inSelfScalingMode = true;
+//				Debug.Log (_collider.name + ": S_Scaling");
 			}
 
 			if(m_inSelfScalingMode)
@@ -169,7 +181,7 @@ public class GrabnStretch : MonoBehaviour {
 			// just in case
 			if (!m_inSelfScalingMode && !m_inSelfScalingSupportMode)
 			{
-				otherController = _collider.gameObject.GetComponent<GrabnStretch> ();
+				otherController = _collider.gameObject.GetComponentInParent<GrabnStretch> ();
 				if(otherController.InSelfScalingMode)
 				{
 					m_inSelfScalingSupportMode = true;
@@ -181,11 +193,14 @@ public class GrabnStretch : MonoBehaviour {
 				}
 			}
 
-			float threshold = firstTouchTime + scaleWaitTime;
-			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode && (Time.time > threshold) )
+			if( m_inSelfScalingMode && otherController.InSelfScalingSupportMode )
 			{
-				isBusySelfScaling = true;
-				ScaleSelf (player);
+				float threshold = firstTouchTime + scaleWaitTime;
+				if (Time.time > threshold)
+				{
+					isBusySelfScaling = true;
+					ScaleSelf (player);
+				}
 			}
 		}
 	}
@@ -201,6 +216,8 @@ public class GrabnStretch : MonoBehaviour {
 				otherController = null;
 				firstTouchTime = 0f;
 				isBusySelfScaling = false;
+
+//				Debug.Log (_collider.name + ": handle exit");
 			}
 		}
 	}
@@ -489,7 +506,7 @@ public class GrabnStretch : MonoBehaviour {
 		target.transform.localScale = endScale;
 		target.transform.position = finalPos;
 
-		DeviceVibrate ();
+		DeviceVibrate (500);
 
 		if (OnScalingSelf != null)
 			OnScalingSelf (PlayerScale);
@@ -600,5 +617,10 @@ public class GrabnStretch : MonoBehaviour {
 	public void DeviceVibrate()
 	{
 		Device.TriggerHapticPulse (1000);
+	}
+
+	public void DeviceVibrate(int strength)
+	{
+		Device.TriggerHapticPulse ((ushort)strength);
 	}
 }

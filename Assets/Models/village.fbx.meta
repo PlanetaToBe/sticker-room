@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: b238dfeb95f4a2846a0549143215c935
+timeCreated: 1496156093
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: artist_house
+    100002: group19_pCube2
+    100004: group23
+    100006: group23 1
+    100008: house_1
+    100010: house_2
+    100012: house_3
+    100014: lamp_1
+    100016: lamp_2
+    100018: pCone1
+    100020: pCube12
+    100022: pCube14
+    100024: pCube17
+    100026: pCube58
+    100028: pCube59
+    100030: pCube63
+    100032: pCube67
+    100034: pCube68
+    100036: pCube69
+    100038: pCube7
+    100040: pCube70
+    100042: pCube71
+    100044: pCube72
+    100046: pCube73
+    100048: pCube74
+    100050: pCube75
+    100052: pCube76
+    100054: pCube77
+    100056: pCube78
+    100058: pCube79
+    100060: pCube8
+    100062: pCube80
+    100064: pCube81
+    100066: pCube82
+    100068: pCube83
+    100070: pCube84
+    100072: pCube85
+    100074: pCube87
+    100076: pCube87 1
+    100078: pCube88
+    100080: pCube88 1
+    100082: pCube89
+    100084: pCube89 1
+    100086: pCube9
+    100088: pCube90
+    100090: pCube90 1
+    100092: pCube91
+    100094: pCube91 1
+    100096: pCube92
+    100098: pCube92 1
+    100100: pCube93
+    100102: pCube94
+    100104: pCube95
+    100106: pCube96
+    100108: pCube97
+    100110: pCube98
+    100112: pCube99
+    100114: pCylinder1
+    100116: polySurface1
+    100118: pPipe1
+    100120: pPipe1 1
+    100122: pPyramid1
+    100124: pPyramid1 1
+    100126: pSphere1
+    100128: //RootNode
+    100130: Wall
+    100132: water_tower
+    400000: artist_house
+    400002: group19_pCube2
+    400004: group23
+    400006: group23 1
+    400008: house_1
+    400010: house_2
+    400012: house_3
+    400014: lamp_1
+    400016: lamp_2
+    400018: pCone1
+    400020: pCube12
+    400022: pCube14
+    400024: pCube17
+    400026: pCube58
+    400028: pCube59
+    400030: pCube63
+    400032: pCube67
+    400034: pCube68
+    400036: pCube69
+    400038: pCube7
+    400040: pCube70
+    400042: pCube71
+    400044: pCube72
+    400046: pCube73
+    400048: pCube74
+    400050: pCube75
+    400052: pCube76
+    400054: pCube77
+    400056: pCube78
+    400058: pCube79
+    400060: pCube8
+    400062: pCube80
+    400064: pCube81
+    400066: pCube82
+    400068: pCube83
+    400070: pCube84
+    400072: pCube85
+    400074: pCube87
+    400076: pCube87 1
+    400078: pCube88
+    400080: pCube88 1
+    400082: pCube89
+    400084: pCube89 1
+    400086: pCube9
+    400088: pCube90
+    400090: pCube90 1
+    400092: pCube91
+    400094: pCube91 1
+    400096: pCube92
+    400098: pCube92 1
+    400100: pCube93
+    400102: pCube94
+    400104: pCube95
+    400106: pCube96
+    400108: pCube97
+    400110: pCube98
+    400112: pCube99
+    400114: pCylinder1
+    400116: polySurface1
+    400118: pPipe1
+    400120: pPipe1 1
+    400122: pPyramid1
+    400124: pPyramid1 1
+    400126: pSphere1
+    400128: //RootNode
+    400130: Wall
+    400132: water_tower
+    2300000: group19_pCube2
+    2300002: pCone1
+    2300004: pCube12
+    2300006: pCube14
+    2300008: pCube17
+    2300010: pCube58
+    2300012: pCube59
+    2300014: pCube63
+    2300016: pCube67
+    2300018: pCube68
+    2300020: pCube69
+    2300022: pCube7
+    2300024: pCube70
+    2300026: pCube71
+    2300028: pCube72
+    2300030: pCube73
+    2300032: pCube74
+    2300034: pCube75
+    2300036: pCube76
+    2300038: pCube77
+    2300040: pCube78
+    2300042: pCube79
+    2300044: pCube8
+    2300046: pCube80
+    2300048: pCube81
+    2300050: pCube82
+    2300052: pCube83
+    2300054: pCube84
+    2300056: pCube85
+    2300058: pCube87
+    2300060: pCube87 1
+    2300062: pCube88
+    2300064: pCube88 1
+    2300066: pCube89
+    2300068: pCube89 1
+    2300070: pCube9
+    2300072: pCube90
+    2300074: pCube90 1
+    2300076: pCube91
+    2300078: pCube91 1
+    2300080: pCube92
+    2300082: pCube92 1
+    2300084: pCube93
+    2300086: pCube94
+    2300088: pCube95
+    2300090: pCube96
+    2300092: pCube97
+    2300094: pCube98
+    2300096: pCube99
+    2300098: pCylinder1
+    2300100: polySurface1
+    2300102: pPipe1
+    2300104: pPipe1 1
+    2300106: pPyramid1
+    2300108: pPyramid1 1
+    2300110: pSphere1
+    2300112: Wall
+    3300000: group19_pCube2
+    3300002: pCone1
+    3300004: pCube12
+    3300006: pCube14
+    3300008: pCube17
+    3300010: pCube58
+    3300012: pCube59
+    3300014: pCube63
+    3300016: pCube67
+    3300018: pCube68
+    3300020: pCube69
+    3300022: pCube7
+    3300024: pCube70
+    3300026: pCube71
+    3300028: pCube72
+    3300030: pCube73
+    3300032: pCube74
+    3300034: pCube75
+    3300036: pCube76
+    3300038: pCube77
+    3300040: pCube78
+    3300042: pCube79
+    3300044: pCube8
+    3300046: pCube80
+    3300048: pCube81
+    3300050: pCube82
+    3300052: pCube83
+    3300054: pCube84
+    3300056: pCube85
+    3300058: pCube87
+    3300060: pCube87 1
+    3300062: pCube88
+    3300064: pCube88 1
+    3300066: pCube89
+    3300068: pCube89 1
+    3300070: pCube9
+    3300072: pCube90
+    3300074: pCube90 1
+    3300076: pCube91
+    3300078: pCube91 1
+    3300080: pCube92
+    3300082: pCube92 1
+    3300084: pCube93
+    3300086: pCube94
+    3300088: pCube95
+    3300090: pCube96
+    3300092: pCube97
+    3300094: pCube98
+    3300096: pCube99
+    3300098: pCylinder1
+    3300100: polySurface1
+    3300102: pPipe1
+    3300104: pPipe1 1
+    3300106: pPyramid1
+    3300108: pPyramid1 1
+    3300110: pSphere1
+    3300112: Wall
+    4300000: polySurface1
+    4300002: pCube14
+    4300004: pCube7
+    4300006: pCube17
+    4300008: pCube8
+    4300010: pCube9
+    4300012: pCube12
+    4300014: group19_pCube2
+    4300016: pCube59
+    4300018: pCube58
+    4300020: pCube68
+    4300022: pCube69
+    4300024: pCube70
+    4300026: pCube71
+    4300028: pCube72
+    4300030: pCube73
+    4300032: pCube74
+    4300034: pCube75
+    4300036: pCube76
+    4300038: pCube77
+    4300040: pCube63
+    4300042: pCube67
+    4300044: pCone1
+    4300046: pCylinder1
+    4300048: pSphere1
+    4300050: pCube78
+    4300052: pCube79
+    4300054: pCube80
+    4300056: pCube81
+    4300058: pCube82
+    4300060: pCube83
+    4300062: pCube84
+    4300064: pCube85
+    4300066: pCube91
+    4300068: pPyramid1
+    4300070: pCube89
+    4300072: pPipe1
+    4300074: pCube90
+    4300076: pCube88
+    4300078: pCube87
+    4300080: pCube92
+    4300082: pCube91
+    4300084: pPyramid1
+    4300086: pCube89
+    4300088: pPipe1
+    4300090: pCube90
+    4300092: pCube88
+    4300094: pCube87
+    4300096: pCube92
+    4300098: Wall
+    4300100: pCube93
+    4300102: pCube96
+    4300104: pCube94
+    4300106: pCube97
+    4300108: pCube95
+    4300110: pCube98
+    4300112: pCube99
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
