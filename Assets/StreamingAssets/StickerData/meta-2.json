@@ -1,0 +1,121 @@
+{
+  "stickers": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/crystal.gif",
+      "id": "crystal.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 425,
+      "y": 0,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/DOUGHNUT_ROLL.gif",
+      "id": "DOUGHNUT_ROLL.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 0,
+      "y": 425,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/DAAAVID.gif",
+      "id": "DAAAVID.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 425,
+      "y": 425,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/Little-girl.gif",
+      "id": "Little-girl.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 850,
+      "y": 0,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/Ritter-Todd-und-Teufel.gif",
+      "id": "Ritter-Todd-und-Teufel.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 850,
+      "y": 425,
+      "width": 425,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/SOFTPILLAR.gif",
+      "id": "SOFTPILLAR.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 0,
+      "y": 850,
+      "width": 425,
+      "height": 389,
+      "path": "/Users/danielbrewster/Desktop/Sticker/JERKYPISA.gif",
+      "id": "JERKYPISA.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 1275,
+      "y": 0,
+      "width": 354,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/FULFILL.gif",
+      "id": "FULFILL.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 425,
+      "y": 850,
+      "width": 425,
+      "height": 354,
+      "path": "/Users/danielbrewster/Desktop/Sticker/WAVEWALL.gif",
+      "id": "WAVEWALL.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 1275,
+      "y": 425,
+      "width": 354,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/SIGNAL.gif",
+      "id": "SIGNAL.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 850,
+      "y": 850,
+      "width": 425,
+      "height": 354,
+      "path": "/Users/danielbrewster/Desktop/Sticker/EGYPT_TIME.gif",
+      "id": "EGYPT_TIME.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 1629,
+      "y": 0,
+      "width": 354,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/WAIT_ATLAS.gif",
+      "id": "WAIT_ATLAS.gif",
+      "sheetId": "sheet-0"
+    },
+    {
+      "x": 1629,
+      "y": 425,
+      "width": 283,
+      "height": 425,
+      "path": "/Users/danielbrewster/Desktop/Sticker/JESUS_COACH.gif",
+      "id": "JESUS_COACH.gif",
+      "sheetId": "sheet-0"
+    }
+  ]
+}

@@ -102,6 +102,7 @@ public class DrawManager : MonoBehaviour {
 			return;
 		
 		GameObject go = new GameObject ();
+		go.name = "sticker_tape";
 		go.AddComponent<MeshFilter> ();
 		go.AddComponent<MeshRenderer> ();
 		go.transform.position = drawPoint.transform.position;

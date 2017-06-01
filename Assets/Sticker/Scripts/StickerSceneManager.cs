@@ -71,6 +71,8 @@ public class StickerSceneManager : MonoBehaviour {
             string dataAsJson = File.ReadAllText(filePath);
             StickerSheetData loadedData = JsonUtility.FromJson<StickerSheetData>(dataAsJson);
             data = loadedData.stickers;
+
+			Debug.Log("Load stickers * " + data.Count);
         }
         else
         {
