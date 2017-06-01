@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 
 	public event Action<int> OnLevelStart;
+	public event Action<int> OnLevelEnd;
 	public event Action OnEndStart;
 
 	public int currentLevel = -1;
@@ -126,6 +127,9 @@ public class LevelManager : MonoBehaviour {
 
 				if (OnLevelStart != null)
 					OnLevelStart (currentState);
+
+				if(currentState>0 && OnLevelEnd!=null)
+					OnLevelEnd (currentState-1);
 			}
 			else
 			{

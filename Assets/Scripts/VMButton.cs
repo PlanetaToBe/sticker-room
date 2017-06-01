@@ -18,6 +18,10 @@ public class VMButton : MonoBehaviour {
 	private Renderer m_renderer;
 	private Material ori_mat;
 
+	[Header("Start Button")]
+	public Transform dispensor;
+	public GameObject ballPrefab;
+
 	void Start()
 	{
 		m_renderer = GetComponentInChildren<Renderer> ();
@@ -33,6 +37,9 @@ public class VMButton : MonoBehaviour {
 				if (m_down) {
 					MoveButtonDown (m_down);
 					// start level 1!!
+
+					// dispense ball!
+					Instantiate(ballPrefab, dispensor.position, Quaternion.identity);
 				}
 			}
 			else
@@ -41,6 +48,19 @@ public class VMButton : MonoBehaviour {
 
 				if (OnSelectArtist != null)
 					OnSelectArtist (artistIndex, m_down);
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if(other.CompareTag("Hand"))
+		{
+			if(artistIndex==-1)
+			{
+				if (m_down) {
+					MoveButtonDown (false);
+				}
 			}
 		}
 	}

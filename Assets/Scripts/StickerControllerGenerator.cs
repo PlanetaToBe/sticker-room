@@ -19,6 +19,10 @@ public class StickerControllerGenerator : MonoBehaviour {
 	public StickerTool myTool;
 	private bool inUse;
 
+	public GameObject stickerPrefab;
+	private StickerArt stickerArt;
+	private SwapArtist swapArtist;
+
 	public Vector3 StickerSize
 	{
 		get { return stickerSize * grabnStretch.PlayerScale; }
@@ -27,7 +31,10 @@ public class StickerControllerGenerator : MonoBehaviour {
 	void Start()
 	{
 		grabnStretch = GetComponent<GrabnStretch> ();
-		stickerSize = StickerSceneManager.instance.stickerPrefab.transform.localScale;
+		//stickerSize = StickerSceneManager.instance.stickerPrefab.transform.localScale;
+		stickerSize = stickerPrefab.transform.localScale;
+		stickerArt = stickerPrefab.GetComponent<StickerArt> ();
+		swapArtist = GetComponentInParent<SwapArtist> ();
 	}
 
 	void OnEnable()
@@ -102,7 +109,15 @@ public class StickerControllerGenerator : MonoBehaviour {
 		{
 			// TODO: rotate with controller's transform.forward
 			//GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
-			GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, transform.rotation) as GameObject;
+
+			GameObject sticker;
+			if (swapArtist) {
+				stickerArt.data = swapArtist.GetStickerData ();
+				sticker = Instantiate(stickerPrefab, transform.position, transform.rotation) as GameObject;
+			} else {
+				sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, transform.rotation) as GameObject;
+			}
+				
 			sticker.transform.localScale = StickerSize;
 			//sticker.tag = "Sticker";
 

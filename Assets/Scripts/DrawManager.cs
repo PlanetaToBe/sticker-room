@@ -42,12 +42,15 @@ public class DrawManager : MonoBehaviour {
 	public Tool ketchup;
 	private bool inUse;
 
+	private SwapArtist swapArtist;
+
 	void Start()
 	{
 		wallLayer = 1 << 8;
 		thingLayer = 1 << 9;
 		finalMask = wallLayer | thingLayer;
 		grabnstretch = GetComponent<GrabnStretch> ();
+		swapArtist = GetComponentInParent<SwapArtist> ();
 	}
 
 	void OnEnable()
@@ -112,6 +115,8 @@ public class DrawManager : MonoBehaviour {
 
 		currLine = go.AddComponent<StickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();
+		if(swapArtist)
+			currLine.swapArtist = swapArtist;
 		currLine.material = material;
 		currLine.SetWidth (DrawDistance);
 		currLine.drawPoint = drawPoint;

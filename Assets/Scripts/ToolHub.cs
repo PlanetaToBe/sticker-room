@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ToolHub : MonoBehaviour {
+
+	public event Action<bool> OnTouchpadClick;
 
 	public SteamVR_TrackedController controller;
 	public SteamVR_Controller.Device Device
@@ -181,24 +184,48 @@ public class ToolHub : MonoBehaviour {
 
 	public void OnClick (object sender, ClickedEventArgs e)
 	{
-		if (inRotating)
+		if (inRotating) {
+			Debug.Log ("in Rotating");
 			return;
+		}
 
-		if (!ToolsetEnable)
+		if (!ToolsetEnable) {
+			Debug.Log ("Toolset Enable");
 			return;
+		}
 		
 		Vector2 currTouchpadAxis = GetTouchpadAxis ();
-		if(currTouchpadAxis.x > 0)
+		Debug.Log ("x: " + currTouchpadAxis.x + ", y: " + currTouchpadAxis.y);
+
+		if(currTouchpadAxis.y > 0.5f && IfInBetween(currTouchpadAxis.x))
+		{
+			if (OnTouchpadClick != null)
+				OnTouchpadClick (true);
+
+			Debug.Log ("pad up");
+		}
+		else if(currTouchpadAxis.y < -0.5f && IfInBetween(currTouchpadAxis.x))
+		{
+			if (OnTouchpadClick != null)
+				OnTouchpadClick (false);
+
+			Debug.Log ("pad down");
+		}
+		else if(currTouchpadAxis.x > 0.5f && IfInBetween(currTouchpadAxis.y))
 		{
 			// rotate to left
 			SnapToAngleAction(eachR, 0.3f);
+			inRotating = true;
+			Debug.Log ("pad left");
 		}
-		else
+		else if(currTouchpadAxis.x < -0.5f && IfInBetween(currTouchpadAxis.y))
 		{
 			// rotate to right
 			SnapToAngleAction(-eachR, 0.3f);
+			inRotating = true;
+			Debug.Log ("pad right");
 		}
-		inRotating = true;
+
 		DeviceVibrate ();
 	}
 
@@ -335,5 +362,10 @@ public class ToolHub : MonoBehaviour {
 	public void EnableAllTools()
 	{
 		ToolsetEnable = true;
+	}
+
+	private bool IfInBetween(float input)
+	{
+		return (input < 0.5f) || (input > -0.5f);
 	}
 }

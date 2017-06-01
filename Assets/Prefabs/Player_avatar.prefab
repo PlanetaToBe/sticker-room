@@ -2011,6 +2011,7 @@ GameObject:
   - component: {fileID: 33555151975668116}
   - component: {fileID: 114419748317412688}
   - component: {fileID: 114985270939735210}
+  - component: {fileID: 114450916077593390}
   m_Layer: 0
   m_Name: '[CameraRig_Con]'
   m_TagString: Untagged
@@ -3673,7 +3674,7 @@ Transform:
   m_GameObject: {fileID: 1198467934770314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.352, y: 0, z: 1.2847}
-  m_LocalScale: {x: 0.075, y: 0.075, z: 0.075}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4655723091060456}
   - {fileID: 4420311300792892}
@@ -5565,7 +5566,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -8265,6 +8266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createStickerInterval: 0.2
   myTool: {fileID: 114202051616875010}
+  stickerPrefab: {fileID: 1753050283447512, guid: 61d1a9724970d5d429cfd6a69cbcc33a,
+    type: 2}
 --- !u!114 &114139968872828726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8461,7 +8464,7 @@ MonoBehaviour:
   myTool: {fileID: 114522439829564224}
   glove: {fileID: 114311616711757164}
   cameraEye: {fileID: 4926089483843602}
-  minSelfScale: 0.075
+  minSelfScale: 0.05
   maxSelfScale: 4
   scaleHand: {fileID: 114130925952862274}
 --- !u!114 &114392174546299014
@@ -8543,6 +8546,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef984c10ce920ee45b9ac14b9b6c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114450916077593390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632870883014684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cfff177371d7f40af5caee4442650b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allArtists:
+  - workIndex: 1c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000
+  - workIndex: 100000000f0000000e0000000d0000000c0000000b0000000a000000
+  - workIndex: 030000000100000012000000130000000000000011000000080000001a0000000200000007000000
+  - workIndex: 140000001500000016000000090000000500000006000000170000001b0000001800000019000000
+  - workIndex: 04000000
+  toolHubs:
+  - {fileID: 114531000617059834}
+  - {fileID: 114139968872828726}
 --- !u!114 &114466482576245738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8765,7 +8788,7 @@ MonoBehaviour:
   myTool: {fileID: 114896075501698764}
   glove: {fileID: 114845574787462232}
   cameraEye: {fileID: 4926089483843602}
-  minSelfScale: 0.075
+  minSelfScale: 0.05
   maxSelfScale: 4
   scaleHand: {fileID: 114516089665250164}
 --- !u!114 &114754931964582580
@@ -8829,6 +8852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createStickerInterval: 0.2
   myTool: {fileID: 114553334729661860}
+  stickerPrefab: {fileID: 1753050283447512, guid: 61d1a9724970d5d429cfd6a69cbcc33a,
+    type: 2}
 --- !u!114 &114836654976213296
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,10 +6,12 @@ public class StickerArt : MonoBehaviour {
 
     public StickerData data;
 	public int gifDataIndex;
+	public bool beStatic = true;
 
 	// Use this for initialization
 	void Start () {
-		data = StickerSceneManager.instance.data[gifDataIndex];
+		if(beStatic)
+			data = StickerSceneManager.instance.data[gifDataIndex];
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         renderer.material = StickerSceneManager.instance.GetSheetMaterial(data.sheetId);

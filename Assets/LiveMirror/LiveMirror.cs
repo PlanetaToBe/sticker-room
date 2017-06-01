@@ -178,10 +178,10 @@ public class LiveMirror : MonoBehaviour
 		projectorCam.transform.position = projectorCam.cameraToWorldMatrix.GetPosition();
 		projectorCam.transform.rotation = projectorCam.cameraToWorldMatrix.GetRotation();
 
-		bool oldInvertCulling = GL.invertCulling;
-		GL.invertCulling = !oldInvertCulling;
-		projectorCam.Render();
-		GL.invertCulling = oldInvertCulling;
+//		bool oldInvertCulling = GL.invertCulling;
+//		GL.invertCulling = !oldInvertCulling;
+//		projectorCam.Render();
+//		GL.invertCulling = oldInvertCulling;
 	}
 
     // Cleanup all the objects we possibly have created
@@ -243,6 +243,8 @@ public class LiveMirror : MonoBehaviour
 
 		if(projectorCam)
 		{
+			projectorCam.clearFlags = src.clearFlags;
+
 			projectorCam.farClipPlane = src.farClipPlane;
 			projectorCam.nearClipPlane = src.nearClipPlane;
 			projectorCam.orthographic = src.orthographic;

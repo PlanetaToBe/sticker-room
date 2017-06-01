@@ -66,6 +66,8 @@ public class StickerTapeRenderer : MonoBehaviour {
 
 	private StickerData s_data;
 	private float s_size = 2048;
+	[HideInInspector]
+	public SwapArtist swapArtist;
 
 	void Start()
 	{
@@ -83,7 +85,11 @@ public class StickerTapeRenderer : MonoBehaviour {
 	{
 		if(startVec != Vector3.zero)
 		{
-			s_data = StickerSceneManager.instance.GetRandomSticker();
+			if(swapArtist==null)
+				s_data = StickerSceneManager.instance.GetRandomSticker();
+			else
+				s_data = swapArtist.GetStickerData();
+			
 			AddLineV2 (m_mesh, MakeQuadV2(startVec, point, lineSize, firstQuad));
 			firstQuad = false;
 		}
