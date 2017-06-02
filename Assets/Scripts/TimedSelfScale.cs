@@ -43,6 +43,14 @@ public class TimedSelfScale : MonoBehaviour {
 
 	public void SetTargetScale(int level)
 	{
+		// delay scaling to happen after seeing the event
+		StartCoroutine(DoScale(level, 10f));
+	}
+
+	private IEnumerator DoScale(int level, float delayTime)
+	{
+		yield return new WaitForSeconds(delayTime);
+
 		if(level==1)
 		{
 			// do autoscale in order to match center

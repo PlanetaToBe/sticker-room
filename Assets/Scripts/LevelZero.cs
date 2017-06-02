@@ -12,6 +12,16 @@ public class LevelZero : MonoBehaviour {
 	public GameObject mask;
 	public CanvasGroup startInfo;
 	public CanvasGroup machineInfo;
+	public Light houseLight;
+	public GameObject[] thingsToBeLift;
+
+	[Header("Light")]
+	public float minFlickerSpeed = 0.01f;
+	public float maxFlickerSpeed = 0.1f;
+	public float minIntensity = 0f;
+	public float maxIntensity = 1f;
+	private IEnumerator flickerCoroutine;
+	private bool doLightEffect = false;
 
 	void OnEnable()
 	{
@@ -23,6 +33,11 @@ public class LevelZero : MonoBehaviour {
 	{
 		levelManager.OnLevelStart -= OnLevelStart;
 		levelManager.OnLevelEnd -= OnLevelEnd;
+	}
+
+	void Start()
+	{
+		flickerCoroutine = FlickerLight ();
 	}
 
 	void OnLevelStart(int _level)
@@ -50,7 +65,37 @@ public class LevelZero : MonoBehaviour {
 	{
 		if (_level == levelIndex)
 		{
+			// flickering the light, StartCoroutin
+			doLightEffect = true;
+			StartCoroutine (flickerCoroutine);
 
+			// lift the house
+			Invoke("LiftHouse", 5f);
+		}
+	}
+
+	IEnumerator FlickerLight()
+	{
+		while (doLightEffect)
+		{
+			houseLight.enabled = true;
+			houseLight.intensity = Random.Range(minIntensity, maxIntensity);
+			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+			houseLight.enabled = false;
+			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+		}
+	}
+
+	void LiftHouse()
+	{
+		for(int i=0; i<thingsToBeLift.Length; i++)
+		{
+			LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 1f, 2f)
+				.setEaseInOutBack ()
+				.setOnComplete (()=>{
+					doLightEffect = false;
+					houseLight.enabled = false;
+				});
 		}
 	}
 }

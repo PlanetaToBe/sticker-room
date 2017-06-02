@@ -21,6 +21,7 @@ public class SwapArtist : MonoBehaviour {
 	}
 
 	public ToolHub[] toolHubs;
+	public ToolHubSimple[] toolHubSimples;
 
 	void Start()
 	{
@@ -35,6 +36,13 @@ public class SwapArtist : MonoBehaviour {
 				toolHubs [i].OnTouchpadClick += SetArtistOnClick;
 			}
 		}
+
+		if (toolHubSimples.Length > 0) {
+			for(int i=0; i<toolHubSimples.Length; i++)
+			{
+				toolHubSimples [i].OnTouchpadClick += SetArtistOnClick;
+			}
+		}
 	}
 
 	void OnDisable()
@@ -43,6 +51,13 @@ public class SwapArtist : MonoBehaviour {
 			for(int i=0; i<toolHubs.Length; i++)
 			{
 				toolHubs [i].OnTouchpadClick -= SetArtistOnClick;
+			}
+		}
+
+		if (toolHubSimples.Length > 0) {
+			for(int i=0; i<toolHubSimples.Length; i++)
+			{
+				toolHubSimples [i].OnTouchpadClick -= SetArtistOnClick;
 			}
 		}
 	}

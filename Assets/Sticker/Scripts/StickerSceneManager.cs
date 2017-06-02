@@ -37,9 +37,6 @@ public class StickerSceneManager : MonoBehaviour {
     public List<StickerData> data;
     public List<StickerMaterialData> materials;
 
-	public Material hoseMaterial;
-	public Material tapeMaterial;
-
     public static StickerSceneManager _instance;
     public static StickerSceneManager instance
     {
