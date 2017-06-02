@@ -216,7 +216,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 82003b2ed50b0b146b3b5bbf45de852b, type: 2}
+  - {fileID: 2100000, guid: 9ca2e1c03e9cd644ab4f12c0d79815d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -446,3 +446,4 @@ MonoBehaviour:
     id: 
     sheetId: 
   gifDataIndex: 0
+  beStatic: 1

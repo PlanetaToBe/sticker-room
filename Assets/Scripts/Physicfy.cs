@@ -69,7 +69,8 @@ public class Physicfy : MonoBehaviour {
 		else
 			s_c = sticker;
 			
-		BoxCollider b_c = s_c.AddComponent<BoxCollider> ();
+		BoxCollider b_c = s_c.GetComponent<BoxCollider> ();
+		b_c.material = artPhyMat;
 
 		Rigidbody r_b = s_c.AddComponent<Rigidbody> ();
 		r_b.mass = 2f * grabnstretch.PlayerScale;
@@ -79,11 +80,10 @@ public class Physicfy : MonoBehaviour {
 		tmp_c_index = (int) c_index;
 
 		// adjust collider thickness
-		StartCoroutine (AdjustPhysics(b_c));
+		//StartCoroutine (AdjustPhysics(b_c));
 
 		// Find the connect anchor for SPRING_RIGHT_AWAY shooting
 		RaycastHit hit;
-		b_c.material = artPhyMat;
 
 		switch(shootType)
 		{

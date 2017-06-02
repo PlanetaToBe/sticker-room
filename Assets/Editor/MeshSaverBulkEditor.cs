@@ -19,8 +19,9 @@ public struct StickerTransform
 	public Vector3 scale;
 	public Quaternion rotation;
 	public string name;
+	public StickerData stickerData;
 
-	public StickerTransform (Vector3 _position, Quaternion _rotation, Vector3 _scale, int _index)
+	public StickerTransform (Vector3 _position, Quaternion _rotation, Vector3 _scale, int _index) : this()
 	{
 		this.position = _position;
 		this.rotation = _rotation;
@@ -32,9 +33,10 @@ public struct StickerTransform
 public static class MeshSaverBulkEditor {
 
 	static string json_path = Application.dataPath + "/Sticker/Exports/data.json";
+	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
 	static string asset_path = "Assets/Sticker/Exports/Assets/";
 
-	[MenuItem("CONTEXT/Transform/Save Children Mesh...")]
+	[MenuItem("CONTEXT/Transform/Save Children Tape Mesh...")]
 	public static void SaveChildrenMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
@@ -81,6 +83,7 @@ public static class MeshSaverBulkEditor {
 		List<StickerTransform> tranData;
 
 		Transform parent = menuCommand.context as Transform;
+		Material material = Resources.Load("Materials/StickerSheet1Material", typeof(Material)) as Material;
 
 		// Load JSON
 		if (File.Exists (json_path))
@@ -103,9 +106,12 @@ public static class MeshSaverBulkEditor {
 
 			GameObject go = new GameObject ();
 			go.name = "sticker_tape";
+
 			MeshFilter m_f = go.AddComponent<MeshFilter> ();
 			m_f.sharedMesh = meeesh;
-			go.AddComponent<MeshRenderer> ();
+			MeshRenderer m_r = go.AddComponent<MeshRenderer> ();
+			m_r.material = material;
+
 			go.transform.position = tranData[i].position;
 			go.transform.rotation = tranData[i].rotation;
 			go.transform.localScale = tranData[i].scale;
@@ -113,6 +119,76 @@ public static class MeshSaverBulkEditor {
 			go.tag = "Sticker";
 			go.layer = 11;
 
+			go.AddComponent<MeshCollider> ();
+			go.AddComponent<VRInteractiveObject> ();
+			//Debug.Log ("loaded: " + meeesh.name);
+		}
+	}
+
+	[MenuItem("CONTEXT/Transform/Save Children Hose Mesh...")]
+	public static void SaveChildrenHoseMeshInPlace (MenuCommand menuCommand)
+	{
+		Transform parent = menuCommand.context as Transform;
+
+		StickersTransformData savedData;
+		savedData.stickersTran = new List<StickerTransform> ();
+		// Save Transformation
+		for(int i=0; i<parent.childCount; i++)
+		{
+			Transform ch_tran = parent.GetChild (i);
+			StickerArt s_art = ch_tran.gameObject.GetComponent<StickerArt> ();
+			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, i);
+			s_t.stickerData = s_art.data;
+			savedData.stickersTran.Add (s_t);
+		}
+
+		if (File.Exists (json_path_2))
+		{
+			string dataAsJson = JsonUtility.ToJson (savedData, true);
+			File.WriteAllText (json_path_2, dataAsJson);
+		}
+		else
+		{
+			Debug.LogWarning ("json file 2 doesn't exit for saving data");
+		}
+	}
+
+	[MenuItem("CONTEXT/Transform/Load n Create Hose Children...")]
+	public static void LoadnCreateHoseChildren (MenuCommand menuCommand)
+	{
+		StickersTransformData loadedData;
+		List<StickerTransform> tranData;
+
+		Transform parent = menuCommand.context as Transform;
+		Material material = Resources.Load("Materials/StickerSheet0Material", typeof(Material)) as Material;
+		GameObject stickerPrefab = Resources.Load ("StickerV5", typeof(GameObject)) as GameObject;
+		StickerArt s_art = stickerPrefab.GetComponent<StickerArt> ();
+
+		// Load JSON
+		if (File.Exists (json_path_2))
+		{
+			string dataAsJson = File.ReadAllText (json_path_2);
+			loadedData = JsonUtility.FromJson<StickersTransformData> (dataAsJson);
+			tranData = loadedData.stickersTran;
+		}
+		else
+		{
+			Debug.LogWarning ("json file 2 doesn't exit for loading data");
+			return;
+		}
+
+		// Instantiate MESH
+		for(int i=0; i<tranData.Count; i++)
+		{
+			s_art.data = tranData [i].stickerData;
+			GameObject go = GameObject.Instantiate(stickerPrefab) as GameObject;
+
+			go.transform.position = tranData[i].position;
+			go.transform.rotation = tranData[i].rotation;
+			go.transform.localScale = tranData[i].scale;
+			go.transform.parent = parent;
+
+			go.AddComponent<VRInteractiveObject> ();
 			//Debug.Log ("loaded: " + meeesh.name);
 		}
 	}
@@ -148,6 +224,10 @@ public static class MeshSaverBulkEditor {
 
 	public static void SaveMeshBulk (Mesh mesh, string name, bool makeNewInstance, bool optimizeMesh)
 	{
+		// check if already existed or not
+		if(AssetDatabase.Contains(mesh))
+			return;
+
 		Mesh meshToSave = (makeNewInstance) ? Object.Instantiate(mesh) as Mesh : mesh;
 
 		if (optimizeMesh)
