@@ -13,6 +13,8 @@ public class ToolHubSimple : MonoBehaviour {
 		get { return SteamVR_Controller.Input ((int)controller.controllerIndex); }
 	}
 	public float rotDegreePerStep = 5f;
+	public LevelManager levelManager;
+	public int[] toolForLevel;
 
 	private bool isTouching = false;
 	private List<GameObject> toolObjects = new List<GameObject> ();
@@ -88,6 +90,12 @@ public class ToolHubSimple : MonoBehaviour {
 			controller.PadUntouched += OnTouchOut;
 			controller.PadTouching += OnTouching;
 		}
+
+		if (levelManager!=null)
+		{
+			levelManager.OnLevelTransition += OnLevelTransition;
+			levelManager.OnLevelStart += OnLevelStart;
+		}
 	}
 
 	void OnDisable()
@@ -100,6 +108,12 @@ public class ToolHubSimple : MonoBehaviour {
 			controller.PadTouched -= OnTouch;
 			controller.PadUntouched -= OnTouchOut;
 			controller.PadTouching -= OnTouching;
+		}
+
+		if (levelManager!=null)
+		{
+			levelManager.OnLevelTransition -= OnLevelTransition;
+			levelManager.OnLevelStart -= OnLevelStart;
 		}
 	}
 
@@ -211,26 +225,6 @@ public class ToolHubSimple : MonoBehaviour {
 		float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
 		float absDist = Mathf.Abs (dist);
 
-		// Swiping
-//		if (absDist > 0.4f)
-//		{
-//			if(dist > 0) {
-//				toolIndexCount--;
-//			} else {
-//				toolIndexCount++;
-//			}
-//
-//			if (toolIndexCount < 0)
-//				toolIndexCount = stickerTools.Count - 1;
-//			else if (toolIndexCount >= stickerTools.Count)
-//				toolIndexCount = 0;
-//			
-//			SnapToTargetAngleAction(toolIndexCount, 0.3f);
-//
-//			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
-//			DeviceVibrate ();
-////			Debug.Log ("swipe! : " + absDist);
-//		}
 		// Wait until dist is accumulated to 0.1f
 		if (absDist > 0.1f) {// && absDist < 0.2f) {
 			if (dist > 0) {
@@ -366,7 +360,7 @@ public class ToolHubSimple : MonoBehaviour {
 		}
 	}
 	//===========================================================================
-	//===========================================================================
+
 	public Vector2 GetTouchpadAxis()
 	{
 		var device = SteamVR_Controller.Input((int)controller.controllerIndex);
@@ -470,5 +464,53 @@ public class ToolHubSimple : MonoBehaviour {
 	private bool IfInBetween(float input)
 	{
 		return (input < 0.5f) || (input > -0.5f);
+	}
+
+	public void OnLevelTransition(int levelIndex)
+	{
+		//DisableAllTools ();
+	}
+
+	public void OnLevelStart(int levelIndex)
+	{
+		EnableAllTools ();
+
+		if (levelIndex == 1) {
+			SwitchToTool (toolForLevel [levelIndex], true);
+		} else {
+			SwitchToTool (toolForLevel [levelIndex], false);
+		}
+	}
+		
+	public void SwitchToTool(int toolIndex, bool beLimited)
+	{
+		// disable
+		for(int i=0; i<stickerTools.Count; i++)
+		{
+			if (i != toolIndex)
+			{
+				if(stickerTools[i].inUse)
+					stickerTools [i].DisableTool ();
+
+				if(beLimited)
+					stickerTools [i].transform.GetChild (0).gameObject.SetActive (false);
+			}
+
+			if(!beLimited)
+				stickerTools [i].transform.GetChild (0).gameObject.SetActive (true);
+		}
+	
+		if (beLimited)
+			ToolsetEnable = false;
+		else
+			ToolsetEnable = true;
+
+		// enable
+		stickerTools[toolIndex].EnableTool ();
+		currStickerTool = stickerTools[toolIndex];
+		currToolIndex = toolIndexCount = toolIndex;
+
+		// rotate
+		currStickerTool.TurnToIdealAngle(transform.localEulerAngles.z);
 	}
 }

@@ -22,15 +22,18 @@ public class LevelZero : MonoBehaviour {
 	public float maxIntensity = 1f;
 	private IEnumerator flickerCoroutine;
 	private bool doLightEffect = false;
+	private bool realFlicker = false;
 
 	void OnEnable()
 	{
+		levelManager.OnLevelTransition += OnLevelTransition;
 		levelManager.OnLevelStart += OnLevelStart;
 		levelManager.OnLevelEnd += OnLevelEnd;
 	}
 
 	void OnDisable()
 	{
+		levelManager.OnLevelTransition -= OnLevelTransition;
 		levelManager.OnLevelStart -= OnLevelStart;
 		levelManager.OnLevelEnd -= OnLevelEnd;
 	}
@@ -38,6 +41,25 @@ public class LevelZero : MonoBehaviour {
 	void Start()
 	{
 		flickerCoroutine = FlickerLight ();
+	}
+
+	void OnLevelTransition(int _level)
+	{
+		if (_level == levelIndex)
+		{
+			// flickering the light, StartCoroutin
+			doLightEffect = true;
+			minIntensity = 0.4f;
+			minFlickerSpeed = 0.5f;
+			maxFlickerSpeed = 1f;
+			StartCoroutine (flickerCoroutine);
+
+			// lift the house
+			Invoke("FlickerIntense", 5f);
+
+			// lift the house
+			Invoke("LiftHouse", 9f);
+		}
 	}
 
 	void OnLevelStart(int _level)
@@ -65,12 +87,7 @@ public class LevelZero : MonoBehaviour {
 	{
 		if (_level == levelIndex)
 		{
-			// flickering the light, StartCoroutin
-			doLightEffect = true;
-			StartCoroutine (flickerCoroutine);
-
-			// lift the house
-			Invoke("LiftHouse", 5f);
+			//
 		}
 	}
 
@@ -81,8 +98,11 @@ public class LevelZero : MonoBehaviour {
 			houseLight.enabled = true;
 			houseLight.intensity = Random.Range(minIntensity, maxIntensity);
 			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
-			houseLight.enabled = false;
-			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+			if (realFlicker)
+			{
+				houseLight.enabled = false;
+				yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+			}
 		}
 	}
 
@@ -90,12 +110,20 @@ public class LevelZero : MonoBehaviour {
 	{
 		for(int i=0; i<thingsToBeLift.Length; i++)
 		{
-			LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 1f, 2f)
-				.setEaseInOutBack ()
-				.setOnComplete (()=>{
+			LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + .5f, 6f)
+				//.setEaseInOutBack ()
+				.setOnStart (()=>{
 					doLightEffect = false;
 					houseLight.enabled = false;
 				});
 		}
+	}
+
+	void FlickerIntense()
+	{
+		minIntensity = 0f;
+		minFlickerSpeed = 0.01f;
+		maxFlickerSpeed = 0.1f;
+		realFlicker = true;
 	}
 }

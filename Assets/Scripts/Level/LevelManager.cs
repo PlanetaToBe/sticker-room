@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
+	public event Action<int> OnLevelTransition;
 	public event Action<int> OnLevelStart;
 	public event Action<int> OnLevelEnd;
 	public event Action OnEndStart;
@@ -14,7 +15,9 @@ public class LevelManager : MonoBehaviour {
 	public int currentLevel = -1;
 	public int oldLevel = -1;
 	public GameObject[] levels;
-	public int[] times = new int[] {0, 60, 150, 210};
+
+	// even: transition =>(#/2), odd: level => Math.Floor(#/2)
+	public int[] times = new int[] {0, 1, 60, 70, 180, 190, 210};
 	public CanvasGroup startInto;
 	public Color startColor;
 	public SteamVR_TrackedController[] controllers;
@@ -24,6 +27,7 @@ public class LevelManager : MonoBehaviour {
 	private List<Level> levelScripts;
 
 	private SkyColorManager skyManager;
+	private SkyManager azureSkyManager;
 	private MusicManager musicManager;
 
 	private int currentState = -1;
@@ -68,7 +72,7 @@ public class LevelManager : MonoBehaviour {
 		}
 
 		skyManager = GetComponent<SkyColorManager> ();
-		//skyManager.SetFloor (0);
+		azureSkyManager = GetComponent<SkyManager> ();
 
 		// 
 		//VisitorEnterIndex (0);
@@ -120,6 +124,8 @@ public class LevelManager : MonoBehaviour {
 		{
 			if (currentState < times.Length-1)
 			{
+				//v.1
+				/*
 				VisitorEnterIndex (currentState);
 				Debug.Log ("OnLevelStart: " + currentState);
 
@@ -130,6 +136,30 @@ public class LevelManager : MonoBehaviour {
 
 				if(currentState>0 && OnLevelEnd!=null)
 					OnLevelEnd (currentState-1);
+				*/
+
+				//v.2
+				int phase_index = (int)(currentState / 2);
+				if (currentState % 2 == 0)
+				{
+					if (OnLevelTransition != null && phase_index - 1 >= 0)
+					{
+						OnLevelTransition (phase_index-1);
+						Debug.Log ("OnLevelTransition: " + phase_index);
+					}
+				} 
+				else
+				{
+					VisitorEnterIndex (phase_index);
+
+					if (OnLevelStart != null)
+						OnLevelStart (phase_index);
+					
+					Debug.Log ("OnLevelStart: " + phase_index);
+
+					if(phase_index>0 && OnLevelEnd!=null)
+						OnLevelEnd (phase_index-1);
+				}
 			}
 			else
 			{
@@ -141,7 +171,7 @@ public class LevelManager : MonoBehaviour {
 
 				// fade out => reload
 				SteamVR_Fade.Start(Color.black, 3f);
-				Invoke ("Reload", 3f);
+				Invoke ("Reload", 4f);
 				m_start = false;
 			}
 		}
@@ -165,7 +195,11 @@ public class LevelManager : MonoBehaviour {
 		currentLevel = l_index;
 		var current_l_script = levelScriptDict [currentLevel];
 
-		skyManager.SetFloor (l_index);
+		if(skyManager)
+			skyManager.SetFloor (l_index);
+
+		if (azureSkyManager)
+			azureSkyManager.SetFloor (l_index);
 
 		// activate current, if not already
 		if (!current_l_script.onMode)
@@ -215,7 +249,7 @@ public class LevelManager : MonoBehaviour {
 			if(!levelScriptDict [loseOnIndex].onMode)
 			{
 				levelScriptDict [loseOnIndex].Activate ();
-				Debug.Log ("swap level: " + loseOnIndex);
+				//Debug.Log ("swap level: " + loseOnIndex);
 			}
 		}
 

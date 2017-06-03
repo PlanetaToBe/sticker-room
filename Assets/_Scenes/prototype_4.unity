@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0.147, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.24999997
@@ -1005,13 +1005,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1941812676}
     m_Modifications:
+    - target: {fileID: 114069283344608396, guid: fbf840a1c99352d42977a1a0bc95bcbf,
+        type: 2}
+      propertyPath: toolForLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4353105309576800, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4353105309576800, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.015
+      value: -0.0481
       objectReference: {fileID: 0}
     - target: {fileID: 4353105309576800, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1076,6 +1081,98 @@ Prefab:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1941812677}
+    - target: {fileID: 114069283344608396, guid: fbf840a1c99352d42977a1a0bc95bcbf,
+        type: 2}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1034541462}
+    - target: {fileID: 114069283344608396, guid: fbf840a1c99352d42977a1a0bc95bcbf,
+        type: 2}
+      propertyPath: toolForLevel.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069283344608396, guid: fbf840a1c99352d42977a1a0bc95bcbf,
+        type: 2}
+      propertyPath: toolForLevel.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069283344608396, guid: fbf840a1c99352d42977a1a0bc95bcbf,
+        type: 2}
+      propertyPath: toolForLevel.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874195534546580, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323193371251352, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141069100625760, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647890448465296, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959631417545972, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.5226066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.5226066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.47632176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.47632176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589265776824898, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.30601
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424489875048200, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.547
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424489875048200, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.268
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555033990580902, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555033990580902, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555033990580902, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123805483760572, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123805483760572, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.918
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbf840a1c99352d42977a1a0bc95bcbf, type: 2}
   m_IsPrefabParent: 0
@@ -1105,6 +1202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1049950701}
   rotDegreePerStep: 15
+  levelManager: {fileID: 1034541462}
+  toolForLevel: 020000000300000001000000
   currToolIndex: -1
   touchBall: {fileID: 1379419817}
   touchArrows:
@@ -2538,7 +2637,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309107005}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.093, y: 1.467, z: -0.253}
+  m_LocalPosition: {x: 0.093, y: 0.547, z: -0.268}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 630709875}
@@ -2786,7 +2885,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1144989415
+  randomSeed: -260104042
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8251,7 +8350,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 415410344}
   m_LocalRotation: {x: 0.67086, y: -0, z: -0, w: 0.7415841}
-  m_LocalPosition: {x: 0, y: -1.303, z: -1.624}
+  m_LocalPosition: {x: 0, y: -0.381, z: -1.624}
   m_LocalScale: {x: 10.2988205, y: 10.298824, z: 10.298824}
   m_Children: []
   m_Father: {fileID: 1534100497}
@@ -12192,15 +12291,15 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550592738}
-  m_LocalRotation: {x: 0.6159646, y: -0.34725717, z: -0.3472573, w: 0.6159648}
-  m_LocalPosition: {x: -1.452, y: 0, z: -1.649}
+  m_LocalRotation: {x: 0.5226066, y: 0.5226066, z: 0.47632176, w: 0.47632176}
+  m_LocalPosition: {x: -0.537, y: 0, z: -1.649}
   m_LocalScale: {x: 10.29882, y: 10.298824, z: 10.2988205}
   m_Children:
   - {fileID: 1443020399}
   - {fileID: 1308462574}
   m_Father: {fileID: 963758223}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 95.27801, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 95.30601, z: 90.00001}
 --- !u!1 &550889400
 GameObject:
   m_ObjectHideFlags: 0
@@ -12460,13 +12559,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4694897879438102, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694897879438102, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694897879438102, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12504,72 +12608,72 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4792968163582046, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 900
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 4792968163582046, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalScale.y
-      value: 900
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 4792968163582046, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalScale.z
-      value: 900
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 108743182221760692, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.1397059
+      value: 0.06423011
       objectReference: {fileID: 0}
     - target: {fileID: 108743182221760692, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.1397059
+      value: 0.25051904
       objectReference: {fileID: 0}
     - target: {fileID: 108743182221760692, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.1397059
+      value: 0.4852941
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_Timeline
-      value: 23.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_TimeOfDayByCurve
-      value: 22.704466
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4231007215024352, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.000000034042028
+      value: -0.21850799
       objectReference: {fileID: 0}
     - target: {fileID: 4231007215024352, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.6272837
+      value: 0.6724985
       objectReference: {fileID: 0}
     - target: {fileID: 4231007215024352, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.77879083
+      value: 0.6724985
       objectReference: {fileID: 0}
     - target: {fileID: 4231007215024352, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.000000027419441
+      value: -0.21850805
       objectReference: {fileID: 0}
     - target: {fileID: 4628138843038036, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.7842054
+      value: 0.6802391
       objectReference: {fileID: 0}
     - target: {fileID: 4628138843038036, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.0068436568
+      value: 0.21447857
       objectReference: {fileID: 0}
     - target: {fileID: 4628138843038036, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.00541443
+      value: 0.22240174
       objectReference: {fileID: 0}
     - target: {fileID: 4628138843038036, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.62044007
+      value: 0.6646889
       objectReference: {fileID: 0}
     - target: {fileID: 108743182221760692, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
@@ -12579,12 +12683,12 @@ Prefab:
     - target: {fileID: 108743182221760692, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: m_Intensity
-      value: 1.9999999
+      value: 0.39999378
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_StarfieldIntensity
-      value: 5.0606036
+      value: 5.3144894
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
@@ -12594,7 +12698,7 @@ Prefab:
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_MoonLightIntensity
-      value: 1.9999999
+      value: 0.39999378
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
@@ -12619,7 +12723,7 @@ Prefab:
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_ShowObjectsAndMaterialsTab
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
@@ -12639,12 +12743,12 @@ Prefab:
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_ShowOutputsTab
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
       propertyPath: Azure_ShowOptionsTab
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
         type: 2}
@@ -12703,11 +12807,662 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1200037271603176, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_TimeMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_Latitude
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_Longitude
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_NumberOfDays
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644468422035964, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key0.g
+      value: 0.026539527
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key0.b
+      value: 0.08088237
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key4.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key4.g
+      value: 0.036190253
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_RayleighGradientColor.Array.data[0].key4.b
+      value: 0.1102941
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SkyDarknessCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.7999954
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SkyDarknessCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0.7999954
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SkyDarkness
+      value: 0.7999954
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_NightIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.20625305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_NightIntensityCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0.20625305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_NightIntensity
+      value: 0.20625305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_ExposureCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_ExposureCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_Exposure
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MilkyWayIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.22250366
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MilkyWayIntensityCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0.22250366
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MilkyWayIntensity
+      value: 0.22250366
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_StarfieldIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 5.3144894
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_StarsScintillation
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_StarfieldColorBalance.x
+      value: 1.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_StarfieldColorBalance.y
+      value: 1.535
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_StarfieldColorBalance.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskSizeCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.26250458
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskSizeCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0.26250458
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskSize
+      value: 0.26250458
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBrightCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: -0.44374847
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBrightCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: -0.44374847
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBright
+      value: -0.44374847
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBrightRangeCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 170.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBrightRangeCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 170.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonDiskBrightRange
+      value: 170.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime1
+      value: 16962
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key0.r
+      value: 0.30201122
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key0.g
+      value: 0.48002666
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key0.b
+      value: 0.7205882
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime0
+      value: 11565
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key3.r
+      value: 0.30201122
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key3.g
+      value: 0.48002666
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key3.b
+      value: 0.7205882
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key4.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key4.g
+      value: 0.071146026
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key4.b
+      value: 0.16911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime2
+      value: 47609
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime3
+      value: 55127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime4
+      value: 62644
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].m_NumColorKeys
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key2.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key2.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key2.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key5.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key5.g
+      value: 0.071146026
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].key5.b
+      value: 0.16911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonSkyBrightGradientColor.Array.data[0].ctime5
+      value: 62644
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonLightIntensityCurve.Array.data[0].m_Curve.Array.data[1].time
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonLightIntensityCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_MoonLightIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.39999378
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key1.r
+      value: 0.7941176
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key1.g
+      value: 0.5514706
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key1.b
+      value: 0.3970588
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key2.r
+      value: 0.63235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key2.g
+      value: 0.63235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key2.b
+      value: 0.63235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key4.r
+      value: 0.7941176
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key4.g
+      value: 0.5514706
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key4.b
+      value: 0.3970588
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key6.r
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key6.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key6.b
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime0
+      value: 12336
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime1
+      value: 18697
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime2
+      value: 24287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime3
+      value: 44525
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime4
+      value: 48188
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime5
+      value: 50693
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime6
+      value: 61295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].m_NumColorKeys
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key0.b
+      value: 0.147
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984401540689242, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108456692405657748, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunIntensityCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunIntensity
+      value: 27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[2].time
+      value: 10.057929
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[2].value
+      value: 0.8055441
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[2].inSlope
+      value: 0.27149397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[2].outSlope
+      value: 0.27149397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[3].value
+      value: 1.1500123
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[0].value
+      value: 0.05000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[1].value
+      value: 0.05000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[4].value
+      value: 0.79999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[5].value
+      value: 0.05000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[3].time
+      value: 13.999989
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[3].inSlope
+      value: 0.020000659
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[3].outSlope
+      value: 0.020000659
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[4].time
+      value: 17.100004
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[5].time
+      value: 18.05791
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[6].time
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[6].value
+      value: 0.05000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key1.r
+      value: 0.9048135
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key1.g
+      value: 0.8255861
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key1.b
+      value: 0.73226005
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key2.r
+      value: 0.8897059
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key2.g
+      value: 0.8321367
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key2.b
+      value: 0.74578285
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key3.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].key3.b
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].ctime1
+      value: 23130
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].ctime2
+      value: 32960
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].ctime3
+      value: 48766
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightGradientColor.Array.data[0].m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key7.r
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key7.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].key7.b
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_UnityAmbientGradientColor.Array.data[0].ctime7
+      value: 61295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691730401786998, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 130.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691730401786998, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -180.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691730401786998, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[4].inSlope
+      value: -0.08000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+        type: 2}
+      propertyPath: Azure_SunLightIntensityCurve.Array.data[0].m_Curve.Array.data[4].outSlope
+      value: -0.08000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 719956f2167baeb4ba88ff88c8d8b83e, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &566461633 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114091882027024874, guid: 719956f2167baeb4ba88ff88c8d8b83e,
+    type: 2}
+  m_PrefabInternal: {fileID: 566461632}
+  m_Script: {fileID: 11500000, guid: a30576c4ddcdbdb40af453187d53329c, type: 3}
 --- !u!1 &566886151
 GameObject:
   m_ObjectHideFlags: 0
@@ -17788,14 +18543,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.5499996, y: 0.01, z: -1.5499996}
-  - {x: -1.5499996, y: 0.01, z: -1.5499996}
-  - {x: -1.5499996, y: 0.01, z: 1.5499996}
-  - {x: 1.5499996, y: 0.01, z: 1.5499996}
-  - {x: 1.5999995, y: 0.01, z: -1.5999995}
-  - {x: -1.5999995, y: 0.01, z: -1.5999995}
-  - {x: -1.5999995, y: 0.01, z: 1.5999995}
-  - {x: 1.5999995, y: 0.01, z: 1.5999995}
+  - {x: 1.2500001, y: 0.01, z: -1.0000004}
+  - {x: -1.2500001, y: 0.01, z: -1.0000004}
+  - {x: -1.2500001, y: 0.01, z: 1.0000004}
+  - {x: 1.2500001, y: 0.01, z: 1.0000004}
+  - {x: 1.3000001, y: 0.01, z: -1.0500003}
+  - {x: -1.3000001, y: 0.01, z: -1.0500003}
+  - {x: -1.3000001, y: 0.01, z: 1.0500003}
+  - {x: 1.3000001, y: 0.01, z: 1.0500003}
 --- !u!33 &720370843
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17803,7 +18558,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720370838}
-  m_Mesh: {fileID: 1294513518}
+  m_Mesh: {fileID: 2113745078}
 --- !u!23 &720370844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17818,7 +18573,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1465626835}
+  - {fileID: 1008665138}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19650,7 +20405,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 760647139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 309107006}
@@ -23253,7 +24008,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 963758222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 550592739}
@@ -23646,6 +24401,38 @@ Transform:
   m_PrefabParentObject: {fileID: 4117021940987070, guid: d12de90235de54846a88b9585eb7da37,
     type: 2}
   m_PrefabInternal: {fileID: 1003368737}
+--- !u!21 &1008665138
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1017601201 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400040, guid: 2fc56611643430c4b9806de7e702c374, type: 3}
@@ -25198,13 +25985,14 @@ GameObject:
   - component: {fileID: 1034541461}
   - component: {fileID: 1034541463}
   - component: {fileID: 1034541464}
+  - component: {fileID: 1034541465}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1034541460
 Transform:
   m_ObjectHideFlags: 0
@@ -25224,7 +26012,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1034541459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a153fc78767af14b84c197402123573, type: 3}
   m_Name: 
@@ -25261,7 +26049,7 @@ MonoBehaviour:
   - {fileID: 2018326932}
   - {fileID: 1901970152}
   - {fileID: 299849752}
-  times: 00000000050000001400000028000000
+  times: 000000000100000006000000150000001f0000002e00000038000000
   startInto: {fileID: 1083623245}
   startColor: {r: 0, g: 0, b: 0, a: 0.516}
   controllers:
@@ -25295,6 +26083,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798a703f9e9774044bd2cdd6b1cd480e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1034541465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034541459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d391ea639b611747a1b44753d24f380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  azureSky: {fileID: 566461633}
+  currentTime: 0
+  levelTimes:
+  - 0
+  - 10
+  - 23.5
+  transitionTime: 2
 --- !u!1 &1046038835
 GameObject:
   m_ObjectHideFlags: 0
@@ -25722,7 +26528,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080596080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 1271621794}
@@ -28454,7 +29260,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1184371198}
   m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: -0.6532815, w: 0.27059805}
-  m_LocalPosition: {x: 1.267, y: -0, z: -1.803}
+  m_LocalPosition: {x: 0.353, y: -0, z: -1.918}
   m_LocalScale: {x: 10.298828, y: 10.298824, z: 10.2988205}
   m_Children:
   - {fileID: 640899713}
@@ -29427,7 +30233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271621793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.265, y: 0, z: -1.397}
+  m_LocalPosition: {x: 0.351, y: -0, z: -1.512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080596084}
@@ -29550,7 +30356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: eaefb3ad4f6e1d548a098e627eaaff30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaefb3ad4f6e1d548a098e627eaaff30, type: 3}
@@ -29899,134 +30705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7faf93144623147a4ffa42de1df81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &1294513518
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.5999995, y: 0, z: 1.5999995}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 13
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 6366c63f0ad7233c6366c6bf000000000000803f0000803f0000803f00000000000000006366c6bf0ad7233c6366c6bf000000000000803f0000803f0000803f0000803f000000006366c6bf0ad7233c6366c63f000000000000803f0000803f0000803f00000000000000006366c63f0ad7233c6366c63f000000000000803f0000803f0000803f0000803f00000000c9cccc3f0ad7233cc9ccccbf000000000000803f0000803f00000000000000000000803fc9ccccbf0ad7233cc9ccccbf000000000000803f0000803f000000000000803f0000803fc9ccccbf0ad7233cc9cccc3f000000000000803f0000803f00000000000000000000803fc9cccc3f0ad7233cc9cccc3f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.5999995, y: 0, z: 1.5999995}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &1299531209
 GameObject:
   m_ObjectHideFlags: 0
@@ -34809,38 +35487,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a0bbd5a335b83b34e887dbc02af35a60, type: 3}
   m_PrefabInternal: {fileID: 1461499437}
---- !u!21 &1465626835
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1466807435
 GameObject:
   m_ObjectHideFlags: 0
@@ -37000,7 +37646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1534100496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 415410345}
@@ -37364,7 +38010,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 500
+  far clip plane: 700
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -40723,8 +41369,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879914988}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: -0.015, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.0481, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1534100497}
@@ -41114,7 +41760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1936213418
 Transform:
   m_ObjectHideFlags: 0
@@ -42535,7 +43181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2088917305
 Transform:
   m_ObjectHideFlags: 0
@@ -42717,6 +43363,134 @@ Transform:
   m_PrefabParentObject: {fileID: 4117021940987070, guid: d12de90235de54846a88b9585eb7da37,
     type: 2}
   m_PrefabInternal: {fileID: 2112558341}
+--- !u!43 &2113745078
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.3000001, y: 0, z: 1.0500003}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0100a03f0ad7233c030080bf000000000000803f0000803f0000803f00000000000000000100a0bf0ad7233c030080bf000000000000803f0000803f0000803f0000803f000000000100a0bf0ad7233c0300803f000000000000803f0000803f0000803f00000000000000000100a03f0ad7233c0300803f000000000000803f0000803f0000803f0000803f000000006766a63f0ad7233c696686bf000000000000803f0000803f00000000000000000000803f6766a6bf0ad7233c696686bf000000000000803f0000803f000000000000803f0000803f6766a6bf0ad7233c6966863f000000000000803f0000803f00000000000000000000803f6766a63f0ad7233c6966863f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.3000001, y: 0, z: 1.0500003}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1 &2125123485
 GameObject:
   m_ObjectHideFlags: 0
@@ -42817,7 +43591,7 @@ Camera:
   m_GameObject: {fileID: 2145321580}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -42825,11 +43599,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.012684244
-  far clip plane: 2536.8489
-  field of view: 52.36686
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 52.46865
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 0.114550896
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -42851,8 +43625,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2145321580}
-  m_LocalRotation: {x: -0.8610252, y: -0.102653936, z: 0.058783963, w: 0.4946133}
-  m_LocalPosition: {x: -0.60451216, y: -1.0049286, z: 2.829364}
+  m_LocalRotation: {x: -0.6829416, y: -0.49700388, z: 0.314998, w: 0.43284434}
+  m_LocalPosition: {x: -0.63275766, y: -1.9728146, z: -10.83381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1134233135}
