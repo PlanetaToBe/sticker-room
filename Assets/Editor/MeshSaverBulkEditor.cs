@@ -36,7 +36,7 @@ public static class MeshSaverBulkEditor {
 	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
 	static string asset_path = "Assets/Sticker/Exports/Assets/";
 
-	[MenuItem("CONTEXT/Transform/Save Children Tape Mesh...")]
+	[MenuItem("CONTEXT/Transform/Save Tape Mesh in Children...")]
 	public static void SaveChildrenMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
@@ -76,7 +76,7 @@ public static class MeshSaverBulkEditor {
 		}
 	}
 
-	[MenuItem("CONTEXT/Transform/Load n Create Children...")]
+	[MenuItem("CONTEXT/Transform/Load n Create Tape in Children...")]
 	public static void LoadnCreateChildren (MenuCommand menuCommand)
 	{
 		StickersTransformData loadedData;
@@ -125,7 +125,7 @@ public static class MeshSaverBulkEditor {
 		}
 	}
 
-	[MenuItem("CONTEXT/Transform/Save Children Hose Mesh...")]
+	[MenuItem("CONTEXT/Transform/Save Hose Mesh in Children...")]
 	public static void SaveChildrenHoseMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
@@ -153,7 +153,7 @@ public static class MeshSaverBulkEditor {
 		}
 	}
 
-	[MenuItem("CONTEXT/Transform/Load n Create Hose Children...")]
+	[MenuItem("CONTEXT/Transform/Load n Create Hose in Children...")]
 	public static void LoadnCreateHoseChildren (MenuCommand menuCommand)
 	{
 		StickersTransformData loadedData;

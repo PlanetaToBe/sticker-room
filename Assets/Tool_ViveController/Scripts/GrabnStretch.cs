@@ -32,6 +32,7 @@ public class GrabnStretch : MonoBehaviour {
 	public StickerTool myTool;
 	public Tool glove;
 	private bool inUse;
+	private Transform stickerParent;
 
 	//--- Scale Self ---
 	//----------------------
@@ -379,6 +380,7 @@ public class GrabnStretch : MonoBehaviour {
 				}
 				else // or NON-PHYSICS(hierarchy way)
 				{
+					stickerParent = touchedObj.transform.parent;
 					touchedObj.transform.parent = gameObject.transform;
 				}
 
@@ -589,7 +591,8 @@ public class GrabnStretch : MonoBehaviour {
 		{
 			if (touchedObj)
 			{
-				touchedObj.transform.parent = null;
+				//touchedObj.transform.parent = null;
+				touchedObj.transform.parent = stickerParent;
 
 				if(Device.velocity.sqrMagnitude > 0.2f)
 				{

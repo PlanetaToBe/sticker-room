@@ -169,6 +169,11 @@ public class LevelManager : MonoBehaviour {
 
 				// TODO: pause all tools
 
+				int phase_index = (int)(currentState / 2);
+
+//				if (azureSkyManager)
+//					azureSkyManager.SetFloor (phase_index);
+
 				// fade out => reload
 				SteamVR_Fade.Start(Color.black, 3f);
 				Invoke ("Reload", 4f);
