@@ -10,12 +10,6 @@ public class RainbowLight : MonoBehaviour {
 	void Start ()
 	{
 		light = GetComponent<Light> ();
-
-		tween = LeanTween.value(gameObject, 0f, 1f, 5f)
-			.setOnUpdate((float val)=>{
-				light.color = Color.HSVToRGB(val, 0.2f, 1f);
-			})
-			.setLoopPingPong(-1);
 	}
 
 	void OnEnable()
@@ -32,5 +26,23 @@ public class RainbowLight : MonoBehaviour {
 		{
 			tween.pause ();
 		}
+	}
+
+	public void StartRainbowLight()
+	{
+		LeanTween.value (gameObject, 0f, 1f, 2f)
+			.setOnUpdate ((float val) => {
+				light.color = Color.HSVToRGB (val, val/5f, 1f);
+			})
+			.setOnComplete(DoRainbow);
+	}
+
+	void DoRainbow()
+	{
+		tween = LeanTween.value(gameObject, 0f, 1f, 5f)
+			.setOnUpdate((float val)=>{
+				light.color = Color.HSVToRGB(val, 0.2f, 1f);
+			})
+			.setLoopPingPong(-1);
 	}
 }

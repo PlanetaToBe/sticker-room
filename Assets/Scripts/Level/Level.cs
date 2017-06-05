@@ -119,7 +119,8 @@ public class Level : MonoBehaviour {
 							a_source.volume = val;
 						})
 						.setOnComplete(()=>{
-							a_source.Pause();
+							//a_source.Pause();
+							a_source.Stop();
 						});
 				}
 			}

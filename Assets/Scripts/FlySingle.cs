@@ -156,7 +156,7 @@ public class FlySingle : MonoBehaviour {
 					Debug.Log ("land on floor!");
 					player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
 					justFinishFlying = false;
-					toolHub.EnableAllTools ();
+					//toolHub.EnableAllTools ();
 				}
 
 				//v.1
@@ -260,6 +260,7 @@ public class FlySingle : MonoBehaviour {
 
 					Debug.DrawLine(Pivot.position, hit.point);
 				}
+				toolHub.EnableAllTools ();
 				break;
 
 			case FlyType.Physics:

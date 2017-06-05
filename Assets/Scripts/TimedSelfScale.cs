@@ -6,11 +6,11 @@ public class TimedSelfScale : MonoBehaviour {
 
 	public Transform cameraEye;
 	public Transform player;
-
 	public float[] targetScales = new float[] {0.05f, 1f, 4f};
+	public GvrAudioSource growSound;
+
 	private float curr_targetScale;
 	private bool shouldBeScaling = false;
-
 	private LevelManager levelManager;
 
 	void OnEnable()
@@ -34,6 +34,7 @@ public class TimedSelfScale : MonoBehaviour {
 		if (player.transform.localScale.x < curr_targetScale)
 		{
 			ScaleSelfTo (player, curr_targetScale);
+			growSound.gameObject.transform.position = cameraEye.position;
 		}
 		else
 		{
@@ -53,15 +54,36 @@ public class TimedSelfScale : MonoBehaviour {
 
 		if(level==1)
 		{
+			growSound.Play ();
 			// do autoscale in order to match center
-			LeanTween.scale( player.gameObject, Vector3.one, 3f );
-			LeanTween.move( player.gameObject, Vector3.zero, 3f );
+			LeanTween.scale( player.gameObject, Vector3.one/2f, 5f ).setEaseInOutQuad();
+			LeanTween.move( player.gameObject, Vector3.zero, 5f )
+				.setEaseInOutQuad()
+				.setOnUpdate((float val)=>{
+					growSound.gameObject.transform.position = cameraEye.position;
+				});
+
+			Invoke ("ScaleToOne", 60f);
 		}
-		else
+		else if (level !=0)
 		{
 			curr_targetScale = targetScales[level];
 			shouldBeScaling = true;
+			growSound.Play ();
 		}
+	}
+
+	void ScaleToOne()
+	{
+		growSound.Play ();
+		curr_targetScale = 1f;
+		shouldBeScaling = true;
+
+//		LeanTween.scale( player.gameObject, Vector3.one, 5f )
+//			.setEaseInOutQuad()
+//			.setOnUpdate((float val)=>{
+//				growSound.gameObject.transform.position = cameraEye.position;
+//			});
 	}
 
 	public void ScaleSelfTo(Transform target, float scaleSize)

@@ -12,6 +12,7 @@ public class LevelZero : MonoBehaviour {
 	public GameObject mask;
 	public CanvasGroup startInfo;
 	public CanvasGroup machineInfo;
+	public CanvasGroup artistInfo;
 	public Light houseLight;
 	public GameObject[] thingsToBeLift;
 
@@ -23,6 +24,13 @@ public class LevelZero : MonoBehaviour {
 	private IEnumerator flickerCoroutine;
 	private bool doLightEffect = false;
 	private bool realFlicker = false;
+	private RainbowLight rainbowLight;
+
+	[Header("Audio")]
+	public GvrAudioSource noise;
+	public GvrAudioSource elect;
+	public AudioClip electClip;
+	public GvrAudioSource shatter;
 
 	void OnEnable()
 	{
@@ -40,13 +48,16 @@ public class LevelZero : MonoBehaviour {
 
 	void Start()
 	{
-		flickerCoroutine = FlickerLight ();
+		flickerCoroutine = FlickerLight (10f);
+		rainbowLight = houseLight.GetComponent<RainbowLight> ();
 	}
 
 	void OnLevelTransition(int _level)
 	{
 		if (_level == levelIndex)
 		{
+			rainbowLight.StartRainbowLight ();
+
 			// flickering the light, StartCoroutin
 			doLightEffect = true;
 			minIntensity = 0.4f;
@@ -54,11 +65,11 @@ public class LevelZero : MonoBehaviour {
 			maxFlickerSpeed = 1f;
 			StartCoroutine (flickerCoroutine);
 
-			// lift the house
-			Invoke("FlickerIntense", 5f);
+			// increase intensity
+			Invoke("FlickerIntense", 15f);
 
 			// lift the house
-			Invoke("LiftHouse", 9f);
+			Invoke("LiftHouse", 19f);
 		}
 	}
 
@@ -91,8 +102,15 @@ public class LevelZero : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FlickerLight()
+	IEnumerator FlickerLight(float delayT)
 	{
+		yield return new WaitForSeconds (delayT);
+
+		// play noise audio
+		ToggleAudio(noise, true, 1f);
+
+		int electCount = 0;
+
 		while (doLightEffect)
 		{
 			houseLight.enabled = true;
@@ -102,6 +120,13 @@ public class LevelZero : MonoBehaviour {
 			{
 				houseLight.enabled = false;
 				yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+
+				// elect sound
+				if(electCount%5==0)
+				{
+					elect.PlayOneShot (electClip, 1f);
+				}
+				electCount++;
 			}
 		}
 	}
@@ -111,10 +136,17 @@ public class LevelZero : MonoBehaviour {
 		for(int i=0; i<thingsToBeLift.Length; i++)
 		{
 			LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + .5f, 6f)
-				//.setEaseInOutBack ()
+				.setEaseInOutQuad ()
 				.setOnStart (()=>{
 					doLightEffect = false;
 					houseLight.enabled = false;
+					shatter.Play();
+					ToggleAudio(noise, false, 0f);
+					ToggleAudio(elect, false, 0f);
+				})
+				.setOnComplete(()=>{
+					noise.Stop();
+					ToggleAudio(shatter, false, 0f);
 				});
 		}
 	}
@@ -125,5 +157,41 @@ public class LevelZero : MonoBehaviour {
 		minFlickerSpeed = 0.01f;
 		maxFlickerSpeed = 0.1f;
 		realFlicker = true;
+
+		LeanTween.value (gameObject, 1f, 0f, 1f)
+			.setOnUpdate ((float val) => {
+				artistInfo.alpha = val;
+			});
+	}
+
+	void ToggleAudio(GvrAudioSource audioSource, bool turnOn, float volume)
+	{
+		if (turnOn)
+		{
+			audioSource.UnPause();
+
+			if (!audioSource.isPlaying)
+				audioSource.Play();
+
+			// volume up!
+			LeanTween.value(audioSource.gameObject, 0f, volume, 1f)
+				.setOnUpdate((float val)=>{
+					audioSource.volume = val;
+				});
+		}
+		else
+		{
+			if (audioSource.isPlaying)
+			{
+				LeanTween.value(audioSource.gameObject, audioSource.volume, 0f, 1f)
+					.setOnUpdate((float val)=>{
+						audioSource.volume = val;
+					})
+					.setOnComplete(()=>{
+						//a_source.Pause();
+						audioSource.Stop();
+					});
+			}
+		}
 	}
 }

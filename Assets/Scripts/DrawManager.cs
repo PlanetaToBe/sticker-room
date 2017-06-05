@@ -44,6 +44,11 @@ public class DrawManager : MonoBehaviour {
 
 	private SwapArtist swapArtist;
 
+	[Header("Audios")]
+	public AudioClip penSound;
+	public AudioClip spraySound;
+	private GvrAudioSource audioSource;
+
 	void Start()
 	{
 		wallLayer = 1 << 8;
@@ -51,6 +56,7 @@ public class DrawManager : MonoBehaviour {
 		finalMask = wallLayer | thingLayer;
 		grabnstretch = GetComponent<GrabnStretch> ();
 		swapArtist = GetComponentInParent<SwapArtist> ();
+		audioSource = GetComponent<GvrAudioSource> ();
 	}
 
 	void OnEnable()
@@ -128,13 +134,29 @@ public class DrawManager : MonoBehaviour {
 		{
 		case DrawType.OnThing:
 			currLine.DrawOnThing = true;
-			ketchup.OnDown ();
+
+			if(ketchup)
+				ketchup.OnDown ();
+
+			if (audioSource)
+			{
+				audioSource.clip = spraySound;
+				audioSource.time = Random.Range (0f, 5f);
+				audioSource.Play ();
+			}
 			break;
 
 		case DrawType.InAir:
 			currLine.DrawOnThing = false;
 			currLine.AddPoint (drawPoint.transform.position, false);
 			numClicks++;
+
+			if (audioSource)
+			{
+				audioSource.clip = penSound;
+				audioSource.time = Random.Range (0f, 10f);
+				audioSource.Play ();
+			}
 			break;
 		}
 
@@ -205,8 +227,14 @@ public class DrawManager : MonoBehaviour {
 		switch (drawType)
 		{
 		case DrawType.OnThing:
-			ketchup.OnUp ();
+			if(ketchup)
+				ketchup.OnUp ();
 			break;
+		}
+
+		if (audioSource)
+		{
+			audioSource.Stop ();
 		}
 	}
 

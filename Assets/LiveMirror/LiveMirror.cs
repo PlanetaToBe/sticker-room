@@ -102,8 +102,8 @@ public class LiveMirror : MonoBehaviour
             RenderMirror(reflectionData.texture, cam.transform.position, cam.transform.rotation, cam.projectionMatrix, DefaultRect);
         }
 
-		if(projectorCam)
-			RenderProjector (cam.transform.position, cam.transform.rotation, cam.projectionMatrix, DefaultRect);
+//		if(projectorCam)
+//			RenderProjector (cam.transform.position, cam.transform.rotation, cam.projectionMatrix, DefaultRect);
 
         // Apply the property block containing the appropriate reflection texture reference to this mirror's renderer
         rend.SetPropertyBlock(reflectionData.propertyBlock);
@@ -241,17 +241,17 @@ public class LiveMirror : MonoBehaviour
         mirrorCamera.aspect = src.aspect;
         mirrorCamera.orthographicSize = src.orthographicSize;
 
-		if(projectorCam)
-		{
-			projectorCam.clearFlags = src.clearFlags;
-
-			projectorCam.farClipPlane = src.farClipPlane;
-			projectorCam.nearClipPlane = src.nearClipPlane;
-			projectorCam.orthographic = src.orthographic;
-			projectorCam.fieldOfView = src.fieldOfView;
-			projectorCam.aspect = src.aspect;
-			projectorCam.orthographicSize = src.orthographicSize;
-		}
+//		if(projectorCam)
+//		{
+//			projectorCam.clearFlags = src.clearFlags;
+//
+//			projectorCam.farClipPlane = src.farClipPlane;
+//			projectorCam.nearClipPlane = src.nearClipPlane;
+//			projectorCam.orthographic = src.orthographic;
+//			projectorCam.fieldOfView = src.fieldOfView;
+//			projectorCam.aspect = src.aspect;
+//			projectorCam.orthographicSize = src.orthographicSize;
+//		}
     }
 
     // On-demand create any objects we need
