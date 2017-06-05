@@ -54,14 +54,18 @@ public class TimedSelfScale : MonoBehaviour {
 
 		if(level==1)
 		{
+//			growSound.Play ();
+//			// do autoscale in order to match center
+//			LeanTween.scale( player.gameObject, Vector3.one/2f, 5f ).setEaseInOutQuad();
+//			LeanTween.move( player.gameObject, Vector3.zero, 5f )
+//				.setEaseInOutQuad()
+//				.setOnUpdate((float val)=>{
+//					growSound.gameObject.transform.position = cameraEye.position;
+//				});
+
 			growSound.Play ();
-			// do autoscale in order to match center
-			LeanTween.scale( player.gameObject, Vector3.one/2f, 5f ).setEaseInOutQuad();
-			LeanTween.move( player.gameObject, Vector3.zero, 5f )
-				.setEaseInOutQuad()
-				.setOnUpdate((float val)=>{
-					growSound.gameObject.transform.position = cameraEye.position;
-				});
+			curr_targetScale = 0.1f;
+			shouldBeScaling = true;
 
 			Invoke ("ScaleToOne", 60f);
 		}
@@ -89,7 +93,7 @@ public class TimedSelfScale : MonoBehaviour {
 	public void ScaleSelfTo(Transform target, float scaleSize)
 	{
 		// scale up
-		float scaleFactor = 1f + 0.01f;// * PlayerScale;
+		float scaleFactor = 1f + 0.005f;// * PlayerScale;
 		var endScale = target.transform.localScale * scaleFactor;
 
 //		if (Mathf.Approximately (target.transform.localScale.x, endScale.x))
