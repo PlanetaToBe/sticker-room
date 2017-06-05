@@ -18,7 +18,13 @@ public class DrawManager : MonoBehaviour {
 
 	public float DrawDistance
 	{
-		get { return minDrawDistance * grabnstretch.PlayerScale;}
+		get { 
+			if (toolHub) {
+				return minDrawDistance * grabnstretch.PlayerScale * toolHub.TouchPadDrawWidth;
+			} else {
+				return minDrawDistance * grabnstretch.PlayerScale;
+			}
+		}
 	}
 
 	public enum DrawType
@@ -43,6 +49,7 @@ public class DrawManager : MonoBehaviour {
 	private bool inUse;
 
 	private SwapArtist swapArtist;
+	private ToolHub toolHub;
 
 	[Header("Audios")]
 	public AudioClip penSound;
@@ -57,6 +64,7 @@ public class DrawManager : MonoBehaviour {
 		grabnstretch = GetComponent<GrabnStretch> ();
 		swapArtist = GetComponentInParent<SwapArtist> ();
 		audioSource = GetComponent<GvrAudioSource> ();
+		toolHub = myTools [0].transform.GetComponentInParent<ToolHub> ();
 	}
 
 	void OnEnable()

@@ -217,11 +217,11 @@ public class ToolHubSimple : MonoBehaviour {
 			touchArrows [3].material.color = Color.white;
 		}
 
-		//steps on X-Axis: -1~1 break down into 10 steps, each step: 0.2f
 		if (LeanTween.isTweening(gameObject)) {
 			return;
 		}
 
+		//steps on X-Axis: -1~1 break down into 10 steps, each step: 0.2f
 		float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
 		float absDist = Mathf.Abs (dist);
 
