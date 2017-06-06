@@ -29,13 +29,15 @@ public class Physicfy : MonoBehaviour {
 	public ShootType shootType = ShootType.SpringAfterHit;	// as hosing, snap if hit the wall, stack up if hit the floor
 
 	public float shootForce = 15f;
-	private GrabnStretch grabnstretch;
+	//private GrabnStretch grabnstretch;
 	public float RealShootForce
 	{
-		get { return shootForce * grabnstretch.PlayerScale;}
+		get { return shootForce * stickerHoser.StickerPhysicScalar;}
 	}
 
 	private RaycastHit springHit;
+
+	private StickerControllerGenerator stickerHoser;
 
 	void OnEnable()
 	{
@@ -55,7 +57,8 @@ public class Physicfy : MonoBehaviour {
 	void Start()
 	{
 		wallLayer = 1 << 8;
-		grabnstretch = GetComponent<GrabnStretch> ();
+		//grabnstretch = GetComponent<GrabnStretch> ();
+		stickerHoser = GetComponent<StickerControllerGenerator> ();
 	}
 
 	private void ApplyPhysics (GameObject sticker, uint c_index)
@@ -73,7 +76,7 @@ public class Physicfy : MonoBehaviour {
 		b_c.material = artPhyMat;
 
 		Rigidbody r_b = s_c.AddComponent<Rigidbody> ();
-		r_b.mass = 2f * grabnstretch.PlayerScale;
+		r_b.mass = 1.5f * stickerHoser.StickerPhysicScalar;
 
 		tmp_interactiveObject = s_c.AddComponent<VRInteractiveObject> ();
 		tmp_interactiveObject.usePhysics = true;

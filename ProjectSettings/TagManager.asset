@@ -9,6 +9,7 @@ TagManager:
   - StickerFloor
   - Hand
   - Button
+  - Thing
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Player
   - AzureMoonSphere
   - AzureSkydome
-  - 
-  - 
+  - LeftEye
+  - RightEye
   - 
   - 
   - 

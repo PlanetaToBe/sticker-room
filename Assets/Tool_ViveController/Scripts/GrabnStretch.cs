@@ -42,6 +42,7 @@ public class GrabnStretch : MonoBehaviour {
 	public float minSelfScale = 0.05f;
 	public float maxSelfScale = 20f;
 	public Tool scaleHand;
+	public bool enableSelfScale = true;
 
 	private bool m_inSelfScalingMode = false;
 	private bool m_inSelfScalingSupportMode = false;
@@ -149,6 +150,9 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleSelfOver(Collider _collider)
 	{
+		if(!enableSelfScale)
+			return;
+		
 		if (_collider.gameObject.tag == "GameController")
 		{
 			otherController = _collider.gameObject.GetComponentInParent<GrabnStretch> ();
@@ -177,6 +181,9 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleSelfStay(Collider _collider)
 	{
+		if(!enableSelfScale)
+			return;
+		
 		if (_collider.gameObject.tag == "GameController")
 		{
 			// just in case
@@ -208,6 +215,9 @@ public class GrabnStretch : MonoBehaviour {
 
 	public void HandleSelfExit(Collider _collider)
 	{
+		if(!enableSelfScale)
+			return;
+		
 		if (_collider.gameObject.tag == "GameController")
 		{
 			if(m_inSelfScalingMode || m_inSelfScalingSupportMode)

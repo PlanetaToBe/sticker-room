@@ -10,6 +10,7 @@ public class LevelZero : MonoBehaviour {
 
 	[Header("Level Objects")]
 	public GameObject mask;
+	public GameObject maskSolid;
 	public CanvasGroup startInfo;
 	public CanvasGroup machineInfo;
 	public CanvasGroup artistInfo;
@@ -87,6 +88,8 @@ public class LevelZero : MonoBehaviour {
 	{
 		if (_level == levelIndex)
 		{
+			maskSolid.SetActive (false);
+			mask.SetActive(true);
 			LeanTween.color(mask, Color.clear, 1f).setOnComplete(()=>{
 				mask.SetActive(false);
 			});
@@ -98,6 +101,7 @@ public class LevelZero : MonoBehaviour {
 				.setOnComplete(()=>{
 					LeanTween.value(gameObject, 0f, 1f, 1f)
 						.setOnUpdate((float val)=>{
+							artistInfo.alpha = val;
 							machineInfo.alpha = val;
 						});
 				});
@@ -145,8 +149,8 @@ public class LevelZero : MonoBehaviour {
 	{
 		for(int i=0; i<thingsToBeLift.Length; i++)
 		{
-			LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + .5f, 6f)
-				.setEaseInOutQuad ();
+			LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 4f, 6f)
+				.setEaseInExpo ();
 
 			if (i == 0)
 			{

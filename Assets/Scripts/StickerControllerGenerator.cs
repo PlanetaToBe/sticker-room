@@ -22,10 +22,28 @@ public class StickerControllerGenerator : MonoBehaviour {
 	public GameObject stickerPrefab;
 	private StickerArt stickerArt;
 	private SwapArtist swapArtist;
+	private ToolHub toolHub;
 
 	public Vector3 StickerSize
 	{
-		get { return stickerSize * grabnStretch.PlayerScale; }
+		get { 
+			if (toolHub) {
+				return stickerSize * grabnStretch.PlayerScale * toolHub.TouchPadDrawWidth;
+			} else {
+				return stickerSize * grabnStretch.PlayerScale;
+			}
+		}
+	}
+
+	public float StickerPhysicScalar
+	{
+		get { 
+			if (toolHub) {
+				return grabnStretch.PlayerScale * toolHub.TouchPadDrawWidth;
+			} else {
+				return grabnStretch.PlayerScale;
+			}
+		}
 	}
 
 	void Start()
@@ -35,6 +53,7 @@ public class StickerControllerGenerator : MonoBehaviour {
 		stickerSize = stickerPrefab.transform.localScale;
 		stickerArt = stickerPrefab.GetComponent<StickerArt> ();
 		swapArtist = GetComponentInParent<SwapArtist> ();
+		toolHub = myTool.transform.GetComponentInParent<ToolHub> ();
 	}
 
 	void OnEnable()

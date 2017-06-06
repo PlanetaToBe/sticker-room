@@ -85,6 +85,7 @@ public class FlySingle : MonoBehaviour {
 
 	private Vector3 fallVel;
 	private int velTweenID;
+	private int relativeToGround = 1;
 
 	void OnEnable()
 	{
@@ -167,7 +168,13 @@ public class FlySingle : MonoBehaviour {
 				*/
 
 				// v.2 Land on Floor
-				if(player.position.y > normalGroundHeight + fallVel.y)
+				// above ground
+				if(relativeToGround==1 && player.position.y > normalGroundHeight - fallVel.y)
+				{
+					player.Translate (fallVel);
+				}
+				// below ground
+				else if(relativeToGround==-1 && player.position.y < normalGroundHeight - fallVel.y)
 				{
 					player.Translate (fallVel);
 				}
@@ -192,6 +199,11 @@ public class FlySingle : MonoBehaviour {
 		{
 			m_inFlyingSupportMode = true;
 			m_inFlyingMode = false;
+
+			if(!particle.isPlaying)
+			{
+				particle.Play ();
+			}
 		}
 		else
 		{
@@ -239,7 +251,13 @@ public class FlySingle : MonoBehaviour {
 			case FlyType.NonPhysics:
 				justFinishFlying = true;
 				fallVel = Vector3.zero;
-				velTweenID = LeanTween.value (gameObject, Vector3.zero, new Vector3 (0f, -0.1f, 0f), 5f)
+
+				if (player.position.y < normalGroundHeight)
+					relativeToGround = -1;
+				else
+					relativeToGround = 1;
+				
+				velTweenID = LeanTween.value (gameObject, Vector3.zero, new Vector3 (0f, -0.1f * relativeToGround, 0f), 3f)
 					.setEaseInExpo()
 					.setOnUpdate((Vector3 val)=>{
 						fallVel = val;
@@ -263,6 +281,10 @@ public class FlySingle : MonoBehaviour {
 				toolHub.EnableAllTools ();
 				break;
 			}
+			//particle.Stop ();
+		}
+		if(particle.isPlaying)
+		{
 			particle.Stop ();
 		}
 		isFlying = false;
@@ -284,7 +306,7 @@ public class FlySingle : MonoBehaviour {
 					aveVec = controllerTran.forward;
 
 				if (otherController.InFlyingSupportMode)
-					FlyVector = aveVec * FlyStep * 2f;
+					FlyVector = aveVec * FlyStep * 3f;
 				else
 					FlyVector = aveVec * FlyStep;
 

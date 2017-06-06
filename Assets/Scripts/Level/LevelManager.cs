@@ -85,7 +85,7 @@ public class LevelManager : MonoBehaviour {
 		{
 			levelScripts[i].ToggleLight(false);
 		}
-
+		startTime = -1f;
 		// TEST
 		//ToStart = true;
 	}

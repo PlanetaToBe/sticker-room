@@ -13,9 +13,9 @@ public class LevelTwo : MonoBehaviour {
 
 	[Header("Light")]
 	public Light houseLight;
-	public float minFlickerSpeed = 0.02f;
-	public float maxFlickerSpeed = 0.2f;
-	public float minIntensity = 0.4f;
+	public float minFlickerSpeed = 0.01f;
+	public float maxFlickerSpeed = 0.1f;
+	public float minIntensity = 0f;
 	public float maxIntensity = 1f;
 	private IEnumerator flickerCoroutine;
 	private bool doLightEffect = false;
@@ -49,7 +49,7 @@ public class LevelTwo : MonoBehaviour {
 		if (_level == levelIndex)
 		{
 			// shrink forrest
-			ShrinkStuff();
+			//ShrinkStuff();
 		}
 	}
 

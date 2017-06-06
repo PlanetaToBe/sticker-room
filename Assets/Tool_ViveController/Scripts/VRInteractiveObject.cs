@@ -169,7 +169,7 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.collider.CompareTag("Wall"))
+		if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Thing"))
 		{
 			if (m_IsShooting)
 			{
@@ -188,6 +188,17 @@ public class VRInteractiveObject : MonoBehaviour {
 				Invoke ("RemoveSpring", 3f);
 			}
 			else if (m_IsDropping)
+			{
+				Invoke ("RemoveRigidbody", 2f);
+				usePhysics = false;
+				useRigidbody = false;
+				m_IsDropping = false;
+			}
+		}
+
+		if (collision.collider.CompareTag ("Sticker"))
+		{
+			if (m_IsShooting || m_IsDropping)
 			{
 				Invoke ("RemoveRigidbody", 2f);
 				usePhysics = false;
