@@ -26,6 +26,7 @@ public class FlySingle : MonoBehaviour {
 	private Vector3 roomCenter = new Vector3 (0, 1.7f, 0);
 
 	private float newGroundHeight = 0f;
+	private float normalGroundHeight = 0f;
 	private Collider newGroundCollider;
 	private int wallLayer;
 	private int stickerLayer;
@@ -36,7 +37,7 @@ public class FlySingle : MonoBehaviour {
 	}
 	private PlayerMovement playerMovement;
 
-	public Transform cameraRig;
+	[Header("Raycast Reference")]
 	public Transform cameraEye;
 	public Transform Pivot
 	{
@@ -63,6 +64,7 @@ public class FlySingle : MonoBehaviour {
 		get { return Time.deltaTime * flySpeed * PlayerSize; }
 	}
 
+	[Header("Effect")]
 	public ParticleSystem particle;
 	private Vector3 particleOriPosition;
 
@@ -80,6 +82,9 @@ public class FlySingle : MonoBehaviour {
 	public StickerTool myTool;
 	public Tool rocket;
 	private bool inUse;
+
+	private Vector3 fallVel;
+	private int velTweenID;
 
 	void OnEnable()
 	{
@@ -135,6 +140,8 @@ public class FlySingle : MonoBehaviour {
 		case FlyType.NonPhysics:
 			if (justFinishFlying)
 			{
+				// v.1 Land on Stickers
+				/*
 				RaycastHit hit;
 				if (Physics.Raycast(Pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
 				{
@@ -156,39 +163,21 @@ public class FlySingle : MonoBehaviour {
 					Debug.Log ("land on floor!");
 					player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
 					justFinishFlying = false;
-					//toolHub.EnableAllTools ();
 				}
+				*/
 
-				//v.1
-				/*
-				if (player.position.y < newGroundHeight)
+				// v.2 Land on Floor
+				if(player.position.y > normalGroundHeight + fallVel.y)
 				{
-					Debug.Log ("land on floor!");
-					player.position = new Vector3 (player.position.x, newGroundHeight, player.position.z);
-					justFinishFlying = false;
-					for(int i=0; i<toolHubs.Length; i++)
-					{
-						toolHubs [i].EnableAllTools ();
-					}
+					player.Translate (fallVel);
 				}
 				else
 				{
-					// when falling, check if new ground height change
-					RaycastHit hit;
-					if (Physics.Raycast(pivot.position, Vector3.down, out hit, 50f, finalLandingMask))
-					{
-						if (newGroundCollider != hit.collider)
-						{
-							newGroundCollider = hit.collider;
-							Debug.Log ("hit something diff when falling: " + hit.collider.name);
-						}						
-
-						newGroundHeight = hit.point.y;
-						Debug.DrawLine(pivot.position, hit.point);
-					}
-					player.Translate (Vector3.down * Time.deltaTime * flySpeed * 2f * PlayerSize);
+					Debug.Log ("land on floor!");
+					player.position = new Vector3 (player.position.x, normalGroundHeight, player.position.z);
+					justFinishFlying = false;
+					LeanTween.cancel (velTweenID);
 				}
-				*/
 			}
 			break;
 		}
@@ -222,7 +211,7 @@ public class FlySingle : MonoBehaviour {
 			case FlyType.Physics:
 				// v.1 controllers decide direction
 				Vector3 aveVec;
-				if(otherController.InFlyingSupportMode)
+				if (otherController.InFlyingSupportMode)
 					aveVec = (controllerTran.forward + otherController.transform.forward) / 2f;
 				else
 					aveVec = controllerTran.forward;
@@ -249,6 +238,12 @@ public class FlySingle : MonoBehaviour {
 			{
 			case FlyType.NonPhysics:
 				justFinishFlying = true;
+				fallVel = Vector3.zero;
+				velTweenID = LeanTween.value (gameObject, Vector3.zero, new Vector3 (0f, -0.1f, 0f), 5f)
+					.setEaseInExpo()
+					.setOnUpdate((Vector3 val)=>{
+						fallVel = val;
+					}).id;
 
 				// Raycast down to see if will landing on stickers
 				RaycastHit hit;
@@ -268,7 +263,6 @@ public class FlySingle : MonoBehaviour {
 				toolHub.EnableAllTools ();
 				break;
 			}
-				
 			particle.Stop ();
 		}
 		isFlying = false;
@@ -289,7 +283,10 @@ public class FlySingle : MonoBehaviour {
 				else
 					aveVec = controllerTran.forward;
 
-				FlyVector = aveVec * FlyStep;
+				if (otherController.InFlyingSupportMode)
+					FlyVector = aveVec * FlyStep * 2f;
+				else
+					FlyVector = aveVec * FlyStep;
 
 				switch (flyType)
 				{

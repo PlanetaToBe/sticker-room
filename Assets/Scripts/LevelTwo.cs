@@ -13,8 +13,8 @@ public class LevelTwo : MonoBehaviour {
 
 	[Header("Light")]
 	public Light houseLight;
-	public float minFlickerSpeed = 0.5f;
-	public float maxFlickerSpeed = 1f;
+	public float minFlickerSpeed = 0.02f;
+	public float maxFlickerSpeed = 0.2f;
 	public float minIntensity = 0.4f;
 	public float maxIntensity = 1f;
 	private IEnumerator flickerCoroutine;
@@ -41,7 +41,7 @@ public class LevelTwo : MonoBehaviour {
 
 	void Start()
 	{
-		//flickerCoroutine = FlickerLight ();
+		flickerCoroutine = FlickerLight ();
 	}
 
 	void OnLevelTransition(int _level)
@@ -50,13 +50,6 @@ public class LevelTwo : MonoBehaviour {
 		{
 			// shrink forrest
 			ShrinkStuff();
-
-			// play party sound
-			ToggleAudio(party, true, 1f);
-
-			// flicker light
-			flickerCoroutine = FlickerLight ();
-			StartCoroutine(flickerCoroutine);
 		}
 	}
 
@@ -64,7 +57,14 @@ public class LevelTwo : MonoBehaviour {
 	{
 		if (_level == levelIndex)
 		{
-			//
+			// play party sound
+			ToggleAudio(party, true, 1f);
+
+			// fire light
+			houseLight.range = 50f;
+			houseLight.enabled = true;
+			doLightEffect = true;
+			StartCoroutine(flickerCoroutine);
 		}
 	}
 
@@ -73,6 +73,15 @@ public class LevelTwo : MonoBehaviour {
 		if (_level == levelIndex)
 		{
 			ToggleAudio(party, false, 0f);
+			doLightEffect = false;
+			houseLight.enabled = true;
+			LeanTween.value(houseLight.gameObject, houseLight.intensity, 0f, 3f)
+				.setOnUpdate((float val)=>{
+					houseLight.intensity = val;
+				})
+				.setOnComplete(()=>{
+					houseLight.enabled = false;
+				});
 		}
 	}
 
@@ -82,6 +91,8 @@ public class LevelTwo : MonoBehaviour {
 		{
 			houseLight.enabled = true;
 			houseLight.intensity = Random.Range(minIntensity, maxIntensity);
+			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+			houseLight.enabled = false;
 			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
 		}
 	}

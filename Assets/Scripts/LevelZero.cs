@@ -14,6 +14,8 @@ public class LevelZero : MonoBehaviour {
 	public CanvasGroup machineInfo;
 	public CanvasGroup artistInfo;
 	public Light houseLight;
+	public FastForward forwardToLevel1;
+	public Text answer;
 	public GameObject[] thingsToBeLift;
 
 	[Header("Light")]
@@ -37,6 +39,10 @@ public class LevelZero : MonoBehaviour {
 		levelManager.OnLevelTransition += OnLevelTransition;
 		levelManager.OnLevelStart += OnLevelStart;
 		levelManager.OnLevelEnd += OnLevelEnd;
+
+		if (forwardToLevel1) {
+			forwardToLevel1.OnControllerEnter += DoForwardToLevel;
+		}
 	}
 
 	void OnDisable()
@@ -44,6 +50,10 @@ public class LevelZero : MonoBehaviour {
 		levelManager.OnLevelTransition -= OnLevelTransition;
 		levelManager.OnLevelStart -= OnLevelStart;
 		levelManager.OnLevelEnd -= OnLevelEnd;
+
+		if (forwardToLevel1) {
+			forwardToLevel1.OnControllerEnter -= DoForwardToLevel;
+		}
 	}
 
 	void Start()
@@ -135,19 +145,23 @@ public class LevelZero : MonoBehaviour {
 	{
 		for(int i=0; i<thingsToBeLift.Length; i++)
 		{
-			LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + .5f, 6f)
-				.setEaseInOutQuad ()
-				.setOnStart (()=>{
+			LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + .5f, 6f)
+				.setEaseInOutQuad ();
+
+			if (i == 0)
+			{
+				tween.setOnStart (()=>{
 					doLightEffect = false;
 					houseLight.enabled = false;
 					shatter.Play();
 					ToggleAudio(noise, false, 0f);
 					ToggleAudio(elect, false, 0f);
-				})
-				.setOnComplete(()=>{
+				}).setOnComplete(()=>{
 					noise.Stop();
 					ToggleAudio(shatter, false, 0f);
 				});
+			}
+				
 		}
 	}
 
@@ -193,5 +207,11 @@ public class LevelZero : MonoBehaviour {
 					});
 			}
 		}
+	}
+
+	private void DoForwardToLevel()
+	{
+		answer.enabled = true;
+		forwardToLevel1.gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
 	}
 }

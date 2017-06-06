@@ -12,8 +12,8 @@ public class DrawManager : MonoBehaviour {
 
 	public GameObject drawPoint;
 	public float minDrawDistance = 0.07f;
-	public int textureHorizontalCount = 1;
-	public int textureVerticalCount = 1;
+	//public int textureHorizontalCount = 1;
+	//public int textureVerticalCount = 1;
 	public Transform allStickerTapesParent;
 
 	public float DrawDistance
@@ -135,8 +135,8 @@ public class DrawManager : MonoBehaviour {
 		currLine.SetWidth (DrawDistance);
 		currLine.drawPoint = drawPoint;
 		currLine.selfObject = go;
-		currLine.TextureHorizontalCount = textureHorizontalCount;
-		currLine.TextureVerticalCount = textureVerticalCount;
+		//currLine.TextureHorizontalCount = textureHorizontalCount;
+		//currLine.TextureVerticalCount = textureVerticalCount;
 
 		switch(drawType)
 		{

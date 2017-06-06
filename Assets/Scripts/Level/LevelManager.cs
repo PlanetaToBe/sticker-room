@@ -18,8 +18,10 @@ public class LevelManager : MonoBehaviour {
 
 	// even: transition =>(#/2), odd: level => Math.Floor(#/2)
 	public int[] times = new int[] {0, 1, 60, 70, 180, 190, 210};
-	public CanvasGroup startInto;
 	public SteamVR_TrackedController[] controllers;
+
+	[Header("Fast Forward")]
+	public FastForward forwardToLevel1;
 
 	private Dictionary<int, GameObject> levelsDict;
 	private Dictionary<int, Level> levelScriptDict;
@@ -40,7 +42,6 @@ public class LevelManager : MonoBehaviour {
 		set {
 			m_start = value;
 			if (m_start) {
-				startInto.alpha = 0;
 				startTime = Time.time;
 			}
 		}
@@ -96,6 +97,10 @@ public class LevelManager : MonoBehaviour {
 			controllers[i].TriggerClicked += HandlePadDown;
 			controllers[i].TriggerUnclicked += HandlePadUp;
 		}
+
+		if (forwardToLevel1) {
+			forwardToLevel1.OnControllerEnter += DoForwardToLevel;
+		}
 	}
 
 	void OnDisable()
@@ -104,6 +109,10 @@ public class LevelManager : MonoBehaviour {
 		{
 			controllers[i].TriggerClicked -= HandlePadDown;
 			controllers[i].TriggerUnclicked -= HandlePadUp;
+		}
+
+		if (forwardToLevel1) {
+			forwardToLevel1.OnControllerEnter -= DoForwardToLevel;
 		}
 	}
 
@@ -271,5 +280,12 @@ public class LevelManager : MonoBehaviour {
 	private void HandlePadUp(object sender, ClickedEventArgs e)
 	{
 		padDownCount--;
+	}
+
+	private void DoForwardToLevel()
+	{
+		float currPassTime = Time.time - startTime;
+		float idealPasTime = 34f;
+		startTime -= idealPasTime - currPassTime;
 	}
 }
