@@ -32,9 +32,9 @@ public struct StickerTransform
 
 public static class MeshSaverBulkEditor {
 
-	static string json_path = Application.dataPath + "/Sticker/Exports/data.json";
+	static string json_path = Application.dataPath + "/Sticker/Exports/data_old.json";
 	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
-	static string asset_path = "Assets/Sticker/Exports/Assets/";
+	static string asset_path = "Assets/Sticker/Exports/Assets_old/";
 
 	[MenuItem("CONTEXT/Transform/Save Tape Mesh in Children...")]
 	public static void SaveChildrenMeshInPlace (MenuCommand menuCommand)

@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour {
 	public int[] times = new int[] {0, 1, 60, 70, 180, 190, 210};
 	public SteamVR_TrackedController[] controllers;
 
-	[Header("Fast Forward")]
+	[Header("Automation")]
 	public FastForward forwardToLevel1;
 
 	private Dictionary<int, GameObject> levelsDict;

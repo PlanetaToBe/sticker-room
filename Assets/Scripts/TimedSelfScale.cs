@@ -108,7 +108,7 @@ public class TimedSelfScale : MonoBehaviour {
 	public void TweenScaleSelfTo(Transform target, float scaleSize)
 	{
 		Vector3 oldScale = target.localScale;
-		LeanTween.scale( target.gameObject, Vector3.one*scaleSize, 5f )
+		LeanTween.scale( target.gameObject, Vector3.one*scaleSize, 10f )
 			.setEaseInOutQuad()
 			.setOnUpdateVector3((Vector3 scale)=>{
 				float scaleFactor = scale.x / oldScale.x;

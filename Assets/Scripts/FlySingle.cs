@@ -128,7 +128,7 @@ public class FlySingle : MonoBehaviour {
 		wallLayer = 1 << 8;
 		stickerLayer = 1 << 11;
 		int thingLayer = 1 << 9;
-		finalLandingMask = wallLayer | stickerLayer | thingLayer;
+		finalLandingMask = thingLayer; // | wallLayer | stickerLayer
 
 		playerMovement = GetComponentInParent<PlayerMovement> ();
 		particleOriPosition = particle.transform.localPosition;
@@ -269,8 +269,7 @@ public class FlySingle : MonoBehaviour {
 				{
 					newGroundCollider = hit.collider;
 					newGroundHeight = hit.point.y;
-					Debug.Log ("hit something first time: " + hit.collider.name);
-
+					//Debug.Log ("hit something first time: " + hit.collider.name);
 					Debug.DrawLine(Pivot.position, hit.point);
 				}
 				toolHub.EnableAllTools ();
