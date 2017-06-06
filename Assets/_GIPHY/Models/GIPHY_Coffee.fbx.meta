@@ -1,0 +1,402 @@
+fileFormatVersion: 2
+guid: 263c81ec983a64941a6776459325329a
+timeCreated: 1496781714
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arms
+    100002: Body
+    100004: Boole
+    100006: Camera
+    100008: Cap_1
+    100010: Cap_2
+    100012: Coffee
+    100014: Cylinder
+    100016: Cylinder_1
+    100018: Cylinder_1_2
+    100020: Everything
+    100022: FIgure
+    100024: //RootNode
+    100026: Legs
+    100028: Lensflare_Source
+    100030: Moon
+    100032: Moon_Light
+    100034: Mug
+    100036: Null
+    100038: Null_1
+    100040: Null_2
+    100042: Null_3
+    100044: Physical_Sky
+    100046: Shadow_Plane
+    100048: Skin
+    100050: Sky_Dome
+    100052: Sky_Null
+    100054: Sleeves
+    100056: Sleeves_1
+    100058: Sphere
+    100060: Sphere_1
+    100062: Stereo_Cam
+    100064: Sun
+    100066: Sun_light
+    100068: Sweep
+    100070: Sweep_1
+    100072: Sweep_1_2
+    100074: Sweep_1_3
+    100076: Sweep_1_4
+    100078: Sweep_1_5
+    100080: Sweep_2
+    100082: Sweep_2_2
+    100084: Sweep_2_3
+    100086: Sweep_2_4
+    100088: Sweep_3
+    100090: Sweep_3_2
+    100092: Sweep_3_3
+    100094: Sweep_3_4
+    100096: Sweep_4
+    100098: Sweep_4_2
+    100100: Sweep_4_3
+    100102: Sweep_5
+    100104: Sweep_5_2
+    100106: Sweep_6
+    100108: Torus
+    400000: Arms
+    400002: Body
+    400004: Boole
+    400006: Camera
+    400008: Cap_1
+    400010: Cap_2
+    400012: Coffee
+    400014: Cylinder
+    400016: Cylinder_1
+    400018: Cylinder_1_2
+    400020: Everything
+    400022: FIgure
+    400024: //RootNode
+    400026: Legs
+    400028: Lensflare_Source
+    400030: Moon
+    400032: Moon_Light
+    400034: Mug
+    400036: Null
+    400038: Null_1
+    400040: Null_2
+    400042: Null_3
+    400044: Physical_Sky
+    400046: Shadow_Plane
+    400048: Skin
+    400050: Sky_Dome
+    400052: Sky_Null
+    400054: Sleeves
+    400056: Sleeves_1
+    400058: Sphere
+    400060: Sphere_1
+    400062: Stereo_Cam
+    400064: Sun
+    400066: Sun_light
+    400068: Sweep
+    400070: Sweep_1
+    400072: Sweep_1_2
+    400074: Sweep_1_3
+    400076: Sweep_1_4
+    400078: Sweep_1_5
+    400080: Sweep_2
+    400082: Sweep_2_2
+    400084: Sweep_2_3
+    400086: Sweep_2_4
+    400088: Sweep_3
+    400090: Sweep_3_2
+    400092: Sweep_3_3
+    400094: Sweep_3_4
+    400096: Sweep_4
+    400098: Sweep_4_2
+    400100: Sweep_4_3
+    400102: Sweep_5
+    400104: Sweep_5_2
+    400106: Sweep_6
+    400108: Torus
+    2300000: Cap_1
+    2300002: Cap_2
+    2300004: Cylinder
+    2300006: Cylinder_1_2
+    2300008: Sphere_1
+    2300010: Sweep
+    2300012: Sweep_1
+    2300014: Sweep_1_2
+    2300016: Sweep_1_3
+    2300018: Sweep_1_4
+    2300020: Sweep_1_5
+    2300022: Sweep_2
+    2300024: Sweep_2_2
+    2300026: Sweep_2_3
+    2300028: Sweep_2_4
+    2300030: Sweep_3
+    2300032: Sweep_3_2
+    2300034: Sweep_3_3
+    2300036: Sweep_3_4
+    2300038: Sweep_4
+    2300040: Sweep_4_2
+    2300042: Sweep_4_3
+    2300044: Sweep_5
+    2300046: Sweep_6
+    2300048: Torus
+    3300000: Cap_1
+    3300002: Cap_2
+    3300004: Cylinder
+    3300006: Cylinder_1_2
+    3300008: Sphere_1
+    3300010: Sweep
+    3300012: Sweep_1
+    3300014: Sweep_1_2
+    3300016: Sweep_1_3
+    3300018: Sweep_1_4
+    3300020: Sweep_1_5
+    3300022: Sweep_2
+    3300024: Sweep_2_2
+    3300026: Sweep_2_3
+    3300028: Sweep_2_4
+    3300030: Sweep_3
+    3300032: Sweep_3_2
+    3300034: Sweep_3_3
+    3300036: Sweep_3_4
+    3300038: Sweep_4
+    3300040: Sweep_4_2
+    3300042: Sweep_4_3
+    3300044: Sweep_5
+    3300046: Sweep_6
+    3300048: Torus
+    4300000: Sweep
+    4300002: Sweep_3
+    4300004: Sweep_1
+    4300006: Sweep_2
+    4300008: Torus
+    4300010: Cylinder
+    4300012: Cylinder_1_2
+    4300014: Sweep_2_2
+    4300016: Sweep_1_2
+    4300018: Sweep_4
+    4300020: Sweep_3_2
+    4300022: Sweep_4_2
+    4300024: Sweep_3_3
+    4300026: Sweep_1_3
+    4300028: Sweep_1_4
+    4300030: Sweep_2_3
+    4300032: Sweep_2_4
+    4300034: Sphere_1
+    4300036: Sweep_1_5
+    4300038: Sweep_5
+    4300040: Sweep_3_4
+    4300042: Cap_1
+    4300044: Cap_2
+    4300046: Sweep_4_3
+    4300048: Sweep_6
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Everything
+        weight: 1
+      - path: Everything/FIgure
+        weight: 1
+      - path: Everything/FIgure/Arms
+        weight: 1
+      - path: Everything/FIgure/Arms/Null
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Coffee
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Coffee/Sweep
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Coffee/Sweep_1
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Coffee/Sweep_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Coffee/Sweep_3
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug/Boole
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug/Boole/Cylinder
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug/Boole/Cylinder_1_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug/Cylinder_1
+        weight: 1
+      - path: Everything/FIgure/Arms/Null/Mug/Torus
+        weight: 1
+      - path: Everything/FIgure/Arms/Skin
+        weight: 1
+      - path: Everything/FIgure/Arms/Skin/Sweep_1_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Skin/Sweep_2_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves/Sweep_3_3
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves/Sweep_4_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves_1
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves_1/Sweep_3_2
+        weight: 1
+      - path: Everything/FIgure/Arms/Sleeves_1/Sweep_4
+        weight: 1
+      - path: Everything/FIgure/Body
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_3_4
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_3_4/Cap_1
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_3_4/Cap_2
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_4_3
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_5_2
+        weight: 1
+      - path: Everything/FIgure/Body/Null_3/Sweep_5_2/Sweep_6
+        weight: 1
+      - path: Everything/FIgure/Body/Sweep_1_5
+        weight: 1
+      - path: Everything/FIgure/Body/Sweep_5
+        weight: 1
+      - path: Everything/FIgure/Legs
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_1
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_1/Sweep_1_3
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_1/Sweep_1_4
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_2
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_2/Sweep_2_3
+        weight: 1
+      - path: Everything/FIgure/Legs/Null_2/Sweep_2_4
+        weight: 1
+      - path: Everything/FIgure/Sphere
+        weight: 1
+      - path: Everything/FIgure/Sphere_1
+        weight: 1
+      - path: Physical_Sky
+        weight: 1
+      - path: Physical_Sky/Shadow_Plane
+        weight: 1
+      - path: Physical_Sky/Sky_Dome
+        weight: 1
+      - path: Physical_Sky/Sky_Null
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon/Moon_Light
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Lensflare_Source
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Sun_light
+        weight: 1
+      - path: Stereo_Cam
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

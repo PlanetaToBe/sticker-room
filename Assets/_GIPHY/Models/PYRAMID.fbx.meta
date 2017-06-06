@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: da44d76975a03074383dfd8428925cf7
+timeCreated: 1496781723
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arms_RIGHT
+    100002: Cloth_Surface
+    100004: Cube
+    100006: Cube_1
+    100008: Cube_1_2
+    100010: Cube_2
+    100012: Cube_2_2
+    100014: Cube_2_3
+    100016: Cube_3
+    100018: Cube_3_2
+    100020: Cube_3_3
+    100022: Cube_4
+    100024: Cube_4_2
+    100026: Cube_5
+    100028: Cube_5_2
+    100030: Cube_5_3
+    100032: Cube_6
+    100034: Cube_6_2
+    100036: Cube_7
+    100038: Cube_7_2
+    100040: Cube_8
+    100042: Cube_8_2
+    100044: Cube_9
+    100046: Cube_9_2
+    100048: Null
+    100050: Null_1
+    100052: //RootNode
+    100054: Pyramid
+    400000: Arms_RIGHT
+    400002: Cloth_Surface
+    400004: Cube
+    400006: Cube_1
+    400008: Cube_1_2
+    400010: Cube_2
+    400012: Cube_2_2
+    400014: Cube_2_3
+    400016: Cube_3
+    400018: Cube_3_2
+    400020: Cube_3_3
+    400022: Cube_4
+    400024: Cube_4_2
+    400026: Cube_5
+    400028: Cube_5_2
+    400030: Cube_5_3
+    400032: Cube_6
+    400034: Cube_6_2
+    400036: Cube_7
+    400038: Cube_7_2
+    400040: Cube_8
+    400042: Cube_8_2
+    400044: Cube_9
+    400046: Cube_9_2
+    400048: Null
+    400050: Null_1
+    400052: //RootNode
+    400054: Pyramid
+    2300000: Arms_RIGHT
+    2300002: Cube
+    2300004: Cube_1
+    2300006: Cube_1_2
+    2300008: Cube_2
+    2300010: Cube_2_2
+    2300012: Cube_2_3
+    2300014: Cube_3
+    2300016: Cube_3_2
+    2300018: Cube_3_3
+    2300020: Cube_4
+    2300022: Cube_4_2
+    2300024: Cube_5
+    2300026: Cube_5_2
+    2300028: Cube_5_3
+    2300030: Cube_6
+    2300032: Cube_6_2
+    2300034: Cube_7
+    2300036: Cube_7_2
+    2300038: Cube_8
+    2300040: Cube_8_2
+    2300042: Cube_9
+    2300044: Cube_9_2
+    2300046: Pyramid
+    3300000: Arms_RIGHT
+    3300002: Cube
+    3300004: Cube_1
+    3300006: Cube_1_2
+    3300008: Cube_2
+    3300010: Cube_2_2
+    3300012: Cube_2_3
+    3300014: Cube_3
+    3300016: Cube_3_2
+    3300018: Cube_3_3
+    3300020: Cube_4
+    3300022: Cube_4_2
+    3300024: Cube_5
+    3300026: Cube_5_2
+    3300028: Cube_5_3
+    3300030: Cube_6
+    3300032: Cube_6_2
+    3300034: Cube_7
+    3300036: Cube_7_2
+    3300038: Cube_8
+    3300040: Cube_8_2
+    3300042: Cube_9
+    3300044: Cube_9_2
+    3300046: Pyramid
+    4300000: Cube
+    4300002: Cube_5
+    4300004: Pyramid
+    4300006: Cube_9
+    4300008: Cube_8
+    4300010: Cube_7
+    4300012: Cube_6
+    4300014: Cube_5_2
+    4300016: Arms_RIGHT
+    4300018: Cube_4
+    4300020: Cube_3
+    4300022: Cube_2
+    4300024: Cube_1
+    4300026: Cube_2_2
+    4300028: Cube_9_2
+    4300030: Cube_8_2
+    4300032: Cube_7_2
+    4300034: Cube_6_2
+    4300036: Cube_5_3
+    4300038: Cube_4_2
+    4300040: Cube_3_2
+    4300042: Cube_2_3
+    4300044: Cube_1_2
+    4300046: Cube_3_3
+    7400000: Main
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Main
+      takeName: Main
+      firstFrame: -5
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube_5
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Cube_1
+        weight: 1
+      - path: Null/Cube_2
+        weight: 1
+      - path: Null/Cube_2_2
+        weight: 1
+      - path: Null/Cube_3
+        weight: 1
+      - path: Null/Cube_4
+        weight: 1
+      - path: Null/Cube_5_2
+        weight: 1
+      - path: Null/Cube_5_2/Cloth_Surface
+        weight: 1
+      - path: Null/Cube_5_2/Cloth_Surface/Arms_RIGHT
+        weight: 1
+      - path: Null/Cube_6
+        weight: 1
+      - path: Null/Cube_7
+        weight: 1
+      - path: Null/Cube_8
+        weight: 1
+      - path: Null/Cube_9
+        weight: 1
+      - path: Null/Pyramid
+        weight: 1
+      - path: Null_1
+        weight: 1
+      - path: Null_1/Cube_1_2
+        weight: 1
+      - path: Null_1/Cube_2_3
+        weight: 1
+      - path: Null_1/Cube_3_2
+        weight: 1
+      - path: Null_1/Cube_3_3
+        weight: 1
+      - path: Null_1/Cube_4_2
+        weight: 1
+      - path: Null_1/Cube_5_3
+        weight: 1
+      - path: Null_1/Cube_6_2
+        weight: 1
+      - path: Null_1/Cube_7_2
+        weight: 1
+      - path: Null_1/Cube_8_2
+        weight: 1
+      - path: Null_1/Cube_9_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

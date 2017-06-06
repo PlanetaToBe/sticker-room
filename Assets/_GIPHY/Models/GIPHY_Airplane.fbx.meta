@@ -1,0 +1,911 @@
+fileFormatVersion: 2
+guid: f637d9df29b17bf4bb6ff4aaa0eed2b4
+timeCreated: 1496781739
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Airplanes
+    100002: Body__Top
+    100004: Camera
+    100006: Cloner
+    100008: Clothes
+    100010: Everything
+    100012: Extrude
+    100014: Extrude_2
+    100016: Extrude_3
+    100018: Extrude_4
+    100020: Extrude_5
+    100022: Extrude_6
+    100024: //RootNode
+    100026: Hair
+    100028: Head
+    100030: Head_2
+    100032: L_S_Arm
+    100034: L_S_Arm_1
+    100036: L_S_Arm_2
+    100038: L_S_Arm_3
+    100040: Lady
+    100042: Legs
+    100044: Lensflare_Source
+    100046: Moon
+    100048: Moon_Light
+    100050: Null
+    100052: Null_0
+    100054: Null_1
+    100056: Null_10
+    100058: Null_12
+    100060: Null_13
+    100062: Null_15
+    100064: Null_16
+    100066: Null_17
+    100068: Null_18
+    100070: Null_19
+    100072: Null_1_2
+    100074: Null_1_3
+    100076: Null_2
+    100078: Null_22
+    100080: Null_23
+    100082: Null_24
+    100084: Null_25
+    100086: Null_27
+    100088: Null_28
+    100090: Null_29
+    100092: Null_3
+    100094: Null_30
+    100096: Null_31
+    100098: Null_32
+    100100: Null_33
+    100102: Null_34
+    100104: Null_35
+    100106: Null_36
+    100108: Null_39
+    100110: Null_3_2
+    100112: Null_4
+    100114: Null_40
+    100116: Null_43
+    100118: Null_44
+    100120: Null_45
+    100122: Null_46
+    100124: Null_47
+    100126: Null_48
+    100128: Null_49
+    100130: Null_4_2
+    100132: Null_5
+    100134: Null_50
+    100136: Null_51
+    100138: Null_52
+    100140: Null_54
+    100142: Null_55
+    100144: Null_56
+    100146: Null_57
+    100148: Null_58
+    100150: Null_59
+    100152: Null_5_2
+    100154: Null_6
+    100156: Null_60
+    100158: Null_62
+    100160: Null_63
+    100162: Null_64
+    100164: Null_65
+    100166: Null_66
+    100168: Null_67
+    100170: Null_68
+    100172: Null_69
+    100174: Null_7
+    100176: Null_70
+    100178: Null_71
+    100180: Null_72
+    100182: Null_73
+    100184: Null_74
+    100186: Null_75
+    100188: Null_76
+    100190: Null_77
+    100192: Null_79
+    100194: Null_8
+    100196: Null_9
+    100198: PA_1
+    100200: PA_2
+    100202: PA_3
+    100204: PA_4
+    100206: PA_5
+    100208: PA_6
+    100210: PA_7
+    100212: PA_8
+    100214: PA_9
+    100216: Physical_Sky
+    100218: R_S_Arm
+    100220: r_S_Arm_1
+    100222: R_S_Leg
+    100224: R_S_Leg_1
+    100226: R_S_Leg_2
+    100228: R_S_Leg_2_2
+    100230: R_S_Leg_3
+    100232: R_S_Leg_3_2
+    100234: S_L_Arm
+    100236: S_R_Arm
+    100238: Shadow_Plane
+    100240: Skin
+    100242: Skirt
+    100244: Sky_Dome
+    100246: Sky_Null
+    100248: Stereo_Cam
+    100250: Sun
+    100252: Sun_light
+    100254: Sweep
+    100256: Sweep_1
+    100258: Sweep_2
+    100260: Sweep_3
+    100262: Sweep_4
+    100264: Symmetry
+    100266: Symmetry_1
+    100268: Symmetry_2
+    400000: Airplanes
+    400002: Body__Top
+    400004: Camera
+    400006: Cloner
+    400008: Clothes
+    400010: Everything
+    400012: Extrude
+    400014: Extrude_2
+    400016: Extrude_3
+    400018: Extrude_4
+    400020: Extrude_5
+    400022: Extrude_6
+    400024: //RootNode
+    400026: Hair
+    400028: Head
+    400030: Head_2
+    400032: L_S_Arm
+    400034: L_S_Arm_1
+    400036: L_S_Arm_2
+    400038: L_S_Arm_3
+    400040: Lady
+    400042: Legs
+    400044: Lensflare_Source
+    400046: Moon
+    400048: Moon_Light
+    400050: Null
+    400052: Null_0
+    400054: Null_1
+    400056: Null_10
+    400058: Null_12
+    400060: Null_13
+    400062: Null_15
+    400064: Null_16
+    400066: Null_17
+    400068: Null_18
+    400070: Null_19
+    400072: Null_1_2
+    400074: Null_1_3
+    400076: Null_2
+    400078: Null_22
+    400080: Null_23
+    400082: Null_24
+    400084: Null_25
+    400086: Null_27
+    400088: Null_28
+    400090: Null_29
+    400092: Null_3
+    400094: Null_30
+    400096: Null_31
+    400098: Null_32
+    400100: Null_33
+    400102: Null_34
+    400104: Null_35
+    400106: Null_36
+    400108: Null_39
+    400110: Null_3_2
+    400112: Null_4
+    400114: Null_40
+    400116: Null_43
+    400118: Null_44
+    400120: Null_45
+    400122: Null_46
+    400124: Null_47
+    400126: Null_48
+    400128: Null_49
+    400130: Null_4_2
+    400132: Null_5
+    400134: Null_50
+    400136: Null_51
+    400138: Null_52
+    400140: Null_54
+    400142: Null_55
+    400144: Null_56
+    400146: Null_57
+    400148: Null_58
+    400150: Null_59
+    400152: Null_5_2
+    400154: Null_6
+    400156: Null_60
+    400158: Null_62
+    400160: Null_63
+    400162: Null_64
+    400164: Null_65
+    400166: Null_66
+    400168: Null_67
+    400170: Null_68
+    400172: Null_69
+    400174: Null_7
+    400176: Null_70
+    400178: Null_71
+    400180: Null_72
+    400182: Null_73
+    400184: Null_74
+    400186: Null_75
+    400188: Null_76
+    400190: Null_77
+    400192: Null_79
+    400194: Null_8
+    400196: Null_9
+    400198: PA_1
+    400200: PA_2
+    400202: PA_3
+    400204: PA_4
+    400206: PA_5
+    400208: PA_6
+    400210: PA_7
+    400212: PA_8
+    400214: PA_9
+    400216: Physical_Sky
+    400218: R_S_Arm
+    400220: r_S_Arm_1
+    400222: R_S_Leg
+    400224: R_S_Leg_1
+    400226: R_S_Leg_2
+    400228: R_S_Leg_2_2
+    400230: R_S_Leg_3
+    400232: R_S_Leg_3_2
+    400234: S_L_Arm
+    400236: S_R_Arm
+    400238: Shadow_Plane
+    400240: Skin
+    400242: Skirt
+    400244: Sky_Dome
+    400246: Sky_Null
+    400248: Stereo_Cam
+    400250: Sun
+    400252: Sun_light
+    400254: Sweep
+    400256: Sweep_1
+    400258: Sweep_2
+    400260: Sweep_3
+    400262: Sweep_4
+    400264: Symmetry
+    400266: Symmetry_1
+    400268: Symmetry_2
+    2300000: Body__Top
+    2300002: Extrude_2
+    2300004: Extrude_4
+    2300006: Extrude_6
+    2300008: Head_2
+    2300010: L_S_Arm
+    2300012: L_S_Arm_1
+    2300014: L_S_Arm_2
+    2300016: L_S_Arm_3
+    2300018: Null_0
+    2300020: Null_1
+    2300022: Null_10
+    2300024: Null_12
+    2300026: Null_13
+    2300028: Null_15
+    2300030: Null_16
+    2300032: Null_17
+    2300034: Null_18
+    2300036: Null_19
+    2300038: Null_22
+    2300040: Null_23
+    2300042: Null_24
+    2300044: Null_25
+    2300046: Null_27
+    2300048: Null_28
+    2300050: Null_29
+    2300052: Null_3
+    2300054: Null_30
+    2300056: Null_31
+    2300058: Null_32
+    2300060: Null_33
+    2300062: Null_34
+    2300064: Null_35
+    2300066: Null_36
+    2300068: Null_39
+    2300070: Null_4
+    2300072: Null_40
+    2300074: Null_43
+    2300076: Null_44
+    2300078: Null_45
+    2300080: Null_46
+    2300082: Null_47
+    2300084: Null_48
+    2300086: Null_49
+    2300088: Null_5
+    2300090: Null_50
+    2300092: Null_51
+    2300094: Null_52
+    2300096: Null_54
+    2300098: Null_55
+    2300100: Null_56
+    2300102: Null_57
+    2300104: Null_58
+    2300106: Null_59
+    2300108: Null_6
+    2300110: Null_60
+    2300112: Null_62
+    2300114: Null_63
+    2300116: Null_64
+    2300118: Null_65
+    2300120: Null_66
+    2300122: Null_67
+    2300124: Null_68
+    2300126: Null_69
+    2300128: Null_7
+    2300130: Null_70
+    2300132: Null_71
+    2300134: Null_72
+    2300136: Null_73
+    2300138: Null_74
+    2300140: Null_75
+    2300142: Null_76
+    2300144: Null_77
+    2300146: Null_79
+    2300148: Null_8
+    2300150: Null_9
+    2300152: R_S_Arm
+    2300154: r_S_Arm_1
+    2300156: R_S_Leg
+    2300158: R_S_Leg_1
+    2300160: R_S_Leg_2
+    2300162: R_S_Leg_2_2
+    2300164: R_S_Leg_3
+    2300166: R_S_Leg_3_2
+    2300168: Sweep
+    2300170: Sweep_1
+    2300172: Sweep_3
+    2300174: Sweep_4
+    3300000: Body__Top
+    3300002: Extrude_2
+    3300004: Extrude_4
+    3300006: Extrude_6
+    3300008: Head_2
+    3300010: L_S_Arm
+    3300012: L_S_Arm_1
+    3300014: L_S_Arm_2
+    3300016: L_S_Arm_3
+    3300018: Null_0
+    3300020: Null_1
+    3300022: Null_10
+    3300024: Null_12
+    3300026: Null_13
+    3300028: Null_15
+    3300030: Null_16
+    3300032: Null_17
+    3300034: Null_18
+    3300036: Null_19
+    3300038: Null_22
+    3300040: Null_23
+    3300042: Null_24
+    3300044: Null_25
+    3300046: Null_27
+    3300048: Null_28
+    3300050: Null_29
+    3300052: Null_3
+    3300054: Null_30
+    3300056: Null_31
+    3300058: Null_32
+    3300060: Null_33
+    3300062: Null_34
+    3300064: Null_35
+    3300066: Null_36
+    3300068: Null_39
+    3300070: Null_4
+    3300072: Null_40
+    3300074: Null_43
+    3300076: Null_44
+    3300078: Null_45
+    3300080: Null_46
+    3300082: Null_47
+    3300084: Null_48
+    3300086: Null_49
+    3300088: Null_5
+    3300090: Null_50
+    3300092: Null_51
+    3300094: Null_52
+    3300096: Null_54
+    3300098: Null_55
+    3300100: Null_56
+    3300102: Null_57
+    3300104: Null_58
+    3300106: Null_59
+    3300108: Null_6
+    3300110: Null_60
+    3300112: Null_62
+    3300114: Null_63
+    3300116: Null_64
+    3300118: Null_65
+    3300120: Null_66
+    3300122: Null_67
+    3300124: Null_68
+    3300126: Null_69
+    3300128: Null_7
+    3300130: Null_70
+    3300132: Null_71
+    3300134: Null_72
+    3300136: Null_73
+    3300138: Null_74
+    3300140: Null_75
+    3300142: Null_76
+    3300144: Null_77
+    3300146: Null_79
+    3300148: Null_8
+    3300150: Null_9
+    3300152: R_S_Arm
+    3300154: r_S_Arm_1
+    3300156: R_S_Leg
+    3300158: R_S_Leg_1
+    3300160: R_S_Leg_2
+    3300162: R_S_Leg_2_2
+    3300164: R_S_Leg_3
+    3300166: R_S_Leg_3_2
+    3300168: Sweep
+    3300170: Sweep_1
+    3300172: Sweep_3
+    3300174: Sweep_4
+    4300000: Null_0
+    4300002: Null_5
+    4300004: Null_9
+    4300006: Null_15
+    4300008: Null_19
+    4300010: Null_25
+    4300012: Null_30
+    4300014: Null_34
+    4300016: Null_40
+    4300018: Null_46
+    4300020: Null_50
+    4300022: Null_55
+    4300024: Null_59
+    4300026: Null_64
+    4300028: Null_68
+    4300030: Null_72
+    4300032: Null_75
+    4300034: Null_1
+    4300036: Null_7
+    4300038: Null_13
+    4300040: Null_22
+    4300042: Null_28
+    4300044: Null_33
+    4300046: Null_43
+    4300048: Null_48
+    4300050: Null_54
+    4300052: Null_60
+    4300054: Null_66
+    4300056: Null_71
+    4300058: Null_77
+    4300060: Null_3
+    4300062: Null_10
+    4300064: Null_18
+    4300066: Null_29
+    4300068: Null_36
+    4300070: Null_47
+    4300072: Null_56
+    4300074: Null_63
+    4300076: Null_70
+    4300078: Null_79
+    4300080: Null_4
+    4300082: Null_16
+    4300084: Null_27
+    4300086: Null_39
+    4300088: Null_51
+    4300090: Null_62
+    4300092: Null_73
+    4300094: Null_6
+    4300096: Null_23
+    4300098: Null_35
+    4300100: Null_52
+    4300102: Null_67
+    4300104: Null_8
+    4300106: Null_31
+    4300108: Null_49
+    4300110: Null_69
+    4300112: Null_12
+    4300114: Null_32
+    4300116: Null_57
+    4300118: Null_74
+    4300120: Null_17
+    4300122: Null_44
+    4300124: Null_58
+    4300126: Null_76
+    4300128: Null_24
+    4300130: Null_45
+    4300132: Null_65
+    4300134: Head_2
+    4300136: Sweep
+    4300138: Sweep_3
+    4300140: Body__Top
+    4300142: Sweep_1
+    4300144: Sweep_4
+    4300146: Extrude_2
+    4300148: Extrude_4
+    4300150: Extrude_6
+    4300152: L_S_Arm
+    4300154: L_S_Arm_2
+    4300156: r_S_Arm_1
+    4300158: R_S_Arm
+    4300160: R_S_Leg_3
+    4300162: R_S_Leg_2
+    4300164: R_S_Leg_1
+    4300166: R_S_Leg
+    4300168: R_S_Leg_3_2
+    4300170: R_S_Leg_2_2
+    4300172: L_S_Arm_1
+    4300174: L_S_Arm_3
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Everything
+        weight: 1
+      - path: Everything/Airplanes
+        weight: 1
+      - path: Everything/Airplanes/Cloner
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_0
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_5
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_9
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_15
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_19
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_25
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_30
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_34
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_40
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_46
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_50
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_55
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_59
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_64
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_68
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_72
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_1/Null_75
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_1
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_7
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_13
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_22
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_28
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_33
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_43
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_48
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_54
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_60
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_66
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_71
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_2/Null_77
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_3
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_10
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_18
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_29
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_36
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_47
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_56
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_63
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_70
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_3/Null_79
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_4
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_16
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_27
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_39
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_51
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_62
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_4/Null_73
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5/Null_6
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5/Null_23
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5/Null_35
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5/Null_52
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_5/Null_67
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_6
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_6/Null_8
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_6/Null_31
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_6/Null_49
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_6/Null_69
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_7
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_7/Null_12
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_7/Null_32
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_7/Null_57
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_7/Null_74
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_8
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_8/Null_17
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_8/Null_44
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_8/Null_58
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_8/Null_76
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_9
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_9/Null_24
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_9/Null_45
+        weight: 1
+      - path: Everything/Airplanes/Cloner/PA_9/Null_65
+        weight: 1
+      - path: Everything/Lady
+        weight: 1
+      - path: Everything/Lady/Clothes
+        weight: 1
+      - path: Everything/Lady/Clothes/Null
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/L_S_Arm
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry/Extrude_5
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry/Extrude_5/Extrude_6
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_1
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_1/Extrude_3
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_1/Extrude_3/Extrude_4
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_2/Extrude
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_2/Symmetry_2/Extrude/Extrude_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_3_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_L_Arm/Null_3_2/L_S_Arm_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_R_Arm
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_R_Arm/Null_4_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_R_Arm/Null_4_2/R_S_Arm
+        weight: 1
+      - path: Everything/Lady/Clothes/Null/S_R_Arm/r_S_Arm_1
+        weight: 1
+      - path: Everything/Lady/Clothes/Null_1_2
+        weight: 1
+      - path: Everything/Lady/Clothes/Null_1_2/Body__Top
+        weight: 1
+      - path: Everything/Lady/Clothes/Skirt
+        weight: 1
+      - path: Everything/Lady/Clothes/Skirt/Sweep_1
+        weight: 1
+      - path: Everything/Lady/Clothes/Skirt/Sweep_4
+        weight: 1
+      - path: Everything/Lady/Head
+        weight: 1
+      - path: Everything/Lady/Head/Hair
+        weight: 1
+      - path: Everything/Lady/Head/Hair/Sweep
+        weight: 1
+      - path: Everything/Lady/Head/Hair/Sweep_2
+        weight: 1
+      - path: Everything/Lady/Head/Hair/Sweep_2/Sweep_3
+        weight: 1
+      - path: Everything/Lady/Head/Head_2
+        weight: 1
+      - path: Everything/Lady/Skin
+        weight: 1
+      - path: Everything/Lady/Skin/Legs
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_1_3
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_1_3/R_S_Leg
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_1_3/R_S_Leg_1
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_1_3/R_S_Leg_2
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_1_3/R_S_Leg_3
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_5_2
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_5_2/L_S_Arm_1
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_5_2/L_S_Arm_3
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_5_2/R_S_Leg_2_2
+        weight: 1
+      - path: Everything/Lady/Skin/Legs/Null_5_2/R_S_Leg_3_2
+        weight: 1
+      - path: Physical_Sky
+        weight: 1
+      - path: Physical_Sky/Shadow_Plane
+        weight: 1
+      - path: Physical_Sky/Sky_Dome
+        weight: 1
+      - path: Physical_Sky/Sky_Null
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon/Moon_Light
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Lensflare_Source
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Sun_light
+        weight: 1
+      - path: Stereo_Cam
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

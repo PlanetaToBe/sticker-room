@@ -1,0 +1,1032 @@
+fileFormatVersion: 2
+guid: dca8fc7241d425b458383793ebb2e036
+timeCreated: 1496781735
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arms
+    100002: Body
+    100004: Body_2
+    100006: Body_and_Legs
+    100008: Boole
+    100010: Boole_1
+    100012: Boole_2
+    100014: Boole_3
+    100016: Boole_4
+    100018: Camera
+    100020: Camera_2
+    100022: Cap_1
+    100024: Cap_1_2
+    100026: Cap_1_3
+    100028: Cap_2
+    100030: Cap_2_2
+    100032: Cap_2_3
+    100034: Capsule
+    100036: Capsule_1
+    100038: Capsule_1_2
+    100040: Capsule_2
+    100042: Cloner
+    100044: Cloner_2
+    100046: Connect
+    100048: Connect_1
+    100050: Cube
+    100052: Cube_1
+    100054: Cube_10
+    100056: Cube_1_10
+    100058: Cube_1_11
+    100060: Cube_1_2
+    100062: Cube_1_3
+    100064: Cube_1_4
+    100066: Cube_1_5
+    100068: Cube_1_6
+    100070: Cube_1_7
+    100072: Cube_1_8
+    100074: Cube_1_9
+    100076: Cube_2
+    100078: Cube_2_2
+    100080: Cube_2_3
+    100082: Cube_2_4
+    100084: Cube_2_5
+    100086: Cube_2_6
+    100088: Cube_2_7
+    100090: Cube_3
+    100092: Cube_3_2
+    100094: Cube_3_3
+    100096: Cube_3_4
+    100098: Cube_3_5
+    100100: Cube_3_6
+    100102: Cube_4
+    100104: Cube_4_2
+    100106: Cube_4_3
+    100108: Cube_4_4
+    100110: Cube_4_5
+    100112: Cube_4_6
+    100114: Cube_5
+    100116: Cube_5_2
+    100118: Cube_5_3
+    100120: Cube_5_4
+    100122: Cube_5_5
+    100124: Cube_5_6
+    100126: Cube_6
+    100128: Cube_6_2
+    100130: Cube_7
+    100132: Cube_8
+    100134: Cube_9
+    100136: Cylinder
+    100138: Cylinder_1
+    100140: Everything
+    100142: Everything_2
+    100144: Extrude
+    100146: Extrude_2
+    100148: Figure
+    100150: //RootNode
+    100152: Glass
+    100154: Head
+    100156: Left
+    100158: Legs
+    100160: Lensflare_Source
+    100162: Lid
+    100164: Light
+    100166: Moon
+    100168: Moon_Light
+    100170: Null
+    100172: Null_0
+    100174: Null_1
+    100176: Null_1_2
+    100178: Null_1_3
+    100180: Null_1_4
+    100182: Null_1_5
+    100184: Null_2
+    100186: Null_2_2
+    100188: Null_2_3
+    100190: Null_3
+    100192: Null_3_2
+    100194: Null_3_3
+    100196: Null_3_4
+    100198: Null_4
+    100200: Null_4_2
+    100202: Null_4_3
+    100204: Null_5
+    100206: Oil_Tank
+    100208: Photocopier
+    100210: Photocopier_2
+    100212: Physical_Sky
+    100214: Plane_1
+    100216: Plane_11
+    100218: Plane_13
+    100220: Plane_15
+    100222: Plane_17
+    100224: Plane_19
+    100226: Plane_23
+    100228: Plane_25
+    100230: Plane_28
+    100232: Plane_3
+    100234: Plane_30
+    100236: Plane_32
+    100238: Plane_34
+    100240: Plane_36
+    100242: Plane_40
+    100244: Plane_42
+    100246: Plane_44
+    100248: Plane_46
+    100250: Plane_48
+    100252: Plane_5
+    100254: Plane_50
+    100256: Plane_52
+    100258: Plane_54
+    100260: Plane_56
+    100262: Plane_58
+    100264: Plane_62
+    100266: Plane_7
+    100268: Plane_9
+    100270: Right
+    100272: Scanner_Light
+    100274: Shadow_Plane
+    100276: Sides
+    100278: Sky_Dome
+    100280: Sky_Null
+    100282: Sun
+    100284: Sun_light
+    100286: Sweep
+    100288: Sweep_1
+    100290: Sweep_1_2
+    100292: Sweep_2
+    100294: Sweep_2_2
+    100296: Sweep_2_3
+    100298: Sweep_3
+    100300: Sweep_4
+    100302: Sweep_5
+    100304: Sweep_6
+    100306: Symmetry
+    100308: Symmetry_2
+    100310: Symmetry_3
+    100312: Tray
+    400000: Arms
+    400002: Body
+    400004: Body_2
+    400006: Body_and_Legs
+    400008: Boole
+    400010: Boole_1
+    400012: Boole_2
+    400014: Boole_3
+    400016: Boole_4
+    400018: Camera
+    400020: Camera_2
+    400022: Cap_1
+    400024: Cap_1_2
+    400026: Cap_1_3
+    400028: Cap_2
+    400030: Cap_2_2
+    400032: Cap_2_3
+    400034: Capsule
+    400036: Capsule_1
+    400038: Capsule_1_2
+    400040: Capsule_2
+    400042: Cloner
+    400044: Cloner_2
+    400046: Connect
+    400048: Connect_1
+    400050: Cube
+    400052: Cube_1
+    400054: Cube_10
+    400056: Cube_1_10
+    400058: Cube_1_11
+    400060: Cube_1_2
+    400062: Cube_1_3
+    400064: Cube_1_4
+    400066: Cube_1_5
+    400068: Cube_1_6
+    400070: Cube_1_7
+    400072: Cube_1_8
+    400074: Cube_1_9
+    400076: Cube_2
+    400078: Cube_2_2
+    400080: Cube_2_3
+    400082: Cube_2_4
+    400084: Cube_2_5
+    400086: Cube_2_6
+    400088: Cube_2_7
+    400090: Cube_3
+    400092: Cube_3_2
+    400094: Cube_3_3
+    400096: Cube_3_4
+    400098: Cube_3_5
+    400100: Cube_3_6
+    400102: Cube_4
+    400104: Cube_4_2
+    400106: Cube_4_3
+    400108: Cube_4_4
+    400110: Cube_4_5
+    400112: Cube_4_6
+    400114: Cube_5
+    400116: Cube_5_2
+    400118: Cube_5_3
+    400120: Cube_5_4
+    400122: Cube_5_5
+    400124: Cube_5_6
+    400126: Cube_6
+    400128: Cube_6_2
+    400130: Cube_7
+    400132: Cube_8
+    400134: Cube_9
+    400136: Cylinder
+    400138: Cylinder_1
+    400140: Everything
+    400142: Everything_2
+    400144: Extrude
+    400146: Extrude_2
+    400148: Figure
+    400150: //RootNode
+    400152: Glass
+    400154: Head
+    400156: Left
+    400158: Legs
+    400160: Lensflare_Source
+    400162: Lid
+    400164: Light
+    400166: Moon
+    400168: Moon_Light
+    400170: Null
+    400172: Null_0
+    400174: Null_1
+    400176: Null_1_2
+    400178: Null_1_3
+    400180: Null_1_4
+    400182: Null_1_5
+    400184: Null_2
+    400186: Null_2_2
+    400188: Null_2_3
+    400190: Null_3
+    400192: Null_3_2
+    400194: Null_3_3
+    400196: Null_3_4
+    400198: Null_4
+    400200: Null_4_2
+    400202: Null_4_3
+    400204: Null_5
+    400206: Oil_Tank
+    400208: Photocopier
+    400210: Photocopier_2
+    400212: Physical_Sky
+    400214: Plane_1
+    400216: Plane_11
+    400218: Plane_13
+    400220: Plane_15
+    400222: Plane_17
+    400224: Plane_19
+    400226: Plane_23
+    400228: Plane_25
+    400230: Plane_28
+    400232: Plane_3
+    400234: Plane_30
+    400236: Plane_32
+    400238: Plane_34
+    400240: Plane_36
+    400242: Plane_40
+    400244: Plane_42
+    400246: Plane_44
+    400248: Plane_46
+    400250: Plane_48
+    400252: Plane_5
+    400254: Plane_50
+    400256: Plane_52
+    400258: Plane_54
+    400260: Plane_56
+    400262: Plane_58
+    400264: Plane_62
+    400266: Plane_7
+    400268: Plane_9
+    400270: Right
+    400272: Scanner_Light
+    400274: Shadow_Plane
+    400276: Sides
+    400278: Sky_Dome
+    400280: Sky_Null
+    400282: Sun
+    400284: Sun_light
+    400286: Sweep
+    400288: Sweep_1
+    400290: Sweep_1_2
+    400292: Sweep_2
+    400294: Sweep_2_2
+    400296: Sweep_2_3
+    400298: Sweep_3
+    400300: Sweep_4
+    400302: Sweep_5
+    400304: Sweep_6
+    400306: Symmetry
+    400308: Symmetry_2
+    400310: Symmetry_3
+    400312: Tray
+    2300000: Cap_1
+    2300002: Cap_1_2
+    2300004: Cap_1_3
+    2300006: Cap_2
+    2300008: Cap_2_2
+    2300010: Cap_2_3
+    2300012: Capsule_1_2
+    2300014: Capsule_2
+    2300016: Connect
+    2300018: Connect_1
+    2300020: Cube
+    2300022: Cube_1
+    2300024: Cube_10
+    2300026: Cube_1_10
+    2300028: Cube_1_11
+    2300030: Cube_1_2
+    2300032: Cube_1_3
+    2300034: Cube_1_4
+    2300036: Cube_1_5
+    2300038: Cube_1_6
+    2300040: Cube_1_7
+    2300042: Cube_1_8
+    2300044: Cube_1_9
+    2300046: Cube_2
+    2300048: Cube_2_2
+    2300050: Cube_2_3
+    2300052: Cube_2_4
+    2300054: Cube_2_5
+    2300056: Cube_2_6
+    2300058: Cube_2_7
+    2300060: Cube_3
+    2300062: Cube_3_2
+    2300064: Cube_3_3
+    2300066: Cube_3_4
+    2300068: Cube_3_5
+    2300070: Cube_3_6
+    2300072: Cube_4
+    2300074: Cube_4_2
+    2300076: Cube_4_3
+    2300078: Cube_4_4
+    2300080: Cube_4_5
+    2300082: Cube_4_6
+    2300084: Cube_5
+    2300086: Cube_5_2
+    2300088: Cube_5_3
+    2300090: Cube_5_4
+    2300092: Cube_5_5
+    2300094: Cube_5_6
+    2300096: Cube_6
+    2300098: Cube_6_2
+    2300100: Cube_7
+    2300102: Cube_8
+    2300104: Cube_9
+    2300106: Cylinder
+    2300108: Cylinder_1
+    2300110: Everything
+    2300112: Extrude
+    2300114: Extrude_2
+    2300116: Glass
+    2300118: Head
+    2300120: Oil_Tank
+    2300122: Plane_1
+    2300124: Plane_11
+    2300126: Plane_13
+    2300128: Plane_15
+    2300130: Plane_17
+    2300132: Plane_19
+    2300134: Plane_23
+    2300136: Plane_25
+    2300138: Plane_28
+    2300140: Plane_3
+    2300142: Plane_30
+    2300144: Plane_32
+    2300146: Plane_34
+    2300148: Plane_36
+    2300150: Plane_40
+    2300152: Plane_42
+    2300154: Plane_44
+    2300156: Plane_46
+    2300158: Plane_48
+    2300160: Plane_5
+    2300162: Plane_50
+    2300164: Plane_52
+    2300166: Plane_54
+    2300168: Plane_56
+    2300170: Plane_58
+    2300172: Plane_62
+    2300174: Plane_7
+    2300176: Plane_9
+    2300178: Sweep
+    2300180: Sweep_1
+    2300182: Sweep_1_2
+    2300184: Sweep_2
+    2300186: Sweep_2_2
+    2300188: Sweep_2_3
+    2300190: Sweep_3
+    2300192: Sweep_4
+    2300194: Sweep_5
+    2300196: Sweep_6
+    3300000: Cap_1
+    3300002: Cap_1_2
+    3300004: Cap_1_3
+    3300006: Cap_2
+    3300008: Cap_2_2
+    3300010: Cap_2_3
+    3300012: Capsule_1_2
+    3300014: Capsule_2
+    3300016: Connect
+    3300018: Connect_1
+    3300020: Cube
+    3300022: Cube_1
+    3300024: Cube_10
+    3300026: Cube_1_10
+    3300028: Cube_1_11
+    3300030: Cube_1_2
+    3300032: Cube_1_3
+    3300034: Cube_1_4
+    3300036: Cube_1_5
+    3300038: Cube_1_6
+    3300040: Cube_1_7
+    3300042: Cube_1_8
+    3300044: Cube_1_9
+    3300046: Cube_2
+    3300048: Cube_2_2
+    3300050: Cube_2_3
+    3300052: Cube_2_4
+    3300054: Cube_2_5
+    3300056: Cube_2_6
+    3300058: Cube_2_7
+    3300060: Cube_3
+    3300062: Cube_3_2
+    3300064: Cube_3_3
+    3300066: Cube_3_4
+    3300068: Cube_3_5
+    3300070: Cube_3_6
+    3300072: Cube_4
+    3300074: Cube_4_2
+    3300076: Cube_4_3
+    3300078: Cube_4_4
+    3300080: Cube_4_5
+    3300082: Cube_4_6
+    3300084: Cube_5
+    3300086: Cube_5_2
+    3300088: Cube_5_3
+    3300090: Cube_5_4
+    3300092: Cube_5_5
+    3300094: Cube_5_6
+    3300096: Cube_6
+    3300098: Cube_6_2
+    3300100: Cube_7
+    3300102: Cube_8
+    3300104: Cube_9
+    3300106: Cylinder
+    3300108: Cylinder_1
+    3300110: Everything
+    3300112: Extrude
+    3300114: Extrude_2
+    3300116: Glass
+    3300118: Head
+    3300120: Oil_Tank
+    3300122: Plane_1
+    3300124: Plane_11
+    3300126: Plane_13
+    3300128: Plane_15
+    3300130: Plane_17
+    3300132: Plane_19
+    3300134: Plane_23
+    3300136: Plane_25
+    3300138: Plane_28
+    3300140: Plane_3
+    3300142: Plane_30
+    3300144: Plane_32
+    3300146: Plane_34
+    3300148: Plane_36
+    3300150: Plane_40
+    3300152: Plane_42
+    3300154: Plane_44
+    3300156: Plane_46
+    3300158: Plane_48
+    3300160: Plane_5
+    3300162: Plane_50
+    3300164: Plane_52
+    3300166: Plane_54
+    3300168: Plane_56
+    3300170: Plane_58
+    3300172: Plane_62
+    3300174: Plane_7
+    3300176: Plane_9
+    3300178: Sweep
+    3300180: Sweep_1
+    3300182: Sweep_1_2
+    3300184: Sweep_2
+    3300186: Sweep_2_2
+    3300188: Sweep_2_3
+    3300190: Sweep_3
+    3300192: Sweep_4
+    3300194: Sweep_5
+    3300196: Sweep_6
+    4300000: Plane_1
+    4300002: Plane_7
+    4300004: Plane_11
+    4300006: Plane_17
+    4300008: Plane_23
+    4300010: Plane_30
+    4300012: Plane_36
+    4300014: Plane_40
+    4300016: Plane_48
+    4300018: Plane_52
+    4300020: Plane_58
+    4300022: Plane_62
+    4300024: Plane_3
+    4300026: Plane_13
+    4300028: Plane_32
+    4300030: Plane_42
+    4300032: Plane_54
+    4300034: Plane_5
+    4300036: Plane_25
+    4300038: Plane_34
+    4300040: Plane_44
+    4300042: Plane_50
+    4300044: Plane_56
+    4300046: Plane_9
+    4300048: Plane_15
+    4300050: Plane_19
+    4300052: Plane_28
+    4300054: Plane_46
+    4300056: Everything
+    4300058: Sweep_2
+    4300060: Sweep_1
+    4300062: Cap_1
+    4300064: Cap_2
+    4300066: Sweep
+    4300068: Cap_1_2
+    4300070: Cap_2_2
+    4300072: Capsule_1_2
+    4300074: Capsule_2
+    4300076: Sweep_2_2
+    4300078: Sweep_1_2
+    4300080: Sweep_2_3
+    4300082: Sweep_5
+    4300084: Sweep_6
+    4300086: Sweep_4
+    4300088: Sweep_3
+    4300090: Head
+    4300092: Cube
+    4300094: Cube_2
+    4300096: Cube_1
+    4300098: Extrude
+    4300100: Cylinder_1
+    4300102: Cylinder
+    4300104: Cube_5
+    4300106: Cube_4
+    4300108: Cube_3
+    4300110: Cube_2_2
+    4300112: Cube_1_2
+    4300114: Cube_1_3
+    4300116: Cube_3_2
+    4300118: Glass
+    4300120: Cube_5_2
+    4300122: Cube_4_2
+    4300124: Cube_3_3
+    4300126: Cube_5_3
+    4300128: Cube_4_3
+    4300130: Cube_3_4
+    4300132: Cube_5_4
+    4300134: Cube_4_4
+    4300136: Cube_3_5
+    4300138: Oil_Tank
+    4300140: Extrude_2
+    4300142: Cap_1_3
+    4300144: Cap_2_3
+    4300146: Cube_2_3
+    4300148: Cube_1_4
+    4300150: Cube_4_5
+    4300152: Connect_1
+    4300154: Connect
+    4300156: Cube_5_5
+    4300158: Cube_1_5
+    4300160: Cube_6
+    4300162: Cube_1_6
+    4300164: Cube_2_4
+    4300166: Cube_7
+    4300168: Cube_1_7
+    4300170: Cube_2_5
+    4300172: Cube_8
+    4300174: Cube_1_8
+    4300176: Cube_2_6
+    4300178: Cube_1_9
+    4300180: Cube_9
+    4300182: Cube_2_7
+    4300184: Cube_3_6
+    4300186: Cube_4_6
+    4300188: Cube_5_6
+    4300190: Cube_6_2
+    4300192: Cube_1_10
+    4300194: Cube_1_11
+    4300196: Cube_10
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Camera_2
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Cloner
+        weight: 1
+      - path: Null/Cloner/Null_1
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2/Plane_3
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2/Plane_13
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2/Plane_32
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2/Plane_42
+        weight: 1
+      - path: Null/Cloner/Null_1/Null_1_2/Plane_54
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_5
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_25
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_34
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_44
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_50
+        weight: 1
+      - path: Null/Cloner/Null_1/Plane_56
+        weight: 1
+      - path: Null/Cloner/Null_2
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_1
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_7
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_11
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_17
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_23
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_30
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_36
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_40
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_48
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_52
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_58
+        weight: 1
+      - path: Null/Cloner/Null_2/Plane_62
+        weight: 1
+      - path: Null/Cloner/Null_2_2
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Everything
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Plane_9
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Plane_15
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Plane_19
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Plane_28
+        weight: 1
+      - path: Null/Cloner/Null_2_2/Plane_46
+        weight: 1
+      - path: Null/Everything_2
+        weight: 1
+      - path: Null/Everything_2/Figure
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Left
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Left/Sweep_5
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Left/Sweep_6
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Right
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Right/Sweep_3
+        weight: 1
+      - path: Null/Everything_2/Figure/Arms/Right/Sweep_4
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Body
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Body/Sweep_1_2
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Body/Sweep_2_2
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Body/Sweep_2_3
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Legs
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Legs/Capsule
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Legs/Capsule/Capsule_2
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Legs/Capsule_1
+        weight: 1
+      - path: Null/Everything_2/Figure/Body_and_Legs/Legs/Capsule_1/Capsule_1_2
+        weight: 1
+      - path: Null/Everything_2/Figure/Head
+        weight: 1
+      - path: Null/Everything_2/Null_1_3
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep/Cap_1_2
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep/Cap_2_2
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep_1
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep_1/Cap_1
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep_1/Cap_2
+        weight: 1
+      - path: Null/Everything_2/Null_1_3/Sweep_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Glass
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Lid
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Lid/Boole_1
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Lid/Boole_1/Cube_1
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Lid/Boole_1/Cube_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Lid/Extrude
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Extrude_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Extrude_2/Cap_1_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Extrude_2/Cap_2_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Null_3_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Null_3_4/Cube_1_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Null_3_4/Cube_2_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Boole/Null_3_4/Cube_4_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_0
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_0/Boole_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_0/Boole_2/Cube_1_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_0/Boole_2/Cube_2_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_0/Cube_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_1_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_1_5/Boole_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_1_5/Boole_3/Cube_1_7
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_1_5/Boole_3/Cube_2_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_1_5/Cube_7
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_2_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_2_3/Boole_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_2_3/Boole_4/Cube_1_8
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_2_3/Boole_4/Cube_2_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cloner_2/Null_2_3/Cube_8
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Connect
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Connect_1
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_1_9
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_2_7
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_3_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_4_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_5_6
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_6_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Cube_9
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_3_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_3_3/Cube_3_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_3_3/Cube_4_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_3_3/Cube_5_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_4_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_4_2/Cube_3_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_4_2/Cube_4_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_4_2/Cube_5_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_5/Cube_3_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_5/Cube_4_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Null_3_2/Null_5/Cube_5_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Oil_Tank
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Symmetry_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Symmetry_3/Null_4_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Symmetry_3/Null_4_3/Cube_1_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Body_2/Symmetry_3/Null_4_3/Cube_5_5
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Sides
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Sides/Cube_1_10
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Sides/Cube_1_11
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Photocopier_2/Sides/Cube_10
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Scanner_Light
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Scanner_Light/Cube
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Scanner_Light/Light
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Symmetry
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Symmetry/Null_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Symmetry/Null_3/Cylinder
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Symmetry/Null_3/Cylinder_1
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_1_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_1_4/Cube_1_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_1_4/Cube_3_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_1_4/Symmetry_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_1_4/Symmetry_2/Cube_1_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_4/Cube_2_2
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_4/Cube_3
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_4/Cube_4
+        weight: 1
+      - path: Null/Everything_2/Photocopier/Tray/Null_4/Cube_5
+        weight: 1
+      - path: Physical_Sky
+        weight: 1
+      - path: Physical_Sky/Shadow_Plane
+        weight: 1
+      - path: Physical_Sky/Sky_Dome
+        weight: 1
+      - path: Physical_Sky/Sky_Null
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon/Moon_Light
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Lensflare_Source
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Sun_light
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

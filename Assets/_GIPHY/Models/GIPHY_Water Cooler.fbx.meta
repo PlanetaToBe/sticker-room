@@ -1,0 +1,825 @@
+fileFormatVersion: 2
+guid: 41249a850c2b7bc40bce5fc4f1ed7eaa
+timeCreated: 1496781718
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Base
+    100002: Boole
+    100004: Boole_1
+    100006: Boole_2
+    100008: Camera
+    100010: Camera_1
+    100012: Cap_1
+    100014: Cap_1_2
+    100016: Cap_2
+    100018: Cap_2_2
+    100020: Cloner
+    100022: Cloner_2
+    100024: Connect
+    100026: Connect_0
+    100028: Connect_1
+    100030: Connect_2
+    100032: Connect_2_2
+    100034: Connect_3
+    100036: Connect_4
+    100038: Connect_5
+    100040: Connect_6
+    100042: Connect_7
+    100044: Connect_8
+    100046: Connect_9
+    100048: Cube
+    100050: Cube_1
+    100052: Cube_2
+    100054: Cube_2_2
+    100056: Cube_2_3
+    100058: Cube_3
+    100060: Cube_3_0
+    100062: Cube_3_1
+    100064: Cube_3_2
+    100066: Cube_3_2_2
+    100068: Cube_3_3
+    100070: Cube_3_4
+    100072: Cube_3_5
+    100074: Cube_3_6
+    100076: Cup_Effectors
+    100078: Cup_Holder
+    100080: Cylinder
+    100082: Cylinder_1
+    100084: Cylinder_1_2
+    100086: Cylinder_1_3
+    100088: Cylinder_2
+    100090: Cylinder_2_2
+    100092: Cylinder_2_3
+    100094: Cylinder_2_4
+    100096: Cylinder_2_5
+    100098: Cylinder_2_6
+    100100: Cylinder_2_7
+    100102: Cylinder_2_8
+    100104: Cylinder_3
+    100106: Cylinder_3_2
+    100108: Cylinder_3_3
+    100110: Cylinder_3_4
+    100112: Cylinder_3_5
+    100114: Cylinder_3_6
+    100116: Cylinder_4
+    100118: Cylinder_4_2
+    100120: Cylinder_4_3
+    100122: Cylinder_5
+    100124: Cylinder_5_2
+    100126: Cylinder_5_3
+    100128: //RootNode
+    100130: Lensflare_Source
+    100132: Moon
+    100134: Moon_Light
+    100136: Null
+    100138: Null_1
+    100140: Null_1_2
+    100142: Null_1_3
+    100144: Null_1_4
+    100146: Null_1_5
+    100148: Null_1_6
+    100150: Null_1_7
+    100152: Null_1_8
+    100154: Null_1_9
+    100156: Null_2
+    100158: Null_2_2
+    100160: Null_2_3
+    100162: Null_2_4
+    100164: Null_3
+    100166: Null_4
+    100168: Null_5
+    100170: Null_6
+    100172: Null_7
+    100174: Null_8
+    100176: Null_9
+    100178: Physical_Sky
+    100180: Rounding
+    100182: Rounding_1
+    100184: Rounding_2
+    100186: Shadow_Plane
+    100188: Sky_Dome
+    100190: Sky_Null
+    100192: Sphere
+    100194: Sphere_2
+    100196: Spline
+    100198: Sun
+    100200: Sun_light
+    100202: Sweep
+    100204: Sweep_1
+    100206: Sweep_1_2
+    100208: Sweep_1_3
+    100210: Sweep_1_4
+    100212: Sweep_2
+    100214: Sweep_2_2
+    100216: Sweep_2_3
+    100218: Sweep_3
+    100220: Sweep_3_2
+    100222: Sweep_3_3
+    100224: Sweep_3_4
+    100226: Sweep_3_5
+    100228: Sweep_4
+    100230: Sweep_5
+    100232: Sweep_6
+    100234: Sweep_7
+    100236: Symmetry
+    100238: Symmetry_1
+    100240: Symmetry_1_2
+    100242: Symmetry_2
+    100244: Tube
+    100246: Water_Valves
+    400000: Base
+    400002: Boole
+    400004: Boole_1
+    400006: Boole_2
+    400008: Camera
+    400010: Camera_1
+    400012: Cap_1
+    400014: Cap_1_2
+    400016: Cap_2
+    400018: Cap_2_2
+    400020: Cloner
+    400022: Cloner_2
+    400024: Connect
+    400026: Connect_0
+    400028: Connect_1
+    400030: Connect_2
+    400032: Connect_2_2
+    400034: Connect_3
+    400036: Connect_4
+    400038: Connect_5
+    400040: Connect_6
+    400042: Connect_7
+    400044: Connect_8
+    400046: Connect_9
+    400048: Cube
+    400050: Cube_1
+    400052: Cube_2
+    400054: Cube_2_2
+    400056: Cube_2_3
+    400058: Cube_3
+    400060: Cube_3_0
+    400062: Cube_3_1
+    400064: Cube_3_2
+    400066: Cube_3_2_2
+    400068: Cube_3_3
+    400070: Cube_3_4
+    400072: Cube_3_5
+    400074: Cube_3_6
+    400076: Cup_Effectors
+    400078: Cup_Holder
+    400080: Cylinder
+    400082: Cylinder_1
+    400084: Cylinder_1_2
+    400086: Cylinder_1_3
+    400088: Cylinder_2
+    400090: Cylinder_2_2
+    400092: Cylinder_2_3
+    400094: Cylinder_2_4
+    400096: Cylinder_2_5
+    400098: Cylinder_2_6
+    400100: Cylinder_2_7
+    400102: Cylinder_2_8
+    400104: Cylinder_3
+    400106: Cylinder_3_2
+    400108: Cylinder_3_3
+    400110: Cylinder_3_4
+    400112: Cylinder_3_5
+    400114: Cylinder_3_6
+    400116: Cylinder_4
+    400118: Cylinder_4_2
+    400120: Cylinder_4_3
+    400122: Cylinder_5
+    400124: Cylinder_5_2
+    400126: Cylinder_5_3
+    400128: //RootNode
+    400130: Lensflare_Source
+    400132: Moon
+    400134: Moon_Light
+    400136: Null
+    400138: Null_1
+    400140: Null_1_2
+    400142: Null_1_3
+    400144: Null_1_4
+    400146: Null_1_5
+    400148: Null_1_6
+    400150: Null_1_7
+    400152: Null_1_8
+    400154: Null_1_9
+    400156: Null_2
+    400158: Null_2_2
+    400160: Null_2_3
+    400162: Null_2_4
+    400164: Null_3
+    400166: Null_4
+    400168: Null_5
+    400170: Null_6
+    400172: Null_7
+    400174: Null_8
+    400176: Null_9
+    400178: Physical_Sky
+    400180: Rounding
+    400182: Rounding_1
+    400184: Rounding_2
+    400186: Shadow_Plane
+    400188: Sky_Dome
+    400190: Sky_Null
+    400192: Sphere
+    400194: Sphere_2
+    400196: Spline
+    400198: Sun
+    400200: Sun_light
+    400202: Sweep
+    400204: Sweep_1
+    400206: Sweep_1_2
+    400208: Sweep_1_3
+    400210: Sweep_1_4
+    400212: Sweep_2
+    400214: Sweep_2_2
+    400216: Sweep_2_3
+    400218: Sweep_3
+    400220: Sweep_3_2
+    400222: Sweep_3_3
+    400224: Sweep_3_4
+    400226: Sweep_3_5
+    400228: Sweep_4
+    400230: Sweep_5
+    400232: Sweep_6
+    400234: Sweep_7
+    400236: Symmetry
+    400238: Symmetry_1
+    400240: Symmetry_1_2
+    400242: Symmetry_2
+    400244: Tube
+    400246: Water_Valves
+    2300000: Cap_1
+    2300002: Cap_1_2
+    2300004: Cap_2
+    2300006: Cap_2_2
+    2300008: Connect
+    2300010: Connect_0
+    2300012: Connect_1
+    2300014: Connect_2
+    2300016: Connect_2_2
+    2300018: Connect_3
+    2300020: Connect_4
+    2300022: Connect_5
+    2300024: Connect_6
+    2300026: Connect_7
+    2300028: Connect_8
+    2300030: Connect_9
+    2300032: Cube
+    2300034: Cube_1
+    2300036: Cube_2
+    2300038: Cube_2_2
+    2300040: Cube_2_3
+    2300042: Cube_3
+    2300044: Cube_3_0
+    2300046: Cube_3_1
+    2300048: Cube_3_2
+    2300050: Cube_3_2_2
+    2300052: Cube_3_3
+    2300054: Cube_3_4
+    2300056: Cube_3_5
+    2300058: Cube_3_6
+    2300060: Cylinder
+    2300062: Cylinder_1
+    2300064: Cylinder_1_2
+    2300066: Cylinder_1_3
+    2300068: Cylinder_2
+    2300070: Cylinder_2_2
+    2300072: Cylinder_2_3
+    2300074: Cylinder_2_4
+    2300076: Cylinder_2_5
+    2300078: Cylinder_2_6
+    2300080: Cylinder_2_8
+    2300082: Cylinder_3
+    2300084: Cylinder_3_2
+    2300086: Cylinder_3_3
+    2300088: Cylinder_3_6
+    2300090: Cylinder_4
+    2300092: Cylinder_4_2
+    2300094: Cylinder_4_3
+    2300096: Cylinder_5
+    2300098: Cylinder_5_2
+    2300100: Cylinder_5_3
+    2300102: Rounding
+    2300104: Rounding_1
+    2300106: Rounding_2
+    2300108: Sphere
+    2300110: Sphere_2
+    2300112: Sweep
+    2300114: Sweep_1
+    2300116: Sweep_1_2
+    2300118: Sweep_1_3
+    2300120: Sweep_1_4
+    2300122: Sweep_2
+    2300124: Sweep_2_2
+    2300126: Sweep_2_3
+    2300128: Sweep_3
+    2300130: Sweep_3_2
+    2300132: Sweep_3_3
+    2300134: Sweep_3_4
+    2300136: Sweep_3_5
+    2300138: Sweep_4
+    2300140: Sweep_5
+    2300142: Sweep_6
+    2300144: Sweep_7
+    2300146: Tube
+    3300000: Cap_1
+    3300002: Cap_1_2
+    3300004: Cap_2
+    3300006: Cap_2_2
+    3300008: Connect
+    3300010: Connect_0
+    3300012: Connect_1
+    3300014: Connect_2
+    3300016: Connect_2_2
+    3300018: Connect_3
+    3300020: Connect_4
+    3300022: Connect_5
+    3300024: Connect_6
+    3300026: Connect_7
+    3300028: Connect_8
+    3300030: Connect_9
+    3300032: Cube
+    3300034: Cube_1
+    3300036: Cube_2
+    3300038: Cube_2_2
+    3300040: Cube_2_3
+    3300042: Cube_3
+    3300044: Cube_3_0
+    3300046: Cube_3_1
+    3300048: Cube_3_2
+    3300050: Cube_3_2_2
+    3300052: Cube_3_3
+    3300054: Cube_3_4
+    3300056: Cube_3_5
+    3300058: Cube_3_6
+    3300060: Cylinder
+    3300062: Cylinder_1
+    3300064: Cylinder_1_2
+    3300066: Cylinder_1_3
+    3300068: Cylinder_2
+    3300070: Cylinder_2_2
+    3300072: Cylinder_2_3
+    3300074: Cylinder_2_4
+    3300076: Cylinder_2_5
+    3300078: Cylinder_2_6
+    3300080: Cylinder_2_8
+    3300082: Cylinder_3
+    3300084: Cylinder_3_2
+    3300086: Cylinder_3_3
+    3300088: Cylinder_3_6
+    3300090: Cylinder_4
+    3300092: Cylinder_4_2
+    3300094: Cylinder_4_3
+    3300096: Cylinder_5
+    3300098: Cylinder_5_2
+    3300100: Cylinder_5_3
+    3300102: Rounding
+    3300104: Rounding_1
+    3300106: Rounding_2
+    3300108: Sphere
+    3300110: Sphere_2
+    3300112: Sweep
+    3300114: Sweep_1
+    3300116: Sweep_1_2
+    3300118: Sweep_1_3
+    3300120: Sweep_1_4
+    3300122: Sweep_2
+    3300124: Sweep_2_2
+    3300126: Sweep_2_3
+    3300128: Sweep_3
+    3300130: Sweep_3_2
+    3300132: Sweep_3_3
+    3300134: Sweep_3_4
+    3300136: Sweep_3_5
+    3300138: Sweep_4
+    3300140: Sweep_5
+    3300142: Sweep_6
+    3300144: Sweep_7
+    3300146: Tube
+    4300000: Connect
+    4300002: Sweep_1
+    4300004: Sweep
+    4300006: Sweep_3
+    4300008: Sweep_1_2
+    4300010: Sweep_2
+    4300012: Sweep_2_2
+    4300014: Sphere
+    4300016: Sweep_3_2
+    4300018: Sweep_3_3
+    4300020: Connect_2
+    4300022: Sweep_1_3
+    4300024: Rounding_1
+    4300026: Cap_1
+    4300028: Rounding_2
+    4300030: Cap_2
+    4300032: Sweep_4
+    4300034: Rounding
+    4300036: Cap_1_2
+    4300038: Cap_2_2
+    4300040: Sweep_3_4
+    4300042: Sweep_1_4
+    4300044: Sweep_2_3
+    4300046: Sweep_5
+    4300048: Sphere_2
+    4300050: Sweep_6
+    4300052: Sweep_3_5
+    4300054: Cylinder_5
+    4300056: Cylinder_4
+    4300058: Cylinder_3
+    4300060: Cylinder_2
+    4300062: Cylinder_1
+    4300064: Cylinder
+    4300066: Cylinder_5_2
+    4300068: Cylinder_2_2
+    4300070: Cylinder_3_2
+    4300072: Cylinder_2_3
+    4300074: Cube_3
+    4300076: Cylinder_2_4
+    4300078: Cylinder_3_3
+    4300080: Cylinder_2_5
+    4300082: Cube_3_2
+    4300084: Connect_0
+    4300086: Connect_1
+    4300088: Connect_2_2
+    4300090: Connect_3
+    4300092: Connect_4
+    4300094: Connect_5
+    4300096: Connect_6
+    4300098: Connect_7
+    4300100: Connect_8
+    4300102: Connect_9
+    4300104: Cylinder_2_6
+    4300106: Cube_2
+    4300108: Tube
+    4300110: Cube_3_0
+    4300112: Cube_3_1
+    4300114: Cube_3_2_2
+    4300116: Cube_3_3
+    4300118: Cube_3_4
+    4300120: Cube_3_5
+    4300122: Cube_3_6
+    4300124: Sweep_7
+    4300126: Cube
+    4300128: Cube_2_2
+    4300130: Cylinder_1_2
+    4300132: Cube_2_3
+    4300134: Cube_1
+    4300136: Cylinder_4_2
+    4300138: Cylinder_3_6
+    4300140: Cylinder_2_8
+    4300142: Cylinder_1_3
+    4300144: Cylinder_4_3
+    4300146: Cylinder_5_3
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boole_2
+        weight: 1
+      - path: Boole_2/Cylinder_5_3
+        weight: 1
+      - path: Boole_2/Null_9
+        weight: 1
+      - path: Boole_2/Null_9/Cylinder_1_3
+        weight: 1
+      - path: Boole_2/Null_9/Cylinder_2_8
+        weight: 1
+      - path: Boole_2/Null_9/Cylinder_3_6
+        weight: 1
+      - path: Boole_2/Null_9/Cylinder_4_2
+        weight: 1
+      - path: Boole_2/Null_9/Cylinder_4_3
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Camera_1
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Null_1_4
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Connect_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_1_3
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_1_3/Rounding_1
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_1_3/Rounding_1/Cap_1
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_1_3/Rounding_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_1_3/Rounding_2/Cap_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_3_4
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_4
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_4/Cap_2_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_4/Rounding
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Null_3/Symmetry_1_2/Null_1_6/Sweep_4/Rounding/Cap_1_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Sphere_2
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Sweep_1_4
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Sweep_2_3
+        weight: 1
+      - path: Null/Null_1_4/Null_1_5/Sweep_5
+        weight: 1
+      - path: Null/Null_1_4/Symmetry_2
+        weight: 1
+      - path: Null/Null_1_4/Symmetry_2/Null_1_7
+        weight: 1
+      - path: Null/Null_1_4/Symmetry_2/Null_1_7/Sweep_3_5
+        weight: 1
+      - path: Null/Null_1_4/Symmetry_2/Null_1_7/Sweep_6
+        weight: 1
+      - path: Null/Null_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Connect
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Symmetry_1
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Symmetry_1/Null_1_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Symmetry_1/Null_1_2/Sweep
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Symmetry_1/Null_1_2/Sweep_1
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Null_2_3/Symmetry_1/Null_1_2/Sweep_3
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Sphere
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Sweep_1_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Sweep_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Null_1/Sweep_2_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Symmetry
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Symmetry/Null_1_3
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Symmetry/Null_1_3/Sweep_3_2
+        weight: 1
+      - path: Null/Null_2/Null_2_2/Symmetry/Null_1_3/Sweep_3_3
+        weight: 1
+      - path: Null/Null_4
+        weight: 1
+      - path: Null/Null_4/Base
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_0
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_1
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_2_2
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_3
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_4
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_5
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_6
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_7
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_8
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cloner/Connect_9
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cube_2
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cup_Effectors
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cup_Effectors/Spline
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Cylinder_2_6
+        weight: 1
+      - path: Null/Null_4/Base/Cup_Holder/Tube
+        weight: 1
+      - path: Null/Null_4/Base/Null_7
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Cube_2_2
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Cube_2_3
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Null_1_9
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Null_1_9/Cylinder_1_2
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Null_1_9/Cylinder_2_7
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Null_1_9/Cylinder_3_4
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Boole/Null_8/Null_1_9/Cylinder_3_5
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_0
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_1
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_2_2
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_3
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_4
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_5
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cloner_2/Cube_3_6
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cube
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Cube_1
+        weight: 1
+      - path: Null/Null_4/Base/Null_7/Sweep_7
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_1_8
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_1_8/Cube_3_2
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_1_8/Cylinder_2_4
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_1_8/Cylinder_2_5
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_1_8/Cylinder_3_3
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_2_4
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_2_4/Cube_3
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_2_4/Cylinder_2_2
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_2_4/Cylinder_2_3
+        weight: 1
+      - path: Null/Null_4/Base/Water_Valves/Null_2_4/Cylinder_3_2
+        weight: 1
+      - path: Null/Null_4/Null_5
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Cylinder_5_2
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6/Cylinder
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6/Cylinder_1
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6/Cylinder_2
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6/Cylinder_3
+        weight: 1
+      - path: Null/Null_4/Null_5/Boole_1/Null_6/Cylinder_4
+        weight: 1
+      - path: Null/Null_4/Null_5/Cylinder_5
+        weight: 1
+      - path: Physical_Sky
+        weight: 1
+      - path: Physical_Sky/Shadow_Plane
+        weight: 1
+      - path: Physical_Sky/Sky_Dome
+        weight: 1
+      - path: Physical_Sky/Sky_Null
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Moon/Moon_Light
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Lensflare_Source
+        weight: 1
+      - path: Physical_Sky/Sky_Null/Sun/Sun_light
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
