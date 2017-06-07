@@ -30,10 +30,28 @@ public struct StickerTransform
 	}
 }
 
+[System.Serializable]
+public struct BallTransformData
+{
+	public List<BallTransform> ballsTran;
+}
+
+[System.Serializable]
+public struct BallTransform
+{
+	public string newVector3;
+
+	public BallTransform (string _position) : this()
+	{
+		this.newVector3 = _position;
+	}
+}
+
 public static class MeshSaverBulkEditor {
 
 	static string json_path = Application.dataPath + "/Sticker/Exports/data.json";
 	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
+	static string json_path_3 = Application.dataPath + "/Sticker/Exports/data3.json";
 	static string asset_path = "Assets/Sticker/Exports/Assets/";
 
 	[MenuItem("CONTEXT/Transform/Save Tape Mesh in Children...")]
@@ -238,6 +256,34 @@ public static class MeshSaverBulkEditor {
 
 		AssetDatabase.CreateAsset(meshToSave, name);
 		AssetDatabase.SaveAssets();
+	}
+
+
+	//============================== Spline =======================================
+	[MenuItem("CONTEXT/Transform/Save Balls in Children...")]
+	public static void SaveChildrenBalls (MenuCommand menuCommand)
+	{
+		Transform parent = menuCommand.context as Transform;
+
+		BallTransformData savedData;
+		savedData.ballsTran = new List<BallTransform> ();
+		// Save Transformation + Data (name doesn't matter)
+		for(int i=0; i<parent.childCount; i++)
+		{
+			Transform ch_tran = parent.GetChild (i);
+			BallTransform s_t = new BallTransform (ch_tran.position.ToString());
+			savedData.ballsTran.Add (s_t);
+		}
+
+		if (File.Exists (json_path_3))
+		{
+			string dataAsJson = JsonUtility.ToJson (savedData, true);
+			File.WriteAllText (json_path_3, dataAsJson);
+		}
+		else
+		{
+			Debug.LogWarning ("json file 3 doesn't exit for saving data");
+		}
 	}
 	
 }

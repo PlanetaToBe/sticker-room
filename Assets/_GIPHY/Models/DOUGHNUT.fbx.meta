@@ -402,7 +402,189 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Main
+      takeName: Main
+      firstFrame: -1
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Capsule_1_2
+        weight: 1
+      - path: Cloner/Capsule_1_10
+        weight: 1
+      - path: Cloner/Capsule_1_26
+        weight: 1
+      - path: Cloner/Capsule_1_42
+        weight: 1
+      - path: Cloner/Capsule_1_50
+        weight: 1
+      - path: Cloner/Capsule_1_54
+        weight: 1
+      - path: Cloner/Capsule_1_62
+        weight: 1
+      - path: Cloner/Capsule_1_66
+        weight: 1
+      - path: Cloner/Capsule_1_74
+        weight: 1
+      - path: Cloner/Capsule_1_78
+        weight: 1
+      - path: Cloner/Capsule_1_82
+        weight: 1
+      - path: Cloner/Capsule_1_102
+        weight: 1
+      - path: Cloner/Capsule_1_114
+        weight: 1
+      - path: Cloner/Capsule_1_134
+        weight: 1
+      - path: Cloner/Capsule_1_142
+        weight: 1
+      - path: Cloner/Capsule_1_162
+        weight: 1
+      - path: Cloner/Capsule_1_166
+        weight: 1
+      - path: Cloner/Capsule_2_9
+        weight: 1
+      - path: Cloner/Capsule_2_17
+        weight: 1
+      - path: Cloner/Capsule_2_21
+        weight: 1
+      - path: Cloner/Capsule_2_29
+        weight: 1
+      - path: Cloner/Capsule_2_33
+        weight: 1
+      - path: Cloner/Capsule_2_45
+        weight: 1
+      - path: Cloner/Capsule_2_57
+        weight: 1
+      - path: Cloner/Capsule_2_61
+        weight: 1
+      - path: Cloner/Capsule_2_77
+        weight: 1
+      - path: Cloner/Capsule_2_85
+        weight: 1
+      - path: Cloner/Capsule_2_89
+        weight: 1
+      - path: Cloner/Capsule_2_101
+        weight: 1
+      - path: Cloner/Capsule_2_105
+        weight: 1
+      - path: Cloner/Capsule_2_117
+        weight: 1
+      - path: Cloner/Capsule_2_121
+        weight: 1
+      - path: Cloner/Capsule_2_153
+        weight: 1
+      - path: Cloner/Capsule_2_161
+        weight: 1
+      - path: Cloner/Capsule_3
+        weight: 1
+      - path: Cloner/Capsule_3_8
+        weight: 1
+      - path: Cloner/Capsule_3_16
+        weight: 1
+      - path: Cloner/Capsule_3_28
+        weight: 1
+      - path: Cloner/Capsule_3_32
+        weight: 1
+      - path: Cloner/Capsule_3_44
+        weight: 1
+      - path: Cloner/Capsule_3_52
+        weight: 1
+      - path: Cloner/Capsule_3_64
+        weight: 1
+      - path: Cloner/Capsule_3_68
+        weight: 1
+      - path: Cloner/Capsule_3_72
+        weight: 1
+      - path: Cloner/Capsule_3_80
+        weight: 1
+      - path: Cloner/Capsule_3_84
+        weight: 1
+      - path: Cloner/Capsule_3_88
+        weight: 1
+      - path: Cloner/Capsule_3_92
+        weight: 1
+      - path: Cloner/Capsule_3_96
+        weight: 1
+      - path: Cloner/Capsule_3_100
+        weight: 1
+      - path: Cloner/Capsule_3_120
+        weight: 1
+      - path: Cloner/Capsule_3_132
+        weight: 1
+      - path: Cloner/Capsule_3_136
+        weight: 1
+      - path: Cloner/Capsule_3_144
+        weight: 1
+      - path: Cloner/Capsule_3_148
+        weight: 1
+      - path: Cloner/Capsule_3_164
+        weight: 1
+      - path: Cloner/Capsule_15
+        weight: 1
+      - path: Cloner/Capsule_19
+        weight: 1
+      - path: Cloner/Capsule_23
+        weight: 1
+      - path: Cloner/Capsule_35
+        weight: 1
+      - path: Cloner/Capsule_39
+        weight: 1
+      - path: Cloner/Capsule_47
+        weight: 1
+      - path: Cloner/Capsule_55
+        weight: 1
+      - path: Cloner/Capsule_75
+        weight: 1
+      - path: Cloner/Capsule_111
+        weight: 1
+      - path: Cloner/Capsule_119
+        weight: 1
+      - path: Cloner/Capsule_123
+        weight: 1
+      - path: Cloner/Capsule_127
+        weight: 1
+      - path: Cloner/Capsule_135
+        weight: 1
+      - path: Cloner/Capsule_147
+        weight: 1
+      - path: Cloner/Capsule_155
+        weight: 1
+      - path: Cloner/Capsule_163
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Cylinder_1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

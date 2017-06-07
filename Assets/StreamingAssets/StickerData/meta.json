@@ -1,346 +1,400 @@
 {
   "stickers": [
     {
+      "width": 500,
+      "height": 500,
       "x": 0,
       "y": 0,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif",
-      "id": "Nightmare-BLACK-BACKGOUND-F.gif",
-      "sheetId": "sheet-0"
+      "sheetId": "sheet-0",
+      "id": "terrorgif",
+      "artist": "matias-trillo"
     },
     {
-      "x": 300,
+      "width": 500,
+      "height": 500,
+      "x": 500,
       "y": 0,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/BanditsF.gif",
-      "id": "BanditsF.gif",
-      "sheetId": "sheet-0"
+      "sheetId": "sheet-0",
+      "id": "anemone",
+      "artist": "clara-terne"
     },
     {
+      "width": 500,
+      "height": 500,
       "x": 0,
-      "y": 300,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/ChildhoodF.gif",
-      "id": "ChildhoodF.gif",
-      "sheetId": "sheet-0"
+      "y": 500,
+      "sheetId": "sheet-0",
+      "id": "growing",
+      "artist": "clara-terne"
     },
     {
-      "x": 300,
-      "y": 300,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/CollaF.gif",
-      "id": "CollaF.gif",
-      "sheetId": "sheet-0"
+      "width": 500,
+      "height": 500,
+      "x": 500,
+      "y": 500,
+      "sheetId": "sheet-0",
+      "id": "ice-cream",
+      "artist": "clara-terne"
     },
     {
-      "x": 600,
-      "y": 0,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/crystal.gif",
-      "id": "crystal.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 600,
-      "y": 300,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/DAAAVID.gif",
-      "id": "DAAAVID.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 0,
-      "y": 600,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/DOUGHNUT_ROLL.gif",
-      "id": "DOUGHNUT_ROLL.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 300,
-      "y": 600,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif",
-      "id": "Terror- BLACK BACKGROUND F.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 600,
-      "y": 600,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/FantasyF.gif",
-      "id": "FantasyF.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 900,
-      "y": 0,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/SOFTPILLAR.gif",
-      "id": "SOFTPILLAR.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 900,
-      "y": 300,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif",
-      "id": "GIPHY_Airplane.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 900,
-      "y": 600,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif",
-      "id": "GIPHY_Coffee.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 0,
-      "y": 900,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif",
-      "id": "GIPHY_Fidget.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 300,
-      "y": 900,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif",
-      "id": "GIPHY_Photocopier.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 600,
-      "y": 900,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif",
-      "id": "GIPHY_Plant-Dude.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 900,
-      "y": 900,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Receptionist.gif",
-      "id": "GIPHY_Receptionist.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1200,
-      "y": 0,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif",
-      "id": "GIPHY_Water-Cooler.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1200,
-      "y": 300,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif",
-      "id": "Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1200,
-      "y": 600,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/Revolution F.gif",
-      "id": "Revolution F.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1200,
-      "y": 900,
-      "width": 300,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/BeggarF.gif",
-      "id": "BeggarF.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 0,
-      "y": 1200,
-      "width": 300,
-      "height": 275,
-      "path": "/Users/danielbrewster/Desktop/Sticker/JERKYPISA.gif",
-      "id": "JERKYPISA.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 300,
-      "y": 1200,
-      "width": 300,
-      "height": 250,
-      "path": "/Users/danielbrewster/Desktop/Sticker/WAVEWALL.gif",
-      "id": "WAVEWALL.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1500,
-      "y": 0,
-      "width": 250,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/SIGNAL.gif",
-      "id": "SIGNAL.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1500,
-      "y": 300,
-      "width": 250,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/FULFILL.gif",
-      "id": "FULFILL.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 600,
-      "y": 1200,
-      "width": 300,
-      "height": 250,
-      "path": "/Users/danielbrewster/Desktop/Sticker/EGYPT_TIME.gif",
-      "id": "EGYPT_TIME.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1500,
-      "y": 600,
-      "width": 250,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/WAIT_ATLAS.gif",
-      "id": "WAIT_ATLAS.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 900,
-      "y": 1200,
-      "width": 300,
-      "height": 228,
-      "path": "/Users/danielbrewster/Desktop/Sticker/The-End F.gif",
-      "id": "The-End F.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1500,
-      "y": 900,
-      "width": 200,
-      "height": 300,
-      "path": "/Users/danielbrewster/Desktop/Sticker/JESUS_COACH.gif",
-      "id": "JESUS_COACH.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1500,
-      "y": 1200,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00002.gif",
-      "id": "wavesprite00002.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 1200,
-      "y": 1200,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif",
-      "id": "wavesprite00001.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 0,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif",
-      "id": "wavesprite00004.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 200,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif",
-      "id": "wavesprite00005.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 400,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00006.gif",
-      "id": "wavesprite00006.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 600,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif",
-      "id": "wavesprite00007.gif",
-      "sheetId": "sheet-0"
-    },
-    {
-      "x": 800,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00008.gif",
-      "id": "wavesprite00008.gif",
-      "sheetId": "sheet-0"
-    },
-    {
+      "width": 500,
+      "height": 500,
       "x": 1000,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif",
-      "id": "wavesprite00009.gif",
-      "sheetId": "sheet-0"
+      "y": 0,
+      "sheetId": "sheet-0",
+      "id": "necklace-swing",
+      "artist": "clara-terne"
     },
     {
-      "x": 1200,
-      "y": 1475,
-      "width": 200,
-      "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif",
-      "id": "wavesprite00010.gif",
-      "sheetId": "sheet-0"
+      "width": 500,
+      "height": 500,
+      "x": 1000,
+      "y": 500,
+      "sheetId": "sheet-0",
+      "id": "ring",
+      "artist": "clara-terne"
     },
     {
-      "x": 1400,
-      "y": 1475,
+      "width": 500,
+      "height": 500,
+      "x": 0,
+      "y": 1000,
+      "sheetId": "sheet-0",
+      "id": "spider",
+      "artist": "clara-terne"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 500,
+      "y": 1000,
+      "sheetId": "sheet-0",
+      "id": "swing",
+      "artist": "clara-terne"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1000,
+      "y": 1000,
+      "sheetId": "sheet-0",
+      "id": "nature",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1500,
+      "y": 0,
+      "sheetId": "sheet-0",
+      "id": "crystal",
+      "artist": "clara-terne"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1500,
+      "y": 500,
+      "sheetId": "sheet-0",
+      "id": "revolutiongif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1500,
+      "y": 1000,
+      "sheetId": "sheet-0",
+      "id": "soft-pillar",
+      "artist": "kans"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 0,
+      "y": 1500,
+      "sheetId": "sheet-0",
+      "id": "nightmaregif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 500,
+      "y": 1500,
+      "sheetId": "sheet-0",
+      "id": "fantasygif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1000,
+      "y": 1500,
+      "sheetId": "sheet-0",
+      "id": "banditsgif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 1500,
+      "y": 1500,
+      "sheetId": "sheet-0",
+      "id": "beggargif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 0,
+      "y": 0,
+      "sheetId": "sheet-1",
+      "id": "childhoodgif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 500,
+      "x": 500,
+      "y": 0,
+      "sheetId": "sheet-1",
+      "id": "collagif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 500,
+      "height": 499,
+      "x": 0,
+      "y": 500,
+      "sheetId": "sheet-1",
+      "id": "ritter-todd-und-teufelgif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 458,
+      "height": 500,
+      "x": 1000,
+      "y": 0,
+      "sheetId": "sheet-1",
+      "id": "jerky-pisa",
+      "artist": "kans"
+    },
+    {
+      "width": 500,
+      "height": 417,
+      "x": 500,
+      "y": 500,
+      "sheetId": "sheet-1",
+      "id": "wave-wall",
+      "artist": "kans"
+    },
+    {
+      "width": 417,
+      "height": 500,
+      "x": 1458,
+      "y": 0,
+      "sheetId": "sheet-1",
+      "id": "signal",
+      "artist": "kans"
+    },
+    {
+      "width": 417,
+      "height": 500,
+      "x": 0,
+      "y": 999,
+      "sheetId": "sheet-1",
+      "id": "wait-atlas",
+      "artist": "kans"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 417,
+      "y": 999,
+      "sheetId": "sheet-1",
+      "id": "receptionist",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 917,
+      "y": 999,
+      "sheetId": "sheet-1",
+      "id": "airplane",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 0,
+      "y": 1499,
+      "sheetId": "sheet-1",
+      "id": "photocopier",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 500,
+      "y": 1499,
+      "sheetId": "sheet-1",
+      "id": "planet-dude",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 1000,
+      "y": 1499,
+      "sheetId": "sheet-1",
+      "id": "plug",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 1500,
+      "y": 1499,
+      "sheetId": "sheet-1",
+      "id": "water-cooler",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 0,
+      "y": 0,
+      "sheetId": "sheet-2",
+      "id": "coffee",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 500,
+      "y": 0,
+      "sheetId": "sheet-2",
+      "id": "rainy-day",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 386,
+      "x": 0,
+      "y": 386,
+      "sheetId": "sheet-2",
+      "id": "fidget",
+      "artist": "patrick-sluiter"
+    },
+    {
+      "width": 500,
+      "height": 380,
+      "x": 500,
+      "y": 386,
+      "sheetId": "sheet-2",
+      "id": "the-endgif",
+      "artist": "matias-trillo"
+    },
+    {
+      "width": 333,
+      "height": 500,
+      "x": 1000,
+      "y": 0,
+      "sheetId": "sheet-2",
+      "id": "jesus-coach",
+      "artist": "kans"
+    },
+    {
       "width": 200,
       "height": 200,
-      "path": "/Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif",
-      "id": "wavesprite00003.gif",
-      "sheetId": "sheet-0"
+      "x": 1000,
+      "y": 500,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00001gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 0,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00002gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 200,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00010gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 400,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00004gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 600,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00005gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 800,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00006gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 1000,
+      "y": 772,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00007gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 0,
+      "y": 972,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00008gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 200,
+      "y": 972,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00009gif",
+      "artist": "toyoya-li"
+    },
+    {
+      "width": 200,
+      "height": 200,
+      "x": 400,
+      "y": 972,
+      "sheetId": "sheet-2",
+      "id": "wavesprite00003gif",
+      "artist": "toyoya-li"
     }
   ]
 }

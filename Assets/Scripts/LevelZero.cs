@@ -19,6 +19,11 @@ public class LevelZero : MonoBehaviour {
 	public Text answer;
 	public GameObject[] thingsToBeLift;
 
+	public GameObject cupPrefab;
+	public Transform dispensor;
+	private IEnumerator dispenseCoroutine;
+	private bool doDispense = true;
+
 	[Header("Light")]
 	public float minFlickerSpeed = 0.01f;
 	public float maxFlickerSpeed = 0.1f;
@@ -61,6 +66,7 @@ public class LevelZero : MonoBehaviour {
 	{
 		flickerCoroutine = FlickerLight (10f);
 		rainbowLight = houseLight.GetComponent<RainbowLight> ();
+		dispenseCoroutine = CupDispense ();
 	}
 
 	void OnLevelTransition(int _level)
@@ -81,6 +87,8 @@ public class LevelZero : MonoBehaviour {
 
 			// lift the house
 			Invoke("LiftHouse", 19f);
+
+			doDispense = false;
 		}
 	}
 
@@ -105,6 +113,8 @@ public class LevelZero : MonoBehaviour {
 							machineInfo.alpha = val;
 						});
 				});
+
+			StartCoroutine (dispenseCoroutine);
 		}
 	}
 
@@ -217,5 +227,14 @@ public class LevelZero : MonoBehaviour {
 	{
 		answer.enabled = true;
 		forwardToLevel1.gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
+	}
+
+	IEnumerator CupDispense()
+	{
+		while (doDispense)
+		{
+			yield return new WaitForSeconds (Random.Range(1f, 3f));
+			Instantiate (cupPrefab, dispensor.position, dispensor.rotation);
+		}
 	}
 }
