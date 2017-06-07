@@ -130,10 +130,13 @@ public class StickerControllerGenerator : MonoBehaviour {
 			//GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, Quaternion.identity) as GameObject;
 
 			GameObject sticker;
-			if (swapArtist) {
+			if (swapArtist)
+			{
 				stickerArt.data = swapArtist.GetStickerData ();
 				sticker = Instantiate(stickerPrefab, transform.position, transform.rotation) as GameObject;
-			} else {
+			}
+			else
+			{
 				sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, transform.rotation) as GameObject;
 			}
 				

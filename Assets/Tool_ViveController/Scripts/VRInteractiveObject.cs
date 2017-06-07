@@ -255,6 +255,9 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	void RemoveRigidbody()
 	{
+		if (m_rigidbody == null)
+			return;
+		
 		if (grabJoint)
 			RemoveJoint ();
 
