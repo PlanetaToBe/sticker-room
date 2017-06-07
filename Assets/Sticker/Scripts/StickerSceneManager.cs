@@ -19,6 +19,7 @@ public class StickerData
     public string path;
     public string id;
     public string sheetId;
+    public string artist;
 }
 
 [System.Serializable]
@@ -50,7 +51,9 @@ public class StickerSceneManager : MonoBehaviour {
         }
     }
 
-    private Dictionary<string, StickerData> stickersById;
+    public List<string> allArtists;
+    public Dictionary<string, List<StickerData>> stickersByArtist;
+    public Dictionary<string, StickerData> stickersById;
 
     private void Awake()
     {
@@ -74,10 +77,23 @@ public class StickerSceneManager : MonoBehaviour {
             StickerSheetData loadedData = JsonUtility.FromJson<StickerSheetData>(dataAsJson);
             data = loadedData.stickers;
 
+            stickersByArtist = new Dictionary<string, List<StickerData>>();
             stickersById = new Dictionary<string, StickerData>();
             foreach (StickerData sticker in data)
             {
                 stickersById[sticker.id] = sticker;
+
+                if (!stickersByArtist.ContainsKey(sticker.artist))
+                {
+                    stickersByArtist[sticker.artist] = new List<StickerData>();
+                }
+
+                stickersByArtist[sticker.artist].Add(sticker);
+
+                if (!allArtists.Contains(sticker.artist))
+                {
+                    allArtists.Add(sticker.artist);
+                }
             }
 
 			Debug.Log("Load stickers * " + data.Count);

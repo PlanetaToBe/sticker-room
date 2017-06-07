@@ -4,43 +4,25 @@ using UnityEngine;
 
 public class SwapArtist : MonoBehaviour {
 
-	[System.Serializable]
-	public class ArtistData
-	{
-		public int[] workIndex = new int[10];
-	}
-
-	public ArtistData[] allArtists;
-
-	private int artistCount;
-	private int m_currentArtist;
-	public int CurrentArtist
-	{
-		get { return m_currentArtist; }
-		set { m_currentArtist = value; }
-	}
-
 	public ToolHub[] toolHubs;
 	public ToolHubSimple[] toolHubSimples;
 
-	void Start()
-	{
-		artistCount = allArtists.Length;
-	}
+    private int currentArtistIndex = 0;
+    private int currentStickerIndex = 0;
 
 	void OnEnable()
 	{
 		if (toolHubs.Length > 0) {
 			for(int i=0; i<toolHubs.Length; i++)
 			{
-				toolHubs [i].OnTouchpadClick += SetArtistOnClick;
+				toolHubs [i].OnTouchpadClick += ChangeArtist;
 			}
 		}
 
 		if (toolHubSimples.Length > 0) {
 			for(int i=0; i<toolHubSimples.Length; i++)
 			{
-				toolHubSimples [i].OnTouchpadClick += SetArtistOnClick;
+				toolHubSimples [i].OnTouchpadClick += ChangeArtist;
 			}
 		}
 	}
@@ -50,39 +32,99 @@ public class SwapArtist : MonoBehaviour {
 		if (toolHubs.Length > 0) {
 			for(int i=0; i<toolHubs.Length; i++)
 			{
-				toolHubs [i].OnTouchpadClick -= SetArtistOnClick;
+				toolHubs [i].OnTouchpadClick -= ChangeArtist;
 			}
 		}
 
 		if (toolHubSimples.Length > 0) {
 			for(int i=0; i<toolHubSimples.Length; i++)
 			{
-				toolHubSimples [i].OnTouchpadClick -= SetArtistOnClick;
+				toolHubSimples [i].OnTouchpadClick -= ChangeArtist;
 			}
 		}
 	}
 
 	public StickerData GetStickerData()
 	{
-		ArtistData c_artist = allArtists [m_currentArtist];
-		return StickerSceneManager.instance.data[ c_artist.workIndex[Random.Range(0, c_artist.workIndex.Length)] ];
+        Debug.Log("Giving sticker " + GetArtistList()[currentArtistIndex] + " " + currentStickerIndex);
+        return GetCurrentArtistStickers()[currentStickerIndex];
 	}
 
-	public void SetArtist(int _index)
-	{
-		CurrentArtist = _index % artistCount;
-	}
+    public void ChangeArtist(bool up)
+    {
+        if (up)
+        {
+            NextArtist();
+        } else
+        {
+            PreviousArtist();
+        }
+    }
 
-	public void SetArtistOnClick(bool goUp)
-	{
-		if (goUp)
-			m_currentArtist++;
-		else
-			m_currentArtist--;
+    public void NextArtist()
+    {
+        ++currentArtistIndex;
+        if (currentArtistIndex > GetArtistCount() - 1)
+        {
+            currentArtistIndex = 0;
+        }
 
-		if (m_currentArtist >= artistCount)
-			m_currentArtist = 0;
-		else if (m_currentArtist < 0)
-			m_currentArtist = artistCount-1;
-	}
+        currentStickerIndex = 0;
+    }
+
+    public void PreviousArtist()
+    {
+        --currentArtistIndex;
+        if (currentArtistIndex < 0)
+        {
+            currentArtistIndex = GetArtistCount() - 1;
+        }
+
+        currentStickerIndex = 0;
+    }
+
+    public void ChangeSticker(bool up)
+    {
+        if (up)
+        {
+            NextSticker();
+        } else
+        {
+            PreviousSticker();
+        }
+    }
+
+    public void NextSticker()
+    {
+        ++currentStickerIndex;
+        if (currentStickerIndex > GetCurrentArtistStickers().Count - 1)
+        {
+            currentStickerIndex = 0;
+        }
+    }
+
+    public void PreviousSticker()
+    {
+        --currentStickerIndex;
+        if (currentStickerIndex < 0)
+        {
+            currentStickerIndex = GetCurrentArtistStickers().Count - 1;
+        }
+    }
+
+    private List<string> GetArtistList()
+    {
+        return StickerSceneManager.instance.allArtists;
+    }
+
+    private int GetArtistCount()
+    {
+        return GetArtistList().Count;
+    }
+
+    private List<StickerData> GetCurrentArtistStickers()
+    {
+        string artistName = GetArtistList()[currentArtistIndex];
+        return StickerSceneManager.instance.stickersByArtist[artistName];
+    }
 }
