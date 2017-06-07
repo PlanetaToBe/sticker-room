@@ -6,6 +6,7 @@ using System;
 public class ToolHub : MonoBehaviour {
 
 	public event Action<bool> OnTouchpadClick;
+	public event Action<bool> OnTouchpadClickCenter;
 
 	public SteamVR_TrackedController controller;
 	public SteamVR_Controller.Device Device
@@ -319,27 +320,33 @@ public class ToolHub : MonoBehaviour {
 		Vector2 currTouchpadAxis = GetTouchpadAxis ();
 		//Debug.Log ("x: " + currTouchpadAxis.x + ", y: " + currTouchpadAxis.y);
 
-		if(currTouchpadAxis.y > 0.5f && IfInBetween(currTouchpadAxis.x))
+		if(IfInBetween(currTouchpadAxis.y) && IfInBetween(currTouchpadAxis.x))
+		{
+			if (OnTouchpadClickCenter != null)
+				OnTouchpadClickCenter (true);
+			//Debug.Log ("pad center");
+		}
+		else if(currTouchpadAxis.y > 0.5f && IfMightInBetween(currTouchpadAxis.x))
 		{
 			if (OnTouchpadClick != null)
 				OnTouchpadClick (true);
 			touchArrows [0].material.color = Color.red;
 			//Debug.Log ("pad up");
 		}
-		else if(currTouchpadAxis.y < -0.5f && IfInBetween(currTouchpadAxis.x))
+		else if(currTouchpadAxis.y < -0.5f && IfMightInBetween(currTouchpadAxis.x))
 		{
 			if (OnTouchpadClick != null)
 				OnTouchpadClick (false);
 			touchArrows [1].material.color = Color.red;
 			//Debug.Log ("pad down");
 		}
-		else if(currTouchpadAxis.x > 0.5f && IfInBetween(currTouchpadAxis.y))
+		else if(currTouchpadAxis.x > 0.5f && IfMightInBetween(currTouchpadAxis.y))
 		{
 			SnapToAngleAction(-eachR, 0.3f);
 			touchArrows [3].material.color = Color.red;
 			//Debug.Log ("pad right");
 		}
-		else if(currTouchpadAxis.x < -0.5f && IfInBetween(currTouchpadAxis.y))
+		else if(currTouchpadAxis.x < -0.5f && IfMightInBetween(currTouchpadAxis.y))
 		{
 			SnapToAngleAction(eachR, 0.3f);
 			touchArrows [2].material.color = Color.red;
@@ -511,8 +518,13 @@ public class ToolHub : MonoBehaviour {
 		ToolsetEnable = true;
 	}
 
-	private bool IfInBetween(float input)
+	private bool IfMightInBetween(float input)
 	{
 		return (input < 0.5f) || (input > -0.5f);
+	}
+
+	private bool IfInBetween(float input)
+	{
+		return (input < 0.5f) && (input > -0.5f);
 	}
 }

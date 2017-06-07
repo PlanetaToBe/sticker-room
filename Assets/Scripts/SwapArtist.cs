@@ -16,6 +16,7 @@ public class SwapArtist : MonoBehaviour {
 			for(int i=0; i<toolHubs.Length; i++)
 			{
 				toolHubs [i].OnTouchpadClick += ChangeArtist;
+				toolHubs [i].OnTouchpadClickCenter += ChangeSticker;
 			}
 		}
 
@@ -23,6 +24,7 @@ public class SwapArtist : MonoBehaviour {
 			for(int i=0; i<toolHubSimples.Length; i++)
 			{
 				toolHubSimples [i].OnTouchpadClick += ChangeArtist;
+				//toolHubSimples [i].OnTouchpadClickCenter += ChangeSticker;
 			}
 		}
 	}
@@ -33,6 +35,7 @@ public class SwapArtist : MonoBehaviour {
 			for(int i=0; i<toolHubs.Length; i++)
 			{
 				toolHubs [i].OnTouchpadClick -= ChangeArtist;
+				toolHubs [i].OnTouchpadClickCenter -= ChangeSticker;
 			}
 		}
 
@@ -48,6 +51,12 @@ public class SwapArtist : MonoBehaviour {
 	{
         Debug.Log("Giving sticker " + GetArtistList()[currentArtistIndex] + " " + currentStickerIndex);
         return GetCurrentArtistStickers()[currentStickerIndex];
+	}
+
+	public StickerData GetStickerDataRandom()
+	{
+		//Debug.Log("Giving sticker " + GetArtistList()[currentArtistIndex] + " " + currentStickerIndex);
+		return GetCurrentArtistStickers()[Random.Range(0, GetCurrentArtistStickers().Count - 1)];
 	}
 
     public void ChangeArtist(bool up)

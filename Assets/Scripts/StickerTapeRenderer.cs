@@ -12,7 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class StickerTapeRenderer : MonoBehaviour {
 
-	public Material material;
+	//public Material material;
 
 	public bool DrawOnThing
 	{
@@ -68,11 +68,13 @@ public class StickerTapeRenderer : MonoBehaviour {
 	private float s_size = 2048;
 	[HideInInspector]
 	public SwapArtist swapArtist;
+	[HideInInspector]
+	public bool doRandomSticker;
 
 	void Start()
 	{
 		m_mesh = GetComponent<MeshFilter> ().mesh;
-		GetComponent<MeshRenderer> ().material = material;
+
 		parentsQ = Quaternion.identity;
 	}
 
@@ -85,11 +87,21 @@ public class StickerTapeRenderer : MonoBehaviour {
 	{
 		if(startVec != Vector3.zero)
 		{
-			if(swapArtist==null)
-				s_data = StickerSceneManager.instance.GetRandomSticker();
+			if (swapArtist == null)
+			{
+				s_data = StickerSceneManager.instance.GetRandomSticker ();
+			}
 			else
-				s_data = swapArtist.GetStickerData();
-			
+			{
+				if(doRandomSticker)
+					s_data = swapArtist.GetStickerDataRandom();
+				else
+					s_data = swapArtist.GetStickerData();
+			}
+	
+			if(firstQuad)
+				GetComponent<MeshRenderer> ().material = StickerSceneManager.instance.GetSheetMaterial (s_data.sheetId);
+
 			AddLineV2 (m_mesh, MakeQuadV2(startVec, point, lineSize, firstQuad));
 			firstQuad = false;
 		}

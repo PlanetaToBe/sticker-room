@@ -50,6 +50,7 @@ public class DrawManager : MonoBehaviour {
 
 	private SwapArtist swapArtist;
 	private ToolHub toolHub;
+	private bool randomSticker = true;
 
 	[Header("Audios")]
 	public AudioClip penSound;
@@ -78,6 +79,9 @@ public class DrawManager : MonoBehaviour {
 		controller.TriggerDowning += OnTouch;
 		controller.TriggerUnclicked += OnUp;
 
+		controller.PadClicked += OnPadClick;
+		controller.PadUnclicked += OnPadUnclick;
+
 		if (myTools.Length != 0) {
 			for(int i=0; i<myTools.Length; i++)
 			{
@@ -91,6 +95,9 @@ public class DrawManager : MonoBehaviour {
 		controller.TriggerClicked -= OnDown;
 		controller.TriggerDowning -= OnTouch;
 		controller.TriggerUnclicked -= OnUp;
+
+		controller.PadClicked -= OnPadClick;
+		controller.PadUnclicked -= OnPadUnclick;
 
 		if (myTools.Length != 0) {
 			for(int i=0; i<myTools.Length; i++)
@@ -111,6 +118,16 @@ public class DrawManager : MonoBehaviour {
 			else
 				drawType = DrawType.InAir;
 		}
+	}
+
+	private void OnPadClick(object sender, ClickedEventArgs e)
+	{
+		randomSticker = true;
+	}
+
+	private void OnPadUnclick(object sender, ClickedEventArgs e)
+	{
+		randomSticker = false;
 	}
 
 	private void OnDown(object sender, ClickedEventArgs e)
@@ -134,7 +151,8 @@ public class DrawManager : MonoBehaviour {
 		//currLine = go.AddComponent<MeshLineRenderer> ();
 		if(swapArtist)
 			currLine.swapArtist = swapArtist;
-		currLine.material = material;
+		//currLine.material = material;
+		currLine.doRandomSticker = randomSticker;
 		currLine.SetWidth (DrawDistance);
 		currLine.drawPoint = drawPoint;
 		currLine.selfObject = go;

@@ -24,7 +24,7 @@ public class StickerArt : MonoBehaviour {
 		aspect *= transform.localScale.y;
         transform.localScale = new Vector3(aspect, transform.localScale.y, transform.localScale.z);
 
-        float size = 2048;
+        float size = 4096;
 //        float xMin = data.x / size;
 //        float xMax = (data.x + data.width) / size;
 		float xMin = (data.x + data.width) / size;

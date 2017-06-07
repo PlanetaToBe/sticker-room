@@ -174,6 +174,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &10439146
@@ -392,6 +393,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif
     id: Terror- BLACK BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &20405271
@@ -511,6 +513,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &30921422
@@ -648,6 +651,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &46326866
@@ -767,6 +771,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &56951557
@@ -886,6 +891,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Receptionist.gif
     id: GIPHY_Receptionist.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &61005798
@@ -1005,6 +1011,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &83157086
@@ -1124,6 +1131,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/ChildhoodF.gif
     id: ChildhoodF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &86965293
@@ -1348,6 +1356,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &93021196
@@ -1496,12 +1505,12 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 962235332}
+      objectReference: {fileID: 376304105}
     - target: {fileID: 23926542794089224, guid: 7f70d5beb85fb794b96c48d2f52f9070,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1653293415}
+      objectReference: {fileID: 283900801}
     - target: {fileID: 114313976946992968, guid: 7f70d5beb85fb794b96c48d2f52f9070,
         type: 2}
       propertyPath: allStickerTapesParent
@@ -2264,6 +2273,10 @@ Prefab:
       propertyPath: widthBar
       value: 
       objectReference: {fileID: 2118149926}
+    - target: {fileID: 1842825853532712, guid: 7f70d5beb85fb794b96c48d2f52f9070, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f70d5beb85fb794b96c48d2f52f9070, type: 2}
   m_IsPrefabParent: 0
@@ -2514,6 +2527,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &135368585
@@ -2633,6 +2647,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &135482255
@@ -2761,6 +2776,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &166753385
@@ -3078,6 +3094,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &178666753
@@ -3197,6 +3214,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &193575773
@@ -3316,6 +3334,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &193749070
@@ -3504,6 +3523,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &195626067
@@ -3623,6 +3643,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &197249340
@@ -3841,6 +3862,87 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211673599}
   m_Mesh: {fileID: 4300000, guid: a6753036a09374644a8fc25ad41d4e35, type: 2}
+--- !u!1001 &234841254
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150244104154830, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145485993677512, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: allStickerTapesParent
+      value: 
+      objectReference: {fileID: 978742390}
+    - target: {fileID: 114101232984683670, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: stickersParent
+      value: 
+      objectReference: {fileID: 2049255418}
+    - target: {fileID: 33196774949888150, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 551053844}
+    - target: {fileID: 23876396057315328, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1105823428}
+    - target: {fileID: 114155659664043300, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: allStickerTapesParent
+      value: 
+      objectReference: {fileID: 978742390}
+    - target: {fileID: 114433201240424022, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: stickersParent
+      value: 
+      objectReference: {fileID: 2049255418}
+    - target: {fileID: 1711588006024692, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145485993677512, guid: 96f38e7b3cc63e64097190c84e60d13e,
+        type: 2}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ff2d93ef4d122a4da51ca74c94639ce, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 96f38e7b3cc63e64097190c84e60d13e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &243215185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4040,6 +4142,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif
     id: wavesprite00004.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &246940210
@@ -4159,6 +4262,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &257256179
@@ -4316,6 +4420,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &272661683
@@ -4500,6 +4605,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &276761888
@@ -4553,6 +4659,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276761884}
   m_Mesh: {fileID: 4300000, guid: 76a11065465083f4bad59bded8fb89eb, type: 3}
+--- !u!21 &283900801
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &286819174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,6 +4757,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &286819178
@@ -4811,6 +4950,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &295953918
@@ -4930,6 +5070,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif
     id: GIPHY_Fidget.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &297645791
@@ -5177,6 +5318,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &302116258
@@ -5424,6 +5566,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &309897065
@@ -5671,6 +5814,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif
     id: GIPHY_Fidget.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &325358462
@@ -5884,6 +6028,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif
     id: GIPHY_Fidget.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &335777256
@@ -6003,6 +6148,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &341624957
@@ -6122,6 +6268,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &351610751
@@ -6400,6 +6547,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00006.gif
     id: wavesprite00006.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &352994497
@@ -6622,6 +6770,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &370580398
@@ -6675,6 +6824,134 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370580394}
   m_Mesh: {fileID: 4300000, guid: 76a11065465083f4bad59bded8fb89eb, type: 3}
+--- !u!43 &376304105
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.8499995, y: 0, z: 1.25}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 6366e63f0ad7233c9a9999bf000000000000803f0000803f0000803f00000000000000006366e6bf0ad7233c9a9999bf000000000000803f0000803f0000803f0000803f000000006366e6bf0ad7233c9a99993f000000000000803f0000803f0000803f00000000000000006366e63f0ad7233c9a99993f000000000000803f0000803f0000803f0000803f00000000c9ccec3f0ad7233c0000a0bf000000000000803f0000803f00000000000000000000803fc9ccecbf0ad7233c0000a0bf000000000000803f0000803f000000000000803f0000803fc9ccecbf0ad7233c0000a03f000000000000803f0000803f00000000000000000000803fc9ccec3f0ad7233c0000a03f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.8499995, y: 0, z: 1.25}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1 &382759324
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,6 +7117,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &384422595
@@ -8666,6 +8944,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &404863836
@@ -10243,6 +10522,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00006.gif
     id: wavesprite00006.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &429754065
@@ -10362,6 +10642,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &451222472
@@ -10648,6 +10929,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &479200467
@@ -12323,6 +12605,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &510778881
@@ -12443,6 +12726,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &529446816
@@ -12661,6 +12945,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &532927648
@@ -12780,6 +13065,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &541566761
@@ -12833,6 +13119,134 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 541566757}
   m_Mesh: {fileID: 4300000, guid: 76a11065465083f4bad59bded8fb89eb, type: 3}
+--- !u!43 &551053844
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.8499995, y: 0, z: 1.25}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 6366e63f0ad7233c9a9999bf000000000000803f0000803f0000803f00000000000000006366e6bf0ad7233c9a9999bf000000000000803f0000803f0000803f0000803f000000006366e6bf0ad7233c9a99993f000000000000803f0000803f0000803f00000000000000006366e63f0ad7233c9a99993f000000000000803f0000803f0000803f0000803f00000000c9ccec3f0ad7233c0000a0bf000000000000803f0000803f00000000000000000000803fc9ccecbf0ad7233c0000a0bf000000000000803f0000803f000000000000803f0000803fc9ccecbf0ad7233c0000a03f000000000000803f0000803f00000000000000000000803fc9ccec3f0ad7233c0000a03f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.8499995, y: 0, z: 1.25}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1001 &554311796
 Prefab:
   m_ObjectHideFlags: 0
@@ -12977,6 +13391,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &564968676
@@ -13096,6 +13511,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &565382904
@@ -13215,6 +13631,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &572308374
@@ -13334,6 +13751,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &579224147
@@ -13531,6 +13949,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/FantasyF.gif
     id: FantasyF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &595981117
@@ -13650,6 +14069,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &596255077
@@ -15533,6 +15953,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &661169335
@@ -15652,6 +16073,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &663772219
@@ -15771,6 +16193,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/FantasyF.gif
     id: FantasyF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &675054324
@@ -17352,6 +17775,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &688514783
@@ -17471,6 +17895,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/FantasyF.gif
     id: FantasyF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &692060426
@@ -17866,6 +18291,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &724829339
@@ -19467,6 +19893,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BanditsF.gif
     id: BanditsF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &736354613
@@ -19590,6 +20017,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &750083812
@@ -19774,6 +20202,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BanditsF.gif
     id: BanditsF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &753540498
@@ -19893,6 +20322,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &759504898
@@ -20012,6 +20442,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &765672518
@@ -21666,6 +22097,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &789883452
@@ -21785,6 +22217,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BanditsF.gif
     id: BanditsF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &792332087
@@ -21904,6 +22337,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &798893401
@@ -22173,6 +22607,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &802751006
@@ -22370,6 +22805,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &804555152
@@ -22648,6 +23084,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &825734331
@@ -22845,6 +23282,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/FantasyF.gif
     id: FantasyF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &835788401
@@ -23140,6 +23578,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &868939392
@@ -23259,6 +23698,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &871494737
@@ -23378,6 +23818,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &889328533
@@ -23497,6 +23938,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif
     id: wavesprite00004.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &899982885
@@ -23689,6 +24131,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &912233504
@@ -23808,6 +24251,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &912702590
@@ -23945,6 +24389,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif
     id: Terror- BLACK BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &914016366
@@ -24163,6 +24608,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif
     id: wavesprite00004.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &938318277
@@ -24545,6 +24991,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &961461739
@@ -24598,134 +25045,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 961461735}
   m_Mesh: {fileID: 4300000, guid: 76a11065465083f4bad59bded8fb89eb, type: 3}
---- !u!43 &962235332
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.8499995, y: 0, z: 1.25}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 13
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 6366e63f0ad7233c9a9999bf000000000000803f0000803f0000803f00000000000000006366e6bf0ad7233c9a9999bf000000000000803f0000803f0000803f0000803f000000006366e6bf0ad7233c9a99993f000000000000803f0000803f0000803f00000000000000006366e63f0ad7233c9a99993f000000000000803f0000803f0000803f0000803f00000000c9ccec3f0ad7233c0000a0bf000000000000803f0000803f00000000000000000000803fc9ccecbf0ad7233c0000a0bf000000000000803f0000803f000000000000803f0000803fc9ccecbf0ad7233c0000a03f000000000000803f0000803f00000000000000000000803fc9ccec3f0ad7233c0000a03f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.8499995, y: 0, z: 1.25}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &963684665
 GameObject:
   m_ObjectHideFlags: 0
@@ -24792,6 +25111,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &963684669
@@ -24911,6 +25231,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &966628262
@@ -25157,6 +25478,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1009353905
@@ -26738,6 +27060,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1018394735
@@ -26994,6 +27317,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1033761551
@@ -27113,6 +27437,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif
     id: GIPHY_Fidget.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1041361613
@@ -27232,6 +27557,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1043706278
@@ -27450,6 +27776,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Airplane.gif
     id: GIPHY_Airplane.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1050349010
@@ -27569,6 +27896,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00006.gif
     id: wavesprite00006.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1063275321
@@ -27766,6 +28094,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1090488193
@@ -27910,6 +28239,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1096410113}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1105823428
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1116685012
 GameObject:
   m_ObjectHideFlags: 0
@@ -27976,6 +28337,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1116685016
@@ -28095,6 +28457,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1119917488
@@ -29752,6 +30115,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1128282561
@@ -29822,7 +30186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1134137922
 Transform:
   m_ObjectHideFlags: 0
@@ -30087,6 +30451,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1141741717
@@ -30206,6 +30571,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1142227714
@@ -30411,6 +30777,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1166107182
@@ -30530,6 +30897,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1168807564
@@ -30828,6 +31196,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1188314018
@@ -30947,6 +31316,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1189437085
@@ -31067,6 +31437,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1196728913
@@ -31186,6 +31557,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1197591131
@@ -31337,6 +31709,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/ChildhoodF.gif
     id: ChildhoodF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1206604105
@@ -31886,6 +32259,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/crystal.gif
     id: crystal.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1236379542
@@ -32203,6 +32577,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/FantasyF.gif
     id: FantasyF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1239832922
@@ -32322,6 +32697,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1241561805
@@ -32578,6 +32954,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1271350244
@@ -32842,6 +33219,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1311365881
@@ -32961,6 +33339,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1314482798
@@ -33208,6 +33587,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1315431495
@@ -33383,6 +33763,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1337260438
@@ -33502,6 +33883,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1357795462
@@ -33715,6 +34097,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Fidget.gif
     id: GIPHY_Fidget.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1366492344
@@ -33868,6 +34251,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1383388216
@@ -33988,6 +34372,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1388505447
@@ -34309,6 +34694,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1428702543
@@ -34428,6 +34814,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/ChildhoodF.gif
     id: ChildhoodF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1429784493
@@ -34812,6 +35199,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1459553187
@@ -36830,6 +37218,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1508238790
@@ -36949,6 +37338,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1508261944
@@ -37068,6 +37458,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1508399100
@@ -37192,6 +37583,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Water-Cooler.gif
     id: GIPHY_Water-Cooler.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1511971104
@@ -37521,6 +37913,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1558896147
@@ -37709,6 +38102,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Receptionist.gif
     id: GIPHY_Receptionist.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1562148216
@@ -37833,6 +38227,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00001.gif
     id: wavesprite00001.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1579459332
@@ -37952,6 +38347,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1580462762
@@ -38071,6 +38467,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1584026838
@@ -38190,6 +38587,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif
     id: Terror- BLACK BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1596485865
@@ -38584,6 +38982,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Coffee.gif
     id: GIPHY_Coffee.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1645351022
@@ -38715,38 +39114,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400120, guid: cea22fc85752a934b91b7c05860603e2, type: 2}
   m_PrefabInternal: {fileID: 1647393898}
---- !u!21 &1653293415
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1682715833
 Prefab:
   m_ObjectHideFlags: 0
@@ -38976,6 +39343,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1686255267
@@ -39095,6 +39463,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1687019181
@@ -39419,6 +39788,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1728078843
@@ -39676,6 +40046,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1753829479
@@ -39796,6 +40167,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1764679920
@@ -39915,6 +40287,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00002.gif
     id: wavesprite00002.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1766781894
@@ -40134,6 +40507,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1786145354
@@ -40253,6 +40627,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1796530106
@@ -40372,6 +40747,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1800124494
@@ -40561,6 +40937,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1806842078
@@ -40680,6 +41057,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00005.gif
     id: wavesprite00005.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1810521687
@@ -42563,6 +42941,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif
     id: Terror- BLACK BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1864560420
@@ -42755,6 +43134,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1881498461
@@ -42973,6 +43353,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1894617174
@@ -43191,6 +43572,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1904707465
@@ -43409,6 +43791,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00007.gif
     id: wavesprite00007.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1915763974
@@ -43528,6 +43911,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00010.gif
     id: wavesprite00010.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1917197541
@@ -43647,6 +44031,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1920276839
@@ -43766,6 +44151,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Receptionist.gif
     id: GIPHY_Receptionist.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1930815820
@@ -43885,6 +44271,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/ChildhoodF.gif
     id: ChildhoodF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1938438659
@@ -44089,6 +44476,7 @@ MonoBehaviour:
       F.gif
     id: Ritter-Todd-und-Teufel- BLACJ BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1940537897
@@ -44286,6 +44674,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BanditsF.gif
     id: BanditsF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1952353614
@@ -44405,6 +44794,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/BeggarF.gif
     id: BeggarF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1958858344
@@ -44602,6 +44992,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Terror- BLACK BACKGROUND F.gif
     id: Terror- BLACK BACKGROUND F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1962228079
@@ -44721,6 +45112,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif
     id: wavesprite00004.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1968710630
@@ -44840,6 +45232,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Nightmare-BLACK-BACKGOUND-F.gif
     id: Nightmare-BLACK-BACKGOUND-F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1969211649
@@ -44959,6 +45352,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/Revolution F.gif
     id: Revolution F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &1990673248
@@ -45245,6 +45639,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/CollaF.gif
     id: CollaF.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2029993909
@@ -45364,6 +45759,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00009.gif
     id: wavesprite00009.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2035174458
@@ -45467,10 +45863,7 @@ MonoBehaviour:
   materials:
   - key: sheet-0
     material: {fileID: 2100000, guid: 6ff2d93ef4d122a4da51ca74c94639ce, type: 2}
-  - key: sheet-1
-    material: {fileID: 2100000, guid: 0e9e6a52b44a0be4491660b1522b5c94, type: 2}
-  - key: sheet-2
-    material: {fileID: 2100000, guid: 82743a1b4095d764fb8143ada1bdb766, type: 2}
+  allArtists: []
 --- !u!1 &2038313523
 GameObject:
   m_ObjectHideFlags: 0
@@ -45537,6 +45930,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/The-End F.gif
     id: The-End F.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2038313527
@@ -45672,7 +46066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2048954508
 Transform:
   m_ObjectHideFlags: 0
@@ -45986,6 +46380,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Photocopier.gif
     id: GIPHY_Photocopier.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2062217436
@@ -46137,6 +46532,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Plant-Dude.gif
     id: GIPHY_Plant-Dude.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2114135467
@@ -46437,6 +46833,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00003.gif
     id: wavesprite00003.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2122116743
@@ -46556,6 +46953,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/GIPHY_Receptionist.gif
     id: GIPHY_Receptionist.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2136324647
@@ -46675,6 +47073,7 @@ MonoBehaviour:
     path: /Users/danielbrewster/Desktop/Sticker/wavesprite00004.gif
     id: wavesprite00004.gif
     sheetId: sheet-0
+    artist: 
   gifDataIndex: 0
   beStatic: 0
 --- !u!65 &2143586516
