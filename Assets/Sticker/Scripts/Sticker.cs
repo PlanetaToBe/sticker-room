@@ -6,9 +6,15 @@ public class Sticker : MonoBehaviour {
 
     public StickerData data;
 
+    private bool dataSet;
+
 	// Use this for initialization
 	void Start () {
-		data = StickerSceneManager.instance.GetRandomSticker();
+        if (!dataSet)
+        {
+            data = StickerSceneManager.instance.GetRandomSticker();
+            dataSet = true;
+        }
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         renderer.material = StickerSceneManager.instance.GetSheetMaterial(data.sheetId);
