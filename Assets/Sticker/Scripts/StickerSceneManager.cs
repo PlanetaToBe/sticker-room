@@ -10,7 +10,7 @@ public struct StickerSheetData
 }
 
 [System.Serializable]
-public struct StickerData
+public class StickerData
 {
     public float x;
     public float y;
@@ -50,6 +50,8 @@ public class StickerSceneManager : MonoBehaviour {
         }
     }
 
+    private Dictionary<string, StickerData> stickersById;
+
     private void Awake()
     {
         if (_instance)
@@ -72,6 +74,12 @@ public class StickerSceneManager : MonoBehaviour {
             StickerSheetData loadedData = JsonUtility.FromJson<StickerSheetData>(dataAsJson);
             data = loadedData.stickers;
 
+            stickersById = new Dictionary<string, StickerData>();
+            foreach (StickerData sticker in data)
+            {
+                stickersById[sticker.id] = sticker;
+            }
+
 			Debug.Log("Load stickers * " + data.Count);
         }
         else
@@ -83,6 +91,11 @@ public class StickerSceneManager : MonoBehaviour {
     public StickerData GetRandomSticker()
     {
         return data[Random.Range(0, data.Count)];
+    }
+
+    public StickerData GetStickerById(string id)
+    {
+        return stickersById[id];
     }
 
     public Material GetSheetMaterial(string sheetId)
