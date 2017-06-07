@@ -80,7 +80,8 @@ public class CreatureMovment : MonoBehaviour {
 
 			// === Rotation ===
 			// bone
-			tmpRot = CameraEye.rotation;
+			//tmpRot = CameraEye.rotation;
+			tmpRot = CameraEye.localRotation;
 			tmpRot.x = tmpRot.z = 0f;
 			pivot.parent.localRotation = tmpRot;// = new Vector3 (0f, CameraEye.eulerAngles.y, 0f);
 

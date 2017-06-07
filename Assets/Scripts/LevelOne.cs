@@ -10,6 +10,7 @@ public class LevelOne : MonoBehaviour {
 	[Header("Flythrough")]
 	public FlyPathFinder flypathFinder;
 	public GameObject player;
+	public float flyDuration = 120f;
 
 	void OnEnable()
 	{
@@ -37,7 +38,7 @@ public class LevelOne : MonoBehaviour {
 	{
 		if (_level == levelIndex)
 		{
-			flypathFinder.DoAutoFly (player, 170f);
+			flypathFinder.DoAutoFly (player, flyDuration);
 		}
 	}
 

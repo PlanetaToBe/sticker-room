@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FlyPathFinder : MonoBehaviour {
 
-	public GameObject passenger;
+	public bool orientToPath = false;
+	public bool debugMode = false;
 
 	private List<Vector3> pathPoints;
 	private LTSpline pathSpline;
@@ -19,9 +20,13 @@ public class FlyPathFinder : MonoBehaviour {
 		Mesh mesh = GetComponent<MeshFilter> ().sharedMesh;
 		for(int i=0; i<mesh.vertices.Length-32; i+=32)
 		{
-//			GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-//			sphere.transform.localScale = Vector3.one / 5f;
-//			sphere.transform.position = mesh.vertices [i] + transform.position;
+			if(debugMode)
+			{
+				GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+				sphere.transform.localScale = Vector3.one / 5f;
+				sphere.transform.position = mesh.vertices [i] + transform.position;
+				sphere.transform.parent = transform;
+			}
 			pathPoints.Add (mesh.vertices [i] + transform.position);
 		}
 
@@ -39,8 +44,18 @@ public class FlyPathFinder : MonoBehaviour {
 	
 	public void DoAutoFly(GameObject thePassenger, float duration)
 	{
-		autoFlyTween = LeanTween.moveSpline (thePassenger, pathSpline, duration)
-			.setEaseInOutQuad ();
+		if(orientToPath)
+		{
+			autoFlyTween = LeanTween.moveSpline (thePassenger, pathSpline, duration)
+				.setOrientToPath(true)
+				.setEaseInOutQuad ();
+		}
+		else
+		{
+			autoFlyTween = LeanTween.moveSpline (thePassenger, pathSpline, duration)
+				.setEaseInOutQuad ();
+		}
+
 		autoFlyTweenId = autoFlyTweenId;
 	}
 
