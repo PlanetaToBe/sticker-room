@@ -120,7 +120,10 @@ public class DrawManager : MonoBehaviour {
 		
 		GameObject go = new GameObject ();
 		go.name = "sticker_tape";
-		go.AddComponent<MeshFilter> ();
+
+		MeshFilter mesh_filter = go.AddComponent<MeshFilter> ();
+		mesh_filter.mesh.name = "sticker_tape_" + System.DateTime.Now.ToString ("yyyyMMddHHmmssffffff");
+
 		go.AddComponent<MeshRenderer> ();
 		go.transform.position = drawPoint.transform.position;
 		go.transform.parent = allStickerTapesParent;

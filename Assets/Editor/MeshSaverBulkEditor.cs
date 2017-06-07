@@ -21,39 +21,38 @@ public struct StickerTransform
 	public string name;
 	public StickerData stickerData;
 
-	public StickerTransform (Vector3 _position, Quaternion _rotation, Vector3 _scale, int _index) : this()
+	public StickerTransform (Vector3 _position, Quaternion _rotation, Vector3 _scale, string _name) : this()
 	{
 		this.position = _position;
 		this.rotation = _rotation;
 		this.scale = _scale;
-		this.name = "sticker_tape_" + _index;
+		this.name = _name;
 	}
 }
 
 public static class MeshSaverBulkEditor {
 
-	static string json_path = Application.dataPath + "/Sticker/Exports/data_old.json";
+	static string json_path = Application.dataPath + "/Sticker/Exports/data.json";
 	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
-	static string asset_path = "Assets/Sticker/Exports/Assets_old/";
+	static string asset_path = "Assets/Sticker/Exports/Assets/";
 
 	[MenuItem("CONTEXT/Transform/Save Tape Mesh in Children...")]
 	public static void SaveChildrenMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
 
+		string[] uniqueName = new string[parent.childCount];
 		// Save MESH
 		for(int i=0; i<parent.childCount; i++)
 		{
 			GameObject ch_sticker = parent.GetChild (i).gameObject;
 			MeshFilter mf = ch_sticker.GetComponent<MeshFilter>();
 			Mesh m = mf.sharedMesh;
-			string m_name = asset_path + m.name + "_" + i + ".asset";
-
+			string m_name = asset_path + m.name + ".asset";
+			uniqueName [i] = m.name;
 			// mesh, path, make_new_instance?, optimize_mesh?
 			SaveMeshBulk(m, m_name, false, true);
 		}
-
-		//string json_path = Application.dataPath + "/Sticker/Exports/data.json";
 
 		StickersTransformData savedData;
 		savedData.stickersTran = new List<StickerTransform> ();
@@ -61,7 +60,7 @@ public static class MeshSaverBulkEditor {
 		for(int i=0; i<parent.childCount; i++)
 		{
 			Transform ch_tran = parent.GetChild (i);
-			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, i);
+			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, uniqueName [i]);
 			savedData.stickersTran.Add (s_t);
 		}
 
@@ -102,8 +101,12 @@ public static class MeshSaverBulkEditor {
 		for(int i=0; i<tranData.Count; i++)
 		{
 			string a_path = asset_path + tranData [i].name + ".asset";
+			//string a_path = tranData [i].name;
 			Mesh meeesh = (Mesh)AssetDatabase.LoadAssetAtPath(a_path, typeof(Mesh));
 
+			if (meeesh == null)
+				continue;
+			
 			GameObject go = new GameObject ();
 			go.name = "sticker_tape";
 
@@ -132,12 +135,12 @@ public static class MeshSaverBulkEditor {
 
 		StickersTransformData savedData;
 		savedData.stickersTran = new List<StickerTransform> ();
-		// Save Transformation
+		// Save Transformation + Data (name doesn't matter)
 		for(int i=0; i<parent.childCount; i++)
 		{
 			Transform ch_tran = parent.GetChild (i);
 			StickerArt s_art = ch_tran.gameObject.GetComponent<StickerArt> ();
-			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, i);
+			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, "sticker_plane");
 			s_t.stickerData = s_art.data;
 			savedData.stickersTran.Add (s_t);
 		}
