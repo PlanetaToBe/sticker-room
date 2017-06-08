@@ -235,6 +235,7 @@ public static class MeshSaverBulkEditor
 		// Instantiate MESH
 		for(int i=0; i<tranData.Count; i++)
 		{
+			s_art.data = stickersById [tranData[i].stickerID];
 			GameObject go = GameObject.Instantiate(stickerPrefab) as GameObject;
 
 			go.transform.position = tranData[i].position;
