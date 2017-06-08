@@ -188,7 +188,7 @@ public static class MeshSaverBulkEditor
 			StickerArt s_art = ch_tran.gameObject.GetComponent<StickerArt> ();
 			StickerTransformID s_t = new StickerTransformID (ch_tran.position, ch_tran.rotation, ch_tran.localScale, "sticker_plane");
 			if (s_ != null) {
-				s_t.stickerID = s_.stickerID;
+				s_t.stickerID = s_.stickerId;
 			} else {
 				s_t.stickerID = s_art.stickerID;
 			}
