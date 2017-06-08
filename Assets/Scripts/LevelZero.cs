@@ -173,9 +173,19 @@ public class LevelZero : MonoBehaviour {
 				}).setOnComplete(()=>{
 					noise.Stop();
 					ToggleAudio(shatter, false, 0f);
+
+					Invoke("HideTheLift", 5f);
 				});
 			}
 				
+		}
+	}
+
+	void HideTheLift()
+	{
+		for(int i=0; i<thingsToBeLift.Length; i++)
+		{
+			thingsToBeLift [i].SetActive (false);
 		}
 	}
 

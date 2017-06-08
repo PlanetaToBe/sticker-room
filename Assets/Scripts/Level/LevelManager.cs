@@ -47,6 +47,8 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+	private GvrAudioSource openAudio;
+
 	private int padDownCount = 0;
 
 	void Awake()
@@ -86,6 +88,16 @@ public class LevelManager : MonoBehaviour {
 			levelScripts[i].ToggleLight(false);
 		}
 		startTime = -1f;
+
+		openAudio = GetComponent<GvrAudioSource> ();
+		openAudio.Play ();
+		// volume up!
+		LeanTween.value(openAudio.gameObject, 0f, 1f, 5f)
+			.setEaseInQuint()
+			.setOnUpdate((float val)=>{
+				openAudio.volume = val;
+			});
+		
 		// TEST
 		//ToStart = true;
 	}
@@ -122,6 +134,15 @@ public class LevelManager : MonoBehaviour {
 		{
 			if (Input.GetKey (KeyCode.Return) || Input.GetKey (KeyCode.KeypadEnter) || padDownCount==2) {
 				ToStart = true;
+
+				// volume down!
+				LeanTween.value(openAudio.gameObject, 1f, 0f, 2f)
+					.setOnUpdate((float val)=>{
+						openAudio.volume = val;
+					})
+					.setOnComplete(()=>{
+						openAudio.enabled = false;
+					});
 			}
 			return;
 		}
@@ -171,6 +192,9 @@ public class LevelManager : MonoBehaviour {
 				// TODO: pause all tools
 
 				OnLevelEnd (2);
+				levelScriptDict [2].StrictDeactivate ();
+				levelScriptDict [2].ToggleLight (false);
+				levelScriptDict [2].ToggleAudio (false);
 
 				// fade out => reload
 				SteamVR_Fade.Start(Color.black, 3f);

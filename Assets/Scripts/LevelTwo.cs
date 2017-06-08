@@ -10,6 +10,7 @@ public class LevelTwo : MonoBehaviour {
 	[Header("Level Objects")]
 	public GameObject mask;
 	public GameObject[] thingsToShrink;
+	public GameObject[] parentsToShrink;
 
 	[Header("Light")]
 	public Light houseLight;
@@ -24,6 +25,7 @@ public class LevelTwo : MonoBehaviour {
 	public GvrAudioSource pop;
 	public GvrAudioSource party;
 	public AudioClip[] popClips;
+	public GvrAudioSource poof;
 
 	void OnEnable()
 	{
@@ -50,6 +52,8 @@ public class LevelTwo : MonoBehaviour {
 		{
 			// shrink forrest
 			//ShrinkStuff();
+
+			ShrinkChildren ();
 		}
 	}
 
@@ -58,10 +62,11 @@ public class LevelTwo : MonoBehaviour {
 		if (_level == levelIndex)
 		{
 			// play party sound
-			ToggleAudio(party, true, 1f);
+			//ToggleAudio(party, true, 1f);
 
 			// fire light
 			houseLight.range = 50f;
+			houseLight.gameObject.SetActive (true);
 			houseLight.enabled = true;
 			doLightEffect = true;
 			StartCoroutine(flickerCoroutine);
@@ -75,7 +80,8 @@ public class LevelTwo : MonoBehaviour {
 			ToggleAudio(party, false, 0f);
 			doLightEffect = false;
 			houseLight.enabled = true;
-			LeanTween.value(houseLight.gameObject, houseLight.intensity, 0f, 3f)
+			poof.Play ();
+			LeanTween.value(houseLight.gameObject, houseLight.intensity, 0f, 2f)
 				.setOnUpdate((float val)=>{
 					houseLight.intensity = val;
 				})
@@ -89,11 +95,11 @@ public class LevelTwo : MonoBehaviour {
 	{
 		while (doLightEffect)
 		{
-			houseLight.enabled = true;
+			//houseLight.enabled = true;
 			houseLight.intensity = Random.Range(minIntensity, maxIntensity);
 			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
-			houseLight.enabled = false;
-			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
+			//houseLight.enabled = false;
+			//yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
 		}
 	}
 
@@ -101,12 +107,35 @@ public class LevelTwo : MonoBehaviour {
 	{
 		for(int i=0; i<thingsToShrink.Length; i++)
 		{
-			LeanTween.scale (thingsToShrink [i], Vector3.one/100f, 2f)
+			LeanTween.scale (thingsToShrink [i], Vector3.one/10f, 2f)
 				.setEaseInOutBack ()
 				.setDelay (i / 2f)
 				.setOnStart (()=>{
 					pop.PlayOneShot(popClips[Random.Range(0, popClips.Length)]);
+				})
+				.setOnComplete(()=>{
+					thingsToShrink [i].SetActive(false);
 				});
+		}
+	}
+
+	void ShrinkChildren()
+	{
+		for(int i=0; i<parentsToShrink.Length; i++)
+		{
+			for(int j=0; j<parentsToShrink[i].transform.childCount; j++)
+			{
+				GameObject child = parentsToShrink [i].transform.GetChild (j).gameObject;
+				LeanTween.scale (child, Vector3.one/10f, 1f)
+					.setEaseInOutBack ()
+					.setDelay (Random.Range(0, 4f))
+					.setOnStart (()=>{
+						pop.PlayOneShot(popClips[0]);
+					})
+					.setOnComplete(()=>{
+						child.SetActive(false);
+					});
+			}
 		}
 	}
 

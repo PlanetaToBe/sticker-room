@@ -7,6 +7,9 @@ public class LevelOne : MonoBehaviour {
 	public LevelManager levelManager;
 	public int levelIndex = 1;
 
+	public GvrAudioSource partyMusic;
+	public GvrAudioRoom partyRoom;
+
 	[Header("Flythrough")]
 	public bool enableAutoFly = false;
 	public FlyPathFinder flypathFinder;
@@ -42,6 +45,8 @@ public class LevelOne : MonoBehaviour {
 		{
 			if(enableAutoFly)
 				flypathFinder.DoAutoFly (player, flyDuration);
+
+			ToggleAudio (partyMusic, true, 1f);
 		}
 	}
 
@@ -51,6 +56,8 @@ public class LevelOne : MonoBehaviour {
 		{
 			if(enableAutoFly)
 				flypathFinder.CancelAutoFly ();
+
+			partyRoom.enabled = false;
 		}
 	}
 
