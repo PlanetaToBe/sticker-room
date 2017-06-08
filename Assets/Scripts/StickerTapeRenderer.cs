@@ -65,7 +65,7 @@ public class StickerTapeRenderer : MonoBehaviour {
 	}
 
 	private StickerData s_data;
-	private float s_size = 2048;
+	private float s_size = 4096;
 	[HideInInspector]
 	public SwapArtist swapArtist;
 	[HideInInspector]

@@ -10,7 +10,7 @@ public class Sticker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (!dataSet)
+		if (data==null)
         {
             data = StickerSceneManager.instance.GetRandomSticker();
             dataSet = true;

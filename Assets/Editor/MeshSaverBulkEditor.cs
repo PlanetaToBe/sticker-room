@@ -47,8 +47,8 @@ public struct BallTransform
 	}
 }
 
-public static class MeshSaverBulkEditor {
-
+public static class MeshSaverBulkEditor
+{
 	static string json_path = Application.dataPath + "/Sticker/Exports/data.json";
 	static string json_path_2 = Application.dataPath + "/Sticker/Exports/data2.json";
 	static string json_path_3 = Application.dataPath + "/Sticker/Exports/data3.json";
@@ -66,10 +66,10 @@ public static class MeshSaverBulkEditor {
 			GameObject ch_sticker = parent.GetChild (i).gameObject;
 			MeshFilter mf = ch_sticker.GetComponent<MeshFilter>();
 			Mesh m = mf.sharedMesh;
-			string m_name = asset_path + m.name + ".asset";
+			string path = asset_path + m.name + ".asset";
 			uniqueName [i] = m.name;
 			// mesh, path, make_new_instance?, optimize_mesh?
-			SaveMeshBulk(m, m_name, false, true);
+			SaveMeshBulk(m, path, false, true);
 		}
 
 		StickersTransformData savedData;

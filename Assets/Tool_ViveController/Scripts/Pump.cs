@@ -6,8 +6,10 @@ using UnityEngine;
 public class Pump : MonoBehaviour {
 
 	public Transform pointyPoint;
+	public Transform pointyPointShrink;
 	private SteamVR_TrackedController controller;
 	private Tool pumpTip;
+	private Tool pumpTipShrink;
 
 	//--- Grab n Stretch ---
 	//----------------------
@@ -25,8 +27,9 @@ public class Pump : MonoBehaviour {
 	private Vector3 m_TriggerUpPosition;
 	private float m_LastUpTime;
 
-	public StickerTool myTool;
+	public StickerTool[] myTools;
 	private bool inUse;
+	private int toScaleUp = 1; // 1 or -1
 
 	//--- Player Scale ---
 	private Transform player;
@@ -52,8 +55,12 @@ public class Pump : MonoBehaviour {
 		controller.TriggerUnclicked += HandleTriggerUp;
 		controller.TriggerDowning += HandleTriggerTouch;
 
-		if(myTool!=null)
-			myTool.OnChangeToolStatus += OnToolStatusChange;
+		if (myTools.Length != 0) {
+			for(int i=0; i<myTools.Length; i++)
+			{
+				myTools[i].OnChangeToolStatus += OnToolStatusChange;
+			}
+		}
 
 		if(pumpTip==null)
 			pumpTip = pointyPoint.GetComponent<Tool> ();
@@ -61,6 +68,14 @@ public class Pump : MonoBehaviour {
 		pumpTip.OnCollideEnter += HandleOver;
 		pumpTip.OnCollideStay += HandleStay;
 		pumpTip.OnCollideExit += HandleOut;
+
+		// shrink
+		if(pumpTipShrink==null)
+			pumpTipShrink = pointyPointShrink.GetComponent<Tool> ();
+
+		pumpTipShrink.OnCollideEnter += HandleOver;
+		pumpTipShrink.OnCollideStay += HandleStay;
+		pumpTipShrink.OnCollideExit += HandleOut;
 	}
 
 	void OnDisable()
@@ -69,12 +84,20 @@ public class Pump : MonoBehaviour {
 		controller.TriggerUnclicked -= HandleTriggerUp;
 		controller.TriggerDowning -= HandleTriggerTouch;
 
-		if(myTool!=null)
-			myTool.OnChangeToolStatus -= OnToolStatusChange;
+		if (myTools.Length != 0) {
+			for(int i=0; i<myTools.Length; i++)
+			{
+				myTools[i].OnChangeToolStatus -= OnToolStatusChange;
+			}
+		}
 
 		pumpTip.OnCollideEnter -= HandleOver;
 		pumpTip.OnCollideStay -= HandleStay;
 		pumpTip.OnCollideExit -= HandleOut;
+
+		pumpTipShrink.OnCollideEnter -= HandleOver;
+		pumpTipShrink.OnCollideStay -= HandleStay;
+		pumpTipShrink.OnCollideExit -= HandleOut;
 	}
 	
 	void Start ()
@@ -102,8 +125,19 @@ public class Pump : MonoBehaviour {
 	{
 		inUse = _inUse;
 
-		if (!inUse)
+		if (!inUse) {
 			Reset ();
+		} else {
+			if (toolIndex == 4) {
+				toScaleUp = 1;
+				pointyPoint.GetComponent<BoxCollider> ().enabled = true;
+				pointyPointShrink.GetComponent<BoxCollider> ().enabled = false;
+			} else {
+				toScaleUp = -1;
+				pointyPoint.GetComponent<BoxCollider> ().enabled = false;
+				pointyPointShrink.GetComponent<BoxCollider> ().enabled = true;
+			}
+		}
 	}
 
 	public void HandleOver(Collider _collider)
@@ -171,7 +205,10 @@ public class Pump : MonoBehaviour {
 			// if thing is currently been grabbed
 			if (m_CurrentInteractible.IsGrabbing)
 			{
-				initialControllersDistance = (pointyPoint.position - m_CurrentInteractible.GrabbedPos).sqrMagnitude;
+				if (toScaleUp==1)
+					initialControllersDistance = (pointyPoint.position - m_CurrentInteractible.GrabbedPos).sqrMagnitude;
+				else
+					initialControllersDistance = (pointyPointShrink.position - m_CurrentInteractible.GrabbedPos).sqrMagnitude;
 
 				// remote the joint attached to other controller
 				if(m_CurrentInteractible.Joint)
@@ -223,10 +260,14 @@ public class Pump : MonoBehaviour {
 		}
 		else
 		{
-			pivot = pointyPoint.position;
+			if (toScaleUp==1)
+				pivot = pointyPoint.position;
+			else
+				pivot = pointyPointShrink.position;
+
 		}
 		//var mag = (pointyPoint.position - pivot).sqrMagnitude - initialControllersDistance;
-		var mag = 0.1f;
+		var mag = 0.1f * toScaleUp;
 		var endScale = target.transform.localScale * (1f + mag*0.1f);
 
 		// diff from obj pivot to desired pivot

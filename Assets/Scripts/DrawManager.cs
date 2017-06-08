@@ -50,7 +50,7 @@ public class DrawManager : MonoBehaviour {
 
 	private SwapArtist swapArtist;
 	private ToolHub toolHub;
-	private bool randomSticker = true;
+	private bool randomSticker = false;
 
 	[Header("Audios")]
 	public AudioClip penSound;
@@ -122,11 +122,17 @@ public class DrawManager : MonoBehaviour {
 
 	private void OnPadClick(object sender, ClickedEventArgs e)
 	{
+		if (!inUse)
+			return;
+		
 		randomSticker = true;
 	}
 
 	private void OnPadUnclick(object sender, ClickedEventArgs e)
 	{
+		if (!inUse)
+			return;
+		
 		randomSticker = false;
 	}
 
