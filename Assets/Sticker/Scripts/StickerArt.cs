@@ -7,11 +7,14 @@ public class StickerArt : MonoBehaviour {
     public StickerData data;
 	public int gifDataIndex;
 	public bool beStatic = true;
+	public string stickerID;
 
 	// Use this for initialization
 	void Start () {
 		if(beStatic)
 			data = StickerSceneManager.instance.data[gifDataIndex];
+
+		stickerID = data.id;
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         renderer.material = StickerSceneManager.instance.GetSheetMaterial(data.sheetId);

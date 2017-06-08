@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sticker : MonoBehaviour {
 
     public StickerData data;
-
+	public string stickerID;
     private bool dataSet;
 
 	// Use this for initialization
@@ -15,6 +15,8 @@ public class Sticker : MonoBehaviour {
             data = StickerSceneManager.instance.GetRandomSticker();
             dataSet = true;
         }
+
+		stickerID = data.id;
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         renderer.material = StickerSceneManager.instance.GetSheetMaterial(data.sheetId);
@@ -28,8 +30,10 @@ public class Sticker : MonoBehaviour {
         transform.localScale = new Vector3(aspect, transform.localScale.y, transform.localScale.z);
 
         float size = 4096;
-        float xMin = data.x / size;
-        float xMax = (data.x + data.width) / size;
+//        float xMin = data.x / size;
+//        float xMax = (data.x + data.width) / size;
+		float xMin = (data.x + data.width) / size;
+		float xMax = data.x / size;
         float yMin = 1 - (data.y / size);
         float yMax = 1 - (data.y + data.height) / size;
 

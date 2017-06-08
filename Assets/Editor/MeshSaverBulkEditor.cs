@@ -31,6 +31,30 @@ public struct StickerTransform
 }
 
 [System.Serializable]
+public struct StickersTransformIDData
+{
+	public List<StickerTransformID> stickersTran;
+}
+
+[System.Serializable]
+public struct StickerTransformID
+{
+	public Vector3 position;
+	public Vector3 scale;
+	public Quaternion rotation;
+	public string name;
+	public string stickerID;
+
+	public StickerTransformID (Vector3 _position, Quaternion _rotation, Vector3 _scale, string _name) : this()
+	{
+		this.position = _position;
+		this.rotation = _rotation;
+		this.scale = _scale;
+		this.name = _name;
+	}
+}
+
+[System.Serializable]
 public struct BallTransformData
 {
 	public List<BallTransform> ballsTran;
@@ -54,7 +78,10 @@ public static class MeshSaverBulkEditor
 	static string json_path_3 = Application.dataPath + "/Sticker/Exports/data3.json";
 	static string asset_path = "Assets/Sticker/Exports/Assets/";
 
-	[MenuItem("CONTEXT/Transform/Save Tape Mesh in Children...")]
+	static public List<StickerData> data;
+	static public Dictionary<string, StickerData> stickersById;
+
+	[MenuItem("CONTEXT/Transform/Save Tape in Children...")]
 	public static void SaveChildrenMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
@@ -68,13 +95,14 @@ public static class MeshSaverBulkEditor
 			Mesh m = mf.sharedMesh;
 			string path = asset_path + m.name + ".asset";
 			uniqueName [i] = m.name;
+
 			// mesh, path, make_new_instance?, optimize_mesh?
 			SaveMeshBulk(m, path, false, true);
 		}
 
 		StickersTransformData savedData;
 		savedData.stickersTran = new List<StickerTransform> ();
-		// Save Transformation
+		// Save Transformation & sticker data
 		for(int i=0; i<parent.childCount; i++)
 		{
 			Transform ch_tran = parent.GetChild (i);
@@ -100,7 +128,7 @@ public static class MeshSaverBulkEditor
 		List<StickerTransform> tranData;
 
 		Transform parent = menuCommand.context as Transform;
-		Material material = Resources.Load("Materials/StickerSheet1Material", typeof(Material)) as Material;
+		Material material = Resources.Load("Materials/StickerSheet0Material_0", typeof(Material)) as Material;
 
 		// Load JSON
 		if (File.Exists (json_path))
@@ -119,7 +147,6 @@ public static class MeshSaverBulkEditor
 		for(int i=0; i<tranData.Count; i++)
 		{
 			string a_path = asset_path + tranData [i].name + ".asset";
-			//string a_path = tranData [i].name;
 			Mesh meeesh = (Mesh)AssetDatabase.LoadAssetAtPath(a_path, typeof(Mesh));
 
 			if (meeesh == null)
@@ -146,20 +173,25 @@ public static class MeshSaverBulkEditor
 		}
 	}
 
-	[MenuItem("CONTEXT/Transform/Save Hose Mesh in Children...")]
+	[MenuItem("CONTEXT/Transform/Save Plane in Children...")]
 	public static void SaveChildrenHoseMeshInPlace (MenuCommand menuCommand)
 	{
 		Transform parent = menuCommand.context as Transform;
 
-		StickersTransformData savedData;
-		savedData.stickersTran = new List<StickerTransform> ();
+		StickersTransformIDData savedData;
+		savedData.stickersTran = new List<StickerTransformID> ();
 		// Save Transformation + Data (name doesn't matter)
 		for(int i=0; i<parent.childCount; i++)
 		{
 			Transform ch_tran = parent.GetChild (i);
+			Sticker s_ = ch_tran.gameObject.GetComponent<Sticker> ();
 			StickerArt s_art = ch_tran.gameObject.GetComponent<StickerArt> ();
-			StickerTransform s_t = new StickerTransform (ch_tran.position, ch_tran.rotation, ch_tran.localScale, "sticker_plane");
-			s_t.stickerData = s_art.data;
+			StickerTransformID s_t = new StickerTransformID (ch_tran.position, ch_tran.rotation, ch_tran.localScale, "sticker_plane");
+			if (s_ != null) {
+				s_t.stickerID = s_.stickerID;
+			} else {
+				s_t.stickerID = s_art.stickerID;
+			}
 			savedData.stickersTran.Add (s_t);
 		}
 
@@ -177,8 +209,8 @@ public static class MeshSaverBulkEditor
 	[MenuItem("CONTEXT/Transform/Load n Create Hose in Children...")]
 	public static void LoadnCreateHoseChildren (MenuCommand menuCommand)
 	{
-		StickersTransformData loadedData;
-		List<StickerTransform> tranData;
+		StickersTransformIDData loadedData;
+		List<StickerTransformID> tranData;
 
 		Transform parent = menuCommand.context as Transform;
 		Material material = Resources.Load("Materials/StickerSheet0Material", typeof(Material)) as Material;
@@ -186,10 +218,12 @@ public static class MeshSaverBulkEditor
 		StickerArt s_art = stickerPrefab.GetComponent<StickerArt> ();
 
 		// Load JSON
+		LoadStickerData();
+
 		if (File.Exists (json_path_2))
 		{
 			string dataAsJson = File.ReadAllText (json_path_2);
-			loadedData = JsonUtility.FromJson<StickersTransformData> (dataAsJson);
+			loadedData = JsonUtility.FromJson<StickersTransformIDData> (dataAsJson);
 			tranData = loadedData.stickersTran;
 		}
 		else
@@ -201,7 +235,6 @@ public static class MeshSaverBulkEditor
 		// Instantiate MESH
 		for(int i=0; i<tranData.Count; i++)
 		{
-			s_art.data = tranData [i].stickerData;
 			GameObject go = GameObject.Instantiate(stickerPrefab) as GameObject;
 
 			go.transform.position = tranData[i].position;
@@ -258,6 +291,28 @@ public static class MeshSaverBulkEditor
 		AssetDatabase.SaveAssets();
 	}
 
+	public static void LoadStickerData()
+	{
+		string filePath = Path.Combine(Application.streamingAssetsPath, "StickerData/meta.json");
+
+		if (File.Exists(filePath))
+		{
+			string dataAsJson = File.ReadAllText(filePath);
+			StickerSheetData loadedData = JsonUtility.FromJson<StickerSheetData>(dataAsJson);
+			data = loadedData.stickers;
+
+			stickersById = new Dictionary<string, StickerData>();
+			foreach (StickerData sticker in data)
+			{
+				stickersById[sticker.id] = sticker;
+			}
+			Debug.Log("Load stickers * " + data.Count);
+		}
+		else
+		{
+			Debug.LogError("Cannot load game data!");
+		}
+	}
 
 	//============================== Spline =======================================
 	[MenuItem("CONTEXT/Transform/Save Balls in Children...")]
