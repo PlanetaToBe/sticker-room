@@ -213,6 +213,8 @@ public class FlySingle : MonoBehaviour {
 
 		if(m_inFlyingMode && !isFlying)
 		{
+			justFinishFlying = false;
+
 			// disable all tool functions
 			toolHub.DisableAllTools ();
 			isFlying = true;
@@ -295,7 +297,7 @@ public class FlySingle : MonoBehaviour {
 			return;
 		
 		if(isFlying)
-		{			
+		{
 			if (IsInBounds (player.position, roomCenter))
 			{
 				Vector3 aveVec;

@@ -18,27 +18,26 @@ public class FlyPathFinder : MonoBehaviour {
 		pathPoints = new List<Vector3> ();
 
 		// v.1 get from sticker tape
-		/*
 		Mesh mesh = GetComponent<MeshFilter> ().sharedMesh;
-		for(int i=0; i<mesh.vertices.Length-48; i+=48)
+		for(int i=0; i<mesh.vertices.Length-8; i+=8) //48
 		{
 			if(debugMode)
 			{
 				GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-				sphere.transform.localScale = Vector3.one / 5f;
+				sphere.transform.localScale = Vector3.one / 30f;
 				sphere.transform.position = mesh.vertices [i] + transform.position;
 				sphere.transform.parent = transform;
 			}
 			pathPoints.Add (mesh.vertices [i] + transform.position);
 		}
-		*/
 
 		// v.2 get from Spline
+		/*
 		for(int i=0; i<transform.childCount; i++)
 		{
 			Transform ch_tran = transform.GetChild (i);
 			pathPoints.Add (ch_tran.position);
-		}
+		}*/
 
 		Vector3[] ptsArray = new Vector3[pathPoints.Count + 2];
 		ptsArray [0] = pathPoints [0];

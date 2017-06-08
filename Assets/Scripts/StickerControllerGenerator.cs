@@ -23,6 +23,7 @@ public class StickerControllerGenerator : MonoBehaviour {
 	private StickerArt stickerArt;
 	private SwapArtist swapArtist;
 	private ToolHub toolHub;
+	private bool randomSticker = false;
 
 	public Vector3 StickerSize
 	{
@@ -64,6 +65,9 @@ public class StickerControllerGenerator : MonoBehaviour {
 		controller.TriggerClicked += CreateSticker;
 		controller.TriggerUnclicked += ReleaseTrigger;
 
+		controller.PadClicked += OnPadClick;
+		controller.PadUnclicked += OnPadUnclick;
+
 		if(myTool!=null)
 			myTool.OnChangeToolStatus += OnToolStatusChange;
 	}
@@ -72,6 +76,9 @@ public class StickerControllerGenerator : MonoBehaviour {
 	{
 		controller.TriggerClicked -= CreateSticker;
 		controller.TriggerUnclicked -= ReleaseTrigger;
+
+		controller.PadClicked -= OnPadClick;
+		controller.PadUnclicked -= OnPadUnclick;
 
 		if(myTool!=null)
 			myTool.OnChangeToolStatus -= OnToolStatusChange;
@@ -88,6 +95,22 @@ public class StickerControllerGenerator : MonoBehaviour {
 			if (OnReleaseTrigger != null)
 				OnReleaseTrigger ();
 		}
+	}
+
+	private void OnPadClick(object sender, ClickedEventArgs e)
+	{
+		if (!inUse)
+			return;
+
+		randomSticker = true;
+	}
+
+	private void OnPadUnclick(object sender, ClickedEventArgs e)
+	{
+		if (!inUse)
+			return;
+
+		randomSticker = false;
 	}
 
 	void CreateSticker(object sender, ClickedEventArgs e)
@@ -132,7 +155,10 @@ public class StickerControllerGenerator : MonoBehaviour {
 			GameObject sticker;
 			if (swapArtist)
 			{
-				stickerArt.data = swapArtist.GetStickerData ();
+				if(randomSticker)
+					stickerArt.data = swapArtist.GetStickerDataRandom();
+				else
+					stickerArt.data = swapArtist.GetStickerData();
 				sticker = Instantiate(stickerPrefab, transform.position, transform.rotation) as GameObject;
 			}
 			else
