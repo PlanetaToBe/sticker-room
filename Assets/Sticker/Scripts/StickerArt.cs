@@ -7,12 +7,18 @@ public class StickerArt : MonoBehaviour {
     public StickerData data;
 	public int gifDataIndex;
 	public bool beStatic = true;
-	public string stickerID;
+	public string stickerID = "";
 
 	// Use this for initialization
 	void Start () {
-		if(beStatic)
-			data = StickerSceneManager.instance.data[gifDataIndex];
+		if (beStatic)
+		{
+			if (stickerID != "") {
+				data = StickerSceneManager.instance.GetStickerById (stickerID);
+			} else {
+				data = StickerSceneManager.instance.data [gifDataIndex];
+			}
+		}
 
 		stickerID = data.id;
 
