@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4281799965395690}
   - component: {fileID: 33019444504239878}
   - component: {fileID: 23846287768549720}
-  - component: {fileID: 114446724167485770}
+  - component: {fileID: 65729838714787900}
   m_Layer: 0
   m_Name: SimplePlane
   m_TagString: Untagged
@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4340011040191232}
+  - component: {fileID: 114970507729794226}
   m_Layer: 0
   m_Name: Sticker
   m_TagString: Untagged
@@ -64,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728558925074910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.825, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4281799965395690}
@@ -109,23 +110,28 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496650807320366}
-  m_Mesh: {fileID: 4300000, guid: 76a11065465083f4bad59bded8fb89eb, type: 3}
---- !u!114 &114446724167485770
-MonoBehaviour:
+  m_Mesh: {fileID: 4300000, guid: eb66f51388dad6b449d1e4e1e5a89f24, type: 3}
+--- !u!65 &65729838714787900
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496650807320366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.02, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114970507729794226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728558925074910}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d82568b4381afa442bf3a5cfad0ce5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-    path: 
-    id: 
-    sheetId: 
+  stickerId: fantasy-fgif

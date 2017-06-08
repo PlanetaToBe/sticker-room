@@ -150,7 +150,7 @@ public class LineStickerBrushTool : MonoBehaviour {
         Quaternion stickerRotation = stickerTargetRotation;
 
 		Sticker newSticker = stickerPrefab.GetComponent<Sticker>();
-		newSticker.data = nextStickerData;
+        newSticker.stickerId = nextStickerData.id;
 		GameObject sticker = Instantiate(stickerPrefab, transform.position, stickerRotation) as GameObject;
         
 		VRInteractiveObject intObj = sticker.AddComponent<VRInteractiveObject> ();

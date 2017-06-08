@@ -58,7 +58,7 @@ public class LineStickerBrush : MonoBehaviour {
 
         GameObject sticker = Instantiate(StickerSceneManager.instance.stickerPrefab, transform.position, stickerRotation) as GameObject;
         Sticker newSticker = sticker.GetComponentInChildren<Sticker>();
-        newSticker.data = nextStickerData;
+        newSticker.stickerId = nextStickerData.id;
 
         sticker.transform.localScale = new Vector3(stickerScale, stickerScale, stickerScale);
 

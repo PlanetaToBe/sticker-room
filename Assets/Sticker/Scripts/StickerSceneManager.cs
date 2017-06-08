@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+[System.Serializable]
+public struct SaveGameData
+{
+    public StickerTapeData[] stickerTapes;
+    public StickerPlaneData[] stickerPlanes;
+}
 
 [System.Serializable]
 public struct StickerSheetData
@@ -29,10 +41,24 @@ public struct StickerMaterialData
     public Material material;
 }
 
+public struct StickerUVData {
+    public Vector2 min;
+    public Vector2 max;
+
+    public StickerUVData(Vector2 _min, Vector2 _max) {
+        this.min = _min;
+        this.max = _max;
+    }
+}
+
+[ExecuteInEditMode]
 public class StickerSceneManager : MonoBehaviour {
 
     public GameObject stickerPrefab;
+    public GameObject stickerTapePrefab;
+
     public float paintSpeed;
+    public int sheetSize = 4096;
 
     [HideInInspector]
     public List<StickerData> data;
@@ -47,16 +73,23 @@ public class StickerSceneManager : MonoBehaviour {
             {
                 _instance = new StickerSceneManager();
             }
+
+            if (_instance.data == null)
+            {
+                _instance.LoadStickerData();
+            }
             return _instance;
         }
     }
 
+    [HideInInspector]
     public List<string> allArtists;
     public Dictionary<string, List<StickerData>> stickersByArtist;
     public Dictionary<string, StickerData> stickersById;
 
     private void Awake()
     {
+        Debug.Log("Awake");
         if (_instance)
         {
             Destroy(_instance);
@@ -67,8 +100,10 @@ public class StickerSceneManager : MonoBehaviour {
         LoadStickerData();
     }
 
-    void LoadStickerData()
+    public void LoadStickerData()
     {
+        Debug.Log("Load sticker data");
+
         string filePath = Path.Combine(Application.streamingAssetsPath, "StickerData/meta.json");
 
         if (File.Exists(filePath))
@@ -77,6 +112,7 @@ public class StickerSceneManager : MonoBehaviour {
             StickerSheetData loadedData = JsonUtility.FromJson<StickerSheetData>(dataAsJson);
             data = loadedData.stickers;
 
+            allArtists = new List<string>();
             stickersByArtist = new Dictionary<string, List<StickerData>>();
             stickersById = new Dictionary<string, StickerData>();
             foreach (StickerData sticker in data)
@@ -95,8 +131,6 @@ public class StickerSceneManager : MonoBehaviour {
                     allArtists.Add(sticker.artist);
                 }
             }
-
-			Debug.Log("Load stickers * " + data.Count);
         }
         else
         {
@@ -114,6 +148,21 @@ public class StickerSceneManager : MonoBehaviour {
         return stickersById[id];
     }
 
+    public StickerUVData GetUvsForSticker(string stickerId)
+    {
+        StickerData s_data = GetStickerById(stickerId);
+
+        float xMin = s_data.x / sheetSize;
+        float xMax = (s_data.x + s_data.width) / sheetSize;
+        float yMin = 1 - (s_data.y / sheetSize);
+        float yMax = 1 - (s_data.y + s_data.height) / sheetSize;
+
+        Vector2 min = new Vector2(xMin, yMin);
+        Vector2 max = new Vector2(xMax, yMax);
+
+        return new StickerUVData(min, max);
+    }
+
     public Material GetSheetMaterial(string sheetId)
     {
         Material stickerMaterial = materials[0].material;
@@ -124,5 +173,78 @@ public class StickerSceneManager : MonoBehaviour {
         }
 
         return stickerMaterial;
+    }
+
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        string saveParentDirectory = Application.persistentDataPath + "/saves";
+
+        string saveDirectory = saveParentDirectory;
+
+        Directory.CreateDirectory(saveParentDirectory);
+
+        FileStream file = File.Create(saveDirectory + "/" + System.DateTime.Now.ToFileTime() + ".dat");
+
+        SerializableStickerTapeRenderer[] stickerTapes = GameObject.FindObjectsOfType<SerializableStickerTapeRenderer>();
+        StickerTapeData[] stickerTapeData = new StickerTapeData[stickerTapes.Length];
+        for (int i = 0; i< stickerTapes.Length; ++i)
+        {
+            stickerTapeData[i] = stickerTapes[i].Dehydrate();
+        }
+
+        Sticker[] stickerPlanes = GameObject.FindObjectsOfType<Sticker>();
+        StickerPlaneData[] stickerPlaneData = new StickerPlaneData[stickerPlanes.Length];
+        for (int i = 0; i < stickerPlanes.Length; ++i)
+        {
+            stickerPlaneData[i] = stickerPlanes[i].Dehydrate();
+        }
+
+        SaveGameData saveData = new SaveGameData();
+        saveData.stickerTapes = stickerTapeData;
+        saveData.stickerPlanes = stickerPlaneData;
+
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    public void Load(string path)
+    {
+        //SerializableStickerTapeRenderer[] stickerTapes = GameObject.FindObjectsOfType<SerializableStickerTapeRenderer>();    
+        //foreach (SerializableStickerTapeRenderer tape in stickerTapes)
+        //{
+        //    Destroy(tape.gameObject);
+        //}
+
+        //Sticker[] stickerPlanes = GameObject.FindObjectsOfType<Sticker>();
+        //foreach (Sticker plane in stickerPlanes)
+        //{
+        //    Destroy(plane.gameObject);
+        //}
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(path, FileMode.Open);
+
+        SaveGameData saveData = (SaveGameData)bf.Deserialize(file);
+
+        file.Close();
+
+#if UNITY_EDITOR
+        foreach (StickerPlaneData planeData in saveData.stickerPlanes)
+        {
+            GameObject stickerPlanePrefab = AssetDatabase.LoadAssetAtPath("Assets/Sticker/Prefabs/Sticker.prefab", typeof(GameObject)) as GameObject;
+            GameObject stickerPlane = PrefabUtility.InstantiatePrefab(stickerPlanePrefab) as GameObject;
+            stickerPlane.transform.parent = transform;
+            stickerPlane.GetComponentInChildren<Sticker>().Rehydrate(planeData);
+        }
+
+        foreach (StickerTapeData tapeData in saveData.stickerTapes)
+        {
+            GameObject stickerTapePrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/sticker_tape.prefab", typeof(GameObject)) as GameObject;
+            GameObject stickerTape = PrefabUtility.InstantiatePrefab(stickerTapePrefab) as GameObject;
+            stickerTape.transform.parent = transform;
+            stickerTape.GetComponent<SerializableStickerTapeRenderer>().Rehydrate(tapeData);
+        }
+#endif
     }
 }

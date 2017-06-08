@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4298374442465728}
   - component: {fileID: 33067463137523190}
   - component: {fileID: 23644380422102126}
-  - component: {fileID: 114567586996513122}
   - component: {fileID: 64687930267549828}
   - component: {fileID: 114181093686417080}
+  - component: {fileID: 114360733289145016}
   m_Layer: 11
   m_Name: sticker_tape
   m_TagString: Sticker
@@ -111,7 +111,7 @@ MonoBehaviour:
   usePhysics: 0
   theThingGrabMe: {fileID: 0}
   grabbedPoint: {x: 0, y: 0, z: 0}
---- !u!114 &114567586996513122
+--- !u!114 &114360733289145016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326952170940530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16a39bbdefdde84a8c2cd410d74c612, type: 3}
+  m_Script: {fileID: 11500000, guid: f77ae1b9cec772841b2e22de7d1856ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 82003b2ed50b0b146b3b5bbf45de852b, type: 2}
   drawPoint: {fileID: 0}
-  selfObject: {fileID: 1326952170940530}
+  selfObject: {fileID: 0}
   swapArtist: {fileID: 0}
+  doRandomSticker: 0

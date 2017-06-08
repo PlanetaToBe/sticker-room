@@ -155,11 +155,17 @@ public class StickerControllerGenerator : MonoBehaviour {
 			GameObject sticker;
 			if (swapArtist)
 			{
-				if(randomSticker)
-					stickerArt.data = swapArtist.GetStickerDataRandom();
-				else
-					stickerArt.data = swapArtist.GetStickerData();
+                StickerData s_data;
+				if (randomSticker)
+                {
+                     s_data = swapArtist.GetStickerDataRandom();
+                } else
+                {
+                    s_data = swapArtist.GetStickerData();
+                }
+
 				sticker = Instantiate(stickerPrefab, transform.position, transform.rotation) as GameObject;
+                sticker.GetComponent<Sticker>().SetSticker(s_data.id);
 			}
 			else
 			{

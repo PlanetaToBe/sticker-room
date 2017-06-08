@@ -38,7 +38,7 @@ public class DrawManager : MonoBehaviour {
 	private int thingLayer;
 	private int finalMask;
 	//private MeshLineRenderer currLine;
-	private StickerTapeRenderer currLine;
+	private SerializableStickerTapeRenderer currLine;
 	private int numClicks = 0;
 
 	private Vector3 past_DrawPosition;
@@ -153,7 +153,7 @@ public class DrawManager : MonoBehaviour {
 		go.tag = "Sticker";
 		go.layer = 11;
 
-		currLine = go.AddComponent<StickerTapeRenderer> ();
+		currLine = go.AddComponent<SerializableStickerTapeRenderer> ();
 		//currLine = go.AddComponent<MeshLineRenderer> ();
 		if(swapArtist)
 			currLine.swapArtist = swapArtist;
