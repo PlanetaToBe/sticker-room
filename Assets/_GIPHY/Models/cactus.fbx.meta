@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: a986f85ec40e1dc40aaa06a87f9ea8de
+timeCreated: 1496938452
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: cactus
+    100004: cactus_MeshPart0
+    100006: cactus_MeshPart1
+    100008: cactus_MeshPart2
+    100010: cactus_MeshPart3
+    100012: cactus_MeshPart4
+    100014: cactus_MeshPart5
+    100016: cactus_MeshPart6
+    100018: cactus_MeshPart7
+    100020: eye left.000
+    100022: eye left.001
+    100024: leaf
+    100026: stem
+    100028: teeth bottom
+    100030: teeth top
+    400000: //RootNode
+    400002: cactus
+    400004: cactus_MeshPart0
+    400006: cactus_MeshPart1
+    400008: cactus_MeshPart2
+    400010: cactus_MeshPart3
+    400012: cactus_MeshPart4
+    400014: cactus_MeshPart5
+    400016: cactus_MeshPart6
+    400018: cactus_MeshPart7
+    400020: eye left.000
+    400022: eye left.001
+    400024: leaf
+    400026: stem
+    400028: teeth bottom
+    400030: teeth top
+    2300000: cactus_MeshPart0
+    2300002: cactus_MeshPart1
+    2300004: cactus_MeshPart2
+    2300006: cactus_MeshPart3
+    2300008: cactus_MeshPart4
+    2300010: cactus_MeshPart5
+    2300012: cactus_MeshPart6
+    2300014: cactus_MeshPart7
+    2300016: eye left.000
+    2300018: eye left.001
+    2300020: leaf
+    2300022: stem
+    2300024: teeth bottom
+    2300026: teeth top
+    3300000: cactus_MeshPart0
+    3300002: cactus_MeshPart1
+    3300004: cactus_MeshPart2
+    3300006: cactus_MeshPart3
+    3300008: cactus_MeshPart4
+    3300010: cactus_MeshPart5
+    3300012: cactus_MeshPart6
+    3300014: cactus_MeshPart7
+    3300016: eye left.000
+    3300018: eye left.001
+    3300020: leaf
+    3300022: stem
+    3300024: teeth bottom
+    3300026: teeth top
+    4300000: eye left.000
+    4300002: eye left.001
+    4300004: cactus_MeshPart0
+    4300006: cactus_MeshPart1
+    4300008: cactus_MeshPart2
+    4300010: cactus_MeshPart3
+    4300012: cactus_MeshPart4
+    4300014: cactus_MeshPart5
+    4300016: cactus_MeshPart6
+    4300018: cactus_MeshPart7
+    4300020: stem
+    4300022: leaf
+    4300024: teeth bottom
+    4300026: teeth top
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
