@@ -177,9 +177,9 @@ public class StickerSceneManager : MonoBehaviour {
 
     public void Reset()
     {
-        for (int i = 0; i < transform.childCount; ++i)
+        while (transform.childCount != 0)
         {
-            DestroyImmediate(transform.GetChild(i));
+            DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
 
