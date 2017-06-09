@@ -164,7 +164,6 @@ public class ToolHubSimple : MonoBehaviour {
 		{
 			currStickerTool.TurnToIdealAngle(transform.localEulerAngles.z);
 		}
-		// enable the function
 
 		touchArrows [0].material.color = Color.white;
 		touchArrows [1].material.color = Color.white;
@@ -241,7 +240,7 @@ public class ToolHubSimple : MonoBehaviour {
 			// Raycasting to detect which tool is showing up
 			CheckRaycast();
 		}
-		// if not, then wait until it's accumulated to 0.4f
+		// if not, then wait until it's accumulated to 0.1f
 		else {
 //			Debug.Log ("else dist : " + absDist);
 			currTouchpadAxis = GetTouchpadAxis ();
@@ -379,7 +378,11 @@ public class ToolHubSimple : MonoBehaviour {
 
 	public void SnapToAngleAction(float angle, float time)
 	{
-		LeanTween.rotateAroundLocal (gameObject, Vector3.forward, angle, time).setOnUpdate (CheckRaycastUpdate).setEaseInOutBack();
+		LeanTween.rotateAroundLocal (gameObject, Vector3.forward, angle, time)
+			.setOnUpdate ((float val)=>{
+				CheckRaycast();
+			})
+			.setEaseInOutBack();
 	}
 
 	public void SnapToTargetAngleAction(int targetToolIndex, float time)
@@ -387,33 +390,6 @@ public class ToolHubSimple : MonoBehaviour {
 		float c_angle = (360f + transform.localEulerAngles.z) % 360f;
 		float t_angle = stickerTools [targetToolIndex].IdealAngle - c_angle;
 		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, t_angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
-	}
-
-	void CheckRaycastUpdate(float _val)
-	{
-		// Raycasting to detect which tool is showing up
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.parent.up, out hit, 10f, toolLayer))
-		{
-			Debug.DrawRay (transform.position, transform.parent.up);
-			StickerTool s_t = hit.collider.gameObject.GetComponent<StickerTool> ();
-			if(!s_t.inUse)
-			{
-				// disable
-				for(int i=0; i<stickerTools.Count; i++)
-				{
-					if (i != s_t.ToolIndex && stickerTools[i].inUse)
-					{
-						stickerTools [i].DisableTool ();
-					}
-				}
-
-				// enable
-				s_t.EnableTool ();
-				currStickerTool = s_t;
-				currToolIndex = toolIndexCount = s_t.ToolIndex;
-			}
-		}
 	}
 
 	void CheckRaycast()
@@ -424,7 +400,6 @@ public class ToolHubSimple : MonoBehaviour {
 		{
 			Debug.DrawRay (transform.position, transform.parent.up);
 			//Debug.Log (hit.collider.name);
-
 			StickerTool s_t = hit.collider.gameObject.GetComponent<StickerTool> ();
 			if(!s_t.inUse)
 			{
@@ -475,11 +450,11 @@ public class ToolHubSimple : MonoBehaviour {
 	{
 		EnableAllTools ();
 
-		if (levelIndex == 1) {
+//		if (levelIndex == 1) {
 			SwitchToTool (toolForLevel [levelIndex], true);
-		} else {
-			SwitchToTool (toolForLevel [levelIndex], false);
-		}
+//		} else {
+//			SwitchToTool (toolForLevel [levelIndex], false);
+//		}
 	}
 		
 	public void SwitchToTool(int toolIndex, bool beLimited)
