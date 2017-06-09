@@ -169,22 +169,22 @@ public class FlySingle : MonoBehaviour {
 
 				// v.2 Land on Floor
 				// above ground
-				if(relativeToGround==1 && player.position.y > normalGroundHeight - fallVel.y)
-				{
-					player.Translate (fallVel);
-				}
-				// below ground
-				else if(relativeToGround==-1 && player.position.y < normalGroundHeight - fallVel.y)
-				{
-					player.Translate (fallVel);
-				}
-				else
-				{
-					Debug.Log ("land on floor!");
-					player.position = new Vector3 (player.position.x, normalGroundHeight, player.position.z);
-					justFinishFlying = false;
-					LeanTween.cancel (velTweenID);
-				}
+//				if(relativeToGround==1 && player.position.y > normalGroundHeight - fallVel.y)
+//				{
+//					player.Translate (fallVel);
+//				}
+//				// below ground
+//				else if(relativeToGround==-1 && player.position.y < normalGroundHeight - fallVel.y)
+//				{
+//					player.Translate (fallVel);
+//				}
+//				else
+//				{
+//					Debug.Log ("land on floor!");
+//					player.position = new Vector3 (player.position.x, normalGroundHeight, player.position.z);
+//					justFinishFlying = false;
+//					LeanTween.cancel (velTweenID);
+//				}
 			}
 			break;
 		}

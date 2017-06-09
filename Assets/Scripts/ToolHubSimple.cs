@@ -481,6 +481,7 @@ public class ToolHubSimple : MonoBehaviour {
 			ToolsetEnable = true;
 
 		// enable
+		stickerTools [toolIndex].transform.GetChild (0).gameObject.SetActive (true);
 		stickerTools[toolIndex].EnableTool ();
 		currStickerTool = stickerTools[toolIndex];
 		currToolIndex = toolIndexCount = toolIndex;

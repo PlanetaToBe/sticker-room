@@ -11,7 +11,9 @@ public class SkyColorManager : MonoBehaviour {
     }
 
     public SkyboxColorSet[] skyboxColors;
+	public float[] skyboxPitches= new float[3];
     public Material skyboxMaterial;
+
     public Color[] ambientColors;
     public float animationDuration = 2f;
     public bool animateColorTransitions = true;
@@ -34,7 +36,9 @@ public class SkyColorManager : MonoBehaviour {
     public void SetFloor(int floorIndex)
     {
         ClearRunningTweens();
-        //UpdateSkyboxColor(floorIndex);
+        
+		UpdateSkyboxColor(floorIndex);
+		UpdateSkyboxPitch(floorIndex);
         
 		UpdateAmbientColor(floorIndex);
 		UpdateDirectionLight (floorIndex);
@@ -58,17 +62,27 @@ public class SkyColorManager : MonoBehaviour {
 		}
 	}
 
+	public void UpdateSkyboxPitch(int floorIndex) {
+		if (animateColorTransitions)
+		{
+			UpdateSkyboxPitchAnimated(floorIndex);
+		} else
+		{
+			UpdateSkyboxPitchSimple(floorIndex);
+		}
+	}
+
     public void UpdateSkyboxColor(int floorIndex) {
         if (animateColorTransitions)
         {
             UpdateSkyboxColorAnimated(floorIndex);
         } else
         {
-            UpdateSkyBoxColorSimple(floorIndex);
+            UpdateSkyboxColorSimple(floorIndex);
         }
     }
 
-    private void UpdateSkyBoxColorSimple(int floorIndex)
+    private void UpdateSkyboxColorSimple(int floorIndex)
     {
         skyboxMaterial.SetColor("_Color1", skyboxColors[floorIndex].colors[1]);
         skyboxMaterial.SetColor("_Color2", skyboxColors[floorIndex].colors[0]);
@@ -91,6 +105,21 @@ public class SkyColorManager : MonoBehaviour {
         runningTweenIds.Add(firstTween.id);
         runningTweenIds.Add(secondTween.id);
     }
+
+	private void UpdateSkyboxPitchSimple(int floorIndex)
+	{
+		skyboxMaterial.SetFloat("_UpVectorPitch", skyboxPitches[floorIndex]);
+	}
+
+	private void UpdateSkyboxPitchAnimated(int floorIndex)
+	{
+		float startPitch = skyboxMaterial.GetFloat("_UpVectorPitch");
+		LTDescr tween = LeanTween.value(transform.gameObject, startPitch, skyboxPitches[floorIndex], animationDuration);
+		tween.setOnUpdate((float val) => {
+			skyboxMaterial.SetFloat("_UpVectorPitch", val);
+		});
+		runningTweenIds.Add(tween.id);
+	}
 
     public void UpdateAmbientColor(int floorIndex)
     {

@@ -222,11 +222,13 @@ public class LevelManager : MonoBehaviour {
 		currentLevel = l_index;
 		var current_l_script = levelScriptDict [currentLevel];
 
-		if(skyManager)
-			skyManager.SetFloor (l_index);
+//		if(skyManager)
+//			skyManager.SetFloor (l_index);
+//
+//		if (azureSkyManager)
+//			azureSkyManager.SetFloor (l_index);
 
-		if (azureSkyManager)
-			azureSkyManager.SetFloor (l_index);
+		StartCoroutine (DoEnvLightChange (1f, l_index));
 
 		// activate current, if not already
 		if (!current_l_script.onMode)
@@ -311,5 +313,16 @@ public class LevelManager : MonoBehaviour {
 		float currPassTime = Time.time - startTime;
 		float idealPasTime = 34f;
 		startTime -= idealPasTime - currPassTime;
+	}
+
+	IEnumerator DoEnvLightChange(float delayT, int level)
+	{
+		yield return new WaitForSeconds (delayT);
+
+		if(skyManager)
+			skyManager.SetFloor (level);
+
+		if (azureSkyManager)
+			azureSkyManager.SetFloor (level);
 	}
 }
