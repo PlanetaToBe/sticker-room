@@ -7,6 +7,8 @@ public class SwapArtist : MonoBehaviour {
 	public ToolHub[] toolHubs;
 	public ToolHubSimple[] toolHubSimples;
 
+    public event System.Action<StickerData> StickerChanged;
+
     private int currentArtistIndex = 0;
     private int currentStickerIndex = 0;
 
@@ -79,6 +81,8 @@ public class SwapArtist : MonoBehaviour {
         }
 
         currentStickerIndex = 0;
+
+        TriggerChange();
     }
 
     public void PreviousArtist()
@@ -90,6 +94,8 @@ public class SwapArtist : MonoBehaviour {
         }
 
         currentStickerIndex = 0;
+
+        TriggerChange();
     }
 
     public void ChangeSticker(bool up)
@@ -110,6 +116,8 @@ public class SwapArtist : MonoBehaviour {
         {
             currentStickerIndex = 0;
         }
+
+        TriggerChange();
     }
 
     public void PreviousSticker()
@@ -119,6 +127,13 @@ public class SwapArtist : MonoBehaviour {
         {
             currentStickerIndex = GetCurrentArtistStickers().Count - 1;
         }
+
+        TriggerChange();
+    }
+
+    private void TriggerChange()
+    {
+        StickerChanged(GetStickerData());
     }
 
     private List<string> GetArtistList()
