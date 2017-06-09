@@ -175,6 +175,14 @@ public class StickerSceneManager : MonoBehaviour {
         return stickerMaterial;
     }
 
+    public void Reset()
+    {
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            DestroyImmediate(transform.GetChild(i));
+        }
+    }
+
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -186,14 +194,14 @@ public class StickerSceneManager : MonoBehaviour {
 
         FileStream file = File.Create(saveDirectory + "/" + System.DateTime.Now.ToFileTime() + ".dat");
 
-        SerializableStickerTapeRenderer[] stickerTapes = GameObject.FindObjectsOfType<SerializableStickerTapeRenderer>();
+        SerializableStickerTapeRenderer[] stickerTapes = GetComponentsInChildren<SerializableStickerTapeRenderer>();
         StickerTapeData[] stickerTapeData = new StickerTapeData[stickerTapes.Length];
         for (int i = 0; i< stickerTapes.Length; ++i)
         {
             stickerTapeData[i] = stickerTapes[i].Dehydrate();
         }
 
-        Sticker[] stickerPlanes = GameObject.FindObjectsOfType<Sticker>();
+        Sticker[] stickerPlanes = GetComponentsInChildren<Sticker>();
         StickerPlaneData[] stickerPlaneData = new StickerPlaneData[stickerPlanes.Length];
         for (int i = 0; i < stickerPlanes.Length; ++i)
         {

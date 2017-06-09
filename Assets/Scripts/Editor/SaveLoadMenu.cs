@@ -16,4 +16,10 @@ public class SaveLoadMenu : EditorWindow {
         string path = EditorUtility.OpenFilePanel("Overwrite with png", "C:\\Users\\planeta\\AppData\\LocalLow\\OONI\\StickerTime\\saves", "dat");
         StickerSceneManager.instance.Load(path);
     }
+
+    [MenuItem("Sticker Room/Reset", false, 120)]
+    static void Reset()
+    {
+        StickerSceneManager.instance.Reset();
+    }
 }
