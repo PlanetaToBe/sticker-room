@@ -25,13 +25,15 @@ public class StickerControllerGenerator : MonoBehaviour {
 	private ToolHub toolHub;
 	private bool randomSticker = false;
 
+	private float s_size_scalar = 0.2f;
+
 	public Vector3 StickerSize
 	{
 		get { 
 			if (toolHub) {
-				return stickerSize * grabnStretch.PlayerScale * toolHub.TouchPadDrawWidth;
+				return stickerSize * s_size_scalar * grabnStretch.PlayerScale * toolHub.TouchPadDrawWidth;
 			} else {
-				return stickerSize * grabnStretch.PlayerScale;
+				return stickerSize * s_size_scalar * grabnStretch.PlayerScale;
 			}
 		}
 	}

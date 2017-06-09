@@ -67,9 +67,9 @@ public class Physicfy : MonoBehaviour {
 		sticker.transform.SetParent (stickersParent.transform);
 
 		GameObject s_c;
-		if (sticker.transform.childCount > 0)
-			s_c = sticker.transform.GetChild (0).gameObject;
-		else
+//		if (sticker.transform.childCount > 0)
+//			s_c = sticker.transform.GetChild (0).gameObject;
+//		else
 			s_c = sticker;
 			
 		BoxCollider b_c = s_c.GetComponent<BoxCollider> ();

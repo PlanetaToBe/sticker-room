@@ -152,10 +152,10 @@ public class StickerSceneManager : MonoBehaviour {
     {
         StickerData s_data = GetStickerById(stickerId);
 
-        float xMin = s_data.x / sheetSize;
-        float xMax = (s_data.x + s_data.width) / sheetSize;
-        float yMin = 1 - (s_data.y / sheetSize);
-        float yMax = 1 - (s_data.y + s_data.height) / sheetSize;
+		float xMax = s_data.x / sheetSize;
+		float xMin = (s_data.x + s_data.width) / sheetSize;
+		float yMax = 1 - (s_data.y / sheetSize);
+		float yMin = 1 - (s_data.y + s_data.height) / sheetSize;
 
         Vector2 min = new Vector2(xMin, yMin);
         Vector2 max = new Vector2(xMax, yMax);

@@ -39,9 +39,9 @@ GameObject:
   - component: {fileID: 114970507729794226}
   - component: {fileID: 114063423596843600}
   - component: {fileID: 65615342536780010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sticker
-  m_TagString: Untagged
+  m_TagString: Sticker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
