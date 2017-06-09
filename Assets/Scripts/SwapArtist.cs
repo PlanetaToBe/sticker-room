@@ -51,7 +51,7 @@ public class SwapArtist : MonoBehaviour {
 
 	public StickerData GetStickerData()
 	{
-        Debug.Log("Giving sticker " + GetArtistList()[currentArtistIndex] + " " + currentStickerIndex);
+        //Debug.Log("Giving sticker " + GetArtistList()[currentArtistIndex] + " " + currentStickerIndex);
         return GetCurrentArtistStickers()[currentStickerIndex];
 	}
 

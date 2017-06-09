@@ -93,8 +93,16 @@ public class VRInteractiveObject : MonoBehaviour {
 
 	public bool IsKinematic
 	{
-		get { return TheRigidbody.isKinematic; }
-		set { TheRigidbody.isKinematic = value; }
+		get {
+			if (TheRigidbody)
+				return TheRigidbody.isKinematic;
+			else
+				return false;
+		}
+		set {
+			if (TheRigidbody)
+				TheRigidbody.isKinematic = value;
+		}
 	}
 
 	public bool HasRigidbody

@@ -169,16 +169,16 @@ public class LineStickerBrushTool : MonoBehaviour {
 		{
 			if (randomSticker) {
 				nextStickerData = swapArtist.GetStickerDataRandom ();
-				Debug.Log ("GetStickerDataRandom");
+				//Debug.Log ("GetStickerDataRandom");
 			} else {
 				nextStickerData = swapArtist.GetStickerData ();
-				Debug.Log ("GetStickerData");
+				//Debug.Log ("GetStickerData");
 			}
 		}
 		else
 		{
 			nextStickerData = StickerSceneManager.instance.GetRandomSticker();
-			Debug.Log ("GetRandomSticker");
+			//Debug.Log ("GetRandomSticker");
 		}
 
 		sticker.transform.SetParent (stickersParent.transform);
