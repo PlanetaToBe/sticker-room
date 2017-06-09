@@ -218,17 +218,18 @@ public class StickerSceneManager : MonoBehaviour {
 
     public void Load(string path)
     {
-        //SerializableStickerTapeRenderer[] stickerTapes = GameObject.FindObjectsOfType<SerializableStickerTapeRenderer>();    
-        //foreach (SerializableStickerTapeRenderer tape in stickerTapes)
-        //{
-        //    Destroy(tape.gameObject);
-        //}
+        Load(path, false);
+    }
 
-        //Sticker[] stickerPlanes = GameObject.FindObjectsOfType<Sticker>();
-        //foreach (Sticker plane in stickerPlanes)
-        //{
-        //    Destroy(plane.gameObject);
-        //}
+    public void Load(string path, bool additive)
+    {
+        if (!additive)
+        {
+            for (int i = 0; i < transform.childCount; ++i)
+            {
+                DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+        }
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Open(path, FileMode.Open);
@@ -237,12 +238,16 @@ public class StickerSceneManager : MonoBehaviour {
 
         file.Close();
 
-#if UNITY_EDITOR
+        string[] filenameParts = file.Name.Split('/');
+        string filename = filenameParts[filenameParts.Length - 1].Replace(".dat", "");
+        GameObject parentObject = new GameObject(filename);
+        parentObject.transform.parent = transform;
+
         foreach (StickerPlaneData planeData in saveData.stickerPlanes)
         {
             GameObject stickerPlanePrefab = AssetDatabase.LoadAssetAtPath("Assets/Sticker/Prefabs/Sticker.prefab", typeof(GameObject)) as GameObject;
             GameObject stickerPlane = PrefabUtility.InstantiatePrefab(stickerPlanePrefab) as GameObject;
-            stickerPlane.transform.parent = transform;
+            stickerPlane.transform.parent = parentObject.transform;
             stickerPlane.GetComponentInChildren<Sticker>().Rehydrate(planeData);
         }
 
@@ -250,9 +255,8 @@ public class StickerSceneManager : MonoBehaviour {
         {
             GameObject stickerTapePrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/sticker_tape.prefab", typeof(GameObject)) as GameObject;
             GameObject stickerTape = PrefabUtility.InstantiatePrefab(stickerTapePrefab) as GameObject;
-            stickerTape.transform.parent = transform;
+            stickerTape.transform.parent = parentObject.transform;
             stickerTape.GetComponent<SerializableStickerTapeRenderer>().Rehydrate(tapeData);
         }
-#endif
     }
 }
