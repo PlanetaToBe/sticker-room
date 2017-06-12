@@ -14,6 +14,7 @@ public class SimpleFly : MonoBehaviour {
     private bool toolActive = false;
     private bool isFlying = false;
     private float flyDuration = 0;
+	private float stopDuration = 0;
 
     private bool isStopping = false;
 

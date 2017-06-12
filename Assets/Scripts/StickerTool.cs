@@ -23,7 +23,7 @@ public class StickerTool : MonoBehaviour {
 	}
 	private ToolHub toolHub;
 	private Vector3 oriSize = new Vector3(0.12f,0.12f,0.12f);
-	private Vector3 smallSize = new Vector3(0.02f,0.02f,0.02f);
+	private Vector3 smallSize = new Vector3(0.01f,0.01f,0.01f);
 
 	void Start()
 	{
@@ -32,7 +32,7 @@ public class StickerTool : MonoBehaviour {
 
 	public void EnableTool()
 	{
-		LeanTween.scale(transform.gameObject, oriSize, sizeChangeSpeed);
+		LeanTween.scale(transform.gameObject, oriSize, sizeChangeSpeed).setEaseInOutBack();
 		inUse = true;
 
 		if (OnChangeToolStatus != null)
@@ -41,7 +41,7 @@ public class StickerTool : MonoBehaviour {
 
 	public void DisableTool()
 	{
-		LeanTween.scale(gameObject, smallSize, sizeChangeSpeed);
+		LeanTween.scale(gameObject, smallSize, sizeChangeSpeed).setEaseInOutBack();
 		inUse = false;
 
 		if (OnChangeToolStatus != null)

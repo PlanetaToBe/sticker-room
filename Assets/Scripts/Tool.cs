@@ -11,11 +11,14 @@ public class Tool : MonoBehaviour {
 
 	private Animator animator;
 	private ParticleSystem particle;
+	private GvrAudioSource soundEffect;
 
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
 		particle = GetComponent<ParticleSystem> ();
+		soundEffect = GetComponent<GvrAudioSource> ();
+
 		OnStart ();
 	}
 
@@ -49,6 +52,9 @@ public class Tool : MonoBehaviour {
 
 		if(particle)
 			particle.Play();
+
+		if (soundEffect)
+			soundEffect.Play ();
 	}
 
 	public void OnUp()
@@ -58,5 +64,8 @@ public class Tool : MonoBehaviour {
 
 		if(particle)
 			particle.Stop();
+
+		if (soundEffect)
+			soundEffect.Stop ();
 	}
 }
