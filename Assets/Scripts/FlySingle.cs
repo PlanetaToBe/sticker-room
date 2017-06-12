@@ -37,6 +37,10 @@ public class FlySingle : MonoBehaviour {
 	}
 	private PlayerMovement playerMovement;
 
+	//public GameObject hint;
+	public SpriteRenderer hintRenderer;
+	private bool knowHowToFly = false;
+
 	[Header("Raycast Reference")]
 	public Transform cameraEye;
 	public Transform Pivot
@@ -118,6 +122,12 @@ public class FlySingle : MonoBehaviour {
 
 		if (!inUse)
 			Reset ();
+
+		if(inUse && !knowHowToFly)
+		{
+			// show hint
+			LeanTween.value( gameObject, UpdateHintColorCallback, Color.clear, Color.white, 1f);
+		}
 	}
 
 	void Start()
@@ -132,6 +142,12 @@ public class FlySingle : MonoBehaviour {
 
 		playerMovement = GetComponentInParent<PlayerMovement> ();
 		particleOriPosition = particle.transform.localPosition;
+
+//		if (hint)
+//		{
+//			hintRenderer = hint.GetComponent<SpriteRenderer> ();
+//			Debug.Log ("got hint renderer");
+//		}
 	}
 
 	void Update()
@@ -209,6 +225,13 @@ public class FlySingle : MonoBehaviour {
 		{
 			m_inFlyingSupportMode = false;
 			m_inFlyingMode = true;
+		}
+
+		if (!knowHowToFly)
+		{
+			// hide hint
+			LeanTween.value( gameObject, UpdateHintColorCallback, Color.white, Color.clear, 1f);
+			knowHowToFly = true;
 		}
 
 		if(m_inFlyingMode && !isFlying)
@@ -365,5 +388,12 @@ public class FlySingle : MonoBehaviour {
 			particle.Stop ();
 		}
 		isFlying = false;
+
+		hintRenderer.color = Color.clear;
+	}
+
+	void UpdateHintColorCallback(Color val)
+	{
+		hintRenderer.color = val;
 	}
 }

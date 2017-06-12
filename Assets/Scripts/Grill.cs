@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Grill : MonoBehaviour {
 
+	public Renderer fishRenderer;
 	public Tool fish;
 	public StickerTool myTool;
 	public Collider fire;
+	public Color cookingFish;
+
 	private bool inUse;
+	private int tweenID = -1;
 
 	void OnEnable()
 	{
@@ -37,6 +41,12 @@ public class Grill : MonoBehaviour {
 			// play particles
 			// play sounds
 			fish.OnDown();
+
+//			if (tweenID>0){
+//				if(LeanTween.isTweening(tweenID))
+//					LeanTween.cancel (tweenID);
+//			}
+//			tweenID = LeanTween.value( gameObject, UpdateFishColorCallback, Color.white, cookingFish, 1f).id;
 		}
 	}
 
@@ -50,11 +60,22 @@ public class Grill : MonoBehaviour {
 			// stop particles
 			// stop sounds
 			fish.OnUp();
+
+//			if (tweenID>0){
+//				if(LeanTween.isTweening(tweenID))
+//					LeanTween.cancel (tweenID);
+//			}
+//			tweenID = LeanTween.value( gameObject, UpdateFishColorCallback, fishRenderer.material.color, Color.white, 1f).id;
 		}
 	}
 
 	private void OnToolStatusChange(bool _inUse, int toolIndex)
 	{
 		inUse = _inUse;
+	}
+
+	void UpdateFishColorCallback(Color val)
+	{
+		fishRenderer.material.color = val;
 	}
 }

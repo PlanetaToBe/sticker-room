@@ -32,7 +32,7 @@ public class StickerTool : MonoBehaviour {
 
 	public void EnableTool()
 	{
-		LeanTween.scale(transform.gameObject, oriSize, sizeChangeSpeed).setEaseInOutBack();
+		LeanTween.scale (transform.gameObject, oriSize, sizeChangeSpeed);//.setEaseInOutBack();
 		inUse = true;
 
 		if (OnChangeToolStatus != null)
@@ -41,7 +41,7 @@ public class StickerTool : MonoBehaviour {
 
 	public void DisableTool()
 	{
-		LeanTween.scale(gameObject, smallSize, sizeChangeSpeed).setEaseInOutBack();
+		LeanTween.scale (gameObject, smallSize, sizeChangeSpeed);//.setEaseInOutBack();
 		inUse = false;
 
 		if (OnChangeToolStatus != null)
