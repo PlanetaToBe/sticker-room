@@ -1,16 +1,23 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectCamManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Transform player;
+
+	private Vector3 initialOffset;
+
+
+	void Start()
+	{
+		transform.localScale = player.localScale;
+		initialOffset = (transform.position - player.position) * transform.localScale.x;
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update()
+	{
 		
 	}
 }
