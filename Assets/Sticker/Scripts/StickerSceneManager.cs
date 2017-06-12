@@ -245,17 +245,26 @@ public class StickerSceneManager : MonoBehaviour {
 
         foreach (StickerPlaneData planeData in saveData.stickerPlanes)
         {
-            GameObject stickerPlanePrefab = AssetDatabase.LoadAssetAtPath("Assets/Sticker/Prefabs/Sticker.prefab", typeof(GameObject)) as GameObject;
-            GameObject stickerPlane = PrefabUtility.InstantiatePrefab(stickerPlanePrefab) as GameObject;
+			//v.1 Editor
+            //GameObject stickerPlanePrefab = AssetDatabase.LoadAssetAtPath("Assets/Sticker/Prefabs/Sticker.prefab", typeof(GameObject)) as GameObject;
+			//GameObject stickerPlane = PrefabUtility.InstantiatePrefab(stickerPlanePrefab) as GameObject;
+			//GameObject stickerPlane = PrefabUtility.InstantiatePrefab(stickerPlanePrefab) as GameObject;
+            
+			//v.2 Build
+			GameObject stickerPlane = Instantiate(Resources.Load("Sticker", typeof(GameObject))) as GameObject;
             stickerPlane.transform.parent = parentObject.transform;
             stickerPlane.GetComponentInChildren<Sticker>().Rehydrate(planeData);
         }
 
         foreach (StickerTapeData tapeData in saveData.stickerTapes)
         {
-            GameObject stickerTapePrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/sticker_tape.prefab", typeof(GameObject)) as GameObject;
-            GameObject stickerTape = PrefabUtility.InstantiatePrefab(stickerTapePrefab) as GameObject;
-            stickerTape.transform.parent = parentObject.transform;
+			//v.1 Editor
+            //GameObject stickerTapePrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/sticker_tape.prefab", typeof(GameObject)) as GameObject;
+            //GameObject stickerTape = PrefabUtility.InstantiatePrefab(stickerTapePrefab) as GameObject;
+            
+			//v.2 Build
+			GameObject stickerTape = Instantiate(Resources.Load("sticker_tape", typeof(GameObject))) as GameObject;
+			stickerTape.transform.parent = parentObject.transform;
             stickerTape.GetComponent<SerializableStickerTapeRenderer>().Rehydrate(tapeData);
         }
     }
