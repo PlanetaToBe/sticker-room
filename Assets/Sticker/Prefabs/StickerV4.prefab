@@ -184,7 +184,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14350cdf477f64d44aa5657f54e8af2b, type: 2}
+  - {fileID: 2100000, guid: f9a83e72a7c408442849097497dc36b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,7 +248,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14350cdf477f64d44aa5657f54e8af2b, type: 2}
+  - {fileID: 2100000, guid: f9a83e72a7c408442849097497dc36b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14350cdf477f64d44aa5657f54e8af2b, type: 2}
+  - {fileID: 2100000, guid: f9a83e72a7c408442849097497dc36b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14350cdf477f64d44aa5657f54e8af2b, type: 2}
+  - {fileID: 2100000, guid: f9a83e72a7c408442849097497dc36b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -445,5 +445,7 @@ MonoBehaviour:
     path: 
     id: 
     sheetId: 
+    artist: 
   gifDataIndex: 0
   beStatic: 1
+  stickerID: 

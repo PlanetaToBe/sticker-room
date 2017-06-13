@@ -15,6 +15,7 @@ public class LevelZero : MonoBehaviour {
 	public CanvasGroup machineInfo;
 	public CanvasGroup artistInfo;
 	public Light houseLight;
+    public GameObject[] fluorescentLights;
 	public FastForward forwardToLevel1;
 	public Text answer;
 	public GameObject[] thingsToBeLift;
@@ -140,11 +141,14 @@ public class LevelZero : MonoBehaviour {
 		while (doLightEffect)
 		{
 			houseLight.enabled = true;
-			houseLight.intensity = Random.Range(minIntensity, maxIntensity);
+            SetLightIntensity(Random.Range(minIntensity, maxIntensity));
+
 			yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
 			if (realFlicker)
 			{
 				houseLight.enabled = false;
+                SetLightIntensity(0);
+
 				yield return new WaitForSeconds (Random.Range(minFlickerSpeed, maxFlickerSpeed));
 
 				// elect sound
@@ -156,6 +160,16 @@ public class LevelZero : MonoBehaviour {
 			}
 		}
 	}
+
+    void SetLightIntensity(float intensity)
+    {
+        houseLight.intensity = intensity;
+
+        foreach (GameObject light in fluorescentLights)
+        {
+            light.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.HSVToRGB(0, 0, intensity));
+        }
+    }
 
 	void LiftHouse()
 	{
@@ -171,6 +185,7 @@ public class LevelZero : MonoBehaviour {
 				tween.setOnStart (()=>{
 					doLightEffect = false;
 					houseLight.enabled = false;
+                    SetLightIntensity(0);
 					shatter.Play();
 					ToggleAudio(noise, false, 0f);
 					ToggleAudio(elect, false, 0f);
