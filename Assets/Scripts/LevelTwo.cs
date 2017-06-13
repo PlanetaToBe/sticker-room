@@ -11,6 +11,7 @@ public class LevelTwo : MonoBehaviour {
 	public GameObject mask;
 	public GameObject[] thingsToShrink;
 	public GameObject[] parentsToShrink;
+	public ParticleSystem starParticles;
 
 	[Header("Light")]
 	public Light houseLight;
@@ -65,11 +66,13 @@ public class LevelTwo : MonoBehaviour {
 			//ToggleAudio(party, true, 1f);
 
 			// fire light
-			houseLight.range = 50f;
+			houseLight.range = 65f;
 			houseLight.gameObject.SetActive (true);
 			houseLight.enabled = true;
 			doLightEffect = true;
 			StartCoroutine(flickerCoroutine);
+
+			starParticles.Play ();
 		}
 	}
 
@@ -80,6 +83,7 @@ public class LevelTwo : MonoBehaviour {
 			ToggleAudio(party, false, 0f);
 			doLightEffect = false;
 			houseLight.enabled = true;
+			starParticles.Stop ();
 			poof.Play ();
 			LeanTween.value(houseLight.gameObject, houseLight.intensity, 0f, 2f)
 				.setOnUpdate((float val)=>{

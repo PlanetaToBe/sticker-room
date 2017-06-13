@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour {
 	private GvrAudioSource openAudio;
 
 	private int padDownCount = 0;
+	private bool resetMode = false;
 
 	void Awake()
 	{
@@ -146,6 +147,14 @@ public class LevelManager : MonoBehaviour {
 			}
 			return;
 		}
+
+		// RESET_BUTTON
+		if(!resetMode && (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.R)))
+		{
+			Debug.Log ("reload to reset!");
+			resetMode = true;
+			Reload ();
+		}
 		
 		currentState = time_state (Time.time - startTime);
 
@@ -176,7 +185,7 @@ public class LevelManager : MonoBehaviour {
 					if (OnLevelStart != null)
 						OnLevelStart (phase_index);
 					
-					Debug.Log ("OnLevelStart: " + phase_index);
+ 					Debug.Log ("OnLevelStart: " + phase_index);
 
 					if(phase_index>0 && OnLevelEnd!=null)
 						OnLevelEnd (phase_index-1);
