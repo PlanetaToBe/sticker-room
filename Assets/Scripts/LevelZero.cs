@@ -24,6 +24,8 @@ public class LevelZero : MonoBehaviour {
 	private IEnumerator dispenseCoroutine;
 	private bool doDispense = true;
 
+	public GameObject stickerBuild;
+
 	[Header("Light")]
 	public float minFlickerSpeed = 0.01f;
 	public float maxFlickerSpeed = 0.1f;
@@ -157,6 +159,8 @@ public class LevelZero : MonoBehaviour {
 
 	void LiftHouse()
 	{
+		stickerBuild.SetActive (true);
+
 		for(int i=0; i<thingsToBeLift.Length; i++)
 		{
 			LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 4f, 6f)
