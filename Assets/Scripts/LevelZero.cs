@@ -12,6 +12,7 @@ public class LevelZero : MonoBehaviour {
 	public GameObject mask;
 	public GameObject maskSolid;
 	public CanvasGroup startInfo;
+    public GameObject startDiagram;
 	public CanvasGroup machineInfo;
 	public CanvasGroup artistInfo;
 	public Light houseLight;
@@ -19,6 +20,8 @@ public class LevelZero : MonoBehaviour {
 	public FastForward forwardToLevel1;
 	public Text answer;
 	public GameObject[] thingsToBeLift;
+    public GameObject outerWalls;
+    public GameObject[] objectsToFall;
 
 	public GameObject cupPrefab;
 	public Transform dispensor;
@@ -89,7 +92,7 @@ public class LevelZero : MonoBehaviour {
 			Invoke("FlickerIntense", 15f);
 
 			// lift the house
-			Invoke("LiftHouse", 19f);
+			Invoke("LiftHouse", 15f);
 
 			doDispense = false;
 		}
@@ -110,6 +113,8 @@ public class LevelZero : MonoBehaviour {
 					startInfo.alpha = val;
 				})
 				.setOnComplete(()=>{
+                    startDiagram.SetActive(false);
+
 					LeanTween.value(gameObject, 0f, 1f, 1f)
 						.setOnUpdate((float val)=>{
 							artistInfo.alpha = val;
@@ -174,31 +179,83 @@ public class LevelZero : MonoBehaviour {
 	void LiftHouse()
 	{
 		stickerBuild.SetActive (true);
+        outerWalls.SetActive(false);
 
-		for(int i=0; i<thingsToBeLift.Length; i++)
-		{
-			LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 4f, 6f)
-				.setEaseInExpo ();
+        StickerArt[] stickers = GetComponentsInChildren<StickerArt>();
+        ShuffleArray(stickers);
+        
+        List<Rigidbody> rigidBodies = new List<Rigidbody>();
 
-			if (i == 0)
-			{
-				tween.setOnStart (()=>{
-					doLightEffect = false;
-					houseLight.enabled = false;
-                    SetLightIntensity(0);
-					shatter.Play();
-					ToggleAudio(noise, false, 0f);
-					ToggleAudio(elect, false, 0f);
-				}).setOnComplete(()=>{
-					noise.Stop();
-					ToggleAudio(shatter, false, 0f);
+        foreach (StickerArt sticker in stickers)
+        {
+            Rigidbody rb = sticker.gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.drag = 1f;
+            rb.isKinematic = true;
+            rigidBodies.Add(rb);
+        }
 
-					Invoke("HideTheLift", 5f);
-				});
-			}
-				
-		}
-	}
+        foreach (GameObject o in objectsToFall)
+        {
+            Rigidbody rb = o.AddComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.drag = 1f;
+            rb.isKinematic = true;
+            rigidBodies.Add(rb);
+        }
+
+        StartCoroutine(ActivateRigidbodies(rigidBodies));
+
+        doLightEffect = false;
+        houseLight.enabled = false;
+        SetLightIntensity(0);
+        ToggleAudio(noise, false, 0f);
+        ToggleAudio(elect, false, 0f);
+
+        Invoke("CleanupCollapse", 3f);
+
+        //for(int i=0; i<thingsToBeLift.Length; i++)
+        //{
+        //	LTDescr tween = LeanTween.moveLocalY (thingsToBeLift [i], thingsToBeLift [i].transform.localPosition.y + 4f, 6f)
+        //		.setEaseInExpo ();
+
+        //	if (i == 0)
+        //	{
+        //		tween.setOnStart (()=>{
+        //			doLightEffect = false;
+        //			houseLight.enabled = false;
+        //                  SetLightIntensity(0);
+        //			shatter.Play();
+        //			ToggleAudio(noise, false, 0f);
+        //			ToggleAudio(elect, false, 0f);
+        //		}).setOnComplete(()=>{
+        //			noise.Stop();
+        //			ToggleAudio(shatter, false, 0f);
+
+        //			Invoke("HideTheLift", 5f);
+        //		});
+        //	}
+
+        //}
+    }
+
+
+    void CleanupCollapse ()
+    {
+        ToggleAudio(shatter, false, 0f);
+    }
+
+    IEnumerator ActivateRigidbodies(List<Rigidbody> rigidBodies)
+    {
+        //int index = Random.Range(0, rigidBodies.Count - 1);
+        int index = 0;
+        rigidBodies[index].isKinematic = false;
+        rigidBodies.RemoveAt(index);
+
+        yield return new WaitForSeconds(Random.Range(.01f, .1f));
+
+        yield return ActivateRigidbodies(rigidBodies);
+    }
 
 	void HideTheLift()
 	{
@@ -266,4 +323,15 @@ public class LevelZero : MonoBehaviour {
 			Instantiate (cupPrefab, dispensor.position, dispensor.rotation);
 		}
 	}
+
+    void ShuffleArray<T>(T[] arr)
+    {
+        for (int i = arr.Length - 1; i > 0; i--)
+        {
+            int r = Random.Range(0, i);
+            T tmp = arr[i];
+            arr[i] = arr[r];
+            arr[r] = tmp;
+        }
+    }
 }
