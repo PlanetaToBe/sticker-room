@@ -32,6 +32,11 @@ public class SaveLoadMenu : EditorWindow {
         }
     }
 
+	[MenuItem("Sticker Room/Clean", false, 120)]
+	static void Clean() {
+		StickerSceneManager.instance.Clean ();
+	}
+
     [MenuItem("Sticker Room/Reset", false, 120)]
     static void Reset()
     {

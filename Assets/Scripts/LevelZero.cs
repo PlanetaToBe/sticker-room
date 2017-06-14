@@ -190,11 +190,12 @@ public class LevelZero : MonoBehaviour {
 
         foreach (StickerArt sticker in stickers)
         {
-            Rigidbody rb = sticker.gameObject.AddComponent<Rigidbody>();
-            rb.useGravity = true;
-            rb.drag = 1f;
-            rb.isKinematic = true;
-            rigidBodies.Add(rb);
+           // Rigidbody rb = sticker.gameObject.AddComponent<Rigidbody>();
+           // rb.useGravity = true;
+            //rb.drag = 1f;
+           // rb.isKinematic = true;
+            //rigidBodies.Add(rb);
+			rigidBodies.Add(sticker.gameObject.GetComponent<Rigidbody>());
         }
 
         foreach (GameObject o in objectsToFall)
@@ -252,6 +253,12 @@ public class LevelZero : MonoBehaviour {
         //int index = Random.Range(0, rigidBodies.Count - 1);
         int index = 0;
         rigidBodies[index].isKinematic = false;
+
+		CharacterJoint cj = rigidBodies [index].gameObject.GetComponent<CharacterJoint> ();
+
+		if (cj) {
+				Destroy(cj);
+		}
 
 		if (explodePieces.Contains(rigidBodies[index].gameObject)) {
 			rigidBodies [index].AddExplosionForce (100, new Vector3(1, 0, 1), 0);

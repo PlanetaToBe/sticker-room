@@ -183,6 +183,17 @@ public class StickerSceneManager : MonoBehaviour {
         }
     }
 
+	public void Clean() {
+		SerializableStickerTapeRenderer[] stickerTapes = GetComponentsInChildren<SerializableStickerTapeRenderer>();
+		Debug.Log ("Cleaaaning");
+		for (int i = 0; i< stickerTapes.Length; ++i)
+		{
+			if (!stickerTapes [i].gameObject.GetComponent<MeshFilter> ().mesh) {
+				DestroyImmediate(stickerTapes[i].gameObject);
+			}
+		}
+	}
+
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
