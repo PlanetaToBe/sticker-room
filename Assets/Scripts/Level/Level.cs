@@ -6,7 +6,6 @@ using System;
 public class Level : MonoBehaviour {
 
 	public int levelNum = 0;
-	public bool audioTransition;
 	public GameObject[] thingsToToggle;
 	public GameObject[] thingsToStrictToggle;
 	public event Action<bool> OnToggle;

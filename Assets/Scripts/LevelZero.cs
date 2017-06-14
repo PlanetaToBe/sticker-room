@@ -92,7 +92,7 @@ public class LevelZero : MonoBehaviour {
 			Invoke("FlickerIntense", 15f);
 
 			// lift the house
-			Invoke("LiftHouse", 15f);
+			Invoke("LiftHouse", 16f);
 
 			doDispense = false;
 		}
@@ -113,7 +113,8 @@ public class LevelZero : MonoBehaviour {
 					startInfo.alpha = val;
 				})
 				.setOnComplete(()=>{
-                    startDiagram.SetActive(false);
+                    //startDiagram.SetActive(false);
+					startInfo.gameObject.SetActive(false);
 
 					LeanTween.value(gameObject, 0f, 1f, 1f)
 						.setOnUpdate((float val)=>{
@@ -209,10 +210,11 @@ public class LevelZero : MonoBehaviour {
         doLightEffect = false;
         houseLight.enabled = false;
         SetLightIntensity(0);
+		shatter.Play();
         ToggleAudio(noise, false, 0f);
-        ToggleAudio(elect, false, 0f);
+        //ToggleAudio(elect, false, 0f);
 
-        Invoke("CleanupCollapse", 3f);
+        //Invoke("CleanupCollapse", 5f);
 
         //for(int i=0; i<thingsToBeLift.Length; i++)
         //{
@@ -224,14 +226,13 @@ public class LevelZero : MonoBehaviour {
         //		tween.setOnStart (()=>{
         //			doLightEffect = false;
         //			houseLight.enabled = false;
-        //                  SetLightIntensity(0);
+        //          SetLightIntensity(0);
         //			shatter.Play();
         //			ToggleAudio(noise, false, 0f);
         //			ToggleAudio(elect, false, 0f);
         //		}).setOnComplete(()=>{
         //			noise.Stop();
         //			ToggleAudio(shatter, false, 0f);
-
         //			Invoke("HideTheLift", 5f);
         //		});
         //	}
@@ -254,7 +255,8 @@ public class LevelZero : MonoBehaviour {
 
         yield return new WaitForSeconds(Random.Range(.01f, .1f));
 
-        yield return ActivateRigidbodies(rigidBodies);
+		if (rigidBodies.Count > 0)
+	        yield return ActivateRigidbodies(rigidBodies);
     }
 
 	void HideTheLift()
@@ -275,6 +277,11 @@ public class LevelZero : MonoBehaviour {
 		LeanTween.value (gameObject, 1f, 0f, 1f)
 			.setOnUpdate ((float val) => {
 				artistInfo.alpha = val;
+				machineInfo.alpha = val;
+			})
+			.setOnComplete(()=>{
+				artistInfo.gameObject.SetActive(false);
+				machineInfo.gameObject.SetActive(false);
 			});
 	}
 
