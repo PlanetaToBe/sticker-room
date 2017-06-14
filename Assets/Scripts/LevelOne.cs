@@ -6,6 +6,8 @@ public class LevelOne : MonoBehaviour {
 
 	public LevelManager levelManager;
 	public int levelIndex = 1;
+	public EventTrigger ceilingTrigger;
+	private bool moveTriggered;
 
 	public GvrAudioSource partyMusic;
 	public GvrAudioRoom partyRoom;
@@ -16,11 +18,14 @@ public class LevelOne : MonoBehaviour {
 	public GameObject player;
 	public float flyDuration = 120f;
 
+	public Collider ceilingCollider;
+
 	void OnEnable()
 	{
 		levelManager.OnLevelTransition += OnLevelTransition;
 		levelManager.OnLevelStart += OnLevelStart;
 		levelManager.OnLevelEnd += OnLevelEnd;
+		ceilingTrigger.OnTrigger += MoveToNextLevel;
 	}
 
 	void OnDisable()
@@ -28,6 +33,15 @@ public class LevelOne : MonoBehaviour {
 		levelManager.OnLevelTransition -= OnLevelTransition;
 		levelManager.OnLevelStart -= OnLevelStart;
 		levelManager.OnLevelEnd -= OnLevelEnd;
+		ceilingTrigger.OnTrigger -= MoveToNextLevel;
+	}
+
+	void MoveToNextLevel() {
+		if (!moveTriggered) {
+			moveTriggered = true;
+			Debug.Log ("Next level");
+			levelManager.MoveToNextLevel ();
+		}
 	}
 
 	void OnLevelTransition(int _level)

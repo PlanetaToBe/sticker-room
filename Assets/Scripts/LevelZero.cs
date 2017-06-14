@@ -22,6 +22,7 @@ public class LevelZero : MonoBehaviour {
 	public GameObject[] thingsToBeLift;
     public GameObject outerWalls;
     public GameObject[] objectsToFall;
+	public List<GameObject> explodePieces;
 
 	public GameObject cupPrefab;
 	public Transform dispensor;
@@ -92,7 +93,7 @@ public class LevelZero : MonoBehaviour {
 			Invoke("FlickerIntense", 15f);
 
 			// lift the house
-			Invoke("LiftHouse", 16f);
+			Invoke("LiftHouse", 1f);
 
 			doDispense = false;
 		}
@@ -251,6 +252,12 @@ public class LevelZero : MonoBehaviour {
         //int index = Random.Range(0, rigidBodies.Count - 1);
         int index = 0;
         rigidBodies[index].isKinematic = false;
+
+		if (explodePieces.Contains(rigidBodies[index].gameObject)) {
+			rigidBodies [index].AddExplosionForce (100, new Vector3(1, 0, 1), 0);
+			// rigidBodies[index].AddForce(new Vector3(100, 100, 0));
+		}
+
         rigidBodies.RemoveAt(index);
 
         yield return new WaitForSeconds(Random.Range(.01f, .1f));

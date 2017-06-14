@@ -295,6 +295,21 @@ public class LevelManager : MonoBehaviour {
 		oldLevel = currentLevel;
 	}
 
+	public void MoveToNextLevel() {
+		int timeState = time_state (Time.time - startTime);
+		++timeState;
+
+		if (timeState >= times.Length - 1) {
+			timeState = times.Length - 1;
+		} else if (timeState % 2 == 0) {
+			++timeState;
+		}
+
+		int offset = times [timeState];
+
+		startTime = Time.time - offset;
+	}
+
 	private int time_state(float this_time)
 	{
 		for (int i=0; i<times.Length-1; i++)
