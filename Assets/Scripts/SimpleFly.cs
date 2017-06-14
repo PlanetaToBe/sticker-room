@@ -12,13 +12,16 @@ public class SimpleFly : MonoBehaviour {
     public float damping = .05f;
 
 	public ParticleSystem particles;
+	public SpriteRenderer tipRenderer;
 
     private bool toolActive = false;
     private bool isFlying = false;
+	private bool tipActive = true;
     private float flyDuration = 0;
 	private float stopDuration = 0;
 
     private bool isStopping = false;
+	private bool particlesActive = false;
 
     private float velocity;
     private Vector3 direction;
@@ -76,8 +79,6 @@ public class SimpleFly : MonoBehaviour {
     {
         isStopping = false;
         isFlying = true;
-
-		particles.Play ();
     }
 
     void EndFlying()
@@ -87,8 +88,6 @@ public class SimpleFly : MonoBehaviour {
 
         isStopping = true;
         stopDuration = 0;
-
-		particles.Stop ();
     }
 
     private void FixedUpdate()
@@ -97,6 +96,15 @@ public class SimpleFly : MonoBehaviour {
 
         if (isFlying)
         {
+			if (!particlesActive) {
+				particles.Play ();
+				particlesActive = true;
+			}
+
+			if (tipActive) {
+				HideTip ();
+			}
+
             flyDuration += Time.fixedDeltaTime;
             velocity += flySpeed.Evaluate(flyDuration) / 5000;
             direction = controller.transform.forward;
@@ -105,6 +113,11 @@ public class SimpleFly : MonoBehaviour {
 
         if (isStopping)
         {
+			if (particlesActive) {
+				particles.Stop ();
+				particlesActive = false;
+			}
+
             velocity = velocity * (1 - damping);
 
             if (velocity < .00005)
@@ -117,13 +130,30 @@ public class SimpleFly : MonoBehaviour {
         }
     }
 
+	private void HideTip() {
+		LeanTween.value( gameObject, UpdateTipColorCallback, Color.white, Color.clear, 1f);
+		tipActive = false;
+	}
+		
     private void HandleToolStatusChange(bool _isActive, int toolIndex)
     {
         toolActive = _isActive;
+
+		if (toolActive) {
+			ShowTip ();
+		}
 
         if (!toolActive && isFlying)
         {
             EndFlying();
         }
     }
+
+	private void ShowTip() {
+		LeanTween.value( gameObject, UpdateTipColorCallback, Color.clear, Color.white, 1f);
+	}
+
+	private void UpdateTipColorCallback(Color val) {
+		tipRenderer.color = val;
+	}
 }

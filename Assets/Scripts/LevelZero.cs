@@ -93,7 +93,7 @@ public class LevelZero : MonoBehaviour {
 			Invoke("FlickerIntense", 15f);
 
 			// lift the house
-			Invoke("LiftHouse", 1f);
+			Invoke("LiftHouse", 16f);
 
 			doDispense = false;
 		}
