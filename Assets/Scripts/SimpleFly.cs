@@ -11,6 +11,8 @@ public class SimpleFly : MonoBehaviour {
     public AnimationCurve flySpeed;
     public float damping = .05f;
 
+	public ParticleSystem particles;
+
     private bool toolActive = false;
     private bool isFlying = false;
     private float flyDuration = 0;
@@ -74,6 +76,8 @@ public class SimpleFly : MonoBehaviour {
     {
         isStopping = false;
         isFlying = true;
+
+		particles.Play ();
     }
 
     void EndFlying()
@@ -83,6 +87,8 @@ public class SimpleFly : MonoBehaviour {
 
         isStopping = true;
         stopDuration = 0;
+
+		particles.Stop ();
     }
 
     private void FixedUpdate()

@@ -73,13 +73,13 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UpVectorPitch: 40
+    - _UpVectorPitch: 0
     - _UpVectorYaw: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.38039216, g: 1, b: 0.8352941, a: 0}
-    - _Color2: {r: 0.87058824, g: 0.41568628, b: 1, a: 0}
+    - _Color1: {r: 0, g: 0, b: 0, a: 0}
+    - _Color2: {r: 0, g: 0.027450979, b: 0.11372548, a: 0}
     - _Color3: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _UpVector: {r: 0, g: 1, b: 0, a: 0}
