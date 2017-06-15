@@ -10,6 +10,7 @@ public class GrabnStretch : MonoBehaviour {
 	public Rigidbody attachPoint;
 
 	private SteamVR_TrackedController controller;
+	private ViveControllerExtra controllerExtra;
 
 	//--- Grab n Stretch ---
 	//----------------------
@@ -76,13 +77,18 @@ public class GrabnStretch : MonoBehaviour {
 	void OnEnable()
 	{
 		if(controller==null)
-		{
 			controller = GetComponent<SteamVR_TrackedController>();
-		}
 			
-		controller.TriggerClicked += HandleTriggerDown;
-		controller.TriggerUnclicked += HandleTriggerUp;
-		controller.TriggerDowning += HandleTriggerTouch;
+//		controller.TriggerClicked += HandleTriggerDown;
+//		controller.TriggerUnclicked += HandleTriggerUp;
+//		controller.TriggerDowning += HandleTriggerTouch;
+
+		if(controllerExtra==null)
+			controllerExtra = GetComponent<ViveControllerExtra>();
+
+		controllerExtra.OnTriggerDown += HandleTriggerDown;
+		controllerExtra.OnTriggerUp += HandleTriggerUp;
+		controllerExtra.OnTriggerTouch += HandleTriggerTouch;
 
 //		controller.PadClicked += HandlePadDown;
 //		controller.PadUnclicked += HandlePadUp;
@@ -101,9 +107,13 @@ public class GrabnStretch : MonoBehaviour {
 
 	void OnDisable()
 	{
-		controller.TriggerClicked -= HandleTriggerDown;
-		controller.TriggerUnclicked -= HandleTriggerUp;
-		controller.TriggerDowning -= HandleTriggerTouch;
+//		controller.TriggerClicked -= HandleTriggerDown;
+//		controller.TriggerUnclicked -= HandleTriggerUp;
+//		controller.TriggerDowning -= HandleTriggerTouch;
+
+		controllerExtra.OnTriggerDown -= HandleTriggerDown;
+		controllerExtra.OnTriggerUp -= HandleTriggerUp;
+		controllerExtra.OnTriggerTouch -= HandleTriggerTouch;
 
 //		controller.PadClicked -= HandlePadDown;
 //		controller.PadUnclicked -= HandlePadUp;
@@ -329,7 +339,8 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandleTriggerDown(object sender, ClickedEventArgs e)
+	//public void HandleTriggerDown(object sender, ClickedEventArgs e)
+	public void HandleTriggerDown(GameObject sender)
 	{
 //		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
 //		{
@@ -400,7 +411,8 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandleTriggerUp(object sender, ClickedEventArgs e)
+	//public void HandleTriggerUp(object sender, ClickedEventArgs e)
+	public void HandleTriggerUp(GameObject sender)
 	{
 //		if(m_inSelfScalingMode || m_inSelfScalingSupportMode)
 //		{
@@ -425,7 +437,8 @@ public class GrabnStretch : MonoBehaviour {
 		}
 	}
 
-	public void HandleTriggerTouch(object sender, ClickedEventArgs e)
+	//public void HandleTriggerTouch(object sender, ClickedEventArgs e)
+	public void HandleTriggerTouch(GameObject sender)
 	{
 //		if(m_inSelfScalingMode && otherController.InSelfScalingSupportMode)
 //		{
