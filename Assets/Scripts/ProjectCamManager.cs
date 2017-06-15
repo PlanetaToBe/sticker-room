@@ -41,19 +41,22 @@ public class ProjectCamManager : MonoBehaviour {
 
 	void OnLevelStart(int levelIndex)
 	{
-        if(levelIndex==0)
-        {
-            LeanTween.color(camMask.gameObject, Color.clear, 2f)
-                .setOnComplete(()=> {
-                    camMask.enabled = false;
-                });
-        }
-		else if(levelIndex==1)
+//        if(levelIndex==0)
+//        {
+//            LeanTween.color(camMask.gameObject, Color.clear, 2f)
+//                .setOnComplete(()=> {
+//                    camMask.enabled = false;
+//                });
+//        }
+//		else
+		if(levelIndex==1)
 		{
 			toFollow = true;
 			Debug.Log ("toFollow = true");
+
+			LeanTween.rotateX(gameObject, 10f, 3f);
 		}
-		else
+		else if(levelIndex==2)
 		{
 			Invoke ("Unfollow", 10.5f);
 

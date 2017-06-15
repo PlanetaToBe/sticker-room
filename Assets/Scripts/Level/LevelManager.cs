@@ -155,6 +155,13 @@ public class LevelManager : MonoBehaviour {
 			resetMode = true;
 			Reload ();
 		}
+
+		// QUICK_QUIT
+		if(!resetMode && Input.GetKey("escape"))
+		{
+			resetMode = true;
+			Application.Quit ();
+		}
 		
 		currentState = time_state (Time.time - startTime);
 
@@ -335,7 +342,7 @@ public class LevelManager : MonoBehaviour {
 	private void DoForwardToLevel()
 	{
 		float currPassTime = Time.time - startTime;
-		float idealPasTime = 34f;
+		float idealPasTime = 32f;
 		startTime -= idealPasTime - currPassTime;
 	}
 

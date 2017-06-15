@@ -590,6 +590,7 @@ public class GrabnStretch : MonoBehaviour {
 
 		if (m_CurrentInteractible.HasRigidbody)
 		{
+			Debug.Log ("m_CurrentInteractible.HasRigidbody");
 			// remote joint!
 			if(m_CurrentInteractible.Joint!=null)
 			{

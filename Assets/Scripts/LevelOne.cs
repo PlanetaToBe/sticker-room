@@ -50,6 +50,9 @@ public class LevelOne : MonoBehaviour {
 		{
 			if(enableAutoFly)
 				flypathFinder.PauseAutoFly ();
+
+			// disable the function to skip to next level
+			moveTriggered = true;
 		}
 	}
 
