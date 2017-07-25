@@ -102,9 +102,9 @@ public class ToolHub : MonoBehaviour {
 		{
 			controller.PadClicked += OnClick;
 
-			controller.PadTouched += OnTouch;
-			controller.PadUntouched += OnTouchOut;
-			controller.PadTouching += OnTouching;
+			//controller.PadTouched += OnTouch;
+			//controller.PadUntouched += OnTouchOut;
+			//controller.PadTouching += OnTouching;
 		}
 	}
 
@@ -114,9 +114,9 @@ public class ToolHub : MonoBehaviour {
 		{
 			controller.PadClicked -= OnClick;
 
-			controller.PadTouched -= OnTouch;
-			controller.PadUntouched -= OnTouchOut;
-			controller.PadTouching -= OnTouching;
+			//controller.PadTouched -= OnTouch;
+			//controller.PadUntouched -= OnTouchOut;
+			//controller.PadTouching -= OnTouching;
 		}
 	}
 
@@ -326,32 +326,38 @@ public class ToolHub : MonoBehaviour {
 				OnTouchpadClickCenter (true);
 			//Debug.Log ("pad center");
 		}
-		else if(currTouchpadAxis.y > 0.5f && IfMightInBetween(currTouchpadAxis.x))
+
+		if(currTouchpadAxis.y > 0.5f && IfMightInBetween(currTouchpadAxis.x))
 		{
 			if (OnTouchpadClick != null)
 				OnTouchpadClick (true);
 			touchArrows [0].material.color = Color.red;
 			//Debug.Log ("pad up");
 		}
-		else if(currTouchpadAxis.y < -0.5f && IfMightInBetween(currTouchpadAxis.x))
+
+		if(currTouchpadAxis.y < -0.5f && IfMightInBetween(currTouchpadAxis.x))
 		{
 			if (OnTouchpadClick != null)
 				OnTouchpadClick (false);
 			touchArrows [1].material.color = Color.red;
 			//Debug.Log ("pad down");
 		}
-		else if(currTouchpadAxis.x > 0.5f && IfMightInBetween(currTouchpadAxis.y))
+
+		if(currTouchpadAxis.x > 0.5f && IfMightInBetween(currTouchpadAxis.y))
 		{
 			SnapToAngleAction(-eachR, 0.3f);
 			touchArrows [3].material.color = Color.red;
-			//Debug.Log ("pad right");
+			Debug.Log ("pad right");
 		}
-		else if(currTouchpadAxis.x < -0.5f && IfMightInBetween(currTouchpadAxis.y))
+
+		if(currTouchpadAxis.x < -0.5f && IfMightInBetween(currTouchpadAxis.y))
 		{
 			SnapToAngleAction(eachR, 0.3f);
 			touchArrows [2].material.color = Color.red;
-			//Debug.Log ("pad left");
+			Debug.Log ("pad left");
 		}
+
+		Debug.Log (currTouchBallAxis);
 
 		DeviceVibrate ();
 	}
