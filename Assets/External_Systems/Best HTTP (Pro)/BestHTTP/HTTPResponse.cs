@@ -146,7 +146,7 @@ namespace BestHTTP
                     return texture;
 
                 texture = new UnityEngine.Texture2D(0, 0, UnityEngine.TextureFormat.ARGB32, false);
-                texture.LoadImage(Data);
+				texture.LoadRawTextureData(Data);
 
                 return texture;
             }

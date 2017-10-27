@@ -16,7 +16,7 @@ namespace RenderHeads.Media.AVProVideo.Demos
 		void Start()
 		{
 #if UNITY_HAS_VRCLASS
-		if (UnityEngine.VR.VRDevice.isPresent)
+		if (UnityEngine.XR.XRDevice.isPresent)
 		{
 			return;
 		}
@@ -42,17 +42,17 @@ namespace RenderHeads.Media.AVProVideo.Demos
 		void Update()
 		{
 #if UNITY_HAS_VRCLASS
-		if (UnityEngine.VR.VRDevice.isPresent)
+		if (UnityEngine.XR.XRDevice.isPresent)
 		{
 			// Mouse click translates to gear VR touch to reset view
 			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 			{
-				UnityEngine.VR.InputTracking.Recenter();
+				UnityEngine.XR.InputTracking.Recenter();
 			}
 
 			if (Input.GetKeyDown(KeyCode.V))
 			{
-				UnityEngine.VR.VRSettings.enabled = !UnityEngine.VR.VRSettings.enabled;
+				UnityEngine.XR.XRSettings.enabled = !UnityEngine.XR.XRSettings.enabled;
 			}
 		}
 		else

@@ -51,7 +51,7 @@ namespace OoniCaptureCam
             renderTexture = new RenderTexture(width, height, 24);
 
             renderRect = new Rect(0, 0, width, height);
-            initialRenderScale = UnityEngine.VR.VRSettings.renderScale;
+            initialRenderScale = UnityEngine.XR.XRSettings.eyeTextureResolutionScale;
             renderLoop = RenderLoop();
 
 #if UNITY_2017_1_OR_NEWER
@@ -64,14 +64,14 @@ namespace OoniCaptureCam
         public void StartUpdatingTexture()
         {
             if (isCopying) return;
-            UnityEngine.VR.VRSettings.renderScale = renderScaleWhenActive;
+            UnityEngine.XR.XRSettings.eyeTextureResolutionScale = renderScaleWhenActive;
             isCopying = true;
         }
 
         public void StopUpdatingTexture()
         {
             if (!isCopying) return;
-            UnityEngine.VR.VRSettings.renderScale = initialRenderScale;
+            UnityEngine.XR.XRSettings.eyeTextureResolutionScale = initialRenderScale;
             isCopying = false;
         }
 

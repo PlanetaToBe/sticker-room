@@ -55,7 +55,7 @@ public class SocketManagement : MonoBehaviour {
 	private bool updatePreviousPlayer = false;
 
 	void Awake() {
-		if (VRSettings.enabled)
+		if (UnityEngine.XR.XRSettings.enabled)
 		{
 			isViveVR = true;
 		}
