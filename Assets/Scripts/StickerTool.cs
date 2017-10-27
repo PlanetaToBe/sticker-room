@@ -58,6 +58,6 @@ public class StickerTool : MonoBehaviour {
 			angleToTurn = 360f - currAngle;
 		//Debug.Log ("currAngle: " + currAngle + ", IdealAngle: " + IdealAngle + ", angleToTurn: " + angleToTurn);
 
-		toolHub.SnapToAngle(angleToTurn, sizeChangeSpeed*2);
+		// toolHub.SnapToAngle(angleToTurn, sizeChangeSpeed*2);
 	}
 }

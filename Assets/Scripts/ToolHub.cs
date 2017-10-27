@@ -72,6 +72,7 @@ public class ToolHub : MonoBehaviour {
 	void Start()
 	{
 		eachR = 360f / transform.childCount;
+        Debug.Log(eachR);
 		for(int i=0; i<transform.childCount; i++)
 		{
 			var _t = transform.GetChild (i).gameObject;
@@ -90,8 +91,8 @@ public class ToolHub : MonoBehaviour {
 		{
 			touchArrowOriMats.Add (touchArrows [i].material);
 		}
-		touchBallRenderer = touchBall.gameObject.GetComponent<Renderer> ();
-		touchBallRenderer.enabled = false;
+		//touchBallRenderer = touchBall.gameObject.GetComponent<Renderer> ();
+		//touchBallRenderer.enabled = false;
 
 		CheckRaycast();
 	}
@@ -102,9 +103,9 @@ public class ToolHub : MonoBehaviour {
 		{
 			controller.PadClicked += OnClick;
 
-			//controller.PadTouched += OnTouch;
-			//controller.PadUntouched += OnTouchOut;
-			//controller.PadTouching += OnTouching;
+			controller.PadTouched += OnTouch;
+			controller.PadUntouched += OnTouchOut;
+			controller.PadTouching += OnTouching;
 		}
 	}
 
@@ -114,9 +115,9 @@ public class ToolHub : MonoBehaviour {
 		{
 			controller.PadClicked -= OnClick;
 
-			//controller.PadTouched -= OnTouch;
-			//controller.PadUntouched -= OnTouchOut;
-			//controller.PadTouching -= OnTouching;
+			controller.PadTouched -= OnTouch;
+			controller.PadUntouched -= OnTouchOut;
+			controller.PadTouching -= OnTouching;
 		}
 	}
 
@@ -153,7 +154,7 @@ public class ToolHub : MonoBehaviour {
 			currTouchBallAxis.y * 0.018f,
 			0
 		);
-		touchBallRenderer.enabled = true;
+		// touchBallRenderer.enabled = true;
 	}
 
 	public void OnTouchOut (object sender, ClickedEventArgs e)
@@ -174,7 +175,7 @@ public class ToolHub : MonoBehaviour {
 		touchArrows [2].material.color = Color.white;
 		touchArrows [3].material.color = Color.white;
 
-		touchBallRenderer.enabled = false;
+		// touchBallRenderer.enabled = false;
 	}
 
 	public void OnTouching (object sender, ClickedEventArgs e)
@@ -257,8 +258,8 @@ public class ToolHub : MonoBehaviour {
 		}
 		
 		//steps on X-Axis: -1~1 break down into 10 steps, each step: 0.2f
-		float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
-		float absDist = Mathf.Abs (dist);
+		//float dist = currTouchpadAxis.x - pastTouchpadAxis.x;
+		//float absDist = Mathf.Abs (dist);
 
 		// Swiping => nah
 		/*
@@ -282,27 +283,27 @@ public class ToolHub : MonoBehaviour {
 			DeviceVibrate ();
 		}*/
 
-		// Wait until dist is accumulated to 0.1f
-		if (absDist > 0.1f) {// && absDist < 0.2f) {
-			if (dist > 0) {
-				// swipe right
-				transform.Rotate (-Vector3.forward * rotDegreePerStep);
-			} else {
-				// swipe left
-				transform.Rotate (Vector3.forward * rotDegreePerStep);
-			}
-			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
-			DeviceVibrate ();
-//			Debug.Log ("rotate! : " + absDist);
+//		// Wait until dist is accumulated to 0.1f
+//		if (absDist > 0.1f) {// && absDist < 0.2f) {
+//			if (dist > 0) {
+//				// swipe right
+//				transform.Rotate (-Vector3.forward * rotDegreePerStep);
+//			} else {
+//				// swipe left
+//				transform.Rotate (Vector3.forward * rotDegreePerStep);
+//			}
+//			pastTouchpadAxis = currTouchpadAxis = GetTouchpadAxis ();
+//			DeviceVibrate ();
+////			Debug.Log ("rotate! : " + absDist);
 
-			// Raycasting to detect which tool is showing up
-			CheckRaycast();
-		}
-		// if not, then wait until it's accumulated to 0.2f
-		else {
-//			Debug.Log ("else dist : " + absDist);
-			currTouchpadAxis = GetTouchpadAxis ();
-		}
+//			// Raycasting to detect which tool is showing up
+//			CheckRaycast();
+//		}
+//		// if not, then wait until it's accumulated to 0.2f
+//		else {
+////			Debug.Log ("else dist : " + absDist);
+//			currTouchpadAxis = GetTouchpadAxis ();
+//		}
 	}
 
 	public void OnClick (object sender, ClickedEventArgs e)
@@ -347,19 +348,15 @@ public class ToolHub : MonoBehaviour {
 		{
 			SnapToAngleAction(-eachR, 0.3f);
 			touchArrows [3].material.color = Color.red;
-			Debug.Log ("pad right");
 		}
 
 		if(currTouchpadAxis.x < -0.5f && IfMightInBetween(currTouchpadAxis.y))
 		{
 			SnapToAngleAction(eachR, 0.3f);
 			touchArrows [2].material.color = Color.red;
-			Debug.Log ("pad left");
 		}
 
-		Debug.Log (currTouchBallAxis);
-
-		DeviceVibrate ();
+		// DeviceVibrate ();
 	}
 
 	public void OnClickEnd (object sender, ClickedEventArgs e)
@@ -440,16 +437,19 @@ public class ToolHub : MonoBehaviour {
 
 	public void SnapToAngle(float angle, float time)
 	{
+        Debug.Log("Snap to angle");
 		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, angle, time );
 	}
 
 	public void SnapToAngleAction(float angle, float time)
 	{
-		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
+        Debug.Log("Snap to angle action");
+        LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
 	}
 
 	public void SnapToTargetAngleAction(int targetToolIndex, float time)
 	{
+        Debug.Log("Snap to target angle action");
 		float c_angle = (360f + transform.localEulerAngles.z) % 360f;
 		float t_angle = stickerTools [targetToolIndex].IdealAngle - c_angle;
 		LeanTween.rotateAroundLocal ( gameObject, Vector3.forward, t_angle, time ).setOnComplete(CheckRaycast).setEaseInOutBack();
@@ -459,6 +459,7 @@ public class ToolHub : MonoBehaviour {
 	{
 		// Raycasting to detect which tool is showing up
 		RaycastHit hit;
+        Debug.Log(transform.position + " " + transform.parent.up);
 		if (Physics.Raycast(transform.position, transform.parent.up, out hit, 10f, toolLayer))
 		{
 			Debug.DrawRay (transform.position, transform.parent.up);
